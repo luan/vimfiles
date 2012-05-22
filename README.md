@@ -4,8 +4,8 @@
 
 ## Installation
 
-1. `git clone http://github.com/mutewinter/dot_vim.git` in your home folder.
-2. `mv dot_vim .vim`
+1. `git clone http://github.com/luan/vimfiles.git` in your home folder.
+2. `mv vimfiles .vim`
 3. `cd .vim`
 4. `rake vim:link` to make the .vimrc symbolic link.
 5. Install [Vundle](https://github.com/gmarik/vundle) with `git clone http://github.com/gmarik/vundle.git bundle/vundle`
@@ -16,17 +16,13 @@
 
 **MacVim** / **Windows gVim**
 
-[![MacVim](https://github.com/mutewinter/dot_vim/raw/master/screenshots/MacVim1_small.png)](https://github.com/mutewinter/dot_vim/raw/master/screenshots/MacVim1.png) [![Windows gVim](https://github.com/mutewinter/dot_vim/raw/master/screenshots/Windows1_small.png)](https://github.com/mutewinter/dot_vim/raw/master/screenshots/Windows1.png)
+[![MacVim](https://github.com/luan/vimfiles/raw/master/screenshots/MacVim1_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/MacVim1.png) [![Windows gVim](https://github.com/lua/vimfiles/raw/master/screenshots/Windows1_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/Windows1.png)
 
 ## Requirements
 
 **Mac**
 
  * [MacVim](https://github.com/b4winckler/macvim) - I'm currently using [snapshot 64](https://github.com/b4winckler/macvim/downloads)
-
-**Windows**
-
- * [gVim](http://www.vim.org/download.php#pc) - I'm currently using [Wu Yongwei's](http://wyw.dcweb.cn) pre-compiled [gVim 7.3.333](http://wyw.dcweb.cn/download.asp?path=vim&file=gvim73.zip) because it has Ruby support and the latest patches
 
 ## Notes
 
