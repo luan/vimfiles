@@ -38,6 +38,9 @@ Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
+" Snippets
+Bundle 'honza/snipmate-snippets'
+Bundle 'garbas/vim-snipmate'
 " Language Additions
 "   Ruby
 Bundle 'vim-ruby/vim-ruby'
@@ -65,6 +68,7 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 " Libraries
 Bundle 'L9'
+Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle 'tpope/vim-repeat'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mathml.vim'
