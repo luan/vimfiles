@@ -23,6 +23,7 @@ runtime! config/plugin/Neocachecompl.vim
 runtime! config/plugin/LustyJuggler.vim
 runtime! config/plugin/Syntastic.vim
 runtime! config/plugin/NERDTree.vim
+runtime! config/plugin/NERDCommenter.vim
 runtime! config/plugin/IndentGuides.vim
 runtime! config/plugin/Session.vim
 runtime! config/plugin/SpeedDating.vim
