@@ -1,6 +1,6 @@
 # The Vim Configuration of Champions
 
-[See dot_vim's Stats on GitEgo](http://gitego.com/mutewinter/dot_vim)
+[See dot_vim's Stats on GitEgo](http://gitego.com/luan/vimfiles)
 
 ## Installation
 
@@ -16,7 +16,7 @@
 
 **MacVim** / **Windows gVim**
 
-[![MacVim](https://github.com/luan/vimfiles/raw/master/screenshots/MacVim1_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/MacVim1.png) [![Windows gVim](https://github.com/lua/vimfiles/raw/master/screenshots/Windows1_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/Windows1.png)
+[![MacVim](https://github.com/luan/vimfiles/raw/master/screenshots/MacVim1_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/MacVim1.png) [![Windows gVim](https://github.com/luan/vimfiles/raw/master/screenshots/Windows1_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/Windows1.png)
 
 ## Requirements
 
