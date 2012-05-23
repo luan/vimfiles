@@ -1,6 +1,6 @@
 # The Vim Configuration of Champions
 
-[See dot_vim's Stats on GitEgo](http://gitego.com/luan/vimfiles)
+[See vimfiles's Stats on GitEgo](http://gitego.com/luan/vimfiles)
 
 ## Installation
 
@@ -36,7 +36,6 @@ I may make this more verbose later, but for now, here's a list of plugins that r
  * [Fugitive](https://github.com/tpope/vim-fugitive) Requires Git to be installed.
  * [syntastic](https://github.com/scrooloose/syntastic) Requires many different binaries installed depending on what filetypes you want it to check.
  * [ack.vim](https://github.com/mileszs/ack.vim) Requires [ack](http://betterthangrep.com/) to be installed.
- * [Menlo for Powerline](https://gist.github.com/1627888) The custom font I'm using for vim-powerline.
 
 ## Plugin List
 
