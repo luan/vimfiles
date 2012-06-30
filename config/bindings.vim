@@ -60,10 +60,10 @@ nmap <silent> <leader>v :e ~/.vim/vimrc<CR>
 
 " Window {{{
 " Window Movement
-nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-h> :wincmd h<CR>:vertical resize 100<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+nmap <silent> <C-l> :wincmd l<CR>:vertical resize 100<CR>
 " Previous Window
 nmap <silent> <C-p> :wincmd p<CR>
 " Equal Size Windows
