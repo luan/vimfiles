@@ -51,6 +51,7 @@ Bundle 'tpope/vim-rake'
 "   JavaScript
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'luan/jasmine.vim'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
 "   Other Languages
