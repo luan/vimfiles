@@ -5,6 +5,15 @@
 " Note: This line MUST come before any <leader> mappings
 let mapleader=","
 
+" Disable arrow keys {{{
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+" }}}
+
 " Common typos {{{
 command! W w
 command! Q q
@@ -45,6 +54,8 @@ nmap gy :%y+<cr>
 
 " Make line completion easier
 imap <C-l> <C-x><C-l>
+nnoremap <tab> %
+vnoremap <tab> %
 " }}}
 
 " ---------------
@@ -60,10 +71,11 @@ nmap <silent> <leader>v :e ~/.vim/vimrc<CR>
 
 " Window {{{
 " Window Movement
-nmap <silent> <C-h> :wincmd h<CR>:vertical resize 100<CR>
+nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-l> :wincmd l<CR>:vertical resize 100<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+nmap <silent> <C-i> :vertical resize 110<CR>
 " Previous Window
 nmap <silent> <C-p> :wincmd p<CR>
 " Equal Size Windows
@@ -79,3 +91,9 @@ nmap <silent> <leader>hs :split<CR>
 nmap <silent> <leader>vs :vsplit<CR>
 nmap <silent> <leader>sc :close<CR>
 " }}}
+
+" Other {{{
+nnoremap <leader>S ?{<CR>jV/^\s*\}$<CR>k:sort<CR>:noh<CR>
+vnoremap <leader>S :sort<CR>
+" }}}
+

@@ -21,6 +21,7 @@ set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
+set relativenumber
 if exists('+colorcolumn')
   set colorcolumn=80 " Color the 80th column differently
 endif
@@ -55,10 +56,15 @@ set backspace=2
 " }}}
 
 " Searching {{{
+nnoremap / /\v
+vnoremap / /\v
+set gdefault
 set ignorecase " Case insensitive search
 set smartcase  " Non-case sensitive search
 set incsearch
+set showmatch
 set hlsearch
+nnoremap <leader><space> :noh<cr>
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,*.class,*.scssc
 " }}}
 
