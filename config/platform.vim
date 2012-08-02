@@ -2,6 +2,8 @@
 " Platform Specific Configuration
 " ----------------------------------------
 
+set shell=bash
+
 if has('win32') || has('win64')
   " Windows
   source $VIMRUNTIME/mswin.vim

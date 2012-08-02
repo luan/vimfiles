@@ -20,12 +20,9 @@ runtime! config/bindings.vim
 
 runtime! config/plugin/SuperTab.vim
 runtime! config/plugin/Neocachecompl.vim
-runtime! config/plugin/LustyJuggler.vim
-" runtime! config/plugin/Syntastic.vim
 runtime! config/plugin/NERDTree.vim
 runtime! config/plugin/NERDCommenter.vim
 runtime! config/plugin/IndentGuides.vim
-runtime! config/plugin/Session.vim
 runtime! config/plugin/SpeedDating.vim
 runtime! config/plugin/Tabular.vim
 runtime! config/plugin/Fugitive.vim

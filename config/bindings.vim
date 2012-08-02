@@ -6,10 +6,10 @@
 let mapleader=","
 
 " Disable arrow keys {{{
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 nnoremap j gj
 nnoremap k gk
 " }}}
@@ -56,6 +56,47 @@ nmap gy :%y+<cr>
 imap <C-l> <C-x><C-l>
 nnoremap <tab> %
 vnoremap <tab> %
+imap <c-l> <space>=><space>
+" }}}
+
+" Stop writing jj or kk in code {{{
+inoremap jj <esc>
+inoremap kk <esc>
+" }}}
+
+" Open files in current directory {{{
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+" }}}
+
+" Switch between test and production code {{{
+function! OpenTestAlternate()
+  let new_file = AlternateForCurrentFile()
+  exec ':e ' . new_file
+endfunction
+function! AlternateForCurrentFile()
+  let current_file = expand("%")
+  let new_file = current_file
+  let in_spec = match(current_file, '^spec/') != -1
+  let going_to_spec = !in_spec
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') || match(current_file, '\<helpers\>') != -1
+  if going_to_spec
+    if in_app
+      let new_file = substitute(new_file, '^app/', '', '')
+    end
+    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+    let new_file = 'spec/' . new_file
+  else
+    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
+    let new_file = substitute(new_file, '^spec/', '', '')
+    if in_app
+      let new_file = 'app/' . new_file
+    end
+  endif
+  return new_file
+endfunction
+nnoremap <leader>. :call OpenTestAlternate()<cr>
 " }}}
 
 " ---------------
@@ -93,7 +134,10 @@ nmap <silent> <leader>sc :close<CR>
 " }}}
 
 " Other {{{
+" create fold in SCSS
+vnoremap <leader>F mbomt<esc>'tO<esc>'bo<esc>gvkojzfzok3xDj2lpa<space><esc>kddjzc
 nnoremap <leader>S ?{<CR>jV/^\s*\}$<CR>k:sort<CR>:noh<CR>
 vnoremap <leader>S :sort<CR>
+nnoremap <leader><space> :noh<cr>
 " }}}
 
