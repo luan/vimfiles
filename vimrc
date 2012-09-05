@@ -22,12 +22,9 @@ runtime! config/plugin/SuperTab.vim
 runtime! config/plugin/Neocachecompl.vim
 runtime! config/plugin/NERDTree.vim
 runtime! config/plugin/NERDCommenter.vim
-runtime! config/plugin/IndentGuides.vim
-runtime! config/plugin/SpeedDating.vim
 runtime! config/plugin/Tabular.vim
 runtime! config/plugin/Fugitive.vim
 runtime! config/plugin/CommandT.vim
-runtime! config/plugin/Zoomwin.vim
 runtime! config/plugin/Powerline.vim
 runtime! config/plugin/Ack.vim
 runtime! config/plugin/Vundle.vim

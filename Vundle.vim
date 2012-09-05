@@ -6,17 +6,13 @@ Bundle 'gmarik/vundle'
 " ---------------
 
 " Navigation
-Bundle 'ZoomWin'
 Bundle 'wincent/Command-T'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 " UI Additions
-Bundle 'mutewinter/vim-indent-guides'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Rykka/colorv.vim'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'tomtom/quickfixsigns_vim'
 " Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
@@ -25,16 +21,12 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'milkypostman/vim-togglelist'
-Bundle 'mutewinter/swap-parameters'
-Bundle 'Rename'
 " Automatic Helpers
 Bundle 'IndexedSearch'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
-Bundle 'duff/vim-scratch'
-Bundle 'skalnik/vim-vroom'
 " Snippets
 Bundle 'honza/snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
@@ -50,9 +42,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'luan/jasmine.vim'
 Bundle 'leshill/vim-json'
-Bundle 'itspriddle/vim-jquery'
 "   Other Languages
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'groenewege/vim-less'
 " MatchIt
