@@ -4,8 +4,8 @@
 
 " Color {{{
 set background=dark
-colorscheme jellybeans
-hi! link cssAttr Constant
+" colorscheme jellybeans
+colorscheme Tomorrow-Night
 " }}}
 
 " Backups {{{

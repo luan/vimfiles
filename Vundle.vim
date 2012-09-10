@@ -42,6 +42,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'luan/jasmine.vim'
 Bundle 'leshill/vim-json'
+Bundle 'nono/vim-handlebars'
 "   Other Languages
 Bundle 'hallison/vim-markdown'
 Bundle 'groenewege/vim-less'
