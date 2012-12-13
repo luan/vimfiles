@@ -23,7 +23,7 @@ elseif has('gui_macvim')
   " Custom Menlo font for Powerline
   " From: https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
   " set guifont=Menlo\ for\ Powerline:h12
-  set guifont=Monaco:h14
+  set guifont=Monaco:h12
 
   " Hide Toolbar in MacVim
   if has("gui_running")

@@ -30,13 +30,15 @@ endif
 filetype plugin indent on  " Automatically detect file types. (must turn on after Vundle)
 syntax enable
 set autoread           " Automatically reload changes if detected
+set wildmode=longest,list " use emacs-style tab completion when selecting files, etc
 set wildmenu           " Turn on WiLd menu
 set hidden             " Change buffer - without saving
 set history=768        " Number of things to remember in history.
 set cf                 " Enable error files & error jumping.
 set autowrite          " Writes on make/shell commands
 set timeoutlen=350     " Time to wait for a command (after leader for example)
-set foldmethod=marker
+set foldmethod=syntax
+set nofoldenable
 set formatoptions=crql
 set iskeyword+=$,@     " Add extra characters that are valid parts of variables
 " Better complete options to speed it up
@@ -94,7 +96,6 @@ set winheight=999
 
 " Filytypes {{{
 au FileType ruby,eruby,yaml set tw=80 ai sw=2 sts=2 et
-au FileType ruby,eruby,yaml setlocal foldmethod=manual
 au User Rails set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 au BufNewFile,BufReadPost *.jade setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab

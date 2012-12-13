@@ -18,6 +18,7 @@ if has("autocmd")
 
   " Fix trailing whitespace in my most used programming langauges
   autocmd BufWritePre *.py,*.js,*.coffee,*.rb silent! :StripTrailingWhiteSpace
+  autocmd FileType vim set fdm=marker foldmarker={{{,}}}
 
   augroup vimrcEx
     " Clear all autocmds in the group
