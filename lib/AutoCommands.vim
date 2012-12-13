@@ -38,9 +38,6 @@ if has("autocmd")
     autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
     autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
 
-    " Indent p tags
-    autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif
-
     " Don't syntax highlight markdown because it's often wrong
     autocmd! FileType mkd setlocal syn=off
 

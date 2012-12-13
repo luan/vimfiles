@@ -26,7 +26,17 @@ if has('ruby')
   endif
 
   " Leader Commands
-  nnoremap <leader>t :CommandT<CR>
+  nnoremap <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+  nnoremap <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+  nnoremap <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+  nnoremap <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+  nnoremap <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+  nnoremap <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+  nnoremap <leader>ge :CommandTFlush<cr>\|:CommandT config<cr>
+  nnoremap <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+  nnoremap <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+  nnoremap <leader>gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
+  nnoremap <leader>gj :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
 else
   " --------
   " Use ctrlp.vim since we don't have Ruby

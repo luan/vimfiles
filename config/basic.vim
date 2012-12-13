@@ -3,9 +3,9 @@
 " ----------------------------------------
 
 " Color {{{
-set background=dark
-" colorscheme jellybeans
-colorscheme Tomorrow-Night
+let g:solarized_termcolors=256
+set background=light
+colorscheme solarized
 " }}}
 
 " Backups {{{
@@ -21,7 +21,6 @@ set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
-set relativenumber
 if exists('+colorcolumn')
   set colorcolumn=80 " Color the 80th column differently
 endif
@@ -83,3 +82,26 @@ set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
 " }}}
 
+" Window {{{
+set winwidth=84
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=5
+set winminheight=5
+set winheight=999
+" }}}
+
+" Filytypes {{{
+au FileType ruby,eruby,yaml set tw=80 ai sw=2 sts=2 et
+au FileType ruby,eruby,yaml setlocal foldmethod=manual
+au User Rails set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
+au BufNewFile,BufReadPost *.jade setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au BufNewFile,BufReadPost *.slim setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+au BufNewFile,BufReadPost *.coffee setl tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+" }}}

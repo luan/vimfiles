@@ -47,10 +47,6 @@ nnoremap ; :
 vnoremap ; :
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-" Yank entire buffer with gy
-nmap gy :%y+<cr>
 
 " Make line completion easier
 imap <C-l> <C-x><C-l>
@@ -68,34 +64,11 @@ inoremap kk <esc>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
+
+nnoremap <leader><leader> <c-^>
 " }}}
 
 " Switch between test and production code {{{
-function! OpenTestAlternate()
-  let new_file = AlternateForCurrentFile()
-  exec ':e ' . new_file
-endfunction
-function! AlternateForCurrentFile()
-  let current_file = expand("%")
-  let new_file = current_file
-  let in_spec = match(current_file, '^spec/') != -1
-  let going_to_spec = !in_spec
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') || match(current_file, '\<helpers\>') != -1
-  if going_to_spec
-    if in_app
-      let new_file = substitute(new_file, '^app/', '', '')
-    end
-    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
-    let new_file = 'spec/' . new_file
-  else
-    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
-    let new_file = substitute(new_file, '^spec/', '', '')
-    if in_app
-      let new_file = 'app/' . new_file
-    end
-  endif
-  return new_file
-endfunction
 nnoremap <leader>. :call OpenTestAlternate()<cr>
 " }}}
 
@@ -107,7 +80,7 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 " Toggle spelling mode with ,s
 nmap <silent> <leader>s :set spell!<CR>
 " Edit vimrc with ,v
-nmap <silent> <leader>v :e ~/.vim/vimrc<CR>
+nmap <silent> <leader>vi :e ~/.vim/vimrc<CR>
 " }}}
 
 " Window {{{
@@ -141,3 +114,21 @@ vnoremap <leader>S :sort<CR>
 nnoremap <leader><space> :noh<cr>
 " }}}
 
+" Rails specific {{{
+map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gg :topleft 100 :split Gemfile<cr>
+" }}}
+
+" Test runner {{{
+" Run this file
+map <leader>t :call RunTestFile()<cr>
+" Run only the example under the cursor
+map <leader>T :call RunNearestTest()<cr>
+" Run all test files
+map <leader>a :call RunTests('spec')<cr>
+" }}}
+
+" Powify Bindings {{{
+" Restart the server
+map <leader>pr :!powify restart<cr>
+" }}
