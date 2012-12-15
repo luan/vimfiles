@@ -20,6 +20,7 @@ runtime! config/bindings.vim
 runtime! config/plugin/Ack.vim
 runtime! config/plugin/CommandT.vim
 runtime! config/plugin/Neocachecompl.vim
+runtime! config/plugin/NERDTree.vim
 runtime! config/plugin/Powerline.vim
 runtime! config/plugin/SuperTab.vim
 runtime! config/plugin/Tabular.vim
