@@ -26,7 +26,7 @@
 
 ## Notes
 
-Be sure to always edit the vimrc using `,v`, which opens the vimrc in the .vim folder. Vim has a nasty habit of overriding symlinks.
+Be sure to always edit the vimrc using `,vi`, which opens the vimrc in the .vim folder. Vim has a nasty habit of overriding symlinks.
 
 ## Plugin Installation / Requirements
 
@@ -34,7 +34,6 @@ I may make this more verbose later, but for now, here's a list of plugins that r
 
  * [Command-T](https://github.com/wincent/Command-T) Needs compilation.
  * [Fugitive](https://github.com/tpope/vim-fugitive) Requires Git to be installed.
- * [syntastic](https://github.com/scrooloose/syntastic) Requires many different binaries installed depending on what filetypes you want it to check.
  * [ack.vim](https://github.com/mileszs/ack.vim) Requires [ack](http://betterthangrep.com/) to be installed.
 
 ## Plugin List
