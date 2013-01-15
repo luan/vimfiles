@@ -52,6 +52,9 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'honza/snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
 
+" Tests
+Bundle 'camelpunch/test_server'
+
 " Language Additions
 "   Ruby
 Bundle 'vim-ruby/vim-ruby'
