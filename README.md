@@ -16,8 +16,8 @@
 
 **MacVim** / **Windows gVim**
 
-** Needs update **
-[![MacVim](https://github.com/luan/vimfiles/raw/master/screenshots/MacVim1_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/MacVim1.png) [![Windows gVim](https://github.com/luan/vimfiles/raw/master/screenshots/Windows1_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/Windows1.png)
+[![MacVim](https://github.com/luan/vimfiles/raw/master/screenshots/mvim_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/mvim.png)
+[![Terminal Vim](https://github.com/luan/vimfiles/raw/master/screenshots/vim_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/vim.png)
 
 ## Notes
 
