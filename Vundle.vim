@@ -12,6 +12,7 @@ Bundle 'wincent/Command-T'
 " ,,f
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
 
 " UI Additions
 " That bunch of information on the statusbar
@@ -54,7 +55,6 @@ Bundle 'garbas/vim-snipmate'
 " Language Additions
 "   Ruby
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-rvm'

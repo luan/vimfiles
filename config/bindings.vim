@@ -46,16 +46,11 @@ endif
 " }}}
 
 " Other {{{
-" Use ; for : in normal and visual mode, less keystrokes
-nnoremap ; :
-vnoremap ; :
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 
 " Make line completion easier
 imap <C-l> <C-x><C-l>
-nnoremap <tab> %
-vnoremap <tab> %
 imap <c-l> <space>=><space>
 " }}}
 
@@ -93,7 +88,6 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
-nmap <silent> <C-i> :vertical resize 110<CR>
 " Previous Window
 nmap <silent> <C-p> :wincmd p<CR>
 " Equal Size Windows
