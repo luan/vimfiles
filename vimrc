@@ -9,6 +9,8 @@
 set nocompatible
 runtime! Vundle.vim
 
+silent! source ~/.vimrc.local.before
+
 runtime! config/platform.vim
 runtime! config/basic.vim
 runtime! config/bindings.vim
@@ -32,4 +34,6 @@ runtime! config/plugin/Vundle.vim
 
 runtime! lib/functions.vim
 runtime! lib/AutoCommands.vim
+
+silent! source ~/.vimrc.local
 

@@ -9,6 +9,13 @@
 colorscheme Tomorrow-Night
 " }}}
 
+" Config {{{
+" hardcore_mode for people who really want to use vim to it's maximum
+if !exists("g:hardcore_mode")
+  let g:hardcore_mode=1
+end
+" }}}
+
 " Backups {{{
 set backup
 set backupdir=~/.vim/backup

@@ -6,14 +6,16 @@
 let mapleader=","
 
 " Disable arrow keys {{{
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+if g:hardcore_mode
+  imap <up> <nop>
+  imap <down> <nop>
+  imap <left> <nop>
+  imap <right> <nop>
+  map <up> <nop>
+  map <down> <nop>
+  map <left> <nop>
+  map <right> <nop>
+end
 nnoremap j gj
 nnoremap k gk
 " }}}
