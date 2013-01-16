@@ -179,6 +179,10 @@ function! RunTests(filename)
   end
 endfunction
 
+if !exists("g:test_server_pipe")
+  let g:test_server_pipe = $HOME . "/test_server_pipe"
+endif
+
 fun! s:SendToTestServer(command)
   call writefile([a:command], g:test_server_pipe)
   echom "Sent " . a:command
