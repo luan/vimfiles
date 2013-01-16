@@ -16,6 +16,18 @@ LOCALS = %w{.vimrc.local.before .vimrc.local}
 
 desc 'Runs everything you need to get started'
 task :bootstrap do
+  puts "Installing Vundle"
+  `git clone http://github.com/gmarik/vundle.git bundle/vundle`
+  puts "Done installing Vundle"
+
+  puts
+
+  puts "Installing plugins"
+  `vim +BundleInstall +qall`
+  puts "Done installing plugins"
+
+  puts
+
   puts "Creating local config files... "
   Rake::Task["vim:create_locals"].invoke
   puts "Done creating locals"

@@ -8,9 +8,7 @@
 2. `mv vimfiles .vim`
 3. `cd .vim`
 4. `rake bootstrap` Runs everything you need to get started
-5. Install [Vundle](https://github.com/gmarik/vundle) with `git clone http://github.com/gmarik/vundle.git bundle/vundle`
-6. Run Vim and type `:BundleInstall` to install the plugins with Vundle.
-7. Enjoy enhanced productivity, increased levitation, reduced watermelon-related accidents, and startling sex appeal.
+5. Enjoy enhanced productivity, increased levitation, reduced watermelon-related accidents, and startling sex appeal.
 
 ## Tasks
 
