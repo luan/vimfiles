@@ -36,6 +36,7 @@ task :bootstrap do
 
   puts "Symlinking... "
   Rake::Task["vim:link"].invoke
+  Rake::Task["vim:link_vipe"].invoke
   puts "Done symlinking"
 
   puts
@@ -52,6 +53,24 @@ namespace :vim do
     LOCALS.each do |file|
         dot_file = File.expand_path("~/#{file}")
       FileUtils.touch dot_file
+    end
+  end
+
+  desc 'Create Vipe symlink'
+  task :link_vipe do
+    begin
+      if File.exists? '/usr/local/bin/vipe'
+        puts "Vipe is already linked, skipping link."
+      else
+        File.symlink("#{ENV['HOME']}/.vim/bundle/vipe/vipe", '/usr/local/bin/vipe')
+        puts "Created link for Vipe in /usr/local/bin"
+      end
+    rescue NotImplementedError
+      puts "File.symlink not supported, you must do it manually."
+      if RUBY_PLATFORM.downcase =~ /(mingw|win)(32|64)/
+        puts 'Windows 7 use mklink, e.g.'
+        puts '  mklink _vimrc .vim\vimrc'
+      end
     end
   end
 

@@ -167,7 +167,7 @@ function! RunTests(filename)
   :wa
 
   if has("gui_running") || (exists("g:always_use_test_server") && g:always_use_test_server)
-    call s:SendToTestServer(command)
+    call Vipe(command)
   else
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
@@ -178,12 +178,3 @@ function! RunTests(filename)
     exec ":!" . command
   end
 endfunction
-
-if !exists("g:test_server_pipe")
-  let g:test_server_pipe = $HOME . "/test_server_pipe"
-endif
-
-fun! s:SendToTestServer(command)
-  call writefile([a:command], g:test_server_pipe)
-  echom "Sent " . a:command
-endf

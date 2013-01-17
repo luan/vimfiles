@@ -33,6 +33,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 " ,q (Quickfix) | ,l (Location)
 Bundle 'milkypostman/vim-togglelist'
+Bundle 'luan/vipe'
 
 " Automatic Helpers
 " Adds 'end' properly
