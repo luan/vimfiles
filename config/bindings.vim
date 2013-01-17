@@ -123,13 +123,18 @@ map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 " }}}
 
+" Ack {{{
+vmap <leader>a :call AckVisual()<cr>
+nmap <leader>a :call AckGrep()<cr>
+" }}}
+
 " Test runner {{{
 " Run this file
 map <leader>t :call RunTestFile()<cr>
 " Run only the example under the cursor
 map <leader>T :call RunNearestTest()<cr>
 " Run all test files
-map <leader>a :call RunTests('spec')<cr>
+map <leader>at :call RunTests('spec')<cr>
 " }}}
 
 " Powify Bindings {{{
