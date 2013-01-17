@@ -22,7 +22,7 @@ rake vim:link               # Create symlinks
 
 ## Screenshots
 
-**MacVim** / **Windows gVim**
+**MacVim**
 
 [![MacVim](https://github.com/luan/vimfiles/raw/master/screenshots/mvim_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/mvim.png)
 [![Terminal Vim](https://github.com/luan/vimfiles/raw/master/screenshots/vim_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/vim.png)
