@@ -5,6 +5,8 @@
 " Note: This line MUST come before any <leader> mappings
 let mapleader=","
 
+set pastetoggle=<F2>
+
 " Disable arrow keys {{{
 if g:hardcore_mode
   imap <up> <nop>
@@ -25,6 +27,8 @@ command! W w
 command! Q q
 command! WQ wq
 command! Wq wq
+vmap jk <Esc>
+imap jk <Esc>
 map <F1> <Esc>
 imap <F1> <Esc>
 " Removes doc lookup binding because it's easy to fat finger
