@@ -145,24 +145,33 @@ function! RunTestFile(...)
   " Run the tests for the previously-marked file.
   let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
   if in_test_file
-    call SetTestFile(command_suffix)
-  elseif !exists("t:grb_test_file")
-    return
+    call RunTests(expand("%") . command_suffix)
+  else
+    call RunTests('')
   end
-  call RunTests(t:grb_test_file)
 endfunction
 
 function! RunNearestTest()
   let spec_line_number = line('.')
+  let s:last_command = ":" . spec_line_number . " -b"
   call RunTestFile(":" . spec_line_number . " -b")
 endfunction
 
-function! SetTestFile(suffix)
-  " Set the spec file that tests will be run for.
-  let t:grb_test_file = expand("%") . a:suffix
-endfunction
-
 function! RunTests(filename)
+  let use_vipe = has("gui_running") || (exists("g:always_use_test_server") && g:always_use_test_server)
+
+  :wa
+
+  if a:filename == ''
+    if use_vipe
+      call VipeRerun()
+    elseif exists('s:last_command')
+      call RunTests(s:last_command)
+    endif
+
+    return
+  endif
+
   let command = ''
 
   if match(a:filename, '\.feature$') != -1
@@ -181,10 +190,7 @@ function! RunTests(filename)
     end
   end
 
-  " Write the file and run tests for the given filename
-  :wa
-
-  if has("gui_running") || (exists("g:always_use_test_server") && g:always_use_test_server)
+  if use_vipe
     call Vipe(command)
   else
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
