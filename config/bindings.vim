@@ -27,7 +27,6 @@ command! W w
 command! Q q
 command! WQ wq
 command! Wq wq
-vmap jk <Esc>
 imap jk <Esc>
 map <F1> <Esc>
 imap <F1> <Esc>
