@@ -56,7 +56,6 @@ endif
 
 " Make line completion easier
 imap <C-l> <C-x><C-l>
-imap <c-l> <space>=><space>
 " }}}
 
 " Stop writing jj or kk in code {{{
@@ -83,7 +82,7 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 " Spelling {{{
 " Toggle spelling mode with ,s
 nmap <silent> <leader>s :set spell!<CR>
-" Edit vimrc with ,v
+" Edit vimrc with ,vi
 nmap <silent> <leader>vi :e ~/.vim/vimrc<CR>
 " }}}
 
@@ -101,9 +100,6 @@ nmap <silent> <leader>w= :wincmd =<CR>
 nmap <silent> <leader>wx :wincmd x<CR>
 
 " Window Splitting
-nmap <silent> <leader>sh :split<CR>
-nmap <silent> <leader>sv :vsplit<CR>
-" Because I'm dyslexic
 nmap <silent> <leader>hs :split<CR>
 nmap <silent> <leader>vs :vsplit<CR>
 nmap <silent> <leader>sc :close<CR>

@@ -20,6 +20,8 @@ if has("autocmd")
   autocmd BufWritePre *.py,*.js,*.coffee,*.rb silent! :StripTrailingWhiteSpace
   autocmd FileType vim set fdm=marker foldmarker={{{,}}}
 
+  autocmd FocusLost * silent! wa
+
   augroup vimrcEx
     " Clear all autocmds in the group
     autocmd!

@@ -65,8 +65,6 @@ set backspace=2
 " }}}
 
 " Searching {{{
-nnoremap / /\v
-vnoremap / /\v
 set gdefault
 set ignorecase " Case insensitive search
 set smartcase  " Non-case sensitive search
