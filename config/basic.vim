@@ -65,7 +65,6 @@ set backspace=2
 " }}}
 
 " Searching {{{
-set gdefault
 set ignorecase " Case insensitive search
 set smartcase  " Non-case sensitive search
 set incsearch

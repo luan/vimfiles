@@ -36,31 +36,12 @@ nmap K k
 vmap K k
 " }}}
 
-" Easier Scrolling (think j/k with left hand) {{{
-" All variations are mapped for now until I get used to one
-" C/M/D + d (page up)
-" C/M/D + f (page down)
-nmap <C-d> <C-b>
-if has("gui_macvim")
-  nmap <D-f> <C-f>
-  nmap <D-d> <C-b>
-else
-  nmap <M-f> <C-f>
-  nmap <M-d> <C-b>
-endif
-" }}}
-
 " Other {{{
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 
 " Make line completion easier
 imap <C-l> <C-x><C-l>
-" }}}
-
-" Stop writing jj or kk in code {{{
-inoremap jj <esc>
-inoremap kk <esc>
 " }}}
 
 " Open files in current directory {{{

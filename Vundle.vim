@@ -38,7 +38,6 @@ Bundle 'luan/vipe'
 " Automatic Helpers
 " Adds 'end' properly
 Bundle 'tpope/vim-endwise'
-Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
 " ???????
 Bundle 'Shougo/neocomplcache'
