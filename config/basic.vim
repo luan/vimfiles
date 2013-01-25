@@ -43,8 +43,6 @@ set wildmenu           " Turn on WiLd menu
 set hidden             " Change buffer - without saving
 set history=768        " Number of things to remember in history.
 set cf                 " Enable error files & error jumping.
-set cpoptions=ces$     " Make the 'cw' and like commands put a $ at the end
-                       " instead of just deleting the text and replacing it 
 set lazyredraw         " Don't update the display while executing macros
 set autowrite          " Writes on make/shell commands
 set timeoutlen=350     " Time to wait for a command (after leader for example)

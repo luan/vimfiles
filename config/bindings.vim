@@ -88,10 +88,9 @@ nmap <silent> <leader>sc :close<CR>
 
 " Other {{{
 " create fold in SCSS
-vnoremap <leader>F mbomt<esc>'tO<esc>'bo<esc>gvkojzfzok3xDj2lpa<space><esc>kddjzc
 nnoremap <leader>S ?{<CR>jV/^\s*\}$<CR>k:sort<CR>:noh<CR>
 vnoremap <leader>S :sort<CR>
-nnoremap <leader><space> :noh<cr>
+nnoremap <silent> <space> :noh<cr>
 " }}}
 
 " Rails specific {{{
