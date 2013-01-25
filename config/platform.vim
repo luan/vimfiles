@@ -25,11 +25,6 @@ elseif has('gui_macvim')
   " set guifont=Menlo\ for\ Powerline:h12
   set guifont=Monaco:h12
 
-  " Hide Toolbar in MacVim
-  if has("gui_running")
-    set guioptions=egmrt
-  endif
-
   " Use option (alt) as meta key.
   set macmeta
 endif

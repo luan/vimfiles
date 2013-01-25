@@ -15,8 +15,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 
 " UI Additions
-" That bunch of information on the statusbar
-Bundle 'Lokaltog/vim-powerline'
 " Awesome colorscheme
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'altercation/vim-colors-solarized'
@@ -34,6 +32,7 @@ Bundle 'mileszs/ack.vim'
 " ,q (Quickfix) | ,l (Location)
 Bundle 'milkypostman/vim-togglelist'
 Bundle 'luan/vipe'
+Bundle 'sjl/gundo.vim'
 
 " Automatic Helpers
 " Adds 'end' properly
@@ -57,7 +56,6 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-rvm'
 Bundle 'ecomba/vim-ruby-refactoring'
 
 "   HTML

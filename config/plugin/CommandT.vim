@@ -18,13 +18,6 @@ if has('ruby')
   " Use Command T since we've got Ruby
   " --------
 
-  " Conditional Mappings
-  if has('unix')
-    nnoremap <silent><C-t> :CommandT<CR>
-  else
-    nnoremap <silent><M-t> :CommandT<CR>
-  endif
-
   " Leader Commands
   nnoremap <leader>f :CommandTFlush<cr>\|:CommandT<cr>
   nnoremap <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
@@ -50,15 +43,7 @@ else
   endif
 
   " Leader Commands
-  nnoremap <leader>t :CtrlPRoot<CR>
-  nnoremap <leader>b :CtrlPBuffer<CR>
-endif
-
-" Always use CtrlP for most recently used files and relative dierctory.
-if has('unix')
-  nnoremap <silent><C-u> :CtrlPCurFile<CR>
-else
-  nnoremap <silent><M-u> :CtrlPCurFile<CR>
+  nnoremap <leader>f :CtrlPRoot<CR>
 endif
 
 " Also map leader commands
