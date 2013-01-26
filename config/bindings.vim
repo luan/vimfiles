@@ -56,6 +56,21 @@ nnoremap <leader><leader> <c-^>
 nnoremap <leader>. :call OpenTestAlternate()<cr>
 " }}}
 
+" MULTIPURPOSE TAB KEY (supertab is crazy) {{{
+" Indent if we're at the beginning of a line. Else, do completion.
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
+" }}}
+
+
 " ---------------
 " Leader Commands
 " ---------------
@@ -91,6 +106,7 @@ nmap <silent> <leader>sc :close<CR>
 nnoremap <leader>S ?{<CR>jV/^\s*\}$<CR>k:sort<CR>:noh<CR>
 vnoremap <leader>S :sort<CR>
 nnoremap <silent> <space> :noh<cr>
+nnoremap <leader>=  gg=G``
 " }}}
 
 " Rails specific {{{

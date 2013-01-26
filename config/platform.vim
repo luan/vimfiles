@@ -27,5 +27,11 @@ elseif has('gui_macvim')
 
   " Use option (alt) as meta key.
   set macmeta
+  set background=dark
+  colorscheme Tomorrow-Night
+else
+  let g:solarized_termcolors=256
+  set background=dark
+  colorscheme solarized
 endif
 

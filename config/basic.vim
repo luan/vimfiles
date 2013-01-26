@@ -2,13 +2,6 @@
 " Regular Vim Configuration (No Plugins Needed)
 " ----------------------------------------
 
-" Color {{{
-" let g:solarized_termcolors=256
-" set background=dark
-" colorscheme solarized
-colorscheme Tomorrow-Night
-" }}}
-
 " Config {{{
 " hardcore_mode for people who really want to use vim to it's maximum
 if !exists("g:hardcore_mode")
@@ -25,10 +18,16 @@ set directory=~/.vim/tmp
 " UI {{{
 set ruler          " Ruler on
 set nu             " Line numbers on
+set lazyredraw     " Don't update the display while executing macros
 set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
+set numberwidth=5
 set encoding=utf-8
+set guioptions=acg
+set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+set cursorline
+set scrolloff=3
 if exists('+colorcolumn')
   set colorcolumn=80 " Color the 80th column differently
 endif
@@ -43,23 +42,31 @@ set wildmenu           " Turn on WiLd menu
 set hidden             " Change buffer - without saving
 set history=768        " Number of things to remember in history.
 set cf                 " Enable error files & error jumping.
-set lazyredraw         " Don't update the display while executing macros
-set autowrite          " Writes on make/shell commands
+set autowriteall       " Writes on make/shell commands
 set timeoutlen=350     " Time to wait for a command (after leader for example)
 set foldmethod=syntax
 set nofoldenable
 set cpoptions+=$
 set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
+set switchbuf=useopen
 " Better complete options to speed it up
 set complete=.,w,b,u,U
-set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-set guioptions=acg
+" }}}
+
+" Status Line {{{
+set statusline=[%n]\ %f\ %m\ %y
+set statusline+=%{fugitive#statusline()} " Show git details"
+set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''} " Show RVM details"
+set statusline+=%w              " [Preview]
+set statusline+=%=              " Left/right separator
+set statusline+=%c,             " Cursor column
+set statusline+=%l/%L           " Cursor line/total lines
+set statusline+=\ %P            " Percent through file
 " }}}
 
 " Text Format {{{
 set tabstop=2
-set backspace=2  " Delete everything with backspace
 set shiftwidth=2 " Tabs under smart indent
 set cindent
 set autoindent
