@@ -48,8 +48,9 @@ set autowrite          " Writes on make/shell commands
 set timeoutlen=350     " Time to wait for a command (after leader for example)
 set foldmethod=syntax
 set nofoldenable
+set cpoptions+=$
 set formatoptions=crql
-set iskeyword+=$,@     " Add extra characters that are valid parts of variables
+set iskeyword+=$-,@     " Add extra characters that are valid parts of variables
 " Better complete options to speed it up
 set complete=.,w,b,u,U
 set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
