@@ -3,23 +3,6 @@
 " ----------------------------------------
 
 " ---------------
-" Quick spelling fix (first item in z= list)
-" ---------------
-function! QuickSpellingFix()
-  if &spell
-    normal 1z=
-  else
-    " Enable spelling mode and do the correction
-    set spell
-    normal 1z=
-    set nospell
-  endif
-endfunction
-
-command! QuickSpellingFix call QuickSpellingFix()
-nmap <silent> <leader>z :QuickSpellingFix<CR>
-
-" ---------------
 " Convert Ruby 1.8 hash rockets to 1.9 JSON style hashes.
 " From: http://git.io/cxmJDw
 " Note: Defaults to the entire file unless in visual mode.
@@ -60,7 +43,6 @@ function! QuickSpellingFix()
 endfunction
 
 command! QuickSpellingFix call QuickSpellingFix()
-nmap <silent> <leader>z :QuickSpellingFix<CR>
 
 " ---------------
 " Convert Ruby 1.8 hash rockets to 1.9 JSON style hashes.
@@ -174,7 +156,7 @@ function! RunTests(filename)
 
   let command = ''
 
-  if match(a:filename, '\.feature$') != -1
+  if match(a:filename, '\.feature') != -1
     if filereadable("script/test")
       let command = "script/features " . a:filename
     else

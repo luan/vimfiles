@@ -56,7 +56,7 @@ nnoremap <leader><leader> <c-^>
 nnoremap <leader>. :call OpenTestAlternate()<cr>
 " }}}
 
-" MULTIPURPOSE TAB KEY (supertab is crazy) {{{
+" Multipurpose Tab Key (supertab is crazy) {{{
 " Indent if we're at the beginning of a line. Else, do completion.
 function! InsertTabWrapper()
   let col = col('.') - 1
@@ -75,9 +75,17 @@ inoremap <s-tab> <c-n>
 " Leader Commands
 " ---------------
 
+" {{{ File Jumping
+"Move back and forth through previous and next buffers
+"with ,z and ,x
+nnoremap <silent> ,z :bp<CR>
+nnoremap <silent> ,x :bn<CR>
+" }}}
+
 " Spelling {{{
 " Toggle spelling mode with ,s
 nmap <silent> <leader>s :set spell!<CR>
+nmap <silent> <leader>sf :QuickSpellingFix<CR>
 " Edit vimrc with ,vi
 nmap <silent> <leader>vi :e ~/.vim/vimrc<CR>
 " }}}
