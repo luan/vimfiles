@@ -6,9 +6,6 @@ if has("autocmd")
   " No formatting on o key newlines
   autocmd BufNewFile,BufEnter * set formatoptions-=o
 
-  " No more complaining about untitled documents
-  autocmd FocusLost silent! :wa
-
   " When editing a file, always jump to the last cursor position.
   " This must be after the uncompress commands.
   autocmd BufReadPost *
@@ -49,4 +46,15 @@ if has("autocmd")
     autocmd! CmdwinEnter * :unmap <cr>
     autocmd! CmdwinLeave * :call MapCR()
   augroup END
+
+  autocmd! FileType ruby,eruby,yaml set tw=80 ai sw=2 sts=2 et
+  autocmd! User Rails set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
+  autocmd! BufNewFile,BufReadPost *.jade setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+  autocmd! BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+  autocmd! BufNewFile,BufReadPost *.slim setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+
+  autocmd! BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+  autocmd! BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+  autocmd! BufNewFile,BufReadPost *.coffee setl tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 endif

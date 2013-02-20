@@ -53,7 +53,7 @@ nnoremap <leader><leader> <c-^>
 " }}}
 
 " Switch between test and production code {{{
-nnoremap <leader>. :call OpenTestAlternate()<cr>
+nnoremap <leader>. :A<cr>
 " }}}
 
 " Multipurpose Tab Key (supertab is crazy) {{{
@@ -78,8 +78,8 @@ inoremap <s-tab> <c-n>
 " {{{ File Jumping
 "Move back and forth through previous and next buffers
 "with ,z and ,x
-nnoremap <silent> ,z :bp<CR>
-nnoremap <silent> ,x :bn<CR>
+nnoremap <silent> <leader>z :bp<CR>
+nnoremap <silent> <leader>x :bn<CR>
 " }}}
 
 " Spelling {{{
