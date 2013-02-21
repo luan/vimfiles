@@ -17,7 +17,7 @@ if has('win32') || has('win64')
 
   " Windows has a nasty habit of launching gVim in the wrong working directory
   cd ~
-elseif has('gui_macvim')
+elseif has('gui_running')
   " MacVim
 
   " Custom Menlo font for Powerline
