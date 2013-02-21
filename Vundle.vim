@@ -48,8 +48,8 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 
 " Snippets
-Bundle 'honza/snipmate-snippets'
-Bundle 'garbas/vim-snipmate'
+Bundle 'SirVer/ultisnips'
+" Bundle 'luan/ultisnips-snippets'
 
 " Language Additions
 "   Ruby
@@ -57,6 +57,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'elixir-lang/vim-elixir'
 
 "   HTML
 Bundle 'tpope/vim-haml'
@@ -68,7 +69,6 @@ Bundle 'indenthtml.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'alfredodeza/jacinto.vim'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'luan/jasmine.vim'
 
 "   CSS
 Bundle 'mutewinter/vim-css3-syntax'
