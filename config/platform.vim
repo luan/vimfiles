@@ -24,12 +24,4 @@ elseif has('gui_running')
   " From: https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
   " set guifont=Menlo\ for\ Powerline:h12
   set guifont=Monaco:h12
-else
-  let g:solarized_termtrans = 1
 endif
-
-if &t_Co == 256
-  let g:solarized_termcolors=256
-endif
-set background=dark
-colorscheme solarized

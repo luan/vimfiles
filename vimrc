@@ -13,6 +13,7 @@ silent! source ~/.vimrc.local.before
 
 runtime! config/basic.vim
 runtime! config/bindings.vim
+runtime! config/colors.vim
 
 " ----------------------------------------
 " Plugin Configuration
