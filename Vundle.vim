@@ -35,9 +35,6 @@ Bundle 'milkypostman/vim-togglelist'
 " Automatic Helpers
 " Adds 'end' properly
 Bundle 'tpope/vim-endwise'
-Bundle 'gregsexton/MatchTag'
-" ???????
-Bundle 'Shougo/neocomplcache'
 Bundle 'tpope/vim-repeat'
 
 " MatchIt
@@ -55,7 +52,6 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'elixir-lang/vim-elixir'
 
 "   HTML
 Bundle 'tpope/vim-haml'
@@ -66,13 +62,9 @@ Bundle 'indenthtml.vim'
 "   JavaScript
 Bundle 'pangloss/vim-javascript'
 Bundle 'alfredodeza/jacinto.vim'
-Bundle 'kchmck/vim-coffee-script'
 
 "   CSS
-Bundle 'mutewinter/vim-css3-syntax'
-
-"   Other Languages
-Bundle 'hallison/vim-markdown'
+Bundle 'hail2u/vim-css3-syntax'
 
 " Libraries
 Bundle 'L9'
