@@ -47,10 +47,12 @@ Bundle 'SirVer/ultisnips'
 " Bundle 'luan/ultisnips-snippets'
 
 " Language Additions
-"   Ruby
+
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-bundler'
 Bundle 'ecomba/vim-ruby-refactoring'
 
 "   HTML
