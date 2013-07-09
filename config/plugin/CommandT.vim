@@ -20,7 +20,7 @@ if has('ruby')
 
   " Leader Commands
   nnoremap <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-  nnoremap <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+  nnoremap <leader>gf :CommandTFlush<cr>\|:CommandT <C-R>=expand('%:h').'/'<cr><cr>
   nnoremap <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
   nnoremap <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
   nnoremap <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>

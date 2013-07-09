@@ -12,10 +12,9 @@ Bundle 'tpope/vim-sensible'
 
 " Navigation
 Bundle 'wincent/Command-T'
-" ,,f
+Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
 
 " UI Additions
 Bundle 'altercation/vim-colors-solarized'
