@@ -7,6 +7,9 @@ Bundle 'gmarik/vundle'
 " Plugin Bundles
 " ---------------
 
+" Defaults
+Bundle 'tpope/vim-sensible'
+
 " Navigation
 Bundle 'wincent/Command-T'
 " ,,f
