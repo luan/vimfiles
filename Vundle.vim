@@ -30,10 +30,8 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-eunuch'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
-" ,q (Quickfix) | ,l (Location)
+Bundle 'tpope/vim-dispatch'
 Bundle 'milkypostman/vim-togglelist'
-Bundle 'luan/vipe'
-Bundle 'sjl/gundo.vim'
 
 " Automatic Helpers
 " Adds 'end' properly
