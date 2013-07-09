@@ -43,8 +43,8 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 
 " Snippets
-Bundle 'SirVer/ultisnips'
-" Bundle 'luan/ultisnips-snippets'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 
 " Language Additions
 
