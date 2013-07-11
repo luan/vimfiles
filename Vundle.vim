@@ -17,6 +17,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
 
 " UI Additions
+Bundle 'w0ng/vim-hybrid'
 Bundle 'altercation/vim-colors-solarized'
 
 " Commands
