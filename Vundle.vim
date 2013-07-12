@@ -29,7 +29,8 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-eunuch'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-dispatch'
+Bundle 'luan/vipe'
+Bundle 'benmills/vimux'
 Bundle 'milkypostman/vim-togglelist'
 
 " Automatic Helpers
@@ -47,7 +48,6 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 
 " Language Additions
-
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
