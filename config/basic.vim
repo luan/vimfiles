@@ -11,8 +11,9 @@ set undodir^=~/.vim/undo
 " }}}
 
 " Backups {{{
-set swapfile
+set swapfile                    " Keep swapfiles
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 " }}}
 
 " UI {{{
