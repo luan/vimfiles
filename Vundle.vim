@@ -13,7 +13,6 @@ Bundle 'tpope/vim-sensible'
 " Navigation
 Bundle 'wincent/Command-T'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
 
 " UI Additions
