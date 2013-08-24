@@ -33,6 +33,7 @@ Bundle 'luan/vipe'
 Bundle 'benmills/vimux'
 Bundle 'milkypostman/vim-togglelist'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'maxbrunsfeld/vim-emacs-bindings'
 
 " Automatic Helpers
 " Adds 'end' properly
