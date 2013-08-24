@@ -32,11 +32,13 @@ Bundle 'mileszs/ack.vim'
 Bundle 'luan/vipe'
 Bundle 'benmills/vimux'
 Bundle 'milkypostman/vim-togglelist'
+Bundle 'terryma/vim-multiple-cursors'
 
 " Automatic Helpers
 " Adds 'end' properly
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-repeat'
+Bundle 'scrooloose/syntastic'
 
 " MatchIt
 Bundle 'Spaceghost/vim-matchit'
