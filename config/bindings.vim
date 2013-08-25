@@ -7,6 +7,9 @@ let mapleader=","
 
 set pastetoggle=<F2>
 
+" Edit vimrc with ,vi
+nmap <silent> <leader>vi :e ~/.vim/vimrc<CR>
+
 " Disable arrow keys {{{
 if g:hardcore_mode
   imap <up> <nop>
@@ -91,8 +94,6 @@ nnoremap <silent> <leader>x :bn<CR>
 " Toggle spelling mode with ,s
 nmap <silent> <leader>s :set spell!<CR>
 nmap <silent> <leader>sf :QuickSpellingFix<CR>
-" Edit vimrc with ,vi
-nmap <silent> <leader>vi :e ~/.vim/vimrc<CR>
 " }}}
 
 " Window {{{
