@@ -19,9 +19,11 @@ runtime! config/colors.vim
 " Plugin Configuration
 " ----------------------------------------
 
-runtime! config/plugin/airline.vim
 runtime! config/plugin/NERDTree.vim
+runtime! config/plugin/ack.vim
+runtime! config/plugin/airline.vim
 runtime! config/plugin/ctrlp.vim
+runtime! config/plugin/fugitive.vim
 runtime! config/plugin/indentLine.vim
 runtime! config/plugin/neocomplcache.vim
 runtime! config/plugin/neosnippet.vim
