@@ -42,6 +42,7 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'mhinz/vim-signify'
+NeoBundle 'jszakmeister/vim-togglecursor'
 
 " Commands
 " gc
