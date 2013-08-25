@@ -1,6 +1,6 @@
 # The Vim Configuration.
 
-[See vimfiles's Stats on GitEgo](http://gitego.com/luan/vimfiles)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/luan/vimfiles/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## Installation
 
@@ -50,7 +50,6 @@ On ~/.vimrc.local.before you can add this line `let g:hardcore_mode=0` to re-ena
 
 I may make this more verbose later, but for now, here's a list of plugins that require further installation:
 
- * [Command-T](https://github.com/wincent/Command-T) Needs compilation.
  * [Fugitive](https://github.com/tpope/vim-fugitive) Requires Git to be installed.
  * [ack.vim](https://github.com/mileszs/ack.vim) Requires [ack](http://betterthangrep.com/) to be installed.
 
