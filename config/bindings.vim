@@ -130,11 +130,6 @@ map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 " }}}
 
-" Ack {{{
-vmap <leader>a :call AckVisual()<cr>
-nmap <leader>a :call AckGrep()<cr>
-" }}}
-
 " Test runner {{{
 " Run this file
 map <leader>t :call RunTestFile()<cr>

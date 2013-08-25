@@ -63,6 +63,14 @@ set expandtab
 set smartcase  " Non-case sensitive search
 set hlsearch
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,*.class,*.scssc
+if executable('ack')
+  set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
+  set grepformat=%f:%l:%c:%m
+endif
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+  set grepformat=%f:%l:%c:%m
+endif
 " }}}
 
 " Visual {{{
