@@ -27,10 +27,13 @@ NeoBundle 'scrooloose/nerdtree'
 " UI Additions
 " colorschemes
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'mhinz/vim-signify'
 
 " Commands
 " gc
@@ -49,7 +52,6 @@ NeoBundle 'luan/vipe', {
   \     'unix' : 'ln -s `pwd`/vipe ~/bin',
   \    },
   \ }
-  
 
 NeoBundleLazy 'benmills/vimux', {'autoload':{'commands':'Vimux'}}
 NeoBundle 'milkypostman/vim-togglelist'

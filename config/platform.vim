@@ -22,6 +22,6 @@ elseif has('gui_running')
 
   " Custom Menlo font for Powerline
   " From: https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
-  " set guifont=Menlo\ for\ Powerline:h12
   set guifont=Monaco:h12
+  set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h12
 endif

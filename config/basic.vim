@@ -41,17 +41,6 @@ set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
 " }}}
 
-" Status Line {{{
-set statusline=[%n]\ %f\ %m\ %y
-set statusline+=%{fugitive#statusline()} " Show git details"
-set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''} " Show RVM details"
-set statusline+=%w              " [Preview]
-set statusline+=%=              " Left/right separator
-set statusline+=%c,             " Cursor column
-set statusline+=%l/%L           " Cursor line/total lines
-set statusline+=\ %P            " Percent through file
-" }}}
-
 " Text Format {{{
 set tabstop=2
 set shiftwidth=2 " Tabs under smart indent
