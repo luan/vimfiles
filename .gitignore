@@ -1,3 +1,4 @@
 /bundle
 /sessions
 .rake_tasks~
+.cache
