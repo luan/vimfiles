@@ -7,7 +7,7 @@
 " =======================================
 
 set nocompatible
-runtime! Vundle.vim
+runtime! NeoBundle.vim
 
 silent! source ~/.vimrc.local.before
 
@@ -19,11 +19,12 @@ runtime! config/colors.vim
 " Plugin Configuration
 " ----------------------------------------
 
-runtime! config/plugin/Ack.vim
-runtime! config/plugin/CommandT.vim
-runtime! config/plugin/Neocachecompl.vim
 runtime! config/plugin/NERDTree.vim
-runtime! config/plugin/Vundle.vim
+runtime! config/plugin/ctrlp.vim
+runtime! config/plugin/indentLine.vim
+runtime! config/plugin/neocomplcache.vim
+runtime! config/plugin/neosnippet.vim
+runtime! config/plugin/syntastic.vim
 
 " ----------------------------------------
 " Lib load path
