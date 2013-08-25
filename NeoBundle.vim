@@ -21,6 +21,14 @@ NeoBundle 'Shougo/vimproc.vim', {
       \ }
 
 " Navigation
+NeoBundle 'JazzCore/ctrlp-cmatcher', {
+  \ 'depends': 'kien/ctrlp.vim',
+  \ 'build': {
+  \     'mac': './install_linux.sh',
+  \     'unix': './install_linux.sh',
+  \     'windows': 'install_windows.bat'
+  \   }
+  \ }
 NeoBundle 'kien/ctrlp.vim', { 'depends': 'tacahiroy/ctrlp-funky' }
 NeoBundle 'scrooloose/nerdtree'
 

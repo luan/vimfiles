@@ -7,8 +7,9 @@ let g:ctrlp_max_files=20000
 let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
 let g:ctrlp_reuse_window='startify'
 let g:ctrlp_extensions=['funky']
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
-nnoremap <leader>f :CtrlP<cr>
+nnoremap <leader>f :CtrlPRoot<cr>
 nnoremap <leader>m :CtrlPMRUFiles<cr>
 nnoremap <leader>F :CtrlPBufTag<cr>
 nnoremap <leader>S :CtrlPTag<cr>
