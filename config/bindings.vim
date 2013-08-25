@@ -42,6 +42,11 @@ vmap K k
 
 " Make line completion easier
 imap <C-l> <C-x><C-l>
+" reselect visual block after indent
+vnoremap < <gv
+vnoremap > >gv
+" make Y consistent with C and D. See :help Y.
+nnoremap Y y$
 " }}}
 
 " Open files in current directory {{{
@@ -113,6 +118,7 @@ nmap <silent> <leader>sc :close<CR>
 " create fold in SCSS
 nnoremap <leader>S ?{<CR>jV/^\s*\}$<CR>k:sort<CR>:noh<CR>
 vnoremap <leader>S :sort<CR>
+nnoremap <silent> <cr> :noh<cr>
 nnoremap <silent> <space> :noh<cr>
 nnoremap <leader>=  gg=G``
 " }}}
