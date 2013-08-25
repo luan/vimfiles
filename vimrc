@@ -25,6 +25,7 @@ runtime! config/plugin/airline.vim
 runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/indentLine.vim
+runtime! config/plugin/signify.vim
 runtime! config/plugin/syntastic.vim
 runtime! config/plugin/ultisnips.vim
 runtime! config/plugin/youcompleteme.vim
