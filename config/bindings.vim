@@ -99,10 +99,6 @@ nmap <silent> <leader>sf :QuickSpellingFix<CR>
 
 " Window {{{
 " Window Movement
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-l> :wincmd l<CR>
 " Previous Window
 nmap <silent> <C-p> :wincmd p<CR>
 " Equal Size Windows

@@ -80,9 +80,14 @@ NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'lucapette/vim-textobj-underscore'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
-" Snippets
+" Snippets & Completion
+NeoBundleLazy 'Valloric/YouCompleteMe', {
+  \ 'autoload':{'insert':1},
+  \ 'build': './install.sh --clang-completer'
+  \}
 NeoBundle 'honza/vim-snippets'
-NeoBundleLazy 'Shougo/neocomplcache.vim', {'autoload':{'insert':1}}
+NeoBundle 'MarcWeber/ultisnips'
+NeoBundleLazy 'mattn/emmet-vim', {'autoload':{'filetypes':['html','css']}}
 
 " Language Additions
 NeoBundle 'vim-ruby/vim-ruby'
