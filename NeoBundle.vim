@@ -83,9 +83,11 @@ NeoBundle 'lucapette/vim-textobj-underscore'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
 " Snippets & Completion
-NeoBundleLazy 'Valloric/YouCompleteMe', {
-  \ 'autoload':{'insert':1},
-  \ 'build': './install.sh --clang-completer'
+NeoBundle 'Valloric/YouCompleteMe', {
+  \ 'build': {
+  \    'mac': './install.sh --clang-completer',
+  \    'linux': './install.sh --clang-completer'
+  \  }
   \}
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'MarcWeber/ultisnips'

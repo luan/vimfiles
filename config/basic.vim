@@ -7,7 +7,10 @@
 if !exists("g:hardcore_mode")
   let g:hardcore_mode=1
 end
-set undodir^=~/.vim/undo
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.vim/.undo
+endif
 " }}}
 
 " Backups {{{
