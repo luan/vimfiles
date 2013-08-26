@@ -3,3 +3,4 @@
 /sessions
 .rake_tasks~
 .cache
+.undo/*
