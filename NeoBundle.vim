@@ -39,7 +39,6 @@ NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'jszakmeister/vim-togglecursor'
@@ -77,8 +76,6 @@ NeoBundle 'scrooloose/syntastic'
 " MatchIt
 NeoBundle 'matchit.zip'
 NeoBundleDepends 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'lucapette/vim-textobj-underscore'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
@@ -104,23 +101,17 @@ NeoBundle 'ecomba/vim-ruby-refactoring'
 "   JavaScript
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'maksimr/vim-jsbeautify', {'autoload':{'filetypes':['javascript']}}
-NeoBundleLazy 'leafgarland/typescript-vim', {'autoload':{'filetypes':['typescript']}}
 NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
-NeoBundleLazy 'mmalecki/vim-node.js', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'leshill/vim-json', {'autoload':{'filetypes':['javascript','json']}}
-NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {'autoload':{'filetypes':['javascript','coffee','ls','typescript']}}
 
 "   CSS / HTML
 NeoBundleLazy 'tpope/vim-haml', {'autoload':{'filetypes':['haml']}}
 NeoBundleLazy 'nono/vim-handlebars', {'autoload':{'filetypes':['handlebars']}}
-NeoBundleLazy 'groenewege/vim-less', {'autoload':{'filetypes':['less']}}
 NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload':{'filetypes':['scss','sass']}}
 NeoBundleLazy 'hail2u/vim-css3-syntax', {'autoload':{'filetypes':['css','scss','sass']}}
-NeoBundleLazy 'ap/vim-css-color', {'autoload':{'filetypes':['css','scss','sass','less','styl']}}
 NeoBundleLazy 'othree/html5.vim', {'autoload':{'filetypes':['html']}}
-NeoBundleLazy 'wavded/vim-stylus', {'autoload':{'filetypes':['styl']}}
-NeoBundleLazy 'digitaltoad/vim-jade', {'autoload':{'filetypes':['jade']}}
 NeoBundleLazy 'juvenn/mustache.vim', {'autoload':{'filetypes':['mustache']}}
 NeoBundleLazy 'gregsexton/MatchTag', {'autoload':{'filetypes':['html','xml']}}
+NeoBundle 'gorodinskiy/vim-coloresque'
 
 NeoBundleCheck
