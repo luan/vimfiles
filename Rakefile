@@ -31,12 +31,6 @@ task :bootstrap do
   puts "Symlinking... "
   Rake::Task["vim:link"].invoke
   puts "Done symlinking"
-
-  puts
-
-  puts "Compiling extensions... "
-  Rake::Task["plugins:compile"].invoke
-  puts "Done compiling extensions"
 end
 
 namespace :vim do 
