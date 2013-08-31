@@ -34,7 +34,7 @@ NeoBundle 'scrooloose/nerdtree'
 
 " UI Additions
 " colorschemes
-NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'luan/vim-hybrid'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'altercation/vim-colors-solarized'
 
@@ -56,8 +56,8 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'luan/vipe', {
   \   'build' : {
-  \     'mac' : 'ln -s `pwd`/vipe /usr/local/bin',
-  \     'unix' : 'ln -s `pwd`/vipe ~/bin',
+  \     'mac' : 'ln -s `pwd`/vipe /usr/local/bin || echo',
+  \     'unix' : 'ln -s `pwd`/vipe ~/bin || echo',
   \    },
   \ }
 
