@@ -19,9 +19,5 @@ if has('win32') || has('win64')
   cd ~
 elseif has('gui_running')
   " MacVim
-
-  " Custom Menlo font for Powerline
-  " From: https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
   set guifont=Monaco:h12
-  set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 endif
