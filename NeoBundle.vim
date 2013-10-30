@@ -54,6 +54,7 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'mileszs/ack.vim'
+NeoBundle 'rking/ag.vim'
 NeoBundle 'luan/vipe', {
   \   'build' : {
   \     'mac' : 'ln -s `pwd`/vipe /usr/local/bin || echo',
