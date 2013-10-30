@@ -11,17 +11,6 @@ map <F6> :set invpaste<CR>:set paste?<CR>
 " Edit vimrc with ,vi
 nmap <silent> <leader>vi :e ~/.vim/vimrc<CR>
 
-" Disable arrow keys {{{
-if g:hardcore_mode
-  imap <up> <nop>
-  imap <down> <nop>
-  imap <left> <nop>
-  imap <right> <nop>
-  map <up> <nop>
-  map <down> <nop>
-  map <left> <nop>
-  map <right> <nop>
-end
 nnoremap j gj
 nnoremap k gk
 " }}}

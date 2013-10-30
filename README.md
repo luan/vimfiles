@@ -44,14 +44,13 @@ let g:check_gemfile=1
 let g:always_use_test_server=1
 ```
 
-On ~/.vimrc.local.before you can add this line `let g:hardcore_mode=0` to re-enable the arrow keys if you like them.
-
 ## Plugin Installation / Requirements
 
 I may make this more verbose later, but for now, here's a list of plugins that require further installation:
 
  * [Fugitive](https://github.com/tpope/vim-fugitive) Requires Git to be installed.
  * [ack.vim](https://github.com/mileszs/ack.vim) Requires [ack](http://betterthangrep.com/) to be installed.
+ * [ag.vim](https://github.com/rking/ag.vim) Requires [ag](https://github.com/ggreer/the_silver_searcher) to be installed.
 
 ## Plugin List
 
