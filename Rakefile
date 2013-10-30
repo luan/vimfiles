@@ -15,7 +15,7 @@ LOCALS = %w{.vimrc.local.before .vimrc.local}
 
 desc 'Runs everything you need to get started'
 task :bootstrap do
-  puts "Installing Vundle"
+  puts "Installing NeoBundle"
   `mkdir -p ~/.vim/bundle`
   `git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim`
   puts "Done installing NeoBundle"
