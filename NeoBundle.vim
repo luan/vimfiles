@@ -97,6 +97,7 @@ NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-cucumber'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'ecomba/vim-ruby-refactoring'
+NeoBundle 'tpope/vim-fireplace'
 
 "   JavaScript
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
