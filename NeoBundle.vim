@@ -83,7 +83,6 @@ NeoBundle 'nelstrom/vim-textobj-rubyblock'
 " Snippets
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'MarcWeber/ultisnips'
-NeoBundleLazy 'mattn/emmet-vim', {'autoload':{'filetypes':['html','css']}}
 
 " Language Additions
 NeoBundle 'vim-ruby/vim-ruby'
@@ -101,6 +100,7 @@ NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
 NeoBundleLazy 'leshill/vim-json', {'autoload':{'filetypes':['javascript','json']}}
 
 "   CSS / HTML
+NeoBundleLazy 'mattn/emmet-vim', {'autoload':{'filetypes':['html','css']}}
 NeoBundleLazy 'tpope/vim-haml', {'autoload':{'filetypes':['haml']}}
 NeoBundleLazy 'nono/vim-handlebars', {'autoload':{'filetypes':['handlebars']}}
 NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload':{'filetypes':['scss','sass']}}
@@ -108,6 +108,5 @@ NeoBundleLazy 'hail2u/vim-css3-syntax', {'autoload':{'filetypes':['css','scss','
 NeoBundleLazy 'othree/html5.vim', {'autoload':{'filetypes':['html']}}
 NeoBundleLazy 'juvenn/mustache.vim', {'autoload':{'filetypes':['mustache']}}
 NeoBundleLazy 'gregsexton/MatchTag', {'autoload':{'filetypes':['html','xml']}}
-NeoBundle 'gorodinskiy/vim-coloresque'
 
 NeoBundleCheck
