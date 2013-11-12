@@ -114,18 +114,10 @@ function! RunNearestTest()
 endfunction
 
 function! RunTests(filename)
-  let use_vipe = has("gui_running") || (exists("g:always_use_test_server") && g:always_use_test_server)
-  let use_tmux = executable('tmux') && !empty($TMUX)
-
   :wa
 
   if a:filename == ''
-    if use_vipe
-      call VipeRerun()
-    elseif exists('s:last_command')
-      call RunTests(s:last_command)
-    endif
-
+    call vipe#rerun()
     return
   endif
 
@@ -147,17 +139,5 @@ function! RunTests(filename)
     end
   end
 
-  if use_vipe
-    call Vipe(command)
-  elseif use_tmux
-    call VimuxRunCommand(command)
-  else
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    exec ":!" . command
-  end
+  call vipe#push(command)
 endfunction
