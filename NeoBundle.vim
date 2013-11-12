@@ -80,13 +80,7 @@ NeoBundleDepends 'kana/vim-textobj-user'
 NeoBundle 'lucapette/vim-textobj-underscore'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
-" Snippets & Completion
-NeoBundle 'Valloric/YouCompleteMe', {
-  \ 'build': {
-  \    'mac': './install.sh --clang-completer',
-  \    'linux': './install.sh --clang-completer'
-  \  }
-  \}
+" Snippets
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'MarcWeber/ultisnips'
 NeoBundleLazy 'mattn/emmet-vim', {'autoload':{'filetypes':['html','css']}}

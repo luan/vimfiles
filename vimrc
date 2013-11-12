@@ -28,7 +28,6 @@ runtime! config/plugin/signify.vim
 runtime! config/plugin/syntastic.vim
 runtime! config/plugin/ultisnips.vim
 runtime! config/plugin/undotree.vim
-runtime! config/plugin/youcompleteme.vim
 
 " ----------------------------------------
 " Lib load path
