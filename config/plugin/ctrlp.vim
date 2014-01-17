@@ -1,13 +1,7 @@
-let g:ctrlp_clear_cache_on_exit=1
-let g:ctrlp_max_height=15
-let g:ctrlp_show_hidden=0
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_max_files=20000
+let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
-let g:ctrlp_reuse_window='startify'
 let g:ctrlp_extensions=['funky']
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
 nnoremap <leader>f :CtrlPRoot<cr>
 nnoremap <leader>m :CtrlPMRUFiles<cr>

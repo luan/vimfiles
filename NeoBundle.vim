@@ -10,27 +10,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Defaults
 NeoBundle 'tpope/vim-sensible'
 
-" vimproc
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-
 " Navigation
-NeoBundle 'JazzCore/ctrlp-cmatcher', {
-  \ 'depends': 'kien/ctrlp.vim',
-  \ 'build': {
-  \     'mac': './install_linux.sh',
-  \     'unix': './install_linux.sh',
-  \     'windows': 'install_windows.bat'
-  \   }
-  \ }
 NeoBundle 'kien/ctrlp.vim', { 'depends': 'tacahiroy/ctrlp-funky' }
-NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tpope/vim-vinegar'
 
 " UI Additions
 " colorschemes
@@ -40,6 +22,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'jszakmeister/vim-togglecursor'
 
@@ -53,8 +36,8 @@ NeoBundle 'tpope/vim-abolish'
 " :Move|Remove|Unlink|...
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'rking/ag.vim'
+NeoBundleLazy 'mileszs/ack.vim', {'autoload':{'commands':'Ack'}}
+NeoBundleLazy 'rking/ag.vim', {'autoload':{'commands':'Ag'}}
 NeoBundle 'luan/vipe', {
   \   'build' : {
   \     'mac' : 'ln -s `pwd`/vipe /usr/local/bin || echo',
@@ -62,7 +45,6 @@ NeoBundle 'luan/vipe', {
   \    },
   \ }
 
-NeoBundleLazy 'benmills/vimux', {'autoload':{'commands':'Vimux'}}
 NeoBundle 'milkypostman/vim-togglelist'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'maxbrunsfeld/vim-emacs-bindings'
@@ -72,25 +54,31 @@ NeoBundle 'mbbill/undotree'
 " Adds 'end' properly
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'Shougo/neocomplcache.vim'
 
 " MatchIt
 NeoBundle 'matchit.zip'
-NeoBundleDepends 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'lucapette/vim-textobj-underscore'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
 " Snippets
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'MarcWeber/ultisnips'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 " Language Additions
+" Ruby
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-cucumber'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'ecomba/vim-ruby-refactoring'
+" Clojure
+NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'tpope/vim-fireplace'
 
 "   JavaScript

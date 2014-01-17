@@ -4,3 +4,4 @@
 .rake_tasks~
 .cache
 .undo/*
+.netrwhist

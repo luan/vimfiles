@@ -109,8 +109,8 @@ endfunction
 
 function! RunNearestTest()
   let spec_line_number = line('.')
-  let s:last_command = ":" . spec_line_number . " -b"
-  call RunTestFile(":" . spec_line_number . " -b")
+  let s:last_command = ":" . spec_line_number
+  call RunTestFile(":" . spec_line_number)
 endfunction
 
 function! RunTests(filename)
