@@ -117,7 +117,7 @@ function! RunTests(filename)
   :wa
 
   if a:filename == ''
-    call vipe#rerun()
+    call vipe#peek()
     return
   endif
 
