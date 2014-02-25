@@ -12,7 +12,7 @@ NeoBundle 'tpope/vim-sensible'
 
 " Navigation
 NeoBundle 'kien/ctrlp.vim', { 'depends': 'tacahiroy/ctrlp-funky' }
-NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'scrooloose/nerdtree'
 
 " UI Additions
 " colorschemes
@@ -80,6 +80,8 @@ NeoBundle 'ecomba/vim-ruby-refactoring'
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'tpope/vim-fireplace'
+" Scala
+NeoBundle 'derekwyatt/vim-scala'
 
 "   JavaScript
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
