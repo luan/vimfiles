@@ -40,6 +40,10 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.go = '\h\w*'
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)

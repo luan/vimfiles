@@ -17,12 +17,8 @@ NeoBundle 'scrooloose/nerdtree'
 " UI Additions
 " colorschemes
 NeoBundle 'luan/vim-hybrid'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
-NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'jszakmeister/vim-togglecursor'
 
@@ -51,7 +47,6 @@ NeoBundle 'maxbrunsfeld/vim-emacs-bindings'
 NeoBundle 'mbbill/undotree'
 
 " Automatic Helpers
-" Adds 'end' properly
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sleuth'
@@ -70,18 +65,21 @@ NeoBundle 'Shougo/neosnippet-snippets'
 
 " Language Additions
 " Ruby
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-rake'
-NeoBundle 'tpope/vim-cucumber'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'ecomba/vim-ruby-refactoring'
+NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby', 'rake']}}
+NeoBundleLazy 'tpope/vim-rails', {'autoload': {'filetypes': ['ruby', 'rake']}}
+NeoBundleLazy 'tpope/vim-rake', {'autoload': {'filetypes': ['ruby', 'rake']}}
+NeoBundleLazy 'tpope/vim-cucumber', {'autoload': {'filetypes': ['cucumber']}}
+NeoBundleLazy 'tpope/vim-bundler', {'autoload': {'filetypes': ['ruby', 'rake']}}
+NeoBundleLazy 'ecomba/vim-ruby-refactoring', {'autoload': {'filetypes': ['ruby', 'rake']}}
 " Clojure
-NeoBundle 'guns/vim-clojure-static'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'tpope/vim-fireplace'
+NeoBundleLazy 'guns/vim-clojure-static', {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy 'kien/rainbow_parentheses.vim', {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy 'tpope/vim-fireplace', {'autoload': {'filetypes': ['clojure']}}
 " Scala
-NeoBundle 'derekwyatt/vim-scala'
+NeoBundleLazy 'derekwyatt/vim-scala', {'autoload': {'filetypes': ['scala']}}
+" Go
+NeoBundleLazy 'jnwhiteh/vim-golang', {'autoload': {'filetypes': ['go']}}
+NeoBundleLazy 'nsf/gocode', {'rtp': 'vim', 'autoload': {'filetypes': ['go']}}
 
 "   JavaScript
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
