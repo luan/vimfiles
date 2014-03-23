@@ -35,9 +35,9 @@ NeoBundle 'godlygeek/tabular'
 NeoBundleLazy 'mileszs/ack.vim', {'autoload':{'commands':'Ack'}}
 NeoBundleLazy 'rking/ag.vim', {'autoload':{'commands':'Ag'}}
 NeoBundle 'luan/vipe', {
-  \   'build' : {
-  \     'mac' : 'ln -s `pwd`/vipe /usr/local/bin || echo',
-  \     'unix' : 'ln -s `pwd`/vipe ~/bin || echo',
+  \   'build': {
+  \     'mac': 'ln -s `pwd`/vipe /usr/local/bin || echo',
+  \     'unix': 'ln -s `pwd`/vipe ~/bin || echo',
   \    },
   \ }
 
