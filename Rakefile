@@ -38,26 +38,8 @@ namespace :vim do
   task :create_locals do
     require 'fileutils'
     LOCALS.each do |file|
-        dot_file = File.expand_path("~/#{file}")
+      dot_file = File.expand_path("~/#{file}")
       FileUtils.touch dot_file
-    end
-  end
-
-  desc 'Create Vipe symlink'
-  task :link_vipe do
-    begin
-      if File.exists? '/usr/local/bin/vipe'
-        puts "Vipe is already linked, skipping link."
-      else
-        File.symlink("#{ENV['HOME']}/.vim/bundle/vipe/vipe", '/usr/local/bin/vipe')
-        puts "Created link for Vipe in /usr/local/bin"
-      end
-    rescue NotImplementedError
-      puts "File.symlink not supported, you must do it manually."
-      if RUBY_PLATFORM.downcase =~ /(mingw|win)(32|64)/
-        puts 'Windows 7 use mklink, e.g.'
-        puts '  mklink _vimrc .vim\vimrc'
-      end
     end
   end
 
@@ -92,13 +74,12 @@ namespace :plugins do
   end
 end
 
-
 # ----------------------------------------
 # Helper Methods
 # ----------------------------------------
 
 
-# Just takes an array of strings that resolve to plugins from Vundle
+# Just takes an array of strings that resolve to plugins from NeoBundle
 def add_plugins_to_readme(plugins = [])
   lines = File.readlines(README_FILE).map{|l| l.chomp}
   index = lines.index(PLUGIN_LIST_TAG)
@@ -144,7 +125,7 @@ def parse_plugins_from_vimrc
   plugins
 end
 
-# Converts a Vundle link to a URI
+# Converts a NeoBundle link to a URI
 def convert_to_link_hash(link)
   link_hash = {}
 
