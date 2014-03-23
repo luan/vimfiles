@@ -47,6 +47,10 @@ if has("autocmd")
   autocmd! BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
   autocmd! BufNewFile,BufReadPost *.slim setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
+  augroup golang
+    autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  augroup END
+
   autocmd! BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
   autocmd! BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
   autocmd! BufNewFile,BufReadPost *.coffee setl tabstop=2 softtabstop=2 shiftwidth=2 expandtab
