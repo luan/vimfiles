@@ -41,6 +41,7 @@ NeoBundle 'luan/vipe', {
   \    },
   \ }
 
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'milkypostman/vim-togglelist'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'maxbrunsfeld/vim-emacs-bindings'
