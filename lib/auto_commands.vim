@@ -48,6 +48,7 @@ if has("autocmd")
   autocmd! BufNewFile,BufReadPost *.slim setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
   augroup golang
+    autocmd FileType go compiler go
     autocmd FileType go autocmd BufWritePre <buffer> Fmt
   augroup END
 
