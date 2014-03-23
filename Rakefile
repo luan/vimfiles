@@ -20,6 +20,8 @@ task :bootstrap do
   `git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim`
   puts "Done installing NeoBundle"
 
+  Rake::Task["go:install_packages"].invoke
+
   puts
 
   puts "Creating local config files... "
@@ -31,6 +33,28 @@ task :bootstrap do
   puts "Symlinking... "
   Rake::Task["vim:link"].invoke
   puts "Done symlinking"
+end
+
+namespace :go do
+  desc 'Install go packages to help with editing'
+  task :install_packages do
+    if system("which go")
+      puts "Installing go packages..."
+      gopackages = [
+        'code.google.com/p/go.tools/cmd/godoc',
+        'code.google.com/p/go.tools/cmd/vet',
+        'code.google.com/p/go.tools/cmd/goimports',
+        'code.google.com/p/rog-go/exp/cmd/godef',
+        'github.com/golang/lint/golint',
+        'github.com/nsf/gocode'
+      ]
+
+      gopackages.each do |p|
+        system("go get -u -v #{p}")
+      end
+      puts "Done installing go packages"
+    end
+  end
 end
 
 namespace :vim do 
