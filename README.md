@@ -23,10 +23,11 @@ rake vim:link               # Create symlinks
 
 **MacVim**
 
-[![MacVim](https://github.com/luan/vimfiles/raw/master/screenshots/mvim_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/mvim.png)
+[![MacVim](https://github.com/luan/vimfiles/raw/master/screenshots/mvim.png)](https://github.com/luan/vimfiles/raw/master/screenshots/mvim.png)
 
 **Terminal Vim**
-[![Terminal Vim](https://github.com/luan/vimfiles/raw/master/screenshots/vim_small.png)](https://github.com/luan/vimfiles/raw/master/screenshots/vim.png)
+
+[![Terminal Vim](https://github.com/luan/vimfiles/raw/master/screenshots/vim.png)](https://github.com/luan/vimfiles/raw/master/screenshots/vim.png)
 
 ## Notes
 
