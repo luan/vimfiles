@@ -40,6 +40,7 @@ set foldmethod=syntax
 set foldlevel=20
 set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
+set tags=./tags;/,tags;/
 " }}}
 
 " Text Format {{{

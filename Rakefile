@@ -38,7 +38,8 @@ namespace :go do
         'code.google.com/p/go.tools/cmd/goimports',
         'code.google.com/p/rog-go/exp/cmd/godef',
         'github.com/golang/lint/golint',
-        'github.com/nsf/gocode'
+        'github.com/nsf/gocode',
+        'github.com/jstemmer/gotags'
       ]
 
       gopackages.each do |p|
