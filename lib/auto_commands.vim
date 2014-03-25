@@ -57,4 +57,7 @@ if has("autocmd")
   autocmd! BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
   autocmd! BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
   autocmd! BufNewFile,BufReadPost *.coffee setl tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+  autocmd! CmdwinEnter * :unmap <cr>
+  autocmd! CmdwinLeave * :call MapCR()
 endif
