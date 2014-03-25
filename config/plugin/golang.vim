@@ -13,5 +13,8 @@ function! golang#generate_global()
   echo "'gotags' generated!"
 endfunction
 
-command! Gotags call golang#generate_project()
-command! GotagsGlobal call golang#generate_global()
+function! golang#buffcommands()
+  command! -buffer -bar -nargs=0 Gotags call golang#generate_project()
+  command! -buffer -bar -nargs=0 GotagsGlobal call golang#generate_global()
+endfunction
+
