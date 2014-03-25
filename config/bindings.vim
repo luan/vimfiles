@@ -103,21 +103,9 @@ nnoremap <silent> <space> :noh<cr>
 nnoremap <leader>=  gg=G``
 " }}}
 
-" Rails specific {{{
-map <leader>gr :topleft :split config/routes.rb<cr>
-map <leader>gg :topleft 100 :split Gemfile<cr>
-" }}}
-
 " Test runner {{{
 " Run this file
 map <leader>t :call RunTestFile()<cr>
 " Run only the example under the cursor
 map <leader>T :call RunNearestTest()<cr>
-" Run all test files
-map <leader>at :call RunTests('spec')<cr>
 " }}}
-
-" Powify Bindings {{{
-" Restart the server
-map <leader>pr :!powify restart<cr>
-" }}
