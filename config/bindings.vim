@@ -53,8 +53,8 @@ nnoremap Y y$
 
 " Open files in current directory {{{
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
-map <leader>v :view %%
+nmap <leader>e :edit %%
+nmap <leader>v :view %%
 
 nnoremap <leader><leader> <c-^>
 " }}}
