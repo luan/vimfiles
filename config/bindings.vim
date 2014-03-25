@@ -55,6 +55,7 @@ nnoremap Y y$
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 nmap <leader>e :edit %%
 nmap <leader>v :view %%
+nmap yf :let @+ = expand("%:p")<cr>
 
 nnoremap <leader><leader> <c-^>
 " }}}
