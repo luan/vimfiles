@@ -76,7 +76,7 @@ nnoremap <silent> <leader>x :bn<CR>
 
 " Spelling {{{
 " Toggle spelling mode with ,s
-nmap <silent> <leader>s :set spell!<CR>
+nmap <silent> <leader>ss :set spell!<CR>
 nmap <silent> <leader>sf :QuickSpellingFix<CR>
 " }}}
 
