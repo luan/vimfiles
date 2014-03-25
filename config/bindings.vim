@@ -100,6 +100,7 @@ nmap <silent> <leader>sc :close<CR>
 nnoremap <leader>S ?{<CR>jV/^\s*\}$<CR>k:sort<CR>:noh<CR>
 vnoremap <leader>S :sort<CR>
 nnoremap <silent> <space> :noh<cr>
+nnoremap <silent> <cr> :w<cr>
 nnoremap <leader>=  gg=G``
 " }}}
 
