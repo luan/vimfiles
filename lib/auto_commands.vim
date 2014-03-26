@@ -50,7 +50,6 @@ if has("autocmd")
   augroup golang
     autocmd FileType go compiler go
     autocmd FileType go autocmd BufWritePre <buffer> Fmt
-    autocmd FileType go setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
     autocmd! BufEnter *.go call golang#buffcommands()
   augroup END
 

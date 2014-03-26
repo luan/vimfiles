@@ -42,5 +42,6 @@ function! golang#buffcommands()
   command! -buffer -bar -nargs=0 AT call golang#alternate('T')
   command! -buffer -bar -nargs=0 Gotags call golang#generate_project()
   command! -buffer -bar -nargs=0 GotagsGlobal call golang#generate_global()
+  setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 endfunction
 
