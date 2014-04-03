@@ -241,7 +241,7 @@ snippet     bef
 abbr        BeforeEach("test", func() ... })
 alias       BeforeEach(
 options     head
-  BeforeEach("${1}", func() {
+  BeforeEach(func() {
     ${0:TARGET}
   })
 
@@ -249,7 +249,7 @@ snippet     aft
 abbr        AfterEach("test", func() ... })
 alias       AfterEach(
 options     head
-  AfterEach("${1}", func() {
+  AfterEach(func() {
     ${0:TARGET}
   })
 
@@ -257,7 +257,7 @@ snippet     just
 abbr        JustBeforeEach("test", func() ... })
 alias       JustBeforeEach(
 options     head
-  JustBeforeEach("${1}", func() {
+  JustBeforeEach(func() {
     ${0:TARGET}
   })
 
