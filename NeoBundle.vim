@@ -16,7 +16,7 @@ NeoBundle 'scrooloose/nerdtree'
 
 " UI Additions
 " colorschemes
-NeoBundle 'luan/vim-hybrid'
+NeoBundle 'w0ng/vim-hybrid'
 
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'mhinz/vim-signify'
