@@ -14,8 +14,8 @@ options     head
 
 snippet     afun
 abbr        func () { ... }
-options     head
-  func(${1}) ${2:error }{
+options     word
+  func(${1}) ${2}{
     ${0:TARGET:return }
   }
 
