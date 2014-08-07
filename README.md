@@ -9,17 +9,13 @@ If you're trying to use this config checkout this [cheat sheet](https://github.c
 1. `git clone http://github.com/luan/vimfiles.git` in your home folder.
 2. `mv vimfiles .vim`
 3. `cd .vim`
-4. `rake bootstrap` Runs everything you need to get started
+4. `./install` Runs everything you need to get started
 5. Enjoy enhanced productivity, increased levitation, reduced watermelon-related accidents, and startling sex appeal.
 
-## Tasks
+## Install Script
 
-```
-rake bootstrap              # Runs everything you need to get started
-rake plugins:compile        # Compile stuff, like Command-T.
-rake vim:create_locals      # Create local configs
-rake vim:link               # Create symlinks
-```
+The directory contains a bash script named `install`. `install` will create your local override files (`.vimrc.loca.before` and `.vimrc.local`), symlink `.vimrc` and `.gvimrc`.
+It will also install `golang`'s tools if you have golang on your `$PATH`.
 
 ## Screenshots
 
@@ -41,11 +37,6 @@ There are two options about the test runner:
 " bundle exec slows down startup so if you can avoid it good
 " 0 or 1, defaults 0
 let g:check_gemfile=1
-
-" will use test server even when on terminal vim
-" default behavior is only when on GUI vim (e.g. mVim or gVim)
-" 0 or 1, defaults 0
-let g:always_use_test_server=1
 ```
 
 ## Plugin Installation / Requirements

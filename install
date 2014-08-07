@@ -1,0 +1,58 @@
+#!/bin/bash
+#
+# Simple tasks for managing my .vim files
+
+FILES_TO_LINK="vimrc gvimrc"
+LOCALS=".vimrc.local.before .vimrc.local"
+
+if [ -e ~/.vim/bundle/neobundle.vim ]; then
+  echo "NeoBundle is present, updating..."
+  pushd ~/.vim/bundle/neobundle.vim
+  git pull origin master
+  popd
+  echo "Done updating NeoBundle"
+else
+  echo "Installing NeoBundle"
+  mkdir -p ~/.vim/bundle
+  git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  echo "Done installing NeoBundle"
+fi
+echo
+
+echo "Creating local config files... "
+for file in $LOCALS; do
+  dot_file=~/$file
+  echo "Touching $dot_file"
+  touch $dot_file
+done
+echo "Done creating locals"
+echo
+
+if which go; then
+  echo "Installing go packages..."
+  gopackages="code.google.com/p/go.tools/cmd/godoc \
+    code.google.com/p/go.tools/cmd/vet \
+    code.google.com/p/go.tools/cmd/goimports \
+    code.google.com/p/rog-go/exp/cmd/godef \
+    github.com/golang/lint/golint \
+    github.com/nsf/gocode \
+    github.com/jstemmer/gotags"
+
+  for p in $gopackages; do
+    go get -u -v $p
+  done
+  echo "Done installing go packages"
+  echo
+fi
+
+echo "Symlinking... "
+for file in $FILES_TO_LINK; do
+  dot_file=~/$file
+  if [ -e $dot_file ]; then
+    echo "$dot_file already exists, skipping link."
+  else
+    ln -s ~/.vim/$file $dot_file
+    echo "Created link for $file in your home folder."
+  fi
+done
+echo "Done symlinking"
