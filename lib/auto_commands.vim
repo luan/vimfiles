@@ -49,7 +49,6 @@ if has("autocmd")
 
   augroup golang
     autocmd FileType go compiler go
-    autocmd FileType go autocmd BufWritePre <buffer> Fmt
     autocmd! BufEnter *.go call golang#buffcommands()
   augroup END
 
