@@ -80,9 +80,6 @@ NeoBundleLazy 'tpope/vim-fireplace', {'autoload': {'filetypes': ['clojure']}}
 NeoBundleLazy 'derekwyatt/vim-scala', {'autoload': {'filetypes': ['scala']}}
 " Go
 NeoBundleLazy 'fatih/vim-go', {'autoload': {'filetypes': ['go']}}
-NeoBundleLazy 'dgryski/vim-godef', {'autoload': {'filetypes': ['go']}}
-NeoBundleLazy 'golang/lint', {'rtp': 'misc/vim', 'autoload': {'filetypes': ['go']}}
-NeoBundleLazy 'nsf/gocode', {'rtp': 'vim', 'autoload': {'filetypes': ['go']}}
 
 "   JavaScript
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
