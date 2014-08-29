@@ -49,6 +49,8 @@ vnoremap < <gv
 vnoremap > >gv
 " make Y consistent with C and D. See :help Y.
 nnoremap Y y$
+" Y in visual mode copies to system clipboard
+vmap Y "+y
 " }}}
 
 " Open files in current directory {{{
