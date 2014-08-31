@@ -1,6 +1,3 @@
-let gofmt_command='goimports'
-let g:syntastic_go_checkers=['go', 'govet']
-
 function! golang#generate_project()
   echo "Generating 'gotags' for project..."
   call system("find . -iname \"*.go\" | gotags -silent -L - > tags")

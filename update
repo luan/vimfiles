@@ -2,6 +2,9 @@
 #
 # Simple tasks for managing my .vim files
 
+git pull origin master
+~/.vim/install
+
 FILES_TO_LINK="vimrc gvimrc"
 LOCALS=".vimrc.local.before .vimrc.local"
 
@@ -39,9 +42,3 @@ for file in $FILES_TO_LINK; do
   fi
 done
 echo "Done symlinking"
-echo
-
-echo "Installing bundles..."
-  ~/bundle/neobundle.vim/bin/neoinstall
-echo "Done installing bundles"
-echo
