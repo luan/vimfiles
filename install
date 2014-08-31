@@ -42,6 +42,6 @@ echo "Done symlinking"
 echo
 
 echo "Installing bundles..."
-  ~/bundle/neobundle.vim/bin/neoinstall
+  ~/.vim/bundle/neobundle.vim/bin/neoinstall
 echo "Done installing bundles"
 echo
