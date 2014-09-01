@@ -1,13 +1,13 @@
 function! golang#generate_project()
-  echo "Generating 'gotags' for project..."
-  call system("find . -iname \"*.go\" | gotags -silent -L - > tags")
-  echo "'gotags' generated!"
+  call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
+  let gopath = substitute(system('go env GOPATH'), '\n', '', '')
+  call vimproc#system_bg('gotags -silent -L /tmp/gotags-filelist-project > ' . gopath . '/tags')
 endfunction
 
 function! golang#generate_global()
-  echo "Generating global 'gotags', this may take a while..."
-  call system("find `go env GOROOT GOPATH` -iname \"*.go\" | gotags -silent -L - > `go env GOPATH`/tags")
-  echo "'gotags' generated!"
+  call system('find `go env GOROOT GOPATH` -iname "*.go" > /tmp/gotags-filelist-global')
+  let gopath = substitute(system('go env GOPATH'), '\n', '', '')
+  call vimproc#system_bg('gotags -silent -L /tmp/gotags-filelist-global > ' . gopath . '/tags')
 endfunction
 
 function! golang#buffcommands()
@@ -35,4 +35,12 @@ augroup go_projectionist
   autocmd!
   autocmd User ProjectionistDetect call s:ProjectionistDetect()
 augroup END
+
+if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
+  augroup go_gotags
+    autocmd!
+    autocmd BufWritePost *.go call golang#generate_project()
+    autocmd BufWritePost *.go call golang#generate_global()
+  augroup END
+endif
 
