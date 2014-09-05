@@ -26,7 +26,12 @@ runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/signify.vim
 runtime! config/plugin/undotree.vim
-runtime! config/plugin/neocomplcache.vim
+if !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
+  runtime! config/plugin/neocomplcache.vim
+else
+  runtime! config/plugin/neocomplete.vim
+endif
+runtime! config/plugin/neosnippet.vim
 runtime! config/plugin/golang.vim
 
 " ----------------------------------------

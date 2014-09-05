@@ -61,7 +61,12 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'Shougo/neocomplcache.vim'
+
+if !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
+  NeoBundle 'Shougo/neocomplcache.vim'
+else
+  NeoBundle 'Shougo/neocomplete.vim'
+endif
 
 " MatchIt
 NeoBundle 'matchit.zip'
