@@ -1,7 +1,5 @@
 # The Vim Configuration.
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/luan/vimfiles/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
 If you're trying to use this config checkout this [cheat sheet](https://github.com/luan/vimfiles/wiki/Luan's-Vim-Cheat-Sheet).
 
 ## Installation
