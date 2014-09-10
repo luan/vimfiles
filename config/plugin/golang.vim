@@ -1,3 +1,5 @@
+let g:go_fmt_command = "goimports"
+
 function! golang#generate_project()
   call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
   let gopath = substitute(system('go env GOPATH'), '\n', '', '')
