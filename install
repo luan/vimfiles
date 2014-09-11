@@ -30,7 +30,7 @@ echo
 
 echo "Symlinking... "
 for file in $FILES_TO_LINK; do
-  dot_file=~/$file
+  dot_file=~/.$file
   if [ -e $dot_file ]; then
     echo "$dot_file already exists, skipping link."
   else
