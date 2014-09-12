@@ -95,6 +95,8 @@ NeoBundleLazy 'tpope/vim-fireplace', {'autoload': {'filetypes': ['clojure']}}
 NeoBundleLazy 'derekwyatt/vim-scala', {'autoload': {'filetypes': ['scala']}}
 " Go
 NeoBundleLazy 'fatih/vim-go', {'autoload': {'filetypes': ['go']}}
+" Docker
+NeoBundle 'honza/dockerfile.vim'
 
 "   JavaScript
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
