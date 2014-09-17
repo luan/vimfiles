@@ -41,6 +41,23 @@ done
 echo "Done symlinking"
 echo
 
+if which go; then
+  echo "Installing go packages..."
+  gopackages="code.google.com/p/go.tools/cmd/godoc \
+     code.google.com/p/go.tools/cmd/vet \
+     code.google.com/p/go.tools/cmd/goimports \
+     code.google.com/p/rog-go/exp/cmd/godef \
+     github.com/golang/lint/golint \
+     github.com/nsf/gocode \
+     github.com/jstemmer/gotags"
+
+  for p in $gopackages; do
+    go get -u -v $p
+  done
+  echo "Done installing go packages"
+  echo
+fi
+
 echo "Installing bundles..."
   ~/.vim/bundle/neobundle.vim/bin/neoinstall
 echo "Done installing bundles"
