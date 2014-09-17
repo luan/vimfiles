@@ -100,7 +100,7 @@ vnoremap <leader>S :sort<CR>
 nnoremap <silent> <space> :noh<cr>
 nnoremap <leader>=  gg=G``
 
-function CRWriteIfNecessary()
+function! CRWriteIfNecessary()
   if !&modified || &readonly || &filetype == "qf"
     " Execute a normal enter when in Quickfix list.
     execute "normal! \<enter>"
