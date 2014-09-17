@@ -64,6 +64,14 @@ The directory contains a bash script named `install`. `install` will create your
 It will also install `golang`'s tools if you have golang on your `$PATH`.
 
 ## Notes
+=======
+```
+" will save automatically when exiting the buffer
+" 0 or 1, defaults 0
+let g:autosave = 1
+```
+
+## Plugin Installation / Requirements
 
 Be sure to always edit the vimrc using `,vi`, which opens the vimrc in the .vim folder. Vim has a nasty habit of overriding symlinks.
 
