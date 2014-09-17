@@ -124,15 +124,17 @@ function! RunTests(filename)
   let command = ''
 
   if match(a:filename, '\.feature') != -1
-    if filereadable("script/test")
+    if filereadable("script/features")
       let command = "script/features " . a:filename
+    elseif filereadable("Gemfile")
+      let command = "bundle exec cucumber " . a:filename
     else
       let command = "cucumber " . a:filename
     end
   else
     if filereadable("script/test")
       let command = "script/test " . a:filename
-    elseif filereadable("Gemfile") && exists("g:check_gemfile") && g:check_gemfile
+    elseif filereadable("Gemfile")
       let command = "bundle exec rspec --color " . a:filename
     else
       let command = "rspec --color " . a:filename
