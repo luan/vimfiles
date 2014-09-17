@@ -1,9 +1,7 @@
 " =======================================
 " Initially based on/forked from: Jeremy Mack (@mutewinter)
-" [http://github.com/mutewinter/dot_vim]
-" Who: Luan Santos (@cfcluan)
-" What: .vimrc of champions
-" Version: 2.0
+" [http://github.com/luan/vimfiles]
+" Who: Luan Santos (GitHub: @luan)
 " =======================================
 
 set nocompatible
