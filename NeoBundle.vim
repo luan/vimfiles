@@ -30,6 +30,7 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'jszakmeister/vim-togglecursor'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 " Commands
 " gc
