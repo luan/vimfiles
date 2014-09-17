@@ -28,14 +28,6 @@ It will also install `golang`'s tools if you have golang on your `$PATH`.
 ## Notes
 
 Be sure to always edit the vimrc using `,vi`, which opens the vimrc in the .vim folder. Vim has a nasty habit of overriding symlinks.
-There are two options about the test runner:
-
-```
-" will check for gemfile and run bundle exec if present
-" bundle exec slows down startup so if you can avoid it good
-" 0 or 1, defaults 0
-let g:check_gemfile=1
-```
 
 ## Plugin Installation / Requirements
 
