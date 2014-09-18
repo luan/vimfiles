@@ -36,4 +36,14 @@ I may make this more verbose later, but for now, here's a list of plugins that r
  * [Fugitive](https://github.com/tpope/vim-fugitive) Requires Git to be installed.
  * [ack.vim](https://github.com/mileszs/ack.vim) Requires [ack](http://betterthangrep.com/) to be installed.
  * [ag.vim](https://github.com/rking/ag.vim) Requires [ag](https://github.com/ggreer/the_silver_searcher) to be installed.
+ * [tagbar](https://github.com/majutsushi/tagbar) Requires [exuberant-ctags](https://github.com/fishman/ctags)
+
+
+Recommended ctags setup for OSX:
+
+```bash
+brew uninstall ctags
+brew tap kopischke/ctags
+brew install ctags-fishman --HEAD
+```
 
