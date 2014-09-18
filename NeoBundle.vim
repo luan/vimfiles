@@ -22,6 +22,7 @@ NeoBundle 'tpope/vim-sensible'
 " Navigation
 NeoBundle 'kien/ctrlp.vim', { 'depends': 'tacahiroy/ctrlp-funky' }
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'majutsushi/tagbar'
 
 " UI Additions
 " colorschemes

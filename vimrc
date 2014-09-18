@@ -32,6 +32,7 @@ endif
 runtime! config/plugin/neosnippet.vim
 runtime! config/plugin/golang.vim
 runtime! config/plugin/tmux-navigator.vim
+runtime! config/plugin/tagbar.vim
 
 " ----------------------------------------
 " Lib load path
