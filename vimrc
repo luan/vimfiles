@@ -13,12 +13,16 @@ runtime! config/basic.vim
 runtime! config/bindings.vim
 runtime! config/colors.vim
 
+" Platform Specific
+runtime! config/platform.vim
+
 " ----------------------------------------
 " Plugin Configuration
 " ----------------------------------------
 
 runtime! config/plugin/NERDTree.vim
 runtime! config/plugin/ack.vim
+runtime! config/plugin/airline.vim
 runtime! config/plugin/commentary.vim
 runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/fugitive.vim
@@ -40,9 +44,6 @@ runtime! config/plugin/tagbar.vim
 
 runtime! lib/functions.vim
 runtime! lib/auto_commands.vim
-
-" Platform Specific
-runtime! config/platform.vim
 
 silent! source ~/.vimrc.local
 

@@ -28,6 +28,7 @@ NeoBundle 'majutsushi/tagbar'
 " colorschemes
 NeoBundle 'w0ng/vim-hybrid'
 
+NeoBundle 'bling/vim-airline'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'jszakmeister/vim-togglecursor'
