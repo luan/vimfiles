@@ -70,6 +70,7 @@ if !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
 else
   NeoBundle 'Shougo/neocomplete.vim'
 endif
+NeoBundle 'Shougo/echodoc.vim'
 
 " MatchIt
 NeoBundle 'matchit.zip'
