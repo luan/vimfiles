@@ -27,17 +27,14 @@ runtime! config/plugin/commentary.vim
 runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/echodoc.vim
 runtime! config/plugin/fugitive.vim
-runtime! config/plugin/signify.vim
-runtime! config/plugin/undotree.vim
-if !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
-  runtime! config/plugin/neocomplcache.vim
-else
-  runtime! config/plugin/neocomplete.vim
-endif
-runtime! config/plugin/neosnippet.vim
 runtime! config/plugin/golang.vim
-runtime! config/plugin/tmux-navigator.vim
+runtime! config/plugin/neocomplete.vim
+runtime! config/plugin/neosnippet.vim
+runtime! config/plugin/omnicompletion.vim
+runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
+runtime! config/plugin/tmux-navigator.vim
+runtime! config/plugin/undotree.vim
 
 " ----------------------------------------
 " Lib load path
