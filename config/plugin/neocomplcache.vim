@@ -28,9 +28,9 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " Close popup by <Space>.,:;/
-inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() . "\<Space>" : "\<Space>"
 for c in [".", ",", ":", ";", "/"]
-  exec 'inoremap <expr>'.c.' pumvisible() ? neocomplcache#close_popup() : "'.c.'"'
+  exec 'inoremap <expr>'.c.' pumvisible() ? neocomplcache#close_popup() . "'.c.'" : "'.c.'"'
 endfor
 
 if !exists('g:neocomplcache_omni_patterns')

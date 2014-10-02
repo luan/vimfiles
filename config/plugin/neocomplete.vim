@@ -10,6 +10,7 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#enable_cursor_hold_i = 1
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -37,7 +38,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.,:;/
 inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() . "\<Space>" : "\<Space>"
 for c in [".", ",", ":", ";", "/"]
-  exec 'inoremap <expr>'.c.' pumvisible() ? neocomplete#close_popup() . "'.c.'" : "'.c.'"'
+  exec 'inoremap <expr>'.c.' pumvisible() ? neocomplete#close_popup() "'.c.'" : "'.c.'"'
 endfor
 
 " Enable heavy omni completion.
