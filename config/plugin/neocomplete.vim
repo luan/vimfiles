@@ -38,7 +38,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.,:;/
 inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() . "\<Space>" : "\<Space>"
 for c in [".", ",", ":", ";", "/"]
-  exec 'inoremap <expr>'.c.' pumvisible() ? neocomplete#close_popup() "'.c.'" : "'.c.'"'
+  exec 'inoremap <expr>'.c.' pumvisible() ? neocomplete#close_popup() . "'.c.'" : "'.c.'"'
 endfor
 
 " Enable heavy omni completion.
