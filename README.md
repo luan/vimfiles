@@ -39,7 +39,16 @@ I may make this more verbose later, but for now, here's a list of plugins that r
  * [tagbar](https://github.com/majutsushi/tagbar) Requires [exuberant-ctags](https://github.com/fishman/ctags)
 
 
-Recommended ctags setup for OSX:
+### Recommended setup for OSX:
+
+#### Fast autocomplete
+
+```bash
+brew reinstall vim --with-lua
+brew reinstall macvim --with-lua
+```
+
+#### ctags
 
 ```bash
 brew uninstall ctags
