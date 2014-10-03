@@ -24,7 +24,6 @@ runtime! config/plugin/NERDTree.vim
 runtime! config/plugin/ack.vim
 runtime! config/plugin/airline.vim
 runtime! config/plugin/commentary.vim
-runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/echodoc.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/golang.vim
@@ -35,6 +34,7 @@ runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/tmux-navigator.vim
 runtime! config/plugin/undotree.vim
+runtime! config/plugin/unite.vim
 
 " ----------------------------------------
 " Lib load path
