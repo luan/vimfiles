@@ -2,5 +2,5 @@
 #
 # Simple tasks for managing my .vim files
 
-git pull origin master
+git pull
 ~/.vim/install
