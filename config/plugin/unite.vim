@@ -52,8 +52,8 @@ function! s:unite_settings()
   au! InsertLeave <buffer> let b:actually_quit = 1
   au! CursorHold  <buffer> if exists('b:actually_quit') && b:actually_quit | close | endif
 
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  imap <silent><buffer> <C-j> <Plug>(unite_select_next_line)
+  imap <silent><buffer> <C-k> <Plug>(unite_select_previous_line)
 
   imap <silent><buffer><expr> <C-s> unite#do_action('split')
   imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
@@ -61,7 +61,7 @@ function! s:unite_settings()
 
   imap <buffer> <C-b> <Left>
   imap <buffer> <C-f> <Right>
-  imap <buffer> <C-a> <C-o>:call <SID>home()<CR>
+  imap <buffer> <C-a> <Home>
   imap <buffer> <C-e> <End>
   imap <buffer> <C-d> <Del>
   imap <buffer> <C-h> <BS>
