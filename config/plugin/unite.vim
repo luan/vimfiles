@@ -4,8 +4,8 @@ call unite#filters#matcher_default#use(['matcher_project_files', 'matcher_fuzzy'
 call unite#filters#sorter_default#use(['sorter_length', 'sorter_rank'])
 
 call unite#custom#profile('default', 'context', {
-      \   'prompt_direction': 'top',
-      \   'direction': 'below',
+      \   'prompt_direction': 'above',
+      \   'direction': 'botright',
       \   'winheight': '10',
       \   'cursor_line_highlight': 'Pmenu',
       \   'abbr_highlight': 'Normal',
