@@ -16,8 +16,8 @@ call unite#custom#source(
       \ 'file_mru', 'matchers',
       \ ['converter_relative_word', 'matcher_project_files', 'matcher_fuzzy'])
 
-nnoremap <silent> [unite]files              :<C-u>Unite -start-insert -buffer-name=files buffer file_mru file_rec/async:!<cr>
-nnoremap <silent> [unite]siblings           :<C-u>Unite -start-insert -buffer-name=files file -input=<C-r>=expand("%:h")<cr>/<cr>
+nnoremap <silent> [unite]files              :<C-u>Unite -start-insert -buffer-name=files file_mru file_rec/async:! -hide-source-names<cr>
+nnoremap <silent> [unite]siblings           :<C-u>Unite -start-insert -buffer-name=files file_rec/async:<C-r>=expand("%:h")<cr>/<cr>
 nnoremap <silent> [unite]most-recently-used :<C-u>Unite -start-insert -buffer-name=mru file_mru<cr>
 nnoremap <silent> [unite]buffers            :<C-u>Unite -buffer-name=buffers buffer<cr>
 nnoremap <silent> [unite]lines              :<C-u>Unite -start-insert -buffer-name=line line<cr>
