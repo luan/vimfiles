@@ -18,3 +18,4 @@ let g:airline#extensions#syntastic#enabled = 0
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
+set noshowmode
