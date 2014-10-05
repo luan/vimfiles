@@ -7,7 +7,7 @@ call unite#custom#profile('default', 'context', {
       \   'prompt_direction': 'above',
       \   'direction': 'botright',
       \   'winheight': '10',
-      \   'cursor_line_highlight': 'Pmenu',
+      \   'cursor_line_highlight': 'CursorLine',
       \   'abbr_highlight': 'Normal',
       \   'unique': '1',
       \ })
