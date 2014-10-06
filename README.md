@@ -1,4 +1,4 @@
-# The Vim Configuration.
+# The Vim Configuration. [![Build Status](https://travis-ci.org/luan/vimfiles.svg?branch=master)](https://travis-ci.org/luan/vimfiles)
 
 If you're trying to use this config checkout this [cheat sheet](https://github.com/luan/vimfiles/wiki/Luan's-Vim-Cheat-Sheet).
 
