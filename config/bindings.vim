@@ -3,7 +3,7 @@
 " ----------------------------------------
 
 " Note: This line MUST come before any <leader> mappings
-let mapleader=","
+let g:mapleader=","
 
 set pastetoggle=<F6>
 map <F6> :set invpaste<CR>:set paste?<CR>
