@@ -1,7 +1,7 @@
 let g:unite_source_history_yank_enable = 1
 let g:unite_matcher_fuzzy_max_input_length = 100
-call unite#filters#matcher_default#use(['matcher_project_files', 'matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_length', 'sorter_rank'])
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 
 call unite#custom#profile('default', 'context', {
       \   'prompt_direction': 'above',
@@ -15,6 +15,9 @@ call unite#custom#profile('default', 'context', {
 call unite#custom#source(
       \ 'file_mru', 'matchers',
       \ ['converter_relative_word', 'matcher_project_files', 'matcher_fuzzy'])
+
+call unite#custom#source('file_rec/async, file_mru', 'ignore_globs',
+    \ split(&wildignore, ','))
 
 nnoremap <silent> [unite]files              :<C-u>Unite -start-insert -buffer-name=files file_mru file_rec/async:! -hide-source-names<cr>
 nnoremap <silent> [unite]siblings           :<C-u>Unite -start-insert -buffer-name=files file_rec/async:<C-r>=expand("%:h")<cr>/<cr>
