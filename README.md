@@ -13,12 +13,14 @@ If you're trying to use this config checkout this [cheat sheet](https://github.c
 ### Faster and better autocomplete
 
 **OSX**
+
 ```bash
 brew reinstall vim --with-lua
 brew reinstall macvim --with-lua
 ```
 
 **Linux**
+
 ```bash
 sudo apt-get install vim-nox
 ```
@@ -26,6 +28,7 @@ sudo apt-get install vim-nox
 ### ctags
 
 **OSX**
+
 ```bash
 brew uninstall ctags
 brew tap kopischke/ctags
@@ -33,7 +36,8 @@ brew install ctags-fishman --HEAD
 ```
 
 **Linux**
-For now you have to manually compile and replace your ctags installation with: https://github.com/fishman/ctags
+
+*exuberant-ctags* from your OS is generally enough for most things, but if you want more CSS, ruby and other goodnesses you will need to manually compile and replace your ctags installation with: https://github.com/fishman/ctags
 
 ## Plugin Installation / Requirements
 
