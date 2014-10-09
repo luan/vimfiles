@@ -1,5 +1,6 @@
 let g:unite_source_history_yank_enable = 1
 let g:unite_matcher_fuzzy_max_input_length = 100
+let g:unite_source_tag_max_fname_length = 50
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
@@ -72,5 +73,5 @@ endfunction
 
 autocmd BufEnter *
   \   if empty(&buftype)
-  \|      nnoremap <buffer> g] :<C-u>UniteWithCursorWord -immediately tag<CR>
+  \|      nnoremap <buffer> g] :<C-u>Unite -immediately tag:<c-r>=expand('<cword>')<cr><cr>
   \|  endif
