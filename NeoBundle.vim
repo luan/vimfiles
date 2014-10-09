@@ -22,7 +22,12 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'tpope/vim-sensible'
 
 " Navigation
-NeoBundle 'kien/ctrlp.vim', { 'depends': 'tacahiroy/ctrlp-funky' }
+
+" Unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'tsukkee/unite-tag'
+
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
 
