@@ -1,5 +1,7 @@
 runtime! lib/NeoBundle.before.vim
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -120,4 +122,7 @@ NeoBundleLazy 'gregsexton/MatchTag', {'autoload':{'filetypes':['html','xml']}}
 
 NeoBundle 'syngan/vim-vimlint', { 'depends' : 'ynkdir/vim-vimlparser'}
 
+call neobundle#end()
+
 NeoBundleCheck
+
