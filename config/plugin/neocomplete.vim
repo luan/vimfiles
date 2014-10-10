@@ -37,7 +37,7 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.,:;/
 inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() . "\<Space>" : "\<Space>"
-for s:c in [".", ",", ":", ";", "/"]
+for s:c in [".", ",", ":", ";", "/", ">", "(", ")"]
   exec 'inoremap <expr>'.s:c.' pumvisible() ? neocomplete#close_popup() . "'.s:c.'" : "'.s:c.'"'
 endfor
 

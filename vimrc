@@ -7,7 +7,7 @@
 set nocompatible
 runtime! NeoBundle.vim
 
-silent! source ~/.vimrc.local.before
+silent! source $HOME/.vimrc.local.before
 
 runtime! config/basic.vim
 runtime! config/bindings.vim
@@ -43,5 +43,5 @@ runtime! config/plugin/undotree.vim
 runtime! lib/functions.vim
 runtime! lib/auto_commands.vim
 
-silent! source ~/.vimrc.local
+silent! source $HOME/.vimrc.local
 

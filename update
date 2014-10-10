@@ -3,4 +3,4 @@
 # Simple tasks for managing my .vim files
 
 git pull
-~/.vim/install
+$HOME/.vim/install

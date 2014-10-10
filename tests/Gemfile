@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+
+group :test do
+  gem 'awesome_print'
+  gem 'cucumber'
+  gem 'pry'
+  gem 'rake'
+  gem 'rspec'
+  gem 'vimrunner'
+end

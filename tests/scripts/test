@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export DISPLAY=:99.0
+sh -e /etc/init.d/xvfb start
+
+mv $PWD $HOME/.vim
+cd $HOME/.vim
+./install
+cd tests
+bundle install
+xvfb-run -a bundle exec rake

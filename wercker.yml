@@ -1,0 +1,16 @@
+box: wercker-labs/docker
+build:
+  steps:
+    - script:
+        name: docker version
+        code: |
+          sudo docker version
+    - script:
+        name: docker pull
+        code: |
+          sudo docker pull luan/vimfiles
+    - script:
+        name: run tests
+        code: |
+          sudo docker run -t -v $PWD:/root/.vim luan/vimfiles /bin/bash /root/.vim/tests/scripts/test
+
