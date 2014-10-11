@@ -6,11 +6,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
+      \   'build' : {
+      \     'windows': 'tools\\update-dll-mingw',
+      \     'cygwin': 'make -f make_cygwin.mak',
+      \     'mac': 'make -f make_mac.mak',
+      \     'unix': 'make -f make_unix.mak',
       \    },
       \ }
 
@@ -23,6 +23,13 @@ NeoBundle 'tpope/vim-sensible'
 
 " Navigation
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'JazzCore/ctrlp-cmatcher', {
+      \   'build': {
+      \     'mac': 'bash -c "CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments ./install.sh"',
+      \     'unix': './install.sh',
+      \     'windows': 'install_windows.bat',
+      \   }
+      \ }
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
 
