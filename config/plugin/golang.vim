@@ -38,6 +38,12 @@ augroup go_projectionist
   autocmd User ProjectionistDetect call s:ProjectionistDetect()
 augroup END
 
+augroup go_fastgo
+  autocmd!
+  autocmd BufWritePre *.go syn off
+  autocmd BufWritePost *.go syn on
+augroup END
+
 if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
   augroup go_gotags
     autocmd!
