@@ -2,5 +2,7 @@
 #
 # Simple tasks for managing my .vim files
 
+pushd $HOME/.vim
 git pull
 ~/.vim/install
+popd

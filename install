@@ -5,24 +5,28 @@
 FILES_TO_LINK="vimrc gvimrc"
 LOCALS=".vimrc.local.before .vimrc.local"
 
-if [ -e ~/.vim/bundle/neobundle.vim ]; then
-  pushd ~/.vim/bundle/neobundle.vim
+pushd $HOME/.vim
+
+if [ -e $HOME/.vim/bundle/neobundle.vim ]; then
+  pushd $HOME/.vim/bundle/neobundle.vim
   git pull origin master
   popd
 else
-  mkdir -p ~/.vim/bundle
-  git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  mkdir -p $HOME/.vim/bundle
+  git clone git://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
 fi
 
 for file in $LOCALS; do
-  dot_file=~/$file
+  dot_file=$HOME/$file
   touch $dot_file
 done
 
 for file in $FILES_TO_LINK; do
-  dot_file=~/.$file
+  dot_file=$HOME/.$file
   if [ ! -e $dot_file ]; then
-    ln -s ~/.vim/$file $dot_file
+    ln -s $HOME/.vim/$file $dot_file
+  else
+    echo "You already have vim's dotfiles set up on your home directory."
   fi
 done
 
@@ -40,4 +44,6 @@ if which go; then
   done
 fi
 
-~/.vim/bundle/neobundle.vim/bin/neoinstall
+$HOME/.vim/bundle/neobundle.vim/bin/neoinstall
+
+popd
