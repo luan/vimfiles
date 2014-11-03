@@ -35,7 +35,7 @@ NeoBundle 'majutsushi/tagbar'
 
 " UI Additions
 " colorschemes
-NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'flazz/vim-colorschemes'
 
 NeoBundle 'bling/vim-airline'
 NeoBundle 'kshenoy/vim-signature'
