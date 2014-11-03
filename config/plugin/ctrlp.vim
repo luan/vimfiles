@@ -6,7 +6,8 @@ if filereadable($HOME.'/.vim/bundle/ctrlp-cmatcher/autoload/fuzzycomt.so')
   let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 endif
 
-nnoremap <leader>f :CtrlPMixed<cr>
+nnoremap <C-p> :CtrlPCurWD<cr>
+nnoremap <leader>f :CtrlPCurWD<cr>
 nnoremap <leader>m :CtrlPMRUFiles<cr>
 nnoremap <leader>F :CtrlPBufTag<cr>
 nnoremap <leader>S :CtrlPTag<cr>
