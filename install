@@ -30,6 +30,16 @@ for file in $FILES_TO_LINK; do
   fi
 done
 
+if [ "$(uname)" == "Darwin" ]; then
+  VIM_UPDATE_PATH=/usr/local/bin/vim-update
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  VIM_UPDATE_PATH=$HOME/bin/vim-update
+fi
+
+if [ ! -e $VIM_UPDATE_PATH ]; then
+  ln -s $HOME/.vim/update $VIM_UPDATE_PATH
+fi
+
 if which go; then
   gopackages="code.google.com/p/go.tools/cmd/godoc \
      code.google.com/p/go.tools/cmd/vet \
