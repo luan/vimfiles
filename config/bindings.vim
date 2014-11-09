@@ -115,6 +115,9 @@ function! MapCR()
   nnoremap <silent> <enter> :call CRWriteIfNecessary()<CR>
 endfunction
 call MapCR()
+
+
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 " }}}
 
 " Test runner {{{
