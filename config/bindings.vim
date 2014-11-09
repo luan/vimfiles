@@ -117,7 +117,9 @@ endfunction
 call MapCR()
 
 
-nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+nnoremap <silent><leader><C-]> <C-w><C-]><C-w>T
+nnoremap <silent><leader>o o<esc>
+nnoremap <silent><leader>O O<esc>
 " }}}
 
 " Test runner {{{
