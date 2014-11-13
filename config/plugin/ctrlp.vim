@@ -2,8 +2,8 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:50'
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
 
-if filereadable($HOME.'/.vim/bundle/ctrlp-cmatcher/autoload/fuzzycomt.so')
-  let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+if has('python') || has('python3')
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
 nnoremap <C-p> :CtrlPCurWD<cr>

@@ -23,13 +23,7 @@ NeoBundle 'tpope/vim-sensible'
 
 " Navigation
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'JazzCore/ctrlp-cmatcher', {
-      \   'build': {
-      \     'mac': 'bash -c "CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments ./install.sh"',
-      \     'unix': './install.sh',
-      \     'windows': 'install_windows.bat',
-      \   }
-      \ }
+NeoBundle 'FelikZ/ctrlp-py-matcher'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
 
