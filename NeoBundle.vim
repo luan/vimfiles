@@ -30,6 +30,7 @@ NeoBundle 'majutsushi/tagbar'
 " UI Additions
 " colorschemes
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'chriskempson/base16-vim'
 
 NeoBundle 'bling/vim-airline'
 NeoBundle 'kshenoy/vim-signature'
@@ -106,7 +107,8 @@ NeoBundleLazy 'fatih/vim-go', {'autoload': {'filetypes': ['go']}}
 NeoBundle 'honza/dockerfile.vim'
 
 "   JavaScript
-NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 NeoBundleLazy 'maksimr/vim-jsbeautify', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
 NeoBundleLazy 'leshill/vim-json', {'autoload':{'filetypes':['javascript','json']}}
