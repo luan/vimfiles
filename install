@@ -2,27 +2,26 @@
 #
 # Simple tasks for managing my .vim files
 
-FILES_TO_LINK="vimrc gvimrc"
+FILES_TO_LINK="vimrc gvimrc vim"
 LOCALS=".vimrc.local.before .vimrc.local"
+DIR=$(cd $(dirname $0) && pwd)
 
-pushd $HOME/.vim
-
-if [ -e $HOME/.vim/bundle/neobundle.vim ]; then
-  pushd $HOME/.vim/bundle/neobundle.vim
+if [ -e $DIR/vim/bundle/neobundle.vim ]; then
+  pushd $DIR/vim/bundle/neobundle.vim
   git pull origin master
   popd
 else
-  mkdir -p $HOME/.vim/bundle
-  git clone git://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
+  mkdir -p $DIR/vim/bundle
+  git clone git://github.com/Shougo/neobundle.vim $DIR/vim/bundle/neobundle.vim
 fi
 
-if [ -e $HOME/.vim/scripts/shell-colors-vim-hybrid ]; then
-  pushd $HOME/.vim/scripts/shell-colors-vim-hybrid
+if [ -e $DIR/vim/scripts/shell-colors-vim-hybrid ]; then
+  pushd $DIR/vim/scripts/shell-colors-vim-hybrid
   git pull origin master
   popd
 else
-  mkdir -p $HOME/.vim/scripts
-  git clone https://gist.github.com/0d27cb34e81af344d742.git $HOME/.vim/scripts/shell-colors-vim-hybrid
+  mkdir -p $DIR/vim/scripts
+  git clone https://gist.github.com/0d27cb34e81af344d742.git $DIR/vim/scripts/shell-colors-vim-hybrid
 fi
 
 for file in $LOCALS; do
@@ -33,7 +32,7 @@ done
 for file in $FILES_TO_LINK; do
   dot_file=$HOME/.$file
   if [ ! -e $dot_file ]; then
-    ln -s $HOME/.vim/$file $dot_file
+    ln -s $DIR/$file $dot_file
   else
     echo "You already have vim's dotfiles set up on your home directory."
   fi
@@ -46,7 +45,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 fi
 
 if [ ! -e $VIM_UPDATE_PATH ]; then
-  ln -s $HOME/.vim/update $VIM_UPDATE_PATH
+  ln -s $DIR/vim/update $VIM_UPDATE_PATH
 fi
 
 if which go; then
@@ -63,6 +62,6 @@ if which go; then
   done
 fi
 
-$HOME/.vim/bundle/neobundle.vim/bin/neoinstall
-
+pushd $DIR/vim
+$DIR/vim/bundle/neobundle.vim/bin/neoinstall
 popd

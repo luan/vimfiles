@@ -3,7 +3,7 @@
 .netrwhist
 .rake_tasks~
 .undo/*
-/bundle
+/vim/bundle
 /sessions
 tags
 /scripts
