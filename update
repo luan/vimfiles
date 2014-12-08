@@ -2,7 +2,10 @@
 #
 # Simple tasks for managing my .vim files
 
-pushd $HOME/.vim
+DIR=$(cd $(dirname $0) && pwd)
+
+pushd $DIR/vim
 git pull
-~/.vim/install
 popd
+
+$DIR/install
