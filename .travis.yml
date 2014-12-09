@@ -1,6 +1,16 @@
+before_install: sudo apt-get install vim-gtk
 before_script:
     - git clone https://github.com/syngan/vim-vimlint /tmp/vim-vimlint
     - git clone https://github.com/ynkdir/vim-vimlparser /tmp/vim-vimlparser
-
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
 script:
   - sh /tmp/vim-vimlint/bin/vimlint.sh -l /tmp/vim-vimlint -p /tmp/vim-vimlparser -v vimrc *.vim config lib
+  - ln -s $PWD $HOME/.vim
+  - mkdir $HOME/bin
+  - BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  - git fetch origin master:master
+  - git checkout master^
+  - ./install
+  - git checkout $BRANCH
+  - $HOME/bin/vim-update
