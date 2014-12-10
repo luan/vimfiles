@@ -87,7 +87,7 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 
 " Language Additions
-NeoBundle 'oblitum/rainbow'
+NeoBundle 'luochen1990/rainbow'
 NeoBundle 'tpope/vim-projectionist'
 " Ruby
 NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby', 'rake']}}
