@@ -118,8 +118,8 @@ call MapCR()
 
 
 nnoremap <silent><leader><C-]> <C-w><C-]><C-w>T
-nmap <silent><C-J> o<ESC>k
-nmap <silent><C-K> O<ESC>j
+nnoremap <silent><leader>o o<esc>
+nnoremap <silent><leader>O O<esc>
 " }}}
 
 " Test runner {{{
@@ -129,3 +129,5 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 " }}}
 
+nmap <C-J> o<ESC>k
+nmap <C-K> O<ESC>j
