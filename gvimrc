@@ -1,7 +1,5 @@
 " Unbind these keys for different bindings in vimrc
 if has('gui_macvim')
-  " D-t
-  macmenu &File.New\ Tab key=<nop>
   " D-p
   macmenu &File.Print key=<nop>
 
