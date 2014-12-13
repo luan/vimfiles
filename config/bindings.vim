@@ -128,3 +128,6 @@ map <leader>t :call RunTestFile()<cr>
 " Run only the example under the cursor
 map <leader>T :call RunNearestTest()<cr>
 " }}}
+
+nmap <C-J> o<ESC>k
+nmap <C-K> O<ESC>j
