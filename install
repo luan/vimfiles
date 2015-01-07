@@ -50,16 +50,21 @@ if [ ! -e $VIM_UPDATE_PATH ]; then
 fi
 
 if which go; then
-  gopackages="code.google.com/p/go.tools/cmd/godoc \
-     code.google.com/p/go.tools/cmd/vet \
-     code.google.com/p/go.tools/cmd/goimports \
-     code.google.com/p/rog-go/exp/cmd/godef \
-     github.com/golang/lint/golint \
-     github.com/nsf/gocode \
-     github.com/jstemmer/gotags"
+  gopackages="\
+    code.google.com/p/rog-go/exp/cmd/godef \
+    github.com/golang/lint/golint \
+    github.com/jstemmer/gotags \
+    github.com/kisielk/errcheck \
+    github.com/nsf/gocode \
+    golang.org/x/tools/cmd/godoc \
+    golang.org/x/tools/cmd/goimports \
+    golang.org/x/tools/cmd/gorename \
+    golang.org/x/tools/cmd/oracle \
+    golang.org/x/tools/cmd/vet \
+    "
 
   for p in $gopackages; do
-    go get -u -v $p
+    go get -u $p
   done
 fi
 
