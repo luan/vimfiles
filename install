@@ -34,8 +34,6 @@ for file in $FILES_TO_LINK; do
   dot_file=$HOME/.$file
   if [ ! -e $dot_file ]; then
     ln -s $HOME/.vim/$file $dot_file
-  else
-    echo "You already have vim's dotfiles set up on your home directory."
   fi
 done
 
@@ -49,7 +47,8 @@ if [ ! -e $VIM_UPDATE_PATH ]; then
   ln -s $HOME/.vim/update $VIM_UPDATE_PATH
 fi
 
-if which go; then
+if which go > /dev/null; then
+  echo "Installing go dependencies..."
   gopackages="\
     code.google.com/p/rog-go/exp/cmd/godef \
     github.com/golang/lint/golint \
@@ -64,7 +63,9 @@ if which go; then
     "
 
   for p in $gopackages; do
+    echo -n "${p}... "
     go get -u $p
+    echo done
   done
 fi
 
