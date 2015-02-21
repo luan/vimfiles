@@ -134,7 +134,7 @@ function! RunTests(filename)
   else
     if filereadable("script/test")
       let command = "script/test " . a:filename
-    elseif filereadable("Gemfile")
+    elseif (exists('g:force_bundle_exec') && g:force_bundle_exec == 1) || filereadable("Gemfile")
       let command = "bundle exec rspec --color " . a:filename
     else
       let command = "rspec --color " . a:filename
