@@ -73,7 +73,6 @@ function! colors#toggle_background()
   else
     set background=light
   endif
-  call colors#_change(0)
 endfunction
 
 function! colors#peek()
