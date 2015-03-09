@@ -3,7 +3,6 @@
 .netrwhist
 .rake_tasks~
 .undo/*
-/bundle
-/sessions
+bundle/
+sessions/
 tags
-/scripts

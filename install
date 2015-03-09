@@ -7,23 +7,7 @@ LOCALS=".vimrc.local.before .vimrc.local"
 
 pushd $HOME/.vim
 
-if [ -e $HOME/.vim/bundle/neobundle.vim ]; then
-  pushd $HOME/.vim/bundle/neobundle.vim
-  git pull origin master
-  popd
-else
-  mkdir -p $HOME/.vim/bundle
-  git clone git://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
-fi
-
-if [ -e $HOME/.vim/scripts/shell-colors-vim-hybrid ]; then
-  pushd $HOME/.vim/scripts/shell-colors-vim-hybrid
-  git pull origin master
-  popd
-else
-  mkdir -p $HOME/.vim/scripts
-  git clone https://gist.github.com/0d27cb34e81af344d742.git $HOME/.vim/scripts/shell-colors-vim-hybrid
-fi
+git submodule update --init --recursive
 
 for file in $LOCALS; do
   dot_file=$HOME/$file

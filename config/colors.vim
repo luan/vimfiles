@@ -1,5 +1,7 @@
 let &t_Co=256
 
+let g:base16_shell_path=$HOME.'/.vim/scripts/base16-shell'
+
 let g:darkcolors = [
       \ 'hybrid',
       \ 'base16-3024',
