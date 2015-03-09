@@ -34,7 +34,6 @@ fi
 if which go > /dev/null; then
   echo "Installing go dependencies..."
   gopackages="\
-    code.google.com/p/rog-go/exp/cmd/godef \
     github.com/golang/lint/golint \
     github.com/jstemmer/gotags \
     github.com/kisielk/errcheck \
@@ -44,6 +43,7 @@ if which go > /dev/null; then
     golang.org/x/tools/cmd/gorename \
     golang.org/x/tools/cmd/oracle \
     golang.org/x/tools/cmd/vet \
+    code.google.com/p/rog-go/exp/cmd/godef \
     "
 
   for p in $gopackages; do

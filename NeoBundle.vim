@@ -29,7 +29,7 @@ NeoBundle 'majutsushi/tagbar'
 
 " UI Additions
 " colorschemes
-NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'dolio/vim-hybrid'
 NeoBundle 'chriskempson/base16-vim'
 
 NeoBundle 'bling/vim-airline'
