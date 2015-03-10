@@ -99,7 +99,7 @@ function! RunTestFile(...)
   endif
 
   " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.go\)$') != -1
   if in_test_file
     call RunTests(expand("%") . command_suffix)
   else
@@ -130,6 +130,12 @@ function! RunTests(filename)
       let command = "bundle exec cucumber " . a:filename
     else
       let command = "cucumber " . a:filename
+    end
+  elseif match(a:filename, '_test\.go') != -1
+    if filereadable("script/test")
+      let command = "script/test " . fnamemodify(a:filename, ':h')
+    else
+      let command = "ginkgo " . fnamemodify(a:filename, ':h')
     end
   else
     if filereadable("script/test")
