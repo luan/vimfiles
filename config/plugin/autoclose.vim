@@ -1,2 +1,0 @@
-:silent! AutoCloseOff
-

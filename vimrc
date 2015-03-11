@@ -23,7 +23,7 @@ runtime! config/platform.vim
 runtime! config/plugin/NERDTree.vim
 runtime! config/plugin/ack.vim
 runtime! config/plugin/airline.vim
-runtime! config/plugin/autoclose.vim
+runtime! config/plugin/autopairs.vim
 runtime! config/plugin/commentary.vim
 runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/echodoc.vim
