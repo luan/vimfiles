@@ -68,6 +68,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'Townk/vim-autoclose'
 
 if !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
   NeoBundle 'Shougo/neocomplcache.vim'
