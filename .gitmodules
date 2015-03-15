@@ -1,6 +1,3 @@
-[submodule "bundle/neobundle.vim"]
-	path = bundle/neobundle.vim
-	url = https://github.com/Shougo/neobundle.vim
 [submodule "scripts/shell-colors-vim-hybrid"]
 	path = scripts/shell-colors-vim-hybrid
 	url = https://gist.github.com/0d27cb34e81af344d742.git
