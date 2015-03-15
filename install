@@ -5,10 +5,20 @@
 FILES_TO_LINK="vimrc gvimrc"
 LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
 
-pushd $HOME/.vim
+DIR=$(cd $(dirname $0) && pwd)
 
-if [ -e $HOME/.vim/bundle ]; then
-  rm -rf $HOME/.vim/bundle
+if [ "$DIR" != "$HOME/.vim" ]; then
+  dot_file=$HOME/.vim
+  if [ ! -e $dot_file ]; then
+    echo "Detected clone outside of ~/.vim, symlinking"
+    ln -s $DIR $dot_file
+  fi
+fi
+
+pushd $DIR
+
+if [ -e $DIR/bundle ]; then
+  rm -rf $DIR/bundle
 fi
 
 git submodule update --init --recursive
@@ -21,7 +31,7 @@ done
 for file in $FILES_TO_LINK; do
   dot_file=$HOME/.$file
   if [ ! -e $dot_file ]; then
-    ln -s $HOME/.vim/$file $dot_file
+    ln -s $DIR/$file $dot_file
   fi
 done
 
@@ -32,7 +42,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 fi
 
 if [ ! -e $VIM_UPDATE_PATH ]; then
-  ln -s $HOME/.vim/update $VIM_UPDATE_PATH
+  ln -s $DIR/update $VIM_UPDATE_PATH
 fi
 
 green='\e[0;32m'
