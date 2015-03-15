@@ -54,7 +54,7 @@ function! colors#_change(index)
   if !has('gui_running') && name == 'hybrid'
     silent !source $HOME/.vim/scripts/shell-colors-vim-hybrid/shell-colors-vim-hybrid.sh
   endif
-  execute "colorscheme ".name
+  silent! execute "colorscheme ".name
 endfunction
 
 function! colors#next()

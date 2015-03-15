@@ -1,11 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Simple tasks for managing my .vim files
 
 FILES_TO_LINK="vimrc gvimrc"
-LOCALS=".vimrc.local.before .vimrc.local"
+LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
 
 pushd $HOME/.vim
+
+if [ -e $HOME/.vim/bundle ]; then
+  rm -rf $HOME/.vim/bundle
+fi
 
 git submodule update --init --recursive
 
@@ -31,8 +35,14 @@ if [ ! -e $VIM_UPDATE_PATH ]; then
   ln -s $HOME/.vim/update $VIM_UPDATE_PATH
 fi
 
+green='\e[0;32m'
+yellow='\e[0;33m'
+bold=`tput bold`
+normal=`tput sgr0`
+end_color='\e[0m'
+
 if which go > /dev/null; then
-  echo "Installing go dependencies..."
+  echo -e "${yellow}INSTALL${end_color} ${bold}golang${normal} dependencies..."
   gopackages="\
     github.com/golang/lint/golint \
     github.com/jstemmer/gotags \
@@ -43,16 +53,20 @@ if which go > /dev/null; then
     golang.org/x/tools/cmd/gorename \
     golang.org/x/tools/cmd/oracle \
     golang.org/x/tools/cmd/vet \
-    code.google.com/p/rog-go/exp/cmd/godef \
     "
 
+
   for p in $gopackages; do
-    echo -n "${p}... "
-    go get -u $p
-    echo done
+    (
+      echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
+      go get -u $p
+      echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
+    ) &
   done
+  wait
+  echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
 fi
 
-$HOME/.vim/bundle/neobundle.vim/bin/neoinstall
+vim +'silent! PlugUpdate' +qall
 
 popd
