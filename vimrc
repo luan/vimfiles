@@ -1,7 +1,7 @@
 " =======================================
 " Initially based on/forked from: Jeremy Mack (@mutewinter)
 " [http://github.com/luan/vimfiles]
-" Who: Luan Santos (GitHub: @luan)
+" Maintained By: Luan Santos (GitHub: @luan)
 " =======================================
 
 set nocompatible
