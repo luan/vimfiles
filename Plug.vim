@@ -32,10 +32,11 @@ call plug#begin('~/.vim/plugged')
     if a:info.status == 'installed' || a:info.force
       if has("unix")
         let s:uname = system("uname -s")
-        if s:uname == "Darwin"
-          !ln -s `pwd`/vipe /usr/local/bin || true
+        if s:uname =~ "Darwin"
+          silent !rm -f /usr/local/bin/vipe
+          silent !ln -s `pwd`/vipe /usr/local/bin || true
         else
-          !ln -s `pwd`/vipe ~/bin || true
+          silent !ln -s `pwd`/vipe ~/bin || true
         endif
       endif
     endif
