@@ -46,7 +46,6 @@ set tags=./tags;/,tags;/
 " Text Format {{{
 set tabstop=2
 set shiftwidth=2 " Tabs under smart indent
-set cindent
 set expandtab
 " }}}
 
