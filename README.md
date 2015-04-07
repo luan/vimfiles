@@ -60,7 +60,7 @@ I may make this more verbose later, but for now, here's a list of plugins that r
 
 ## Install Script
 
-The directory contains a bash script named `install`. `install` will create your local override files (`.vimrc.loca.before` and `.vimrc.local`), symlink `.vimrc` and `.gvimrc`.
+The directory contains a bash script named `install`. `install` will create your local override files (`.vimrc.local.before` and `.vimrc.local`), symlink `.vimrc` and `.gvimrc`.
 It will also install `golang`'s tools if you have golang on your `$PATH`.
 
 ## Notes
