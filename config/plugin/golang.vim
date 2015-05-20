@@ -2,7 +2,12 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 let g:go_snippet_engine = "neosnippet"
+let g:go_fmt_autosave = 0
+
+Glaive codefmt gofmt_executable='goimports'
 
 function! golang#generate_project()
   call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
@@ -43,6 +48,11 @@ function! s:ProjectionistDetect() abort
     call projectionist#append(getcwd(), projections)
   endif
 endfunction
+
+augroup go_autoformat
+  autocmd!
+  autocmd BufEnter *.go execute(':AutoFormatBuffer')
+augroup END
 
 augroup go_projectionist
   autocmd!
