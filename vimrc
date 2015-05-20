@@ -37,6 +37,7 @@ runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/tmux-navigator.vim
 runtime! config/plugin/undotree.vim
+runtime! config/plugin/json.vim
 
 " ----------------------------------------
 " Lib load path

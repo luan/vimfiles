@@ -119,7 +119,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mxw/vim-jsx',              { 'for': ['javascript']        }
     Plug 'maksimr/vim-jsbeautify',   { 'for': ['javascript']        }
     Plug 'kchmck/vim-coffee-script', { 'for': ['coffee']            }
-    Plug 'leshill/vim-json',         { 'for': ['javascript','json'] }
+    Plug 'elzr/vim-json',            { 'for': ['javascript','json'] }
   " }}}
 
   " CSS / HTML {{{
