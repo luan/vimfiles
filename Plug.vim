@@ -42,6 +42,7 @@ call plug#begin('~/.vim/plugged')
     endif
   endfunction
 
+  Plug 'Shougo/vimproc.vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
