@@ -42,7 +42,26 @@ call plug#begin('~/.vim/plugged')
     endif
   endfunction
 
-  Plug 'Shougo/vimproc.vim'
+  function! InstallVimProc(info)
+    if a:info.status == 'installed' || a:info.force
+      if has("unix")
+        let s:uname = system("uname -s")
+        if s:uname =~ "Darwin"
+          silent !make -f make_mac.mak
+        elseif s:uname =~ "Linux"
+          silent !make
+        else
+          silent !gmake
+        endif
+      elseif has("win32unix")
+        silent !make -f make_cygwin.mak
+      elseif has('win32')
+        silent !tools\update-dll-mingw
+      endif
+    endif
+  endfunction
+
+  Plug 'Shougo/vimproc.vim',             { 'do': function('InstallVimProc') }
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
