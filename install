@@ -74,7 +74,7 @@ if which go > /dev/null; then
   echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
 fi
 
-vim +'silent! PlugClean' +qall
+vim +'silent! PlugClean!' +qall
 vim +'silent! PlugUpdate' +qall
 
 popd
