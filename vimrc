@@ -34,6 +34,7 @@ runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/echodoc.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/golang.vim
+runtime! config/plugin/json.vim
 runtime! config/plugin/neocomplete.vim
 runtime! config/plugin/neosnippet.vim
 runtime! config/plugin/omnicompletion.vim
@@ -42,7 +43,6 @@ runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/tmux-navigator.vim
 runtime! config/plugin/undotree.vim
-runtime! config/plugin/json.vim
 
 " ----------------------------------------
 " Lib load path
