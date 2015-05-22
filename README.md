@@ -71,6 +71,12 @@ It will also install `golang`'s tools if you have golang on your `$PATH`.
 let g:autosave = 1
 ```
 
+To disable the neocomplete autocomplete popup:
+```
+let g:neocomplete#enable_at_startup = 0   " disable neocomplete
+let g:neocomplcache_enable_at_startup = 0 " disable the fallback version when no LUA
+```
+
 ## Plugin Installation / Requirements
 
 Be sure to always edit the vimrc using `,vi`, which opens the vimrc in the .vim folder. Vim has a nasty habit of overriding symlinks.
