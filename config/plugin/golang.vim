@@ -5,7 +5,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_snippet_engine = "neosnippet"
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 
 try
 Glaive codefmt gofmt_executable='goimports'
@@ -51,11 +51,6 @@ function! s:ProjectionistDetect() abort
     call projectionist#append(getcwd(), projections)
   endif
 endfunction
-
-augroup go_autoformat
-  autocmd!
-  autocmd BufEnter *.go execute(':AutoFormatBuffer')
-augroup END
 
 augroup go_projectionist
   autocmd!
