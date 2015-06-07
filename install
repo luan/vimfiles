@@ -66,7 +66,7 @@ if which go > /dev/null; then
   for p in $gopackages; do
     (
       echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
-      go get -u $p
+      go get -f -u $p
       echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
     ) &
   done
