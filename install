@@ -43,11 +43,11 @@ if [ ! -e $VIM_UPDATE_PATH ]; then
   ln -s $DIR/update $VIM_UPDATE_PATH
 fi
 
-green='\e[0;32m'
-yellow='\e[0;33m'
+green='\033[0;32m'
+yellow='\033[0;33m'
 bold=`tput bold`
 normal=`tput sgr0`
-end_color='\e[0m'
+end_color='\033[0;m'
 
 if which go > /dev/null; then
   echo -e "${yellow}INSTALL${end_color} ${bold}golang${normal} dependencies..."
@@ -66,7 +66,7 @@ if which go > /dev/null; then
   for p in $gopackages; do
     (
       echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
-      go get -u $p
+      go get -f -u $p
       echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
     ) &
   done
