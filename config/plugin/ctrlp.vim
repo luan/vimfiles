@@ -7,6 +7,7 @@ if has('python') || has('python3')
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
+let g:ctrlp_map = ''
 nnoremap <C-p> :CtrlPCurWD<cr>
 nnoremap <leader>f :CtrlPCurWD<cr>
 nnoremap <leader>m :CtrlPMRUFiles<cr>
