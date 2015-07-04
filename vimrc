@@ -20,11 +20,6 @@ runtime! config/platform.vim
 " Plugin Configuration
 " ----------------------------------------
 
-try
-  call glaive#Install()
-catch
-endtry
-
 runtime! config/plugin/NERDTree.vim
 runtime! config/plugin/ack.vim
 runtime! config/plugin/airline.vim
