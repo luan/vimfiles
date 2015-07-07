@@ -311,6 +311,16 @@ abbr        Expect("test").NotTo(...)
 options     head
   Expect(${1}).NotTo(${0})
 
+snippet     exeo
+abbr        Expect(err).To(HaveOccurred())
+options     head
+  Expect(err).To(HaveOccurred())
+
+snippet     exen
+abbr        Expect(err).NotTo(HaveOccurred())
+options     head
+  Expect(err).NotTo(HaveOccurred())
+
 snippet     eq
 abbr        Equal(...)
 alias       Equal(
