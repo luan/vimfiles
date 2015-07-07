@@ -68,6 +68,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'gregsexton/gitv',                { 'on': 'Gitv'                  }
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-eunuch'
+  Plug 'Peeja/vim-cdo'
   Plug 'godlygeek/tabular'
   Plug 'mileszs/ack.vim',                { 'on': 'Ack'                   }
   Plug 'rking/ag.vim',                   { 'on': 'Ag'                    }
