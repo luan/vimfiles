@@ -79,7 +79,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mbbill/undotree'
 
   Plug 'google/vim-maktaba'
-  Plug 'luan/vim-codefmt', { 'branch': 'no-repeat-autoformat' }
+  Plug 'google/vim-codefmt'
   Plug 'google/vim-glaive'
 " }}}
 
