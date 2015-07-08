@@ -25,13 +25,6 @@ function! golang#buffcommands()
   setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 endfunction
 
-function! golang#syn_if_longfile(param)
-  let l:linecount = line('$')
-  if linecount > 1500
-    execute "syn ".a:param
-  endif
-endfunction
-
 let s:projections = {
       \ '*': {},
       \ '*.go': {'type': 'go', 'alternate': ['{}_test.go']},
@@ -50,12 +43,6 @@ endfunction
 augroup go_projectionist
   autocmd!
   autocmd User ProjectionistDetect call s:ProjectionistDetect()
-augroup END
-
-augroup go_fastgo
-  autocmd!
-  autocmd BufWritePre *.go call golang#syn_if_longfile('off')
-  autocmd BufWritePost *.go call golang#syn_if_longfile('on')
 augroup END
 
 if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
