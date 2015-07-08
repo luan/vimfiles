@@ -69,14 +69,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-eunuch'
   Plug 'godlygeek/tabular'
-  Plug 'mileszs/ack.vim'
-  Plug 'rking/ag.vim'
+  Plug 'mileszs/ack.vim',                { 'on': 'Ack'                   }
+  Plug 'rking/ag.vim',                   { 'on': 'Ag'                    }
   Plug 'luan/vipe',                      { 'do': function('InstallVipe') }
   Plug 'scrooloose/syntastic'
   Plug 'milkypostman/vim-togglelist'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'maxbrunsfeld/vim-emacs-bindings'
   Plug 'mbbill/undotree'
+
+  Plug 'google/vim-maktaba'
+  Plug 'google/vim-codefmt'
+  Plug 'google/vim-glaive'
 " }}}
 
 " Automatic Helpers {{{
@@ -126,9 +130,7 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " Go {{{
-    " Plug 'fatih/vim-go', { 'for': ['go'] }
-    " using my fork until https://github.com/fatih/vim-go/pull/476 is merged
-    Plug 'luan/vim-go', { 'for': ['go'] }
+    Plug 'fatih/vim-go', { 'for': ['go'] }
   " }}}
 
   " Docker {{{
