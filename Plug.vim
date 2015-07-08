@@ -130,7 +130,7 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " Go {{{
-    Plug 'fatih/vim-go', { 'for': ['go'] }
+    Plug 'fatih/vim-go'
   " }}}
 
   " Docker {{{

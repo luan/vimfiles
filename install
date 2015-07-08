@@ -68,13 +68,13 @@ if which go > /dev/null; then
       echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
       go get -f -u $p
       echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
-    ) &
+    )
   done
-  wait
   echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
 fi
 
 vim +'silent! PlugClean!' +qall
 vim +'silent! PlugUpdate' +qall
+vim +'silent! GoInstallBinaries' +qall
 
 popd
