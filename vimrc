@@ -57,3 +57,6 @@ runtime! lib/auto_commands.vim
 
 silent! source ~/.vimrc.local
 
+color desert
+inoremap jk <esc>
+
