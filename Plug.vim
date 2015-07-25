@@ -99,7 +99,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-unimpaired'
-  Plug 'Townk/vim-autoclose', { 'on': 'AutoCloseOn' }
 
   if has('nvim')
     Plug 'Shougo/deoplete.nvim'
