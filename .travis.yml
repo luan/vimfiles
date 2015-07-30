@@ -1,3 +1,4 @@
+sudo: false
 before_install: sudo apt-get install vim-gtk
 before_script:
     - git clone https://github.com/syngan/vim-vimlint /tmp/vim-vimlint
