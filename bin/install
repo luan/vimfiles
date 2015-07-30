@@ -65,9 +65,9 @@ for file in $FILES_TO_LINK; do
 done
 
 if [ "$(uname)" == "Darwin" ]; then
-  VIM_UPDATE_PATH=/usr/local/bin/vim-update
+  VIM_UPDATE_PATH=/usr/local/bin/
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  VIM_UPDATE_PATH=$HOME/bin/vim-update
+  VIM_UPDATE_PATH=$HOME/bin/
 fi
 
 if [ -e $VIM_UPDATE_PATH ]; then
@@ -75,7 +75,8 @@ if [ -e $VIM_UPDATE_PATH ]; then
 fi
 
 if [ ! -e $VIM_UPDATE_PATH ]; then
-  ln -s $DIR/bin/update $VIM_UPDATE_PATH
+  mkdir -p $VIM_UPDATE_PATH
+  ln -s $DIR/bin/update $VIM_UPDATE_PATH/vim-update
 fi
 
 green='\033[0;32m'
