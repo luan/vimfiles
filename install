@@ -1,5 +1,36 @@
 #!/usr/bin/env bash
 
+print_usage() {
+  echo -e "Unsupported option: $@"
+  echo -e "Supported options:"
+  echo -e "\t-u, --update          \tUpdate all plugins."
+  echo -e "\t-n, --non-interactive \tDon't show vim while installing plugins."
+}
+
+INTERACTIVE=1
+UPDATE=0
+
+while [[ $# > 0 ]]
+do
+  key="$1"
+
+  case $key in
+    -n|--non-interactive)
+      INTERACTIVE=0
+      shift
+      ;;
+    -u|--update)
+      UPDATE=1
+      shift
+      ;;
+    *)
+      print_usage $key
+      exit 1
+      ;;
+  esac
+  shift
+done
+
 FILES_TO_LINK="vimrc gvimrc"
 LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
 
@@ -39,6 +70,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   VIM_UPDATE_PATH=$HOME/bin/vim-update
 fi
 
+if [ -e $VIM_UPDATE_PATH ]; then
+  unlink $VIM_UPDATE_PATH
+fi
+
 if [ ! -e $VIM_UPDATE_PATH ]; then
   ln -s $DIR/update $VIM_UPDATE_PATH
 fi
@@ -64,23 +99,25 @@ if which go > /dev/null; then
     "
 
   for p in $gopackages; do
-    (
-      echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
-      go get -f -u $p
-      echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
-    )
+    echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
+    go get -f -u $p
+    echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
   done
   echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
 fi
 
-if [ "$1" == "--non-interactive" ]; then
-  vim +'silent! PlugClean!' +qall > /dev/null
-  vim +'silent! PlugUpdate' +qall > /dev/null
-  vim +'silent! GoInstallBinaries' +qall > /dev/null
+vimcmd=$vimcmd"silent! PlugClean!|"
+if [ $UPDATE == 1 ]; then
+  vimcmd=$vimcmd"silent! PlugUpdate!|"
 else
-  vim +'silent! PlugClean!' +qall
-  vim +'silent! PlugUpdate' +qall
-  vim +'silent! GoInstallBinaries' +qall
+  vimcmd=$vimcmd"silent! PlugInstall!|"
+fi
+vimcmd=$vimcmd"silent! GoInstallBinaries!|"
+
+if [ $INTERACTIVE == 1 ] ; then
+  vim +"$vimcmd" +'qall!'
+else
+  vim +"$vimcmd" +'qall!' > /dev/null
 fi
 
 popd

@@ -1,8 +1,6 @@
-#!/bin/bash
-#
-# Simple tasks for managing my .vim files
+#!/usr/bin/env bash
 
 pushd $HOME/.vim
 git pull
-~/.vim/install
+~/.vim/install -u $@
 popd
