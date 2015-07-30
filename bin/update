@@ -2,5 +2,5 @@
 
 pushd $HOME/.vim
 git pull
-~/.vim/install -u $@
+~/.vim/bin/install -u $@
 popd
