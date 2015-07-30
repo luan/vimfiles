@@ -16,6 +16,8 @@ runtime! config/colors.vim
 " Platform Specific
 runtime! config/platform.vim
 
+runtime! config/paste.vim
+
 " ----------------------------------------
 " Plugin Configuration
 " ----------------------------------------
