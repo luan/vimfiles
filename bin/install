@@ -34,7 +34,7 @@ done
 FILES_TO_LINK="vimrc gvimrc"
 LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
 
-DIR=$(cd $(dirname $0) && pwd)
+DIR=$(cd $(dirname $0)/.. && pwd)
 
 if [ "$DIR" != "$HOME/.vim" ]; then
   dot_file=$HOME/.vim
@@ -65,16 +65,16 @@ for file in $FILES_TO_LINK; do
 done
 
 if [ "$(uname)" == "Darwin" ]; then
-  VIM_UPDATE_PATH=/usr/local/bin/
+  VIM_UPDATE_PATH=/usr/local/bin
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  VIM_UPDATE_PATH=$HOME/bin/
+  VIM_UPDATE_PATH=$HOME/bin
 fi
 
-if [ -e $VIM_UPDATE_PATH ]; then
-  unlink $VIM_UPDATE_PATH
+if [ -L $VIM_UPDATE_PATH/vim-update ]; then
+  rm -f $VIM_UPDATE_PATH/vim-update
 fi
 
-if [ ! -e $VIM_UPDATE_PATH ]; then
+if [ ! -L $VIM_UPDATE_PATH/vim-update ]; then
   mkdir -p $VIM_UPDATE_PATH
   ln -s $DIR/bin/update $VIM_UPDATE_PATH/vim-update
 fi
