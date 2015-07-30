@@ -1,8 +1,4 @@
 sudo: false
-addons:
-  apt:
-    packages:
-    - vim-gtk
 before_script:
     - git clone https://github.com/syngan/vim-vimlint /tmp/vim-vimlint
     - git clone https://github.com/ynkdir/vim-vimlparser /tmp/vim-vimlparser
