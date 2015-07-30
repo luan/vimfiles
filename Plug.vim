@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 " Navigation {{{
   Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
-  Plug 'kien/ctrlp.vim'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'majutsushi/tagbar'
   Plug 'scrooloose/nerdtree'
