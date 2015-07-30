@@ -124,6 +124,8 @@ call plug#begin('~/.vim/plugged')
   " Clojure {{{
     Plug 'guns/vim-clojure-static', { 'for': ['clojure'] }
     Plug 'tpope/vim-fireplace',     { 'for': ['clojure'] }
+    Plug 'guns/vim-sexp'
+    Plug 'tpope/vim-sexp-mappings-for-regular-people'
   " }}}
 
   " Scala {{{
