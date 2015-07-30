@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'majutsushi/tagbar'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-projectionist'
+  Plug 'bogado/file-line'
 " }}}
 
 " UI Additions {{{
