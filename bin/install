@@ -34,7 +34,10 @@ done
 FILES_TO_LINK="vimrc gvimrc"
 LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
 
-DIR=$(cd $(dirname $0)/.. && pwd)
+DIR=$(cd $(dirname $0) && pwd)
+if [ $(basename $DIR) == "bin" ]; then
+  DIR=$(cd ${DIR}/..&& pwd)
+fi
 
 if [ "$DIR" != "$HOME/.vim" ]; then
   dot_file=$HOME/.vim
