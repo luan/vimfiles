@@ -11,6 +11,6 @@ script:
   - BRANCH=$(git rev-parse --abbrev-ref HEAD)
   - git fetch origin master:master
   - git checkout master^
-  - ./install
+  - ./bin/install
   - git checkout $BRANCH
   - $HOME/bin/vim-update
