@@ -29,6 +29,12 @@ set lazyredraw
 if exists('+colorcolumn')
   set colorcolumn=80 " Color the 80th column differently
 endif
+
+if has("mouse_sgr")
+  set ttymouse=sgr
+else
+  set ttymouse=xterm2
+end
 " }}}
 
 " Behaviors {{{
