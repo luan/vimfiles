@@ -171,6 +171,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'ynkdir/vim-vimlparser', { 'for': 'vim' }
     Plug 'syngan/vim-vimlint',    { 'for': 'vim' }
   " }}}
+  
+  " Elixir {{{
+    Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+  " }}}
 " }}}
 
 source $HOME/.vimrc.local.plugins
