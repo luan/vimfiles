@@ -129,4 +129,12 @@ else
   vim +"$vimcmd" +'qall!' > /dev/null
 fi
 
+if which nvim > /dev/null; then
+  if [ $INTERACTIVE == 1 ] ; then
+    nvim +"$vimcmd" +'qall!'
+  else
+    nvim +"$vimcmd" +'qall!' > /dev/null
+  fi
+fi
+
 popd
