@@ -5,12 +5,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_snippet_engine = "neosnippet"
-let g:go_fmt_autosave = 0
-
-try
-Glaive codefmt gofmt_executable='goimports'
-catch
-endtry
+let g:go_fmt_autosave = 1
 
 function! golang#generate_project()
   call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
@@ -45,11 +40,6 @@ function! s:ProjectionistDetect() abort
   endif
 endfunction
 
-augroup go_autoformat
-  autocmd!
-  autocmd BufEnter *.go execute(':AutoFormatBuffer')
-augroup END
-
 augroup go_projectionist
   autocmd!
   autocmd User ProjectionistDetect call s:ProjectionistDetect()
@@ -62,4 +52,3 @@ if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
     autocmd BufWritePost *.go call golang#generate_global()
   augroup END
 endif
-

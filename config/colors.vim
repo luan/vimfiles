@@ -89,5 +89,8 @@ map <silent><F3> :ColorsNext<cr>
 map <silent><F4> :ColorsToggleBG<cr>
 map <silent><F1> :ColorsPeek<cr>
 set background=dark
-let g:base16colorspace=256
+
+if !has('nvim')
+  let g:base16colorspace=256
+endif
 call colors#_change(0)

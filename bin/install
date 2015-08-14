@@ -47,6 +47,11 @@ if [ "$DIR" != "$HOME/.vim" ]; then
   fi
 fi
 
+if which nvim > /dev/null; then
+  ln -s $DIR $HOME/.nvim
+  ln -s $DIR/vimrc $HOME/.nvimrc
+fi
+
 pushd $DIR
 
 if [ -e $DIR/bundle ]; then

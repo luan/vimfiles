@@ -5,19 +5,24 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " Navigation {{{
-  Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'majutsushi/tagbar'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-projectionist'
   Plug 'bogado/file-line'
+
+  if has('nvim')
+    Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
+  else
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'FelikZ/ctrlp-py-matcher'
+  endif
 " }}}
 
 " UI Additions {{{
   " Colors {{{
     Plug 'dolio/vim-hybrid'
     Plug 'chriskempson/base16-vim'
+    Plug 'flazz/vim-colorschemes'
   " }}}
 
   Plug 'luochen1990/rainbow'
@@ -74,15 +79,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim',                { 'on': 'Ack'                   }
   Plug 'rking/ag.vim',                   { 'on': 'Ag'                    }
   Plug 'luan/vipe',                      { 'do': function('InstallVipe') }
-  Plug 'scrooloose/syntastic'
+  if has('nvim')
+    Plug 'benekastah/neomake'
+  else
+    Plug 'scrooloose/syntastic'
+  endif
   Plug 'milkypostman/vim-togglelist'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'maxbrunsfeld/vim-emacs-bindings'
   Plug 'mbbill/undotree'
-
-  Plug 'google/vim-maktaba'
-  Plug 'google/vim-codefmt'
-  Plug 'google/vim-glaive'
 " }}}
 
 " Automatic Helpers {{{
@@ -92,7 +97,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-unimpaired'
   Plug 'Townk/vim-autoclose', { 'on': 'AutoCloseOn' }
 
-  if !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
+  if has('nvim')
+    Plug 'Shougo/deoplete.nvim'
+  elseif !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
     Plug 'Shougo/neocomplcache.vim'
   else
     Plug 'Shougo/neocomplete.vim'
