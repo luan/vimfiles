@@ -115,7 +115,13 @@ if which go > /dev/null; then
   echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
 fi
 
-vimcmd=$vimcmd"silent! PlugClean!|"
+vim +'silent! PlugClean!|' +'qall!'
+
+if which nvim > /dev/null; then
+  nvim +'silent! PlugClean!|' +'qall!'
+fi
+
+vimcmd=""
 if [ $UPDATE == 1 ]; then
   vimcmd=$vimcmd"silent! PlugUpdate!|"
 else
