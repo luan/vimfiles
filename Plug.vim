@@ -10,9 +10,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-projectionist'
   Plug 'bogado/file-line'
 
-  if has('nvim')
-    Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
-  else
+  Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
+  if !has('nvim')
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'FelikZ/ctrlp-py-matcher'
   endif
