@@ -36,7 +36,7 @@ LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
 
 DIR=$(cd $(dirname $0) && pwd)
 if [ $(basename $DIR) == "bin" ]; then
-  DIR=$(cd ${DIR}/..&& pwd)
+  DIR=$(cd ${DIR}/.. && pwd)
 fi
 
 if [ "$DIR" != "$HOME/.vim" ]; then
@@ -48,8 +48,12 @@ if [ "$DIR" != "$HOME/.vim" ]; then
 fi
 
 if which nvim > /dev/null; then
-  ln -s $DIR $HOME/.nvim
-  ln -s $DIR/vimrc $HOME/.nvimrc
+  if [ ! -e $HOME/.nvim ]; then
+    ln -s $DIR $HOME/.nvim
+  fi
+  if [ ! -e $HOME/.nvimrc ]; then
+    ln -s $DIR/vimrc $HOME/.nvimrc
+  fi
 fi
 
 pushd $DIR
