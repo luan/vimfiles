@@ -27,8 +27,6 @@ inoremap <expr><silent> <CR> <SID>my_cr_function()
 function! s:my_cr_function()
   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.,:;/

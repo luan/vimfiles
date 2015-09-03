@@ -20,8 +20,6 @@ inoremap <expr><silent> <CR> <SID>my_cr_function()
 function! s:my_cr_function()
   return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
