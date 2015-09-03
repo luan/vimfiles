@@ -38,8 +38,7 @@ if has("autocmd")
 
     " Leave the return key alone when in command line windows, since it's used
     " to run commands there.
-    autocmd! CmdwinEnter * :unmap <cr>
-    autocmd! CmdwinLeave * :call MapCR()
+    autocmd! CmdwinEnter * nnoremap <buffer> <cr> <cr>
   augroup END
 
   autocmd! FileType ruby,eruby,yaml set tw=80 ai sw=2 sts=2 et

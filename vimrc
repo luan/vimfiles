@@ -50,7 +50,6 @@ else
   runtime! config/plugin/neocomplete.vim
 endif
 
-
 " ----------------------------------------
 " Lib load path
 " ----------------------------------------

@@ -4,6 +4,7 @@
 
 " Note: This line MUST come before any <leader> mappings
 let g:mapleader=","
+let g:maplocalleader = "-"
 
 set pastetoggle=<F6>
 map <F6> :set invpaste<CR>:set paste?<CR>
@@ -115,7 +116,6 @@ function! MapCR()
   nnoremap <silent> <enter> :call CRWriteIfNecessary()<CR>
 endfunction
 call MapCR()
-
 
 nnoremap <silent><leader><C-]> <C-w><C-]><C-w>T
 nnoremap <silent><leader>o o<esc>

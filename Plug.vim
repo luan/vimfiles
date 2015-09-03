@@ -78,6 +78,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim',                { 'on': 'Ack'                   }
   Plug 'rking/ag.vim',                   { 'on': 'Ag'                    }
   Plug 'luan/vipe',                      { 'do': function('InstallVipe') }
+  Plug 'tpope/vim-dispatch'
   if has('nvim')
     Plug 'benekastah/neomake'
   else
@@ -130,7 +131,9 @@ call plug#begin('~/.vim/plugged')
 
   " Clojure {{{
     Plug 'guns/vim-clojure-static', { 'for': ['clojure'] }
+    Plug 'tpope/vim-classpath'
     Plug 'tpope/vim-fireplace',     { 'for': ['clojure'] }
+    Plug 'tpope/vim-salve'
     Plug 'guns/vim-sexp'
     Plug 'tpope/vim-sexp-mappings-for-regular-people'
   " }}}
@@ -156,14 +159,14 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " CSS / HTML {{{
-    Plug 'mattn/emmet-vim',           { 'for': ['html','css']        }
+    Plug 'mattn/emmet-vim'
     Plug 'tpope/vim-haml',            { 'for': ['haml']              }
     Plug 'nono/vim-handlebars',       { 'for': ['handlebars']        }
     Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss','sass']       }
     Plug 'hail2u/vim-css3-syntax',    { 'for': ['css','scss','sass'] }
-    Plug 'othree/html5.vim',          { 'for': ['html']              }
+    Plug 'othree/html5.vim',
     Plug 'juvenn/mustache.vim',       { 'for': ['mustache']          }
-    Plug 'gregsexton/MatchTag',       { 'for': ['html','xml']        }
+    Plug 'gregsexton/MatchTag',
   " }}}
 
   " VimL {{{
