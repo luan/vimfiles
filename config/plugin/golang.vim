@@ -5,7 +5,12 @@ let g:go_highlight_structs = 0
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_snippet_engine = "neosnippet"
-let g:go_fmt_autosave = 1
+let g:go_fmt_autosave = 0
+
+try
+Glaive codefmt gofmt_executable='goimports'
+catch
+endtry
 
 function! golang#generate_project()
   call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
@@ -24,6 +29,12 @@ function! golang#buffcommands()
   command! -buffer -bar -nargs=0 GoTagsGlobal call golang#generate_global()
   setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 endfunction
+
+augroup go_autoformat
+  autocmd!
+  autocmd BufEnter *.go execute(':AutoFormatBuffer')
+augroup END
+
 
 let s:projections = {
       \ '*': {},

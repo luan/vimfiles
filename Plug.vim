@@ -88,6 +88,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-multiple-cursors'
   Plug 'maxbrunsfeld/vim-emacs-bindings'
   Plug 'mbbill/undotree'
+
+  Plug 'google/vim-maktaba'
+  Plug 'google/vim-codefmt'
+  Plug 'google/vim-glaive'
 " }}}
 
 " Automatic Helpers {{{
@@ -182,4 +186,13 @@ call plug#begin('~/.vim/plugged')
 source $HOME/.vimrc.local.plugins
 
 call plug#end()
+
+if has('nvim')
+  call maktaba#json#python#Disable()
+endif
+
+try
+  call glaive#Install()
+catch
+endtry
 
