@@ -59,4 +59,4 @@ silent! source ~/.vimrc.local
 
 color desert
 inoremap jk <esc>
-
+set backspace=indent,eol,start
