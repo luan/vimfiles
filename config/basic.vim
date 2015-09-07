@@ -28,6 +28,7 @@ if !has('nvim')
   set ttyfast
 endi
 set lazyredraw
+set splitright
 if exists('+colorcolumn')
   set colorcolumn=80 " Color the 80th column differently
 endif
