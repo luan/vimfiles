@@ -26,8 +26,6 @@ runtime! config/platform.vim
 
 runtime! config/plugin/NERDTree.vim
 runtime! config/plugin/ack.vim
-runtime! config/plugin/airline.vim
-runtime! config/plugin/autoclose.vim
 runtime! config/plugin/commentary.vim
 runtime! config/plugin/echodoc.vim
 runtime! config/plugin/fugitive.vim
@@ -59,3 +57,6 @@ runtime! lib/auto_commands.vim
 
 silent! source ~/.vimrc.local
 
+color desert
+inoremap jk <esc>
+set backspace=indent,eol,start
