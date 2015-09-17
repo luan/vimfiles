@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
 " UI Additions {{{
   " Colors {{{
     Plug 'dolio/vim-hybrid'
+    Plug 'morhetz/gruvbox'
     Plug 'chriskempson/base16-vim'
     Plug 'flazz/vim-colorschemes'
   " }}}
@@ -159,7 +160,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mxw/vim-jsx',              { 'for': ['javascript']        }
     Plug 'maksimr/vim-jsbeautify',   { 'for': ['javascript']        }
     Plug 'kchmck/vim-coffee-script', { 'for': ['coffee']            }
-    Plug 'elzr/vim-json',            { 'for': ['javascript','json'] }
+    Plug 'elzr/vim-json'
   " }}}
 
   " CSS / HTML {{{

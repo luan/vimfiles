@@ -4,6 +4,7 @@ let g:base16_shell_path=$HOME.'/.vim/scripts/base16-shell'
 
 let s:colors = [
       \ 'hybrid',
+      \ 'gruvbox',
       \ 'base16-3024',
       \ 'base16-apathy',
       \ 'base16-ashes',
@@ -53,6 +54,10 @@ function! colors#_change(index)
   let l:name = s:colors[idx]
   if !has('gui_running') && name == 'hybrid'
     silent !source $HOME/.vim/scripts/shell-colors-vim-hybrid/shell-colors-vim-hybrid.sh
+  endif
+  if !has('gui_running') && name == 'gruvbox'
+    let g:gruvbox_italic=1
+    silent !source $HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh
   endif
   silent! execute "colorscheme ".name
 endfunction
