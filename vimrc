@@ -40,6 +40,7 @@ runtime! config/plugin/rainbow.vim
 runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/undotree.vim
+runtime! config/plugin/yaml.vim
 
 if has('nvim')
   runtime! config/plugin/fzf.vim
