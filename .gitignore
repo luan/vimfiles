@@ -7,3 +7,5 @@ bundle/
 sessions/
 tags
 plugged/
+autoload/
+ftplugin/
