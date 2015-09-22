@@ -81,11 +81,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rking/ag.vim',                   { 'on': 'Ag'                    }
   Plug 'luan/vipe',                      { 'do': function('InstallVipe') }
   Plug 'tpope/vim-dispatch'
-  if has('nvim')
-    Plug 'benekastah/neomake'
-  else
-    Plug 'scrooloose/syntastic'
-  endif
+  Plug 'scrooloose/syntastic'
   Plug 'milkypostman/vim-togglelist'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'maxbrunsfeld/vim-emacs-bindings'
