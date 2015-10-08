@@ -41,9 +41,6 @@ nnoremap <silent> <C-Down> <c-w>j
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 
-" Make line completion easier
-imap <C-l> <C-x><C-l>
-" reselect visual block after indent
 vnoremap < <gv
 vnoremap > >gv
 " make Y consistent with C and D. See :help Y.
