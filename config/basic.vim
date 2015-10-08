@@ -51,6 +51,8 @@ set foldlevel=20
 set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
 set tags=./tags;/,tags;/
+set splitright
+set splitbelow
 " }}}
 
 " Text Format {{{
