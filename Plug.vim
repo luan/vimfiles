@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mhinz/vim-signify'
   Plug 'jszakmeister/vim-togglecursor'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'ntpeters/vim-better-whitespace'
 " }}}
 
 " Commands {{{
