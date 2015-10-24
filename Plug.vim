@@ -5,13 +5,22 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " Navigation {{{
+  " Displays tags in a window, ordered by scope
   Plug 'majutsushi/tagbar'
+
+  " A tree explorer plugin for vim
   Plug 'scrooloose/nerdtree'
+
+  " project configuration via 'projections'
   Plug 'tpope/vim-projectionist'
 
+  " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
   if !has('nvim')
+    " Active fork of kien/ctrlp.vim. Fuzzy file, buffer, mru, tag, etc finder.
     Plug 'ctrlpvim/ctrlp.vim'
+
+    " Fast vim CtrlP matcher based on python
     Plug 'FelikZ/ctrlp-py-matcher'
   endif
 " }}}
@@ -24,12 +33,25 @@ call plug#begin('~/.vim/plugged')
     Plug 'flazz/vim-colorschemes'
   " }}}
 
+  " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
   Plug 'luochen1990/rainbow'
+
+  " lean & mean status/tabline for vim that's light as air
   Plug 'bling/vim-airline'
+
+  " Plugin to toggle, display and navigate marks
   Plug 'kshenoy/vim-signature'
+
+  " Show a diff via Vim sign column.
   Plug 'mhinz/vim-signify'
+
+  " Toggle the cursor shape in the terminal
   Plug 'jszakmeister/vim-togglecursor'
+
+  " Seamless navigation between tmux panes and vim splits
   Plug 'christoomey/vim-tmux-navigator'
+
+  " Better whitespace highlighting for Vim
   Plug 'ntpeters/vim-better-whitespace'
 " }}}
 
@@ -67,56 +89,119 @@ call plug#begin('~/.vim/plugged')
     endif
   endfunction
 
-  Plug 'Shougo/vimproc.vim',             { 'do': function('InstallVimProc') }
+  " asynchronous process manager; run :VimProcBang to run a command and echo the results
+  Plug 'Shougo/vimproc.vim', { 'do': function('InstallVimProc') }
+
+  " comment stuff out (via leader-/)
   Plug 'tpope/vim-commentary'
+
+  " quoting/parenthesizing made simple; e.g. ysiw) to wrap word in parens
   Plug 'tpope/vim-surround'
+
+  " a Git wrapper so awesome, it should be illegal; :Gblame, etc
   Plug 'tpope/vim-fugitive'
-  Plug 'gregsexton/gitv',                { 'on': 'Gitv'                  }
+
+  " gitk for Vim.
+  Plug 'gregsexton/gitv', { 'on': 'Gitv' }
+
+  " easily search for, substitute, and abbreviate multiple variants of a word
   Plug 'tpope/vim-abolish'
+
+  " Vim sugar for the UNIX shell commands that need it the most; e.g. :Find, :Wall
   Plug 'tpope/vim-eunuch'
+
+  " Run a command over every entry in the quickfix list (:Cdo) or location list (:Ldo).
   Plug 'Peeja/vim-cdo'
+
+  " Vim script for text filtering and alignment; e.g. :Tabularize /,
   Plug 'godlygeek/tabular'
-  Plug 'mileszs/ack.vim',                { 'on': 'Ack'                   }
-  Plug 'rking/ag.vim',                   { 'on': 'Ag'                    }
-  Plug 'luan/vipe',                      { 'do': function('InstallVipe') }
+
+  " Vim plugin for the Perl module / CLI script 'ack'
+  Plug 'mileszs/ack.vim', { 'on': 'Ack' }
+
+  " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
+  Plug 'rking/ag.vim', { 'on': 'Ag' }
+
+  " Send test commands to a pipe.
+  Plug 'luan/vipe', { 'do': function('InstallVipe') }
+
+  " asynchronous build and test dispatcher
   Plug 'tpope/vim-dispatch'
+
+  " Syntax checking hacks for vim
   Plug 'scrooloose/syntastic'
+
+  " Functions to toggle the [Location List] and the [Quickfix List] windows.
   Plug 'milkypostman/vim-togglelist'
+
+  " True Sublime Text style multiple selections for Vim
   Plug 'terryma/vim-multiple-cursors'
+
+  " Add emacs/bash/cocoa key bindings to vim, in insert and command-line modes.
   Plug 'maxbrunsfeld/vim-emacs-bindings'
+
+  " The ultimate undo history visualizer for VIM
   Plug 'mbbill/undotree'
 
+  " vimscript plugin library. It is designed for plugin authors.
   Plug 'google/vim-maktaba'
+
+  " utility for syntax-aware code formatting
   Plug 'google/vim-codefmt'
+
+  " utility for configuring maktaba plugins
   Plug 'google/vim-glaive'
 " }}}
 
 " Automatic Helpers {{{
+  " wisely add "end" in ruby, endfunction/endif/more in vim script, etc
   Plug 'tpope/vim-endwise'
+
+  " enable repeating supported plugin maps with '.'
   Plug 'tpope/vim-repeat'
+
+  " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
   Plug 'tpope/vim-sleuth'
+
+  " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
   Plug 'tpope/vim-unimpaired'
+
+  " auto-close paired chars, e.g. (), {}
   Plug 'Townk/vim-autoclose', { 'on': 'AutoCloseOn' }
 
   if has('nvim')
+    " provides an asynchronous keyword completion system in the current buffer
     Plug 'Shougo/deoplete.nvim'
   elseif !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
+    " Ultimate auto-completion system for Vim. Note: It is not maintained well. You should use neocomplete instead.
     Plug 'Shougo/neocomplcache.vim'
   else
+    " Next generation completion framework after neocomplcache
     Plug 'Shougo/neocomplete.vim'
   endif
+  " displays information in echo area from echodoc plugin.
   Plug 'Shougo/echodoc.vim'
 " }}}
 
 " Text objects {{{
+  " allows you to configure % to match more than just single characters
   Plug 'matchit.zip'
+
+  " Create your own text objects
   Plug 'kana/vim-textobj-user'
+
+  " Underscore text-object for Vim
   Plug 'lucapette/vim-textobj-underscore'
+
+  " custom text object for selecting ruby blocks
   Plug 'nelstrom/vim-textobj-rubyblock'
 " }}}
 
 " Snippets {{{
+  " neo-snippet plugin contains neocomplcache snippets source
   Plug 'Shougo/neosnippet.vim'
+
+  " The standard snippets repository for neosnippet
   Plug 'Shougo/neosnippet-snippets'
 " }}}
 
@@ -175,7 +260,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ynkdir/vim-vimlparser', { 'for': 'vim' }
     Plug 'syngan/vim-vimlint',    { 'for': 'vim' }
   " }}}
-  
+
   " Elixir {{{
     Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
   " }}}
