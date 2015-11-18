@@ -48,11 +48,9 @@ if [ "$DIR" != "$HOME/.vim" ]; then
 fi
 
 if which nvim > /dev/null; then
-  if [ ! -e $HOME/.nvim ]; then
-    ln -s $DIR $HOME/.nvim
-  fi
-  if [ ! -e $HOME/.nvimrc ]; then
-    ln -s $DIR/vimrc $HOME/.nvimrc
+  mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+  if [ ! -e $XDG_CONFIG_HOME/nvim ]; then
+    ln -s $DIR/.vim $XDG_CONFIG_HOME/nvim
   fi
 fi
 
