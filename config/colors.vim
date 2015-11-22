@@ -52,7 +52,8 @@ function! colors#_change(index)
   endif
 
   let l:name = s:colors[idx]
-  if !has('gui_running') && name == 'hybrid'
+  let currentshell = $SHELL
+  if !has('gui_running') && name == 'hybrid' && currentshell != '/usr/bin/fish'
     silent !source $HOME/.vim/scripts/shell-colors-vim-hybrid/shell-colors-vim-hybrid.sh
   endif
   if !has('gui_running') && name == 'gruvbox'
