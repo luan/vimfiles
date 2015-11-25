@@ -50,7 +50,7 @@ fi
 if which nvim > /dev/null; then
   mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
   if [ ! -e $XDG_CONFIG_HOME/nvim ]; then
-    ln -s $DIR/.vim $XDG_CONFIG_HOME/nvim
+    ln -s $DIR $XDG_CONFIG_HOME/nvim
   fi
 fi
 
