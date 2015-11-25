@@ -53,11 +53,11 @@ function! colors#_change(index)
 
   let l:name = s:colors[idx]
   if !has('gui_running') && name == 'hybrid'
-    silent !source $HOME/.vim/scripts/shell-colors-vim-hybrid/shell-colors-vim-hybrid.sh
+    silent !bash $HOME/.vim/scripts/shell-colors-vim-hybrid/shell-colors-vim-hybrid.sh
   endif
   if !has('gui_running') && name == 'gruvbox'
     let g:gruvbox_italic=1
-    silent !source $HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh
+    silent !bash $HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh
   endif
   silent! execute "colorscheme ".name
 endfunction
