@@ -268,6 +268,10 @@ call plug#begin('~/.vim/plugged')
   " Fish {{{
     Plug 'dag/vim-fish', { 'for': 'fish' }
   " }}}
+
+  " Elm {{{
+    Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+  " }}}
 " }}}
 
 source $HOME/.vimrc.local.plugins
