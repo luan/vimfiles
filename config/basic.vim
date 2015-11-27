@@ -7,6 +7,9 @@ if has('persistent_undo')
   set undofile
   set undodir=~/.vim/.undo
 endif
+
+" We rely on bash for some things, make sure we use that for shelling out
+set shell=/bin/bash
 " }}}
 
 " Backups {{{
