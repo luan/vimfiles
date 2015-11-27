@@ -251,9 +251,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'nono/vim-handlebars',       { 'for': ['handlebars']        }
     Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss','sass']       }
     Plug 'hail2u/vim-css3-syntax',    { 'for': ['css','scss','sass'] }
-    Plug 'othree/html5.vim',
+    Plug 'othree/html5.vim'
     Plug 'juvenn/mustache.vim',       { 'for': ['mustache']          }
-    Plug 'gregsexton/MatchTag',
+    Plug 'gregsexton/MatchTag'
   " }}}
 
   " VimL {{{
