@@ -264,6 +264,10 @@ call plug#begin('~/.vim/plugged')
   " Elixir {{{
     Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
   " }}}
+
+  " Fish {{{
+    Plug 'dag/vim-fish', { 'for': 'fish' }
+  " }}}
 " }}}
 
 source $HOME/.vimrc.local.plugins
