@@ -233,6 +233,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
   " }}}
 
+  " Rust {{{
+    Plug 'rust-lang/rust.vim'
+  " }}}
+
   " Docker {{{
     Plug 'honza/dockerfile.vim'
   " }}}
