@@ -44,6 +44,7 @@ runtime! config/plugin/syntastic.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/undotree.vim
 runtime! config/plugin/yaml.vim
+runtime! config/plugin/livedown.vim
 
 if has('nvim')
   runtime! config/plugin/fzf.vim

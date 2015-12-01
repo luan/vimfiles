@@ -241,6 +241,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/dockerfile.vim'
   " }}}
 
+  " Markdown {{{
+    Plug 'shime/vim-livedown',
+  " }}}
+
   " JavaScript {{{
     Plug 'pangloss/vim-javascript',  { 'for': ['javascript']        }
     Plug 'mxw/vim-jsx',              { 'for': ['javascript']        }
