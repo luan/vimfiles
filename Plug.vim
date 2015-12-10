@@ -247,7 +247,7 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " Markdown {{{
-    Plug 'shime/vim-livedown',
+    Plug 'shime/vim-livedown', { 'for': ['markdown'] }
   " }}}
 
   " JavaScript {{{
