@@ -36,7 +36,7 @@ augroup END
 
 if has('nvim')
   " run go test first to catch errors in tests and code, and then gometalinter
-  let gomakeprg =
+  let g:gomakeprg =
         \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
         \ '! gometalinter ' .
         \ '--disable=gofmt ' .
@@ -48,7 +48,7 @@ if has('nvim')
         \ '| grep "%"'
 
   " match gometalinter + go test output
-  let goerrorformat =
+  let g:goerrorformat =
         \ '%f:%l:%c:%t%*[^:]:\ %m,' .
         \ '%f:%l::%t%*[^:]:\ %m,' .
         \ '%W%f:%l: warning: %m,' .
@@ -58,8 +58,8 @@ if has('nvim')
         \ '%-G#%.%#'
 
   " wire in Neomake
-  autocmd BufEnter *.go let &makeprg = gomakeprg
-  autocmd BufEnter *.go let &errorformat = goerrorformat
+  autocmd BufEnter *.go let &makeprg = g:gomakeprg
+  autocmd BufEnter *.go let &errorformat = g:goerrorformat
   autocmd! BufWritePost *.go Neomake!
 endif
 
