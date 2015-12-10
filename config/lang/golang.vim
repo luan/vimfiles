@@ -1,5 +1,10 @@
-" vim-go setup
+autocmd FileType go compiler go
+autocmd! BufEnter *.go setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 
+" autocomplete on just about any character
+let g:deoplete#omni_patterns.go = '[a-zA-Z_\.]'
+
+" vim-go setup
 if has('nvim')
   let g:go_highlight_functions = 1
   let g:go_highlight_methods = 1
@@ -19,28 +24,6 @@ let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
 let g:go_fmt_autosave = 0
 
-" run go test first to catch errors in tests and code, and then gometalinter
-let gomakeprg =
-  \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
-    \ '! gometalinter ' .
-      \ '--disable=gofmt ' .
-      \ '--disable=dupl ' .
-      \ '--tests ' .
-      \ '--fast ' .
-      \ '--sort=severity ' .
-      \ '--exclude "should have comment" ' .
-    \ '| grep "%"'
-
-" match gometalinter + go test output
-let goerrorformat =
-  \ '%f:%l:%c:%t%*[^:]:\ %m,' .
-  \ '%f:%l::%t%*[^:]:\ %m,' .
-  \ '%W%f:%l: warning: %m,' .
-  \ '%E%f:%l:%c:%m,' .
-  \ '%E%f:%l:%m,' .
-  \ '%C%\s%\+%m,' .
-  \ '%-G#%.%#'
-
 try
 Glaive codefmt gofmt_executable='goimports'
 catch
@@ -52,15 +35,33 @@ augroup go_autoformat
 augroup END
 
 if has('nvim')
-  augroup go_neovim
-    autocmd!
-    " wire in Neomake
-    autocmd BufEnter *.go let &makeprg = gomakeprg
-    autocmd BufEnter *.go let &errorformat = goerrorformat
-    autocmd! BufWritePost *.go Neomake!
-  augroup END
-endif
+  " run go test first to catch errors in tests and code, and then gometalinter
+  let gomakeprg =
+        \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
+        \ '! gometalinter ' .
+        \ '--disable=gofmt ' .
+        \ '--disable=dupl ' .
+        \ '--tests ' .
+        \ '--fast ' .
+        \ '--sort=severity ' .
+        \ '--exclude "should have comment" ' .
+        \ '| grep "%"'
 
+  " match gometalinter + go test output
+  let goerrorformat =
+        \ '%f:%l:%c:%t%*[^:]:\ %m,' .
+        \ '%f:%l::%t%*[^:]:\ %m,' .
+        \ '%W%f:%l: warning: %m,' .
+        \ '%E%f:%l:%c:%m,' .
+        \ '%E%f:%l:%m,' .
+        \ '%C%\s%\+%m,' .
+        \ '%-G#%.%#'
+
+  " wire in Neomake
+  autocmd BufEnter *.go let &makeprg = gomakeprg
+  autocmd BufEnter *.go let &errorformat = goerrorformat
+  autocmd! BufWritePost *.go Neomake!
+endif
 
 function! golang#generate_project()
   call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
@@ -100,10 +101,10 @@ augroup go_projectionist
   autocmd User ProjectionistDetect call s:ProjectionistDetect()
 augroup END
 
-if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
-  augroup go_gotags
-    autocmd!
-    autocmd BufWritePost *.go call golang#generate_project()
-    autocmd BufWritePost *.go call golang#generate_global()
-  augroup END
-endif
+" if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
+"   augroup go_gotags
+"     autocmd!
+"     autocmd BufWritePost *.go call golang#generate_project()
+"     autocmd BufWritePost *.go call golang#generate_global()
+"   augroup END
+" endif
