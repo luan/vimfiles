@@ -129,7 +129,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-dispatch'
 
   " Syntax checking hacks for vim
-  Plug 'scrooloose/syntastic'
   if has('nvim')
     Plug 'benekastah/neomake'
   else
