@@ -1,16 +1,66 @@
+" vim-go setup
+
+if has('nvim')
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_fmt_fail_silently = 1
+else
+  let g:go_highlight_functions = 0
+  let g:go_highlight_methods = 0
+  let g:go_highlight_structs = 0
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+endif
+
 let g:go_fmt_command = "goimports"
-let g:go_highlight_functions = 0
-let g:go_highlight_methods = 0
-let g:go_highlight_structs = 0
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 let g:go_snippet_engine = "neosnippet"
 let g:go_fmt_autosave = 0
+
+" run go test first to catch errors in tests and code, and then gometalinter
+let gomakeprg =
+  \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
+    \ '! gometalinter ' .
+      \ '--disable=gofmt ' .
+      \ '--disable=dupl ' .
+      \ '--tests ' .
+      \ '--fast ' .
+      \ '--sort=severity ' .
+      \ '--exclude "should have comment" ' .
+    \ '| grep "%"'
+
+" match gometalinter + go test output
+let goerrorformat =
+  \ '%f:%l:%c:%t%*[^:]:\ %m,' .
+  \ '%f:%l::%t%*[^:]:\ %m,' .
+  \ '%W%f:%l: warning: %m,' .
+  \ '%E%f:%l:%c:%m,' .
+  \ '%E%f:%l:%m,' .
+  \ '%C%\s%\+%m,' .
+  \ '%-G#%.%#'
 
 try
 Glaive codefmt gofmt_executable='goimports'
 catch
 endtry
+
+augroup go_autoformat
+  autocmd!
+  autocmd BufEnter *.go execute(':AutoFormatBuffer')
+augroup END
+
+if has('nvim')
+  augroup go_neovim
+    autocmd!
+    " wire in Neomake
+    autocmd BufEnter *.go let &makeprg = gomakeprg
+    autocmd BufEnter *.go let &errorformat = goerrorformat
+    autocmd! BufWritePost *.go Neomake!
+  augroup END
+endif
+
 
 function! golang#generate_project()
   call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
@@ -29,12 +79,6 @@ function! golang#buffcommands()
   command! -buffer -bar -nargs=0 GoTagsGlobal call golang#generate_global()
   setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 endfunction
-
-augroup go_autoformat
-  autocmd!
-  autocmd BufEnter *.go execute(':AutoFormatBuffer')
-augroup END
-
 
 let s:projections = {
       \ '*': {},

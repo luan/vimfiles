@@ -33,8 +33,8 @@ runtime! config/plugin/echodoc.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/gitrebase.vim
 runtime! config/plugin/golang.vim
-runtime! config/plugin/rust.vim
 runtime! config/plugin/json.vim
+runtime! config/plugin/livedown.vim
 runtime! config/plugin/multicursor.vim
 runtime! config/plugin/neosnippet.vim
 runtime! config/plugin/omnicompletion.vim
@@ -43,7 +43,6 @@ runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/undotree.vim
 runtime! config/plugin/yaml.vim
-runtime! config/plugin/livedown.vim
 
 if has('nvim')
   runtime! config/plugin/fzf.vim
@@ -54,6 +53,16 @@ else
   runtime! config/plugin/neocomplete.vim
   runtime! config/plugin/syntastic.vim
 endif
+
+" ----------------------------------------
+" Language Configuration
+" ----------------------------------------
+
+runtime! config/lang/elm.vim
+runtime! config/lang/golang.vim
+runtime! config/lang/json.vim
+runtime! config/lang/rust.vim
+runtime! config/lang/yaml.vim
 
 " ----------------------------------------
 " Lib load path
