@@ -130,6 +130,11 @@ call plug#begin('~/.vim/plugged')
 
   " Syntax checking hacks for vim
   Plug 'scrooloose/syntastic'
+  if has('nvim')
+    Plug 'benekastah/neomake'
+  else
+    Plug 'scrooloose/syntastic'
+  endif
 
   " Functions to toggle the [Location List] and the [Quickfix List] windows.
   Plug 'milkypostman/vim-togglelist'
