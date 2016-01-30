@@ -1,11 +1,6 @@
 autocmd FileType go compiler go
 autocmd! BufEnter *.go setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 
-" autocomplete on just about any character
-if has('nvim')
-  let g:deoplete#omni_patterns.go = '[a-zA-Z_\.]'
-endif
-
 " vim-go setup
 if has('nvim')
   let g:go_highlight_functions = 1
