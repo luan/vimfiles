@@ -37,7 +37,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'luochen1990/rainbow'
 
   " lean & mean status/tabline for vim that's light as air
-  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
   " Plugin to toggle, display and navigate marks
   Plug 'kshenoy/vim-signature'
