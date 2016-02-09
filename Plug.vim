@@ -285,6 +285,10 @@ call plug#begin('~/.vim/plugged')
   " Elm {{{
     Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
   " }}}
+
+  " YAML {{{
+  Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
+  " }}}
 " }}}
 
 source $HOME/.vimrc.local.plugins
