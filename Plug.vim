@@ -177,7 +177,9 @@ call plug#begin('~/.vim/plugged')
   if has('nvim')
     " provides an asynchronous keyword completion system in the current buffer
     Plug 'Shougo/deoplete.nvim'
-  elseif !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
+    " deoplete.nvim source for Golang and gocode or vim-go
+    Plug 'zchee/deoplete-go'
+  elseif !(has('lua') && (v:version > 703 || v:version == 703 && has('patch2000')))
     " Ultimate auto-completion system for Vim. Note: It is not maintained well. You should use neocomplete instead.
     Plug 'Shougo/neocomplcache.vim'
   else

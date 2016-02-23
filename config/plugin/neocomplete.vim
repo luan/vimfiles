@@ -1,4 +1,4 @@
-if !(has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
+if !(has('lua') && (v:version > 703 || v:version == 703 && has('patch2000')))
   runtime! config/plugin/neocomplcache.vim
   finish
 endif
