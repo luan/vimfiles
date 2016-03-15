@@ -174,6 +174,8 @@ call plug#begin('~/.vim/plugged')
   " auto-close paired chars, e.g. (), {}
   Plug 'Townk/vim-autoclose', { 'on': 'AutoCloseOn' }
 
+  " Speed up Vim by updating folds only when called-for.
+  Plug 'Konfekt/FastFold'
   if has('nvim')
     " provides an asynchronous keyword completion system in the current buffer
     Plug 'Shougo/deoplete.nvim'
