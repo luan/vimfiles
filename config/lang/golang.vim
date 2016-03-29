@@ -19,7 +19,7 @@ endif
 
 let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
-let g:go_fmt_autosave = 1
+let g:go_fmt_autosave = 0
 
 try
 Glaive codefmt gofmt_executable='goimports'

@@ -149,13 +149,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'mbbill/undotree'
 
   " vimscript plugin library. It is designed for plugin authors.
-  " Plug 'google/vim-maktaba'
+  Plug 'google/vim-maktaba'
 
   " utility for syntax-aware code formatting
-  " Plug 'google/vim-codefmt'
+  Plug 'google/vim-codefmt'
 
   " utility for configuring maktaba plugins
-  " Plug 'google/vim-glaive'
+  Plug 'google/vim-glaive'
 " }}}
 
 " Automatic Helpers {{{
@@ -300,7 +300,7 @@ source $HOME/.vimrc.local.plugins
 call plug#end()
 
 if has('nvim')
-  " call maktaba#json#python#Disable()
+  call maktaba#json#python#Disable()
 endif
 
 try
