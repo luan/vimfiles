@@ -102,6 +102,7 @@ if which go > /dev/null; then
     github.com/jstemmer/gotags \
     github.com/kisielk/errcheck \
     github.com/nsf/gocode \
+    github.com/rogpeppe/godef \
     golang.org/x/tools/cmd/godoc \
     golang.org/x/tools/cmd/goimports \
     golang.org/x/tools/cmd/gorename \
