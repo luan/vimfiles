@@ -102,9 +102,6 @@ call plug#begin('~/.vim/plugged')
   " a Git wrapper so awesome, it should be illegal; :Gblame, etc
   Plug 'tpope/vim-fugitive'
 
-  " gitk for Vim.
-  Plug 'gregsexton/gitv', { 'on': 'Gitv' }
-
   " easily search for, substitute, and abbreviate multiple variants of a word
   Plug 'tpope/vim-abolish'
 
@@ -118,10 +115,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'godlygeek/tabular'
 
   " Vim plugin for the Perl module / CLI script 'ack'
-  Plug 'mileszs/ack.vim', { 'on': 'Ack' }
+  Plug 'mileszs/ack.vim'
 
   " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
-  Plug 'rking/ag.vim', { 'on': 'Ag' }
+  Plug 'rking/ag.vim'
 
   " Send test commands to a pipe.
   Plug 'luan/vipe', { 'do': function('InstallVipe') }
@@ -147,15 +144,6 @@ call plug#begin('~/.vim/plugged')
 
   " The ultimate undo history visualizer for VIM
   Plug 'mbbill/undotree'
-
-  " vimscript plugin library. It is designed for plugin authors.
-  Plug 'google/vim-maktaba'
-
-  " utility for syntax-aware code formatting
-  Plug 'google/vim-codefmt'
-
-  " utility for configuring maktaba plugins
-  Plug 'google/vim-glaive'
 " }}}
 
 " Automatic Helpers {{{
@@ -171,8 +159,15 @@ call plug#begin('~/.vim/plugged')
   " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
   Plug 'tpope/vim-unimpaired'
 
-  " auto-close paired chars, e.g. (), {}
-  Plug 'Townk/vim-autoclose', { 'on': 'AutoCloseOn' }
+  function! BuildYCM(info)
+    " info is a dictionary with 3 fields
+    " - name:   name of the plugin
+    " - status: 'installed', 'updated', or 'unchanged'
+    " - force:  set on PlugInstall! or PlugUpdate!
+    if a:info.status == 'installed' || a:info.force
+      !./install.py
+    endif
+  endfunction
 
   " Speed up Vim by updating folds only when called-for.
   Plug 'Konfekt/FastFold'
@@ -238,8 +233,10 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " Go {{{
-    Plug 'fatih/vim-go'
-    Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+    Plug 'fatih/vim-go', { 'for': 'go' }
+    Plug 'godoctor/godoctor.vim', { 'for': 'go' }
+    Plug 'garyburd/go-explorer', { 'for': 'go' }
+    Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
   " }}}
 
   " Rust {{{
@@ -298,13 +295,4 @@ call plug#begin('~/.vim/plugged')
 source $HOME/.vimrc.local.plugins
 
 call plug#end()
-
-if has('nvim')
-  call maktaba#json#python#Disable()
-endif
-
-try
-  call glaive#Install()
-catch
-endtry
 

@@ -4,5 +4,5 @@ function! s:ReplacePaste()
   set nopaste
 endfunction
 
-vnoremap <silent> p :call <sid>ReplacePaste()<cr>
+" vnoremap <silent> p :call <sid>ReplacePaste()<cr>
 

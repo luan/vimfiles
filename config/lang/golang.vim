@@ -19,17 +19,7 @@ endif
 
 let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
-let g:go_fmt_autosave = 0
-
-try
-Glaive codefmt gofmt_executable='goimports'
-catch
-endtry
-
-augroup go_autoformat
-  autocmd!
-  autocmd BufEnter *.go execute(':AutoFormatBuffer')
-augroup END
+let g:go_fmt_autosave = 1
 
 if has('nvim')
   " run go test first to catch errors in tests and code, and then gometalinter
