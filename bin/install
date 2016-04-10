@@ -91,6 +91,7 @@ fi
 
 green='\033[0;32m'
 yellow='\033[0;33m'
+red='\033[0;31m'
 bold=`tput bold`
 normal=`tput sgr0`
 end_color='\033[0;m'
@@ -132,6 +133,37 @@ if which go > /dev/null; then
 
   wait
   echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
+fi
+
+if which elm > /dev/null; then
+  echo -e "${yellow}INSTALL${end_color} ${bold}elm${normal} dependencies..."
+  if which npm > /dev/null; then
+    npmpackages="\
+      elm-test \
+      elm-oracle \
+      "
+
+    for p in $npmpackages; do
+      (
+        echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
+        if npm install -g $p; then
+          echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
+        else
+          echo -e "\t${red}ERROR${end_color}    ${bold}${p}${normal}"
+        fi
+      ) &
+    done
+  else
+    echo -e "\t${red}ERROR${end_color} ${bold}NPM not found, some elm dependencies were skipped${normal}!"
+  fi
+
+  (
+    echo -e "\t${yellow}INSTALL${end_color} ${bold}elm-format${normal}..."
+    brew tap homebrew/devel-only; brew install --devel elm-format
+    echo -e "\t${green}DONE${end_color}    ${bold}elm-format${normal}"
+  ) &
+  wait
+  echo -e "${green}DONE${end_color}    ${bold}elm${normal} dependencies"
 fi
 
 vim=vim

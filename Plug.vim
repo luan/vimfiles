@@ -45,9 +45,6 @@ call plug#begin('~/.vim/plugged')
   " Show a diff via Vim sign column.
   Plug 'mhinz/vim-signify'
 
-  " Toggle the cursor shape in the terminal
-  Plug 'jszakmeister/vim-togglecursor'
-
   " Seamless navigation between tmux panes and vim splits
   Plug 'christoomey/vim-tmux-navigator'
 
@@ -159,16 +156,6 @@ call plug#begin('~/.vim/plugged')
   " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
   Plug 'tpope/vim-unimpaired'
 
-  function! BuildYCM(info)
-    " info is a dictionary with 3 fields
-    " - name:   name of the plugin
-    " - status: 'installed', 'updated', or 'unchanged'
-    " - force:  set on PlugInstall! or PlugUpdate!
-    if a:info.status == 'installed' || a:info.force
-      !./install.py
-    endif
-  endfunction
-
   " Speed up Vim by updating folds only when called-for.
   Plug 'Konfekt/FastFold'
   if $ALL_PLUGINS == 'true' || has('nvim')
@@ -213,8 +200,11 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " Language specific {{{
+  " A solid language pack for Vim.
+  " Adds 70+ languages and optimizes loading and installing.
+  Plug 'sheerun/vim-polyglot'
+
   " Ruby {{{
-    Plug 'vim-ruby/vim-ruby',           { 'for': ['ruby', 'rake'] }
     Plug 'tpope/vim-rails',             { 'for': ['ruby', 'rake'] }
     Plug 'tpope/vim-rake',              { 'for': ['ruby', 'rake'] }
     Plug 'tpope/vim-bundler',           { 'for': ['ruby', 'rake'] }
@@ -223,7 +213,6 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " Clojure {{{
-    Plug 'guns/vim-clojure-static', { 'for': ['clojure'] }
     Plug 'tpope/vim-classpath'
     Plug 'tpope/vim-fireplace',     { 'for': ['clojure'] }
     Plug 'tpope/vim-salve'
@@ -231,21 +220,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sexp-mappings-for-regular-people'
   " }}}
 
-  " Scala {{{
-    Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
-  " }}}
-
   " Go {{{
     Plug 'fatih/vim-go'
     Plug 'godoctor/godoctor.vim'
-  " }}}
-
-  " Rust {{{
-    Plug 'rust-lang/rust.vim'
-  " }}}
-
-  " Docker {{{
-    Plug 'honza/dockerfile.vim'
   " }}}
 
   " Markdown {{{
@@ -253,21 +230,13 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " JavaScript {{{
-    Plug 'pangloss/vim-javascript',  { 'for': ['javascript']        }
-    Plug 'mxw/vim-jsx',              { 'for': ['javascript']        }
     Plug 'maksimr/vim-jsbeautify',   { 'for': ['javascript']        }
-    Plug 'kchmck/vim-coffee-script', { 'for': ['coffee']            }
-    Plug 'elzr/vim-json'
   " }}}
 
   " CSS / HTML {{{
     Plug 'mattn/emmet-vim'
-    Plug 'tpope/vim-haml',            { 'for': ['haml']              }
-    Plug 'nono/vim-handlebars',       { 'for': ['handlebars']        }
     Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss','sass']       }
     Plug 'hail2u/vim-css3-syntax',    { 'for': ['css','scss','sass'] }
-    Plug 'othree/html5.vim'
-    Plug 'juvenn/mustache.vim',       { 'for': ['mustache']          }
     Plug 'gregsexton/MatchTag'
   " }}}
 
@@ -276,20 +245,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'syngan/vim-vimlint',    { 'for': 'vim' }
   " }}}
 
-  " Elixir {{{
-    Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-  " }}}
-
   " Fish {{{
     Plug 'dag/vim-fish', { 'for': 'fish' }
   " }}}
 
   " Elm {{{
-    Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
-  " }}}
-
-  " YAML {{{
-  Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
+    Plug 'elmcast/elm-vim', { 'for': 'elm' }
   " }}}
 " }}}
 

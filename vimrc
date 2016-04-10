@@ -55,9 +55,9 @@ endif
 " Language Configuration
 " ----------------------------------------
 
+runtime! config/lang/polyglot.vim
 runtime! config/lang/elm.vim
 runtime! config/lang/golang.vim
-runtime! config/lang/json.vim
 runtime! config/lang/ruby.vim
 runtime! config/lang/rust.vim
 runtime! config/lang/yaml.vim
