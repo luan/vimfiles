@@ -1,4 +1,5 @@
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['ruby'] }
 let g:syntastic_go_gometalinter_args = '-t --disable-all -E vet -E dupl -E deadcode --dupl-threshold=75'
 let g:syntastic_go_checkers = ['go', 'gometalinter']
 
