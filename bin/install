@@ -104,8 +104,10 @@ if which go > /dev/null; then
     github.com/jstemmer/gotags \
     github.com/kisielk/errcheck \
     github.com/klauspost/asmfmt/cmd/asmfmt \
+    github.com/mibk/dupl \
     github.com/nsf/gocode \
     github.com/rogpeppe/godef \
+    github.com/tsenart/deadcode \
     golang.org/x/tools/cmd/godoc \
     golang.org/x/tools/cmd/goimports \
     golang.org/x/tools/cmd/gorename \
@@ -113,40 +115,35 @@ if which go > /dev/null; then
     "
 
   for p in $gopackages; do
-    echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
-    go get -f -u $p
-    echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
+    (
+      echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
+      go get -f -u $p
+      echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
+    ) &
   done
+  wait
   echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
-  gometalinter --install --update
 fi
-
-vim +'silent! PlugClean!|' +'qall!'
 
 if which nvim > /dev/null; then
-  nvim +'silent! PlugClean!|' +'qall!'
+  vim="nvim"
+else
+  vim="vim"
 fi
+
+$vim --cmd 'let g:all_plugins=1' +'PlugClean' +'qall!'
 
 vimcmd=""
 if [ $UPDATE == 1 ]; then
-  vimcmd=$vimcmd"silent! PlugUpdate!|"
+  vimcmd=$vimcmd"PlugUpdate"
 else
-  vimcmd=$vimcmd"silent! PlugInstall!|"
+  vimcmd=$vimcmd"PlugInstall"
 fi
-vimcmd=$vimcmd"silent! GoInstallBinaries!|"
 
 if [ $INTERACTIVE == 1 ] ; then
-  vim +"$vimcmd" +'qall!'
+  $vim --cmd 'let g:all_plugins=1' +"$vimcmd" +'qall!'
 else
-  vim +"$vimcmd" +'qall!' > /dev/null
-fi
-
-if which nvim > /dev/null; then
-  if [ $INTERACTIVE == 1 ] ; then
-    nvim +"$vimcmd" +'qall!'
-  else
-    nvim +"$vimcmd" +'qall!' > /dev/null
-  fi
+  $vim --cmd 'let g:all_plugins=1' +"$vimcmd" +'qall!' > /dev/null
 fi
 
 popd

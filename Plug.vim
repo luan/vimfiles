@@ -16,13 +16,12 @@ call plug#begin('~/.vim/plugged')
 
   " A command-line fuzzy finder written in Go
   Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
-  if !has('nvim')
-    " Active fork of kien/ctrlp.vim. Fuzzy file, buffer, mru, tag, etc finder.
-    Plug 'ctrlpvim/ctrlp.vim'
 
-    " Fast vim CtrlP matcher based on python
-    Plug 'FelikZ/ctrlp-py-matcher'
-  endif
+  " Active fork of kien/ctrlp.vim. Fuzzy file, buffer, mru, tag, etc finder.
+  Plug 'ctrlpvim/ctrlp.vim'
+
+  " Fast vim CtrlP matcher based on python
+  Plug 'FelikZ/ctrlp-py-matcher'
 " }}}
 
 " UI Additions {{{
@@ -127,9 +126,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-dispatch'
 
   " Syntax checking hacks for vim
-  if has('nvim')
+  if exists('g:all_plugins') || has('nvim')
     Plug 'benekastah/neomake'
-  else
+  endif
+  if exists('g:all_plugins') || !has('nvim')
     Plug 'scrooloose/syntastic'
   endif
 
