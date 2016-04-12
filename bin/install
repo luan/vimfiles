@@ -118,6 +118,7 @@ if which go > /dev/null; then
     echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
   done
   echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
+  gometalinter --install --update
 fi
 
 vim +'silent! PlugClean!|' +'qall!'

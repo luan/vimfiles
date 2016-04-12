@@ -21,34 +21,35 @@ let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
 let g:go_fmt_autosave = 1
 
+if !exists('g:go_dupl_threshold')
+  let g:go_dupl_threshold = 75
+end
+
 if has('nvim')
-  " run go test first to catch errors in tests and code, and then gometalinter
-  let g:gomakeprg =
-        \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
-        \ '! gometalinter ' .
-        \ '--disable=gofmt ' .
-        \ '--disable=dupl ' .
-        \ '--tests ' .
-        \ '--fast ' .
-        \ '--sort=severity ' .
-        \ '--exclude "should have comment" ' .
-        \ '| grep "%"'
+  let g:neomake_go_gometalinter_maker = {
+        \ 'exe': 'gometalinter',
+        \ 'args': [
+          \ '-t',
+          \ '--disable-all',
+          \ '--enable=vet',
+          \ '--enable=dupl',
+          \ '--enable=deadcode',
+          \ '--enable=errcheck',
+          \ '--dupl-threshold=' . string(g:go_dupl_threshold)
+        \],
+        \ 'append_file': 0,
+        \ 'errorformat':
+          \ '%f:%l:%c:%trror: %m,' .
+          \ '%f:%l:%c:%tarning: %m,' .
+          \ '%f:%l::%trror: %m,' .
+          \ '%f:%l::%tarning: %m'
+        \ }
+  let g:neomake_go_enabled_makers = ['go', 'gometalinter']
+else
+  let g:syntastic_go_gometalinter_args = '-t --disable-all -E vet -E dupl -E deadcode --dupl-threshold=' . string(g:go_dupl_threshold)
+  let g:syntastic_go_checkers = ['go', 'gometalinter']
+end
 
-  " match gometalinter + go test output
-  let g:goerrorformat =
-        \ '%f:%l:%c:%t%*[^:]:\ %m,' .
-        \ '%f:%l::%t%*[^:]:\ %m,' .
-        \ '%W%f:%l: warning: %m,' .
-        \ '%E%f:%l:%c:%m,' .
-        \ '%E%f:%l:%m,' .
-        \ '%C%\s%\+%m,' .
-        \ '%-G#%.%#'
-
-  " wire in Neomake
-  autocmd BufEnter *.go let &makeprg = g:gomakeprg
-  autocmd BufEnter *.go let &errorformat = g:goerrorformat
-  autocmd! BufWritePost *.go Neomake!
-endif
 
 function! golang#generate_project()
   call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
@@ -88,10 +89,10 @@ augroup go_projectionist
   autocmd User ProjectionistDetect call s:ProjectionistDetect()
 augroup END
 
-" if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
-"   augroup go_gotags
-"     autocmd!
-"     autocmd BufWritePost *.go call golang#generate_project()
-"     autocmd BufWritePost *.go call golang#generate_global()
-"   augroup END
-" endif
+if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
+  augroup go_gotags
+    autocmd!
+    autocmd BufWritePost *.go call golang#generate_project()
+    autocmd BufWritePost *.go call golang#generate_global()
+  augroup END
+endif
