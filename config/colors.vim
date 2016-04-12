@@ -52,6 +52,11 @@ function! colors#_change(index)
   endif
 
   let l:name = s:colors[idx]
+  silent! execute "colorscheme ".name
+endfunction
+
+function! colors#_callback()
+  let l:name = g:colors_name
   if !has('gui_running') && name == 'hybrid'
     silent !bash $HOME/.vim/scripts/shell-colors-vim-hybrid/shell-colors-vim-hybrid.sh
   endif
@@ -59,8 +64,9 @@ function! colors#_change(index)
     let g:gruvbox_italic=1
     silent !bash $HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh
   endif
-  silent! execute "colorscheme ".name
+  hi MatchParen cterm=underline ctermbg=none ctermfg=none
 endfunction
+
 
 function! colors#next()
   let l:next_index = index(s:colors, g:colors_name) + 1
@@ -98,4 +104,6 @@ set background=dark
 if !has('nvim')
   let g:base16colorspace=256
 endif
-call colors#_change(0)
+
+autocmd! ColorScheme * silent! call colors#_callback()
+colorscheme hybrid

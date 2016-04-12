@@ -80,7 +80,7 @@ endif
 " }}}
 
 " Visual {{{
-set showmatch   " Show matching brackets.
+set noshowmatch " Disable jumping to matching bracket when typing
 set matchtime=2 " How many tenths of a second to blink
 " }}}
 
