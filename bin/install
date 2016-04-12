@@ -131,7 +131,7 @@ else
   vim="vim"
 fi
 
-$vim --cmd 'let g:all_plugins=1' +'PlugClean' +'qall!'
+$vim --cmd 'let g:all_plugins=1' +'PlugClean!' +'qall!'
 
 vimcmd=""
 if [ $UPDATE == 1 ]; then
