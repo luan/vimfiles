@@ -96,3 +96,9 @@ if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
     autocmd BufWritePost *.go call golang#generate_global()
   augroup END
 endif
+
+augroup golang
+  autocmd FileType go compiler go
+  autocmd! BufEnter *.go call golang#buffcommands()
+augroup END
+
