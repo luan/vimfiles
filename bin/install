@@ -134,14 +134,22 @@ if which go > /dev/null; then
   echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
 fi
 
+vim=vim
+if which nvim > /dev/null; then
+  vim=nvim
+fi
 
 echo -e "${yellow}INSTALL${end_color} ${bold}vim plugins${normal} (may take a while)..."
 exec 4>&1 3>/dev/null
 if [ $INTERACTIVE != 1 ] ; then
-  exec 4>&1 1>&3 2>&3
+  if which nvim > /dev/null; then
+    vim='nvim --headless'
+  else
+    exec 4>&1 1>&3 2>&3
+  fi
 fi
 
-ALL_PLUGINS='true' vim +'silent! PlugClean!' +'silent! PlugUpdate!' +'silent! qall!'
+ALL_PLUGINS='true' $vim +'silent! PlugClean!' +'silent! PlugUpdate!' +'silent! qall!'
 
 echo -e "${green}DONE${end_color} ${bold}vim plugins${normal}" >&4
 
