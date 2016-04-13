@@ -109,6 +109,7 @@ if which go > /dev/null; then
     github.com/nsf/gocode \
     github.com/rogpeppe/godef \
     github.com/tsenart/deadcode \
+    github.com/zmb3/gogetdoc \
     "
 
   for p in $gopackages; do
@@ -124,6 +125,7 @@ if which go > /dev/null; then
     golang.org/x/tools/cmd/goimports \
     golang.org/x/tools/cmd/gorename \
     golang.org/x/tools/cmd/oracle \
+    golang.org/x/tools/cmd/guru \
     "
   for p in $gopackages; do
       echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
