@@ -42,6 +42,9 @@ call plug#begin('~/.vim/plugged')
   " Plugin to toggle, display and navigate marks
   Plug 'kshenoy/vim-signature'
 
+  " Plugin to navigate between camelCase words
+  Plug 'bkad/CamelCaseMotion'
+
   " Show a diff via Vim sign column.
   Plug 'mhinz/vim-signify'
 
