@@ -126,10 +126,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-dispatch'
 
   " Syntax checking hacks for vim
-  if exists('g:all_plugins') || has('nvim')
+  if $ALL_PLUGINS == 'true' || has('nvim')
     Plug 'benekastah/neomake'
   endif
-  if exists('g:all_plugins') || !has('nvim')
+  if $ALL_PLUGINS == 'true' || !has('nvim')
     Plug 'scrooloose/syntastic'
   endif
 
@@ -171,15 +171,18 @@ call plug#begin('~/.vim/plugged')
 
   " Speed up Vim by updating folds only when called-for.
   Plug 'Konfekt/FastFold'
-  if has('nvim')
+  if $ALL_PLUGINS == 'true' || has('nvim')
     " provides an asynchronous keyword completion system in the current buffer
     Plug 'Shougo/deoplete.nvim'
     " deoplete.nvim source for Golang and gocode or vim-go
-    Plug 'zchee/deoplete-go'
-  elseif !(has('lua') && (v:version > 703 || v:version == 703 && has('patch2000')))
+    Plug 'zchee/deoplete-go', { 'do': 'make' }
+  endif
+
+  if $ALL_PLUGINS == 'true' || !has('lua')
     " Ultimate auto-completion system for Vim. Note: It is not maintained well. You should use neocomplete instead.
     Plug 'Shougo/neocomplcache.vim'
-  else
+  endif
+  if $ALL_PLUGINS == 'true' || has('lua')
     " Next generation completion framework after neocomplcache
     Plug 'Shougo/neocomplete.vim'
   endif
@@ -233,10 +236,8 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " Go {{{
-    Plug 'fatih/vim-go', { 'for': 'go' }
-    Plug 'godoctor/godoctor.vim', { 'for': 'go' }
-    Plug 'garyburd/go-explorer', { 'for': 'go' }
-    Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+    Plug 'fatih/vim-go'
+    Plug 'godoctor/godoctor.vim'
   " }}}
 
   " Rust {{{

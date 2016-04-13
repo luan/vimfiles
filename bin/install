@@ -134,25 +134,19 @@ if which go > /dev/null; then
   echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
 fi
 
+
+echo -e "${yellow}INSTALL${end_color} ${bold}vim plugins${normal} (may take a while)..."
+exec 4>&1 3>/dev/null
+if [ $INTERACTIVE != 1 ] ; then
+  exec 4>&1 1>&3 2>&3
+fi
+
+ALL_PLUGINS='true' vim +'silent! PlugClean!' +'silent! PlugUpdate!' +'silent! qall!'
+
+echo -e "${green}DONE${end_color} ${bold}vim plugins${normal}" >&4
+
 if which nvim > /dev/null; then
-  vim="nvim"
-else
-  vim="vim"
-fi
-
-$vim --cmd 'let g:all_plugins=1' +'PlugClean!' +'qall!'
-
-vimcmd=""
-if [ $UPDATE == 1 ]; then
-  vimcmd=$vimcmd"PlugUpdate"
-else
-  vimcmd=$vimcmd"PlugInstall"
-fi
-
-if [ $INTERACTIVE == 1 ] ; then
-  $vim --cmd 'let g:all_plugins=1' +"$vimcmd" +'qall!'
-else
-  $vim --cmd 'let g:all_plugins=1' +"$vimcmd" +'qall!' > /dev/null
+  nvim --headless +'UpdateRemotePlugins' +'qall!'
 fi
 
 popd
