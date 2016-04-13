@@ -106,4 +106,9 @@ if !has('nvim')
 endif
 
 autocmd! ColorScheme * silent! call colors#_callback()
-colorscheme hybrid
+
+try
+  colorscheme hybrid
+catch
+  colorscheme evening
+endtry
