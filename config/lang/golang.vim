@@ -21,10 +21,6 @@ let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
 let g:go_fmt_autosave = 1
 
-if !exists('g:go_dupl_threshold')
-  let g:go_dupl_threshold = 75
-end
-
 if has('nvim')
   let g:neomake_go_gometalinter_maker = {
         \ 'exe': 'gometalinter',
@@ -32,10 +28,8 @@ if has('nvim')
           \ '-t',
           \ '--disable-all',
           \ '--enable=vet',
-          \ '--enable=dupl',
           \ '--enable=deadcode',
-          \ '--enable=errcheck',
-          \ '--dupl-threshold=' . string(g:go_dupl_threshold)
+          \ '--enable=errcheck'
         \],
         \ 'append_file': 0,
         \ 'errorformat':
@@ -46,7 +40,7 @@ if has('nvim')
         \ }
   let g:neomake_go_enabled_makers = ['go', 'gometalinter']
 else
-  let g:syntastic_go_gometalinter_args = '-t --disable-all -E vet -E dupl -E deadcode --dupl-threshold=' . string(g:go_dupl_threshold)
+  let g:syntastic_go_gometalinter_args = '-t --disable-all -E vet -E deadcode'
   let g:syntastic_go_checkers = ['go', 'gometalinter']
 end
 
