@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
 
   " A command-line fuzzy finder written in Go
   let g:fzf_command_prefix = 'FZF'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
 
 
