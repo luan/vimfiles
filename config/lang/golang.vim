@@ -23,23 +23,33 @@ let g:go_fmt_autosave = 1
 let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
 
 if has('nvim')
-  let g:neomake_go_gometalinter_maker = {
-        \ 'exe': 'gometalinter',
-        \ 'args': [
-          \ '-t',
-          \ '--disable-all',
-          \ '--enable=vet',
-          \ '--enable=deadcode',
-          \ '--enable=errcheck'
-        \],
-        \ 'append_file': 0,
-        \ 'errorformat':
-          \ '%f:%l:%c:%trror: %m,' .
-          \ '%f:%l:%c:%tarning: %m,' .
-          \ '%f:%l::%trror: %m,' .
-          \ '%f:%l::%tarning: %m'
-        \ }
-  let g:neomake_go_enabled_makers = ['go', 'gometalinter']
+   let g:gomakeprg =
+    \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
+      \ '! gometalinter ' .
+        \ '--tests ' .
+        \ '--disable-all' .
+        \ '--enable=vet' .
+        \ '--enable=deadcode' .
+        \ '--enable=errcheck' .
+        \ '--sort=severity ' .
+        \ '--exclude "should have comment" ' .
+      \ '| grep "%"'
+
+  " match gometalinter + go test output
+  let g:goerrorformat =
+    \ '%f:%l:%c:%t%*[^:]:\ %m,' .
+    \ '%f:%l::%t%*[^:]:\ %m,' .
+    \ '%W%f:%l: warning: %m,' .
+    \ '%E%f:%l:%c:%m,' .
+    \ '%E%f:%l:%m,' .
+    \ '%C%\s%\+%m,' .
+    \ '%-G#%.%#'
+
+  " wire in Neomake
+  autocmd BufEnter *.go let &makeprg = gomakeprg
+  autocmd BufEnter *.go let &errorformat = goerrorformat
+  autocmd! BufWritePost *.go Neomake!
+  let g:neomake_go_enabled_makers = []
 else
   let g:syntastic_go_gometalinter_args = '-t --disable-all -E vet -E deadcode'
   let g:syntastic_go_checkers = ['go', 'gometalinter']
