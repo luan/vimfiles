@@ -96,47 +96,6 @@ bold=`tput bold`
 normal=`tput sgr0`
 end_color='\033[0;m'
 
-if which go > /dev/null; then
-  echo -e "${yellow}INSTALL${end_color} ${bold}golang${normal} dependencies..."
-  gopackages="\
-    github.com/alecthomas/gometalinter \
-    github.com/fatih/motion \
-    github.com/golang/lint/golint \
-    github.com/jstemmer/gotags \
-    github.com/kisielk/errcheck \
-    github.com/klauspost/asmfmt/cmd/asmfmt \
-    github.com/mibk/dupl \
-    github.com/nsf/gocode \
-    github.com/rogpeppe/godef \
-    github.com/tsenart/deadcode \
-    github.com/zmb3/gogetdoc \
-    "
-
-  for p in $gopackages; do
-    (
-      echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
-      go get -f -u $p
-      echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
-    ) &
-  done
-
-  gopackages="\
-    golang.org/x/tools/cmd/godoc \
-    golang.org/x/tools/cmd/goimports \
-    golang.org/x/tools/cmd/gorename \
-    golang.org/x/tools/cmd/oracle \
-    golang.org/x/tools/cmd/guru \
-    "
-  for p in $gopackages; do
-      echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
-      go get -f -u $p
-      echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
-  done
-
-  wait
-  echo -e "${green}DONE${end_color}    ${bold}golang${normal} dependencies"
-fi
-
 if which elm > /dev/null; then
   echo -e "${yellow}INSTALL${end_color} ${bold}elm${normal} dependencies..."
   if which npm > /dev/null; then
@@ -183,12 +142,17 @@ if [ $INTERACTIVE != 1 ] ; then
   fi
 fi
 
-ALL_PLUGINS='true' $vim +'silent! PlugClean!' +'silent! PlugUpdate!' +'silent! qall!'
+ALL_PLUGINS='true' $vim +'silent! PlugClean!' +'silent! PlugUpdate!' +'qall!'
 
 echo -e "${green}DONE${end_color} ${bold}vim plugins${normal}" >&4
 
 if which nvim > /dev/null; then
   nvim --headless +'UpdateRemotePlugins' +'qall!'
+fi
+
+if which go > /dev/null; then
+  mkdir -p gobin
+  $vim +'silent! GoUpdateBinaries' +'qall!'
 fi
 
 popd

@@ -1,12 +1,13 @@
+*~
 .DS_Store
 .cache
 .netrwhist
 .rake_tasks~
 .undo/*
+autoload/
 bundle/
+ftplugin/
+gobin/
+plugged/
 sessions/
 tags
-plugged/
-autoload/
-ftplugin/
-*~

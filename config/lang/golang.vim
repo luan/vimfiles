@@ -20,6 +20,7 @@ endif
 let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
 let g:go_fmt_autosave = 1
+let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
 
 if has('nvim')
   let g:neomake_go_gometalinter_maker = {
