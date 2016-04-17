@@ -4,6 +4,7 @@ before_script:
     - git clone https://github.com/ynkdir/vim-vimlparser /tmp/vim-vimlparser
 env:
   GOPATH=$HOME/go
+before_install: sudo apt-get install -y vim-nox
 script:
   - sh /tmp/vim-vimlint/bin/vimlint.sh -l /tmp/vim-vimlint -p /tmp/vim-vimlparser -v vimrc *.vim config lib
   - ln -s $PWD $HOME/.vim
