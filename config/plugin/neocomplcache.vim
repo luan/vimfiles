@@ -6,10 +6,6 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-" Tell Neosnippet about the other snippets
-"let g:neosnippet#snippets_directory = '~/.vim/bundle/vim-snippets/snippets'
-let g:neosnippet#snippets_directory = '~/.vim/snippets'
-
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
