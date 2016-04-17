@@ -195,11 +195,11 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " Snippets {{{
-  " neo-snippet plugin contains neocomplcache snippets source
-  Plug 'Shougo/neosnippet.vim'
+  "UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
+  Plug 'SirVer/ultisnips'
 
-  " The standard snippets repository for neosnippet
-  Plug 'Shougo/neosnippet-snippets'
+  " vim-snipmate default snippets (Previously snipmate-snippets)
+  Plug 'honza/vim-snippets'
 " }}}
 
 " Language specific {{{

@@ -1,0 +1,68 @@
+# More snippets for Go
+
+snippet ap= "Append to a slice" b
+${1:slice} = append($1, ${2:value})
+endsnippet
+
+snippet append "Append to a slice (inline)" W
+append(${1:slice}, ${2:value})
+endsnippet
+
+snippet desc "Ginkgo Describe" b
+Describe("${1:something}", func() {
+	${0:${VISUAL}}
+})
+endsnippet
+
+snippet cont "Ginkgo Context" b
+Context("${1:something}", func() {
+	${0:${VISUAL}}
+})
+endsnippet
+
+snippet bef "Ginkgo BeforeEach" b
+BeforeEach(func() {
+	${0:${VISUAL}}
+})
+endsnippet
+
+snippet aft "Ginkgo AfterEach" b
+BeforeEach(func() {
+	${0:${VISUAL}}
+})
+endsnippet
+
+snippet just "Ginkgo JustBeforeEach" b
+BeforeEach(func() {
+	${0:${VISUAL}}
+})
+endsnippet
+
+snippet it "Ginkgo It" b
+It("${1:does something}", func() {
+	${0:${VISUAL}}
+})
+endsnippet
+
+snippet exto "Gomega Expect(...).To(...)" b
+Expect(${1:actual}).To(${0:${VISUAL}})
+endsnippet
+
+snippet exnt "Gomega Expect(...).NotTo(...)" b
+Expect(${1:actual}).NotTo(${0:${VISUAL}})
+endsnippet
+
+snippet extn "Gomega Expect(...).ToNot(...)" b
+Expect(${1:actual}).ToNot(${0:${VISUAL}})
+endsnippet
+
+snippet exeo "Gomega Expect(err).To(HaveOccurred())" b
+Expect(err).To(HaveOccurred())
+endsnippet
+
+snippet exen "Gomega Expect(err).NotTo(HaveOccurred())" b
+Expect(err).NotTo(HaveOccurred())
+endsnippet
+
+# vim:ft=snippets:
+
