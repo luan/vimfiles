@@ -4,7 +4,7 @@ if has('nvim')
   let g:deoplete#omni_patterns = {}
 
   " autocomplete on just about any character
-  let g:deoplete#omni_patterns.go = '[a-zA-Z_\.]'
+  let g:deoplete#omni_patterns.go = '[a-zA-Z_\.]{3,}'
 
   " autocomplete only on attributes; doesn't seem to complete local vars
   let g:deoplete#omni_patterns.elm = '\.'
