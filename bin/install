@@ -162,7 +162,7 @@ fi
 if which go > /dev/null; then
   mkdir -p gobin
   echo -e "${yellow}INSTALL${end_color} ${bold}go binaries${normal} (may take a while)..." >&4
-  $vim +'GoUpdateBinaries' +'qall!'
+  $vim +'silent! GoUpdateBinaries' +'qall!'
   GOBIN=$PWD/gobin gometalinter --install --update
   echo -e "${green}DONE${end_color} ${bold}go binaries${normal}" >&4
 fi
