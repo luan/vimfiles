@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -e
 
 print_usage() {
   echo -e "Unsupported option: $@"
@@ -162,8 +162,8 @@ fi
 if which go > /dev/null; then
   mkdir -p gobin
   echo -e "${yellow}INSTALL${end_color} ${bold}go binaries${normal} (may take a while)..." >&4
-  $vim +'silent! GoUpdateBinaries' +'qall!'
-  GOBIN=$PWD/gobin gometalinter --install --update
+  $vim +'silent! GoUpdateBinaries' +'GoDoctorInstall' +'qall!'
+  GOBIN=$PWD/gobin $GOBIN/gometalinter --install --update
   echo -e "${green}DONE${end_color} ${bold}go binaries${normal}" >&4
 fi
 
