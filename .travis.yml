@@ -1,5 +1,6 @@
 language: generic
 env:
+  GOPATH=$HOME/go
   matrix:
     - CI_TARGET=vim
     - CI_TARGET=neovim
@@ -9,17 +10,15 @@ before_script:
   - sudo apt-get update
   - sudo apt-get install python3-dev
   - if [ $CI_TARGET = vim ]; then
-      sudo add-apt-repository ppa:fcwu-tw/ppa
-      sudo apt-get -qq update
-      sudo apt-get install -qq vim
+      sudo add-apt-repository ppa:fcwu-tw/ppa &&
+      sudo apt-get -qq update &&
+      sudo apt-get install -qq vim;
     elif [ $CI_TARGET = neovim ]; then
       eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64" &&
       wget https://bootstrap.pypa.io/get-pip.py &&
       sudo python3 get-pip.py --allow-external sudo &&
       sudo pip3 install neovim;
     fi
-env:
-  GOPATH=$HOME/go
 script:
   - sh /tmp/vim-vimlint/bin/vimlint.sh -l /tmp/vim-vimlint -p /tmp/vim-vimlparser -v vimrc *.vim config lib
   - ln -s $PWD $HOME/.vim
