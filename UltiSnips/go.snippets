@@ -1,5 +1,13 @@
 # More snippets for Go
 
+snippet println "fmt.Println(...)"
+fmt.Println(${0:${VISUAL}})
+endsnippet
+
+snippet printf "fmt.Printf(format, ...)"
+fmt.Printf("${1:%s}", ${0:${VISUAL}})
+endsnippet
+
 snippet desc "Ginkgo Describe" b
 Describe("${1:something}", func() {
 	${0:${VISUAL}}
