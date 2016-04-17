@@ -9,9 +9,9 @@ before_script:
   - sudo apt-get update
   - sudo apt-get install python3-dev
   - if [ $CI_TARGET = vim ]; then
-      sudo apt-get install vim-gnome &&
-      export DISPLAY=:99.0 &&
-      sh -e /etc/init.d/xvfb start;
+      sudo add-apt-repository ppa:fcwu-tw/ppa
+      sudo apt-get -qq update
+      sudo apt-get install -qq vim
     elif [ $CI_TARGET = neovim ]; then
       eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64" &&
       wget https://bootstrap.pypa.io/get-pip.py &&
@@ -30,3 +30,5 @@ script:
   - ./bin/install
   - git checkout $BRANCH
   - $HOME/bin/vim-update
+matrix:
+  fast_finish: true
