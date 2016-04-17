@@ -147,12 +147,21 @@ ALL_PLUGINS='true' $vim +'silent! PlugClean!' +'silent! PlugUpdate!' +'qall!'
 echo -e "${green}DONE${end_color} ${bold}vim plugins${normal}" >&4
 
 if which nvim > /dev/null; then
-  nvim --headless +'UpdateRemotePlugins' +'qall!'
+  vim='nvim --headless'
+else
+  exec 4>&1 1>&3 2>&3
+fi
+
+if which nvim > /dev/null; then
+  $vim +'UpdateRemotePlugins' +'qall!'
+  echo
 fi
 
 if which go > /dev/null; then
   mkdir -p gobin
+  echo -e "${yellow}INSTALL${end_color} ${bold}go binaries${normal} (may take a while)..." >&4
   $vim +'silent! GoUpdateBinaries' +'qall!'
+  echo -e "${green}DONE${end_color} ${bold}go binaries${normal}" >&4
 fi
 
 popd
