@@ -127,6 +127,10 @@ if which elm > /dev/null; then
   echo -e "${green}DONE${end_color}    ${bold}elm${normal} dependencies"
 fi
 
+if which npm > /dev/null; then
+  npm install -g livedown
+fi
+
 vim=vim
 if which nvim > /dev/null; then
   vim=nvim
