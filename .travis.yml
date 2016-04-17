@@ -13,8 +13,9 @@ before_script:
       sudo apt-get install -y vim;
     elif [ $CI_TARGET = neovim ]; then
       eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64" &&
-      sudo apt-get install python3-pip &&
-      pip3 install neovim;
+      sudo apt-get install -y python3-setuptools &&
+      sudo easy_install3 pip &&
+      pip install neovim;
     fi
 script:
   - sh /tmp/vim-vimlint/bin/vimlint.sh -l /tmp/vim-vimlint -p /tmp/vim-vimlparser -v vimrc *.vim config lib
