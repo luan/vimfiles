@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 print_usage() {
   echo -e "Unsupported option: $@"
   echo -e "Supported options:"
@@ -32,6 +30,8 @@ do
   esac
   shift
 done
+
+set -e
 
 FILES_TO_LINK="vimrc gvimrc"
 LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
@@ -165,7 +165,7 @@ if which go > /dev/null; then
   mkdir -p gobin
   echo -e "${yellow}INSTALL${end_color} ${bold}go binaries${normal} (may take a while)..." >&4
   $vim +'silent! GoUpdateBinaries' +'GoDoctorInstall' +'qall!'
-  GOBIN=$PWD/gobin $GOBIN/gometalinter --install --update
+  GOBIN=$PWD/gobin $PWD/gobin/gometalinter --install --update
   echo -e "${green}DONE${end_color} ${bold}go binaries${normal}" >&4
 fi
 
