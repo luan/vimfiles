@@ -31,8 +31,6 @@ do
   shift
 done
 
-set -e
-
 FILES_TO_LINK="vimrc gvimrc"
 LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
 
