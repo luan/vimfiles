@@ -21,6 +21,9 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <expr><silent> <CR> <SID>my_cr_function()

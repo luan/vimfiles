@@ -10,6 +10,9 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <expr><silent> <CR> <SID>my_cr_function()
