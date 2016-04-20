@@ -35,3 +35,5 @@ elseif has("unix")
   endif
 endif
 
+let $PATH=$HOME . '/.vim/bin:' . $PATH
+

@@ -10,4 +10,5 @@ ftplugin/
 gobin/
 plugged/
 sessions/
+bin/elm-format
 tags

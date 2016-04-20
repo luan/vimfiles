@@ -120,7 +120,13 @@ if which elm > /dev/null; then
 
   (
     echo -e "\t${yellow}INSTALL${end_color} ${bold}elm-format${normal}..."
-    brew tap homebrew/devel-only; brew install --devel elm-format
+    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+      elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz'
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+      elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-mac-x64.tgz'
+    fi
+    tar xz -O < <(curl -L $elm_format_url) > bin/elm-format
+    chmod a+x bin/elm-format
     echo -e "\t${green}DONE${end_color}    ${bold}elm-format${normal}"
   ) &
   wait
