@@ -86,12 +86,16 @@ replace your ctags installation with: https://github.com/fishman/ctags
 
 You should frequently update you copy of this config, to get latest fixes and
 improvements. To do so you can run:
-
 ```bash
 vim-update
 ```
 
 Assuming `/usr/local/bin` is on your `PATH` on OSX or `~/bin/` on Linux.
+
+If that doesn't work you can always run the script directly:
+```bash
+~/.vim/update
+```
 
 ---
 
