@@ -8,9 +8,9 @@ if !has('nvim')
   set nocompatible
 endif
 
-runtime! Plug.vim
-
 silent! source ~/.vimrc.local.before
+
+runtime! Plug.vim
 
 runtime! config/basic.vim
 runtime! config/bindings.vim
