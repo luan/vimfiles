@@ -23,6 +23,7 @@ Homebrew by doing `brew install vim --with-lua`.
 1. [Installation](#installation)
   1. [Additional Dependencies](#additional-dependencies)
     1. [ctags](#ctags)
+1. [Updating](#updating)
 1. [Customizing](#customizing)
   1. [Changing Configuration](#changing-configuration)
   1. [Adding Plugins](#adding-plugins)
@@ -77,6 +78,20 @@ brew install universal-ctags --HEAD
 *exuberant-ctags* from your OS is generally enough for most things, but if you
 want more CSS, ruby and other goodnesses you will need to manually compile and
 replace your ctags installation with: https://github.com/fishman/ctags
+
+
+---
+
+## Updating
+
+You should frequently update you copy of this config, to get latest fixes and
+improvements. To do so you can run:
+
+```bash
+vim-update
+```
+
+Assuming `/usr/local/bin` is on your `PATH` on OSX or `~/bin/` on Linux.
 
 ---
 
