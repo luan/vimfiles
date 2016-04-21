@@ -26,6 +26,8 @@ Homebrew by doing `brew install vim --with-lua`.
 1. [Customizing](#customizing)
   1. [Changing Configuration](#changing-configuration)
   1. [Adding Plugins](#adding-plugins)
+1. [Functionality](#functionality)
+  1. [Defaults Overridden](#defaults-overridden)
 1. [Screenshots](#screenshots)
 
 ## Using This Configuration
@@ -135,6 +137,49 @@ the `~/.vimrc.local.plugins`, like such:
 " Plugin to navigate between camelCase words
 Plug 'bkad/CamelCaseMotion'
 ```
+
+---
+
+## Functionality
+
+This config packs a considerable amount of plugins, there are descriptions for
+most of them [here](Plug.vim) in the comments. It also strives to not override
+default behavior, although that's not always possible.
+
+There's [space to write some
+guides](https://github.com/luan/vimfiles/issues/56) as to how to effectively
+use this config for certain languages. The main targets are golang and ruby,
+although this configuration should be usable with most languages.
+
+### Defaults Overridden
+
+These bindings are known to be overridden in this config. Please open an
+[issue](https://github.com/luan/vimfiles/issues/new) if you find any other.
+* `|`: Default behavior is jump to column. We have it set to `:NERDTreeFocus`.
+* `,`: Default is reverse repeat a `f`, `t`, `F`, or `T` search. We have it set to `<leader>`.
+* `\`: Is the default `<leader>`. We have it set to `:NERDTreeToggle`.
+* `<enter>` or `<cr>`: Default behavior is to move the cursor one line down. We
+  have it set to save if modified (basically `:w` when the file has a change).
+
+A lot of small defaults are overridden everywhere else, and those are just to
+make editing a better experience and should in no way make this vim not feel
+like vim. For a glance in some of the changes look at
+[config/basic.vim](config/basic.vim).
+
+A few overridden are worth mentioning:
+
+```vim
+set splitright
+set splitbelow
+```
+These change where new splits are open, when you for example do `:vs` the
+default behavior is to open a split on the left, it feels more natural to open
+one on the right instead, same goes for `:split` and the horizontal splits.
+
+```vim
+set iskeyword+=$,@,-
+```
+Add extra characters that are valid parts of variables.
 
 ---
 
