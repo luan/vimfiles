@@ -9,6 +9,8 @@ if has("autocmd")
   " Fix trailing whitespace in my most used programming langauges
   autocmd FileType vim set fdm=marker foldmarker={{{,}}}
 
+  autocmd FileType yaml,concourse :RainbowToggleOff
+
   if exists("g:autosave") && g:autosave == 1
     autocmd FocusLost * silent! wa
   endif

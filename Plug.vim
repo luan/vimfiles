@@ -159,8 +159,6 @@ call plug#begin('~/.vim/plugged')
   " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
   Plug 'tpope/vim-unimpaired'
 
-  " Speed up Vim by updating folds only when called-for.
-  Plug 'Konfekt/FastFold'
   if $ALL_PLUGINS == 'true' || has('nvim')
     " provides an asynchronous keyword completion system in the current buffer
     Plug 'Shougo/deoplete.nvim'
@@ -175,6 +173,8 @@ call plug#begin('~/.vim/plugged')
   if $ALL_PLUGINS == 'true' || has('lua')
     " Next generation completion framework after neocomplcache
     Plug 'Shougo/neocomplete.vim'
+    " Speed up Vim by updating folds only when called-for.
+    Plug 'Konfekt/FastFold'
   endif
   " displays information in echo area from echodoc plugin.
   Plug 'Shougo/echodoc.vim'
@@ -254,6 +254,10 @@ call plug#begin('~/.vim/plugged')
 
   " Elm {{{
     Plug 'elmcast/elm-vim', { 'for': 'elm' }
+  " }}}
+ 
+  " Concourse {{{
+  Plug 'luan/vim-concourse'
   " }}}
 " }}}
 
