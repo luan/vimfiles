@@ -173,11 +173,12 @@ call plug#begin('~/.vim/plugged')
   if $ALL_PLUGINS == 'true' || has('lua')
     " Next generation completion framework after neocomplcache
     Plug 'Shougo/neocomplete.vim'
-    " Speed up Vim by updating folds only when called-for.
-    Plug 'Konfekt/FastFold'
   endif
   " displays information in echo area from echodoc plugin.
   Plug 'Shougo/echodoc.vim'
+
+  " Speed up Vim by updating folds only when called-for.
+  Plug 'Konfekt/FastFold'
 " }}}
 
 " Text objects {{{

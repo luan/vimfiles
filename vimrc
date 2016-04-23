@@ -24,23 +24,20 @@ runtime! config/platform.vim
 " Plugin Configuration
 " ----------------------------------------
 
-runtime! config/plugin/NERDTree.vim
 runtime! config/plugin/ack.vim
 runtime! config/plugin/airline.vim
 runtime! config/plugin/autoclose.vim
 runtime! config/plugin/commentary.vim
-runtime! config/plugin/echodoc.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/gitrebase.vim
 runtime! config/plugin/livedown.vim
 runtime! config/plugin/multicursor.vim
-runtime! config/plugin/neosnippet.vim
-runtime! config/plugin/omnicompletion.vim
+runtime! config/plugin/nerdtree.vim
 runtime! config/plugin/rainbow.vim
 runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
-runtime! config/plugin/undotree.vim
 runtime! config/plugin/ultisnips.vim
+runtime! config/plugin/undotree.vim
 
 if has('nvim')
   runtime! config/plugin/fzf.vim
@@ -68,7 +65,7 @@ runtime! config/lang/yaml.vim
 " ----------------------------------------
 
 runtime! lib/functions.vim
-runtime! lib/auto_commands.vim
+runtime! lib/autocommands.vim
 
 silent! source ~/.vimrc.local
 

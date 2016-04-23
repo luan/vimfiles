@@ -189,11 +189,10 @@ A few overridden are worth mentioning:
 
 ```vim
 set splitright
-set splitbelow
 ```
 These change where new splits are open, when you for example do `:vs` the
 default behavior is to open a split on the left, it feels more natural to open
-one on the right instead, same goes for `:split` and the horizontal splits.
+one on the right instead.
 
 ```vim
 set iskeyword+=$,@,-

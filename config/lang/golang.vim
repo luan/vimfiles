@@ -50,6 +50,9 @@ if has('nvim')
   autocmd BufEnter *.go let &errorformat = goerrorformat
   autocmd! BufWritePost *.go Neomake!
   let g:neomake_go_enabled_makers = []
+
+  let g:deoplete#sources#go#gocode_binary	= g:go_bin_path . '/gocode'
+  let g:deoplete#sources#go#align_class = 1
 else
   let g:syntastic_go_gometalinter_args = '' .
         \ '--tests ' .
