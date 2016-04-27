@@ -166,10 +166,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'zchee/deoplete-go', { 'do': 'make' }
   endif
 
-  if $ALL_PLUGINS == 'true' || !has('lua')
-    " Ultimate auto-completion system for Vim. Note: It is not maintained well. You should use neocomplete instead.
-    Plug 'Shougo/neocomplcache.vim'
-  endif
   if $ALL_PLUGINS == 'true' || has('lua')
     " Next generation completion framework after neocomplcache
     Plug 'Shougo/neocomplete.vim'

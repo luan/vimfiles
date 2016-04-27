@@ -1,5 +1,6 @@
-if !(has('lua') && (v:version > 703 || v:version == 703 && has('patch2000')))
-  runtime! config/plugin/neocomplcache.vim
+if !has('lua')
+  au VimEnter *
+      \ echohl Error | echomsg '[vimfiles] cannot setup autocomplete, install vim with lua or try neovim' | echohl None
   finish
 endif
 
