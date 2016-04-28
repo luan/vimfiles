@@ -56,7 +56,9 @@ set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
 set tags=./tags;/,tags;/
 set splitright
-set completeopt=menu,noinsert,noselect
+if version >= 704
+  set completeopt=menu,noinsert,noselect
+endif
 " }}}
 
 " Text Format {{{

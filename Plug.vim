@@ -193,7 +193,9 @@ call plug#begin('~/.vim/plugged')
 
 " Snippets {{{
   "UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
-  Plug 'SirVer/ultisnips'
+  if version >= 704
+    Plug 'SirVer/ultisnips'
+  endif
 
   " vim-snipmate default snippets (Previously snipmate-snippets)
   Plug 'honza/vim-snippets'
