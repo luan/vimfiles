@@ -23,12 +23,7 @@ if has("autocmd")
           \ if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") |
           \   exe "normal g`\"" |
           \ endif
-
-    " Leave the return key alone when in command line windows, since it's used
-    " to run commands there.
-    autocmd! CmdwinEnter * nnoremap <buffer> <cr> <cr>
   augroup END
 
-  autocmd! CmdwinEnter * :unmap <cr>
-  autocmd! CmdwinLeave * :call MapCR()
+  au FileType qf nnoremap <buffer> <Enter> <Enter>
 endif

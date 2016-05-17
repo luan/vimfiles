@@ -104,18 +104,7 @@ vnoremap <leader>S :sort<CR>
 nnoremap <silent> <space> :noh<cr>
 nnoremap <leader>=  gg=G``
 
-function! CRWriteIfNecessary()
-  if !&modified || &readonly || &filetype == "qf"
-    " Execute a normal enter when in Quickfix list.
-    execute "normal! \<enter>"
-  else
-    :write
-  endif
-endfunction
-function! MapCR()
-  nnoremap <silent> <enter> :call CRWriteIfNecessary()<CR>
-endfunction
-call MapCR()
+nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
 
 nnoremap <silent><leader><C-]> <C-w><C-]><C-w>T
 nnoremap <silent><leader>o o<esc>
