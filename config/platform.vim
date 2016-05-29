@@ -26,12 +26,15 @@ elseif has("unix")
   else
     let g:has_powerline_font = filereadable($HOME."/.fonts/Meslo LG M Regular for Powerline.otf") || filereadable("/usr/local/share/fonts/Meslo LG M Regular for Powerline.otf")
   endif
+
   if g:has_powerline_font
     set guifont=Meslo\ LG\ M\ for\ Powerline:h12
   elseif has('gui_running')
-    set guifont=Monaco:h12
-  else
-    set guifont=Monospace:h12
+    if s:uname =~ "Darwin"
+      set guifont=Monaco:h12
+    else
+      set guifont=Monospace\ 10
+    endif
   endif
 endif
 
