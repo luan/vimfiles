@@ -152,7 +152,7 @@ if [ $INTERACTIVE != 1 ] ; then
   fi
 fi
 
-ALL_PLUGINS='true' $vim +'silent! PlugClean!' +'silent! PlugUpdate!' +'qall!'
+ALL_PLUGINS='true' $vim +'PlugClean!' +'PlugUpdate!' +'qall!'
 
 echo -e "${green}DONE${end_color} ${bold}vim plugins${normal}" >&4
 
@@ -166,10 +166,11 @@ if which nvim > /dev/null; then
 fi
 
 if which go > /dev/null; then
-  mkdir -p gobin
+  mkdir -p gobin gopath
   echo -e "${yellow}INSTALL${end_color} ${bold}go binaries${normal} (may take a while)..." >&4
-  $vim +'silent! GoUpdateBinaries' +'GoDoctorInstall' +'ConcourseUpdateBinaries' +'qall!'
-  GOBIN=$PWD/gobin $PWD/gobin/gometalinter --install --update
+  GOPATH=$PWD/gopath $vim +'GoUpdateBinaries' +'GoDoctorInstall' +'ConcourseUpdateBinaries' +'qall!'
+  echo
+  GOPATH=$PWD/gopath GOBIN=$PWD/gobin $PWD/gobin/gometalinter --install --update
   echo -e "${green}DONE${end_color} ${bold}go binaries${normal}" >&4
 fi
 

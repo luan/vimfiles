@@ -8,6 +8,7 @@ autoload/
 bundle/
 ftplugin/
 gobin/
+gopath/
 plugged/
 sessions/
 bin/elm-format
