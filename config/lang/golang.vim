@@ -21,7 +21,7 @@ let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "ultisnips"
 let g:go_fmt_autosave = 1
 let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
-let g:go_auto_type_info = 1
+let g:go_auto_type_info = 0
 
 if has('nvim')
    let g:gomakeprg =
