@@ -51,7 +51,7 @@ set wildmode=list:longest " use emacs-style tab completion when selecting files,
 set hidden             " Change buffer - without saving
 set autowriteall       " Writes on make/shell commands
 " set foldmethod=syntax
-set foldlevel=1
+set foldlevel=20
 set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
 set tags=./tags;/,tags;/
