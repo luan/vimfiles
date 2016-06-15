@@ -50,8 +50,8 @@ filetype plugin indent on  " Automatically detect file types. (must turn on afte
 set wildmode=list:longest " use emacs-style tab completion when selecting files, etc
 set hidden             " Change buffer - without saving
 set autowriteall       " Writes on make/shell commands
-set foldmethod=syntax
-set foldlevel=20
+" set foldmethod=syntax
+set foldlevel=1
 set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
 set tags=./tags;/,tags;/
@@ -84,7 +84,6 @@ endif
 
 " Visual {{{
 set noshowmatch " Disable jumping to matching bracket when typing
-set matchtime=2 " How many tenths of a second to blink
 " }}}
 
 " Sounds {{{

@@ -53,6 +53,9 @@ call plug#begin('~/.vim/plugged')
 
   " Better whitespace highlighting for Vim
   Plug 'ntpeters/vim-better-whitespace'
+
+  " Toggle the cursor shape in the terminal for Vim.
+  Plug 'jszakmeister/vim-togglecursor'
 " }}}
 
 " Commands {{{
@@ -172,6 +175,15 @@ call plug#begin('~/.vim/plugged')
   endif
   " displays information in echo area from echodoc plugin.
   Plug 'Shougo/echodoc.vim'
+
+   " Speed up Vim by updating folds only when called-for.
+   let g:fastfold_savehook = 0
+   let g:fastfold_fold_command_suffixes = []
+   let g:fastfold_fold_movement_commands = []
+   Plug 'Konfekt/FastFold'
+
+   " Provide easy code formatting in Vim by integrating existing code formatters.
+   Plug 'Chiel92/vim-autoformat'
 " }}}
 
 " Text objects {{{
@@ -251,7 +263,7 @@ call plug#begin('~/.vim/plugged')
   " Elm {{{
     Plug 'elmcast/elm-vim', { 'for': 'elm' }
   " }}}
- 
+
   " Concourse {{{
   Plug 'luan/vim-concourse'
   " }}}

@@ -64,7 +64,7 @@ function! colors#_callback()
     let g:gruvbox_italic=1
     silent !bash $HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh
   endif
-  hi MatchParen cterm=underline ctermbg=none ctermfg=none
+  hi MatchParen cterm=underline ctermbg=none ctermfg=none gui=underline guifg=NONE guibg=NONE
 endfunction
 
 

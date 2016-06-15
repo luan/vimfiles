@@ -19,10 +19,12 @@ endif
 
 let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "ultisnips"
-let g:go_fmt_autosave = 1
 let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
 let g:go_auto_type_info = 0
-let g:go_fmt_experimental = 1
+let g:go_fmt_autosave = 0
+let g:formatdef_goimports = "'".g:go_bin_path."/goimports'"
+let g:formatters_golang = ['goimports']
+autocmd BufWritePost *.go :Autoformat
 
 if has('nvim')
    let g:gomakeprg =
@@ -82,7 +84,7 @@ endfunction
 function! golang#buffcommands()
   command! -buffer -bar -nargs=0 GoTags call golang#generate_project()
   command! -buffer -bar -nargs=0 GoTagsGlobal call golang#generate_global()
-  setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
+  setlocal foldmethod=syntax shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 endfunction
 
 let s:projections = {
