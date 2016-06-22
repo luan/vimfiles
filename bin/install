@@ -7,8 +7,15 @@ print_usage() {
   echo -e "\t-n, --non-interactive \tDon't show vim while installing plugins."
 }
 
-INTERACTIVE=1
 UPDATE=0
+
+if [[ -t 0 ]]
+then
+  INTERACTIVE=1
+else
+  echo "Detected non-interactive shell, forcing --non-interactive"
+  INTERACTIVE=0
+fi
 
 while [[ $# > 0 ]]
 do

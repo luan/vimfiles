@@ -19,6 +19,6 @@ script:
   - sh /tmp/vim-vimlint/bin/vimlint.sh -l /tmp/vim-vimlint -p /tmp/vim-vimlparser -v vimrc *.vim config lib
   - ln -s $PWD $HOME/.vim
   - mkdir $HOME/bin
-  - ./bin/install -n
+  - ./bin/install
 matrix:
   fast_finish: true
