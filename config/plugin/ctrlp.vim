@@ -17,15 +17,11 @@ nnoremap <leader>L :CtrlPLine<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 
 function! s:define_user_command()
-  " Change wildignore into space or | separated groups
-  " e.g. .aux .out .toc .jpg .bmp .gif
-  " or   .aux$\|.out$\|.toc$\|.jpg$\|.bmp$\|.gif$
-  let pats = ['[*\/]*\([?_.0-9A-Za-z]\+\)\([*\/]*\)\(\\\@<!,\|$\)','\\\@<!,', '\.']
-  let subs = has('win32') || has('win64') ? ['\1\3', ' ', '\.'] : ['\1\2\3', '\\|', '\\.']
-  let expr = substitute(&wig, pats[0], subs[0], 'g')
-  let expr = substitute(expr, pats[1], subs[1], 'g')
-  let expr = substitute(expr, pats[2], subs[2], 'g')
-  let expr = substitute(expr, '\\,', ',', 'g')
+  let expr = '\.final_builds/*\|node_modules/*\|\.o$\|\.obj$\|\.exe$\|\.so$\'
+  let expr = expr . '|\.dll$\|\.pyc$\|\.svn\|\.hg\|\.bzr\|\.git\|\.sass-cache\'
+  let expr = expr . '|\.class\|\.scssc\|Godeps/*'
+
+
 
   " Set the user_command option
   if executable('ag')
