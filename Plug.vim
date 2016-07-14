@@ -211,10 +211,6 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " Language specific {{{
-  " A solid language pack for Vim.
-  " Adds 70+ languages and optimizes loading and installing.
-  Plug 'sheerun/vim-polyglot'
-
   " Ruby {{{
     Plug 'tpope/vim-rails',             { 'for': ['ruby', 'rake'] }
     Plug 'tpope/vim-rake',              { 'for': ['ruby', 'rake'] }
@@ -264,10 +260,21 @@ call plug#begin('~/.vim/plugged')
     Plug 'elmcast/elm-vim', { 'for': 'elm' }
   " }}}
 
-  " Concourse {{{
-  Plug 'luan/vim-concourse'
+  " Go {{{
+    Plug 'rust-lang/rust.vim'
   " }}}
+
+  " Concourse {{{
+    Plug 'luan/vim-concourse'
+  " }}}
+
+  " A solid language pack for Vim.
+  " Adds 70+ languages and optimizes loading and installing.
+  Plug 'sheerun/vim-polyglot'
 " }}}
+
+" vim interface to Web API
+Plug 'mattn/webapi-vim'
 
 source $HOME/.vimrc.local.plugins
 
