@@ -15,7 +15,7 @@ let g:ctrlp_cmd = ''
 nnoremap <C-p>     :FZFFiles<cr>
 nnoremap <leader>f :FZFFiles<cr>
 nnoremap <leader>m :FZFHistory<cr>
-nnoremap <leader>F :FZFBtags<cr>
+nnoremap <leader>F :FZFBTags<cr>
 nnoremap <leader>S :FZFTags<cr>
 nnoremap <leader>L :FZFBLines<cr>
 nnoremap <leader>b :FZFBuffers<cr>
