@@ -1,7 +1,3 @@
-let &t_Co=256
-
-let g:base16_shell_path=$HOME.'/.vim/scripts/base16-shell/scripts'
-
 let s:colors = [
       \ 'hybrid',
       \ 'gruvbox',
@@ -57,10 +53,10 @@ endfunction
 
 function! colors#_callback()
   let l:name = g:colors_name
-  if !has('gui_running') && name == 'hybrid'
+  if name == 'hybrid'
     silent !bash $HOME/.vim/scripts/shell-colors-vim-hybrid/shell-colors-vim-hybrid.sh
   endif
-  if !has('gui_running') && name == 'gruvbox'
+  if name == 'gruvbox'
     let g:gruvbox_italic=1
     silent !bash $HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh
   endif
@@ -103,8 +99,11 @@ set background=dark
 
 if has('termguicolors')
   set termguicolors
-else
+elseif !has('gui_running')
+  let g:base16_shell_path=$HOME.'/.vim/scripts/base16-shell/scripts'
   let g:base16colorspace=256
+  let &t_Co=256
+
   autocmd! ColorScheme * silent! call colors#_callback()
 endif
 
