@@ -101,8 +101,8 @@ map <silent><F4> :ColorsToggleBG<cr>
 map <silent><F1> :ColorsPeek<cr>
 set background=dark
 
-if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if has('termguicolors')
+  set termguicolors
 else
   let g:base16colorspace=256
   autocmd! ColorScheme * silent! call colors#_callback()
