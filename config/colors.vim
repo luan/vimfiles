@@ -98,6 +98,7 @@ map <silent><F1> :ColorsPeek<cr>
 set background=dark
 
 if has('termguicolors')
+  set t_ut=
   set termguicolors
 elseif !has('gui_running')
   let g:base16_shell_path=$HOME.'/.vim/scripts/base16-shell/scripts'
