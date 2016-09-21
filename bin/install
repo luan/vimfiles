@@ -61,7 +61,7 @@ if which nvim > /dev/null; then
   fi
 fi
 
-pushd $DIR
+pushd $DIR > /dev/null
 
 if [ -e $DIR/bundle ]; then
   rm -rf $DIR/bundle
@@ -181,4 +181,4 @@ if which go > /dev/null; then
   echo -e "${green}DONE${end_color} ${bold}go binaries${normal}" >&4
 fi
 
-popd
+popd > /dev/null
