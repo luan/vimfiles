@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pushd $HOME/.vim
+pushd $HOME/.vim > /dev/null
 git pull
 ~/.vim/bin/install -u $@
-popd
+popd > /dev/null
