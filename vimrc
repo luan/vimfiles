@@ -15,6 +15,7 @@ runtime! Plug.vim
 runtime! config/basic.vim
 runtime! config/bindings.vim
 runtime! config/colors.vim
+runtime! config/crontab.vim
 runtime! config/paste.vim
 
 " Platform Specific
