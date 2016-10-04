@@ -15,7 +15,6 @@ runtime! Plug.vim
 runtime! config/basic.vim
 runtime! config/bindings.vim
 runtime! config/colors.vim
-runtime! config/crontab.vim
 runtime! config/paste.vim
 
 " Platform Specific
@@ -60,6 +59,7 @@ runtime! config/lang/golang.vim
 runtime! config/lang/ruby.vim
 runtime! config/lang/rust.vim
 runtime! config/lang/yaml.vim
+runtime! config/lang/crontab.vim
 
 " ----------------------------------------
 " Lib load path
