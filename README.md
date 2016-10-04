@@ -9,7 +9,7 @@ This vimfiles support both standard [vim](http://www.vim.org/) and
 [neovim](https://neovim.io/), I'd encourage you to give neovim a try.
 
 If you're using neovim follow [this
-guid](https://github.com/neovim/neovim/wiki/Installing-Neovim) in order to get
+guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) in order to get
 it properly setup. The autocompletion plugin we use needs [python3
 support](https://neovim.io/doc/user/nvim_python.html) too.
 
