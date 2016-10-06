@@ -1,4 +1,5 @@
 language: python
+dist: trusty
 env:
   - CI_TARGET=vim GOPATH=$HOME/go
   - CI_TARGET=neovim GOPATH=$HOME/go
