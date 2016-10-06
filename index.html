@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vimfiles by luan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Vimfiles</h1>
+      <h2 class="project-tagline">The Vim Configuration. Uses vim-plug to manage plugins.</h2>
+      <a href="https://github.com/luan/vimfiles" class="btn">View on GitHub</a>
+      <a href="https://github.com/luan/vimfiles/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/luan/vimfiles/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="the-vim-configuration-" class="anchor" href="#the-vim-configuration-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Vim Configuration. <a href="https://travis-ci.org/luan/vimfiles"><img src="https://travis-ci.org/luan/vimfiles.svg?branch=master" alt="Build Status"></a>
+</h1>
+
+<p>If you're trying to use this config checkout this <a href="https://github.com/luan/vimfiles/wiki/Luan's-Vim-Cheat-Sheet">cheat
+sheet</a>.</p>
+
+<hr>
+
+<p>This vimfiles support both standard <a href="http://www.vim.org/">vim</a> and
+<a href="https://neovim.io/">neovim</a>, I'd encourage you to give neovim a try.</p>
+
+<p>If you're using neovim follow <a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">this
+guide</a> in order to get
+it properly setup. The autocompletion plugin we use needs <a href="https://neovim.io/doc/user/nvim_python.html">python3
+support</a> too.</p>
+
+<p>If you're using regular vim make sure to install it with lua support, on ubuntu
+that's provided with the <code>vim-nox</code> package and on OSX it can be installed with
+Homebrew by doing <code>brew install vim --with-lua</code>.</p>
+
+<h3>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h3>
+
+<ol>
+<li><a href="#using-this-configuration">Using This Configuration</a></li>
+<li>
+<a href="#installation">Installation</a>
+
+<ol>
+<li>
+<a href="#additional-dependencies">Additional Dependencies</a>
+
+<ol>
+<li><a href="#ctags">ctags</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#updating">Updating</a></li>
+<li>
+<a href="#customizing">Customizing</a>
+
+<ol>
+<li><a href="#changing-configuration">Changing Configuration</a></li>
+<li><a href="#adding-plugins">Adding Plugins</a></li>
+</ol>
+</li>
+<li>
+<a href="#functionality">Functionality</a>
+
+<ol>
+<li><a href="#defaults-overridden">Defaults Overridden</a></li>
+</ol>
+</li>
+<li><a href="#screenshots">Screenshots</a></li>
+</ol>
+
+<h2>
+<a id="using-this-configuration" class="anchor" href="#using-this-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using This Configuration</h2>
+
+<p>This configuration is supposed to be used directly, <strong>not</strong> forked. If you intend
+to keep up to date with changes made to this repo it's recommended that you
+just clone this repository and customize the config using the <a href="#customizing">provided
+hooks</a>. If you have a feature or fix to submit, feel free to fork
+and send a PR.</p>
+
+<hr>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>As simple as:</p>
+
+<div class="highlight highlight-source-shell"><pre>curl vimfiles.luan.sh/install <span class="pl-k">|</span> bash
+
+<span class="pl-c"># To override you current config:</span>
+<span class="pl-c"># curl vimfiles.luan.sh/install | FORCE=1 bash</span></pre></div>
+
+<h3>
+<a id="additional-dependencies" class="anchor" href="#additional-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Additional Dependencies</h3>
+
+<p>Most of the dependencies are installed automatically, assuming you have a
+minimal development environment for you language. For example we download all
+the tools for golang and elm automatically.  <code>git</code> is assumed to be installed
+and so is <code>ag</code> or <code>ack</code>, if either of those is not, some plugins may not behave
+as expected.</p>
+
+<h4>
+<a id="ctags" class="anchor" href="#ctags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ctags</h4>
+
+<p><code>ctags</code> is used to jump to function definitions, it is not strictly necessary if
+you don't need that functionality, if you want to be able to jump effectively
+to definitions install the correct version of ctags.</p>
+
+<p><strong>OSX</strong></p>
+
+<div class="highlight highlight-source-shell"><pre>brew uninstall ctags
+brew tap universal-ctags/universal-ctags
+brew install universal-ctags --HEAD</pre></div>
+
+<p><strong>Linux</strong></p>
+
+<p><em>exuberant-ctags</em> from your OS is generally enough for most things, but if you
+want more CSS, ruby and other goodnesses you will need to manually compile and
+replace your ctags installation with: <a href="https://github.com/fishman/ctags">https://github.com/fishman/ctags</a></p>
+
+<hr>
+
+<h2>
+<a id="updating" class="anchor" href="#updating" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Updating</h2>
+
+<p>You should frequently update you copy of this config, to get latest fixes and
+improvements. To do so you can run:</p>
+
+<div class="highlight highlight-source-shell"><pre>vim-update</pre></div>
+
+<p>Assuming <code>/usr/local/bin</code> is on your <code>PATH</code> on OSX or <code>~/bin/</code> on Linux.</p>
+
+<p>If that doesn't work you can always run the script directly:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">~</span>/.vim/update</pre></div>
+
+<hr>
+
+<h2>
+<a id="customizing" class="anchor" href="#customizing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customizing</h2>
+
+<p>We load 3 extra configuration files that are <strong>NOT</strong> part of this repo:</p>
+
+<ul>
+<li>
+<code>~/.vimrc.local.before</code> (<em>to open: <code>,vb</code></em>): Configuration to be set before everything else, this
+runs before any plugin or any config from this repository.</li>
+<li>
+<code>~/.vimrc.local</code> (<em>to open: <code>,vl</code></em>): Configuration to be set after everything else, this runs
+after all other configuration is loaded and all plugins are setup.</li>
+<li>
+<code>~/.vimrc.local.plugins</code> (<em>to open: <code>,vp</code></em>): Extra plugins to be loaded (along with maybe
+optional configuration for them). Is loaded after all the default plugins are
+installed.</li>
+</ul>
+
+<p>A common pattern is for individuals or teams to have those 3 files checked in
+to a separate <a href="https://github.com/luan/dotfiles">dotfiles</a> repository and have
+them be symlinked into your <code>$HOME</code> directory. Symlink them before you run the
+install script and everything should work.</p>
+
+<h3>
+<a id="changing-configuration" class="anchor" href="#changing-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing Configuration</h3>
+
+<p>You might want to change some config such as disabling autocompletion or
+enabling auto save, or maybe just changing your colorscheme.  You can do so by
+editing the <code>~/.vimrc.local</code> file, for example:</p>
+
+<p>Changing colorscheme:</p>
+
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">colorscheme</span> gruvbox</pre></div>
+
+<p>Enabling auto save:</p>
+
+<div class="highlight highlight-source-viml"><pre><span class="pl-c">" will save automatically when leaving the buffer</span>
+<span class="pl-c">" 0 or 1, defaults 0</span>
+<span class="pl-k">let</span> <span class="pl-smi"><span class="pl-k">g:</span>autosave</span> <span class="pl-k">=</span> <span class="pl-c1">1</span></pre></div>
+
+<p>Disabling neocomplete:</p>
+
+<div class="highlight highlight-source-viml"><pre><span class="pl-k">let</span> <span class="pl-smi"><span class="pl-k">g:</span>neocomplete</span><span class="pl-c1">#e</span>nable_at_startup <span class="pl-k">=</span> <span class="pl-c1">0</span><span class="pl-c">   " disable neocomplete</span>
+<span class="pl-k">let</span> <span class="pl-smi"><span class="pl-k">g:</span>neocomplcache_enable_at_startup</span> <span class="pl-k">=</span> <span class="pl-c1">0</span><span class="pl-c"> " disable the fallback version when no LUA</span></pre></div>
+
+<p>Some configuration values need to be set before loading plugins, for that we
+have the <code>~/.vimrc.local.before</code>, that get's loaded before everything else, one
+example usage of it is enabling fancy characters for the airline plugin:</p>
+
+<div class="highlight highlight-source-viml"><pre><span class="pl-k">let</span> <span class="pl-smi"><span class="pl-k">g:</span>airline_powerline_fonts</span> <span class="pl-k">=</span> <span class="pl-c1">1</span></pre></div>
+
+<h3>
+<a id="adding-plugins" class="anchor" href="#adding-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adding Plugins</h3>
+
+<p>If you have a favorite plugin you want to install but couldn't convince me to
+add it as a default you can still have it be installed by just putting it in
+the <code>~/.vimrc.local.plugins</code>, like such:</p>
+
+<div class="highlight highlight-source-viml"><pre><span class="pl-c">" Plugin to navigate between camelCase words</span>
+Plug <span class="pl-s"><span class="pl-pds">'</span>bkad/CamelCaseMotion<span class="pl-pds">'</span></span></pre></div>
+
+<hr>
+
+<h2>
+<a id="functionality" class="anchor" href="#functionality" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functionality</h2>
+
+<p>This config packs a considerable amount of plugins, there are descriptions for
+most of them <a href="Plug.vim">here</a> in the comments. It also strives to not override
+default behavior, although that's not always possible.</p>
+
+<p>There's <a href="https://github.com/luan/vimfiles/issues/56">space to write some
+guides</a> as to how to effectively
+use this config for certain languages. The main targets are golang and ruby,
+although this configuration should be usable with most languages.</p>
+
+<h3>
+<a id="defaults-overridden" class="anchor" href="#defaults-overridden" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Defaults Overridden</h3>
+
+<p>These bindings are known to be overridden in this config. Please open an
+<a href="https://github.com/luan/vimfiles/issues/new">issue</a> if you find any other.</p>
+
+<ul>
+<li>
+<code>|</code>: Default behavior is jump to column. We have it set to <code>:NERDTreeFocus</code>.</li>
+<li>
+<code>,</code>: Default is reverse repeat a <code>f</code>, <code>t</code>, <code>F</code>, or <code>T</code> search. We have it set to <code>&lt;leader&gt;</code>.</li>
+<li>
+<code>\</code>: Is the default <code>&lt;leader&gt;</code>. We have it set to <code>:NERDTreeToggle</code>.</li>
+<li>
+<code>&lt;enter&gt;</code> or <code>&lt;cr&gt;</code>: Default behavior is to move the cursor one line down. We
+have it set to save if modified (basically <code>:w</code> when the file has a change).</li>
+</ul>
+
+<p>A lot of small defaults are overridden everywhere else, and those are just to
+make editing a better experience and should in no way make this vim not feel
+like vim. For a glance in some of the changes look at
+<a href="config/basic.vim">config/basic.vim</a>.</p>
+
+<p>A few overridden are worth mentioning:</p>
+
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">set</span> <span class="pl-c1">splitright</span></pre></div>
+
+<p>These change where new splits are open, when you for example do <code>:vs</code> the
+default behavior is to open a split on the left, it feels more natural to open
+one on the right instead.</p>
+
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">set</span> <span class="pl-c1">iskeyword</span><span class="pl-k">+</span><span class="pl-k">=</span><span class="pl-smi">$</span>,<span class="pl-smi">@</span>,<span class="pl-k">-</span></pre></div>
+
+<p>Add extra characters that are valid parts of variables.</p>
+
+<hr>
+
+<h2>
+<a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshots</h2>
+
+<p><strong>Default colorscheme: hybrid</strong></p>
+
+<p><a href="https://github.com/luan/vimfiles/raw/master/screenshots/hybrid.png"><img src="https://github.com/luan/vimfiles/raw/master/screenshots/hybrid.png" alt="hybrid"></a></p>
+
+<p><strong>Alternate colorscheme: monokai</strong></p>
+
+<p><a href="https://github.com/luan/vimfiles/raw/master/screenshots/monokai.png"><img src="https://github.com/luan/vimfiles/raw/master/screenshots/monokai.png" alt="monokai"></a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/luan/vimfiles">Vimfiles</a> is maintained by <a href="https://github.com/luan">luan</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
