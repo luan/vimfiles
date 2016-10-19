@@ -28,10 +28,10 @@ if has('nvim')
     \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
       \ '! gometalinter ' .
         \ '--tests ' .
-        \ '--disable-all' .
-        \ '--enable=vet' .
-        \ '--enable=deadcode' .
-        \ '--enable=errcheck' .
+        \ '--disable-all ' .
+        \ '--enable=vet ' .
+        \ '--enable=deadcode ' .
+        \ '--enable=errcheck ' .
         \ '--sort=severity ' .
         \ '--exclude "should have comment" ' .
       \ '| grep "%"'
