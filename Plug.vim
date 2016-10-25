@@ -268,6 +268,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'luan/vim-concourse'
   " }}}
 
+  " BOSH {{{
+    Plug 'luan/vim-bosh'
+  " }}}
+
   " A solid language pack for Vim.
   " Adds 70+ languages and optimizes loading and installing.
   Plug 'sheerun/vim-polyglot'
