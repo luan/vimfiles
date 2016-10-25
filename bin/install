@@ -46,6 +46,12 @@ if [ $(basename $DIR) == "bin" ]; then
   DIR=$(cd ${DIR}/.. && pwd)
 fi
 
+if [ ! -d "${DIR}/.git" ]; then
+  echo "vimfiles repository not yet cloned. Cloning..."
+  DIR="${HOME}/.vim"
+  git clone https://github.com/luan/vimfiles.git $DIR
+fi
+
 if [ "$DIR" != "$HOME/.vim" ]; then
   dot_file=$HOME/.vim
   if [ ! -e $dot_file ]; then
