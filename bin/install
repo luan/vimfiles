@@ -181,7 +181,7 @@ fi
 if which go > /dev/null; then
   mkdir -p gobin gopath
   echo -e "${yellow}INSTALL${end_color} ${bold}go binaries${normal} (may take a while)..." >&4
-  GOPATH=$PWD/gopath $vim +'GoUpdateBinaries' +'GoDoctorInstall' +'ConcourseUpdateBinaries' +'qall!'
+  GOPATH=$PWD/gopath $vim +'GoUpdateBinaries' +'GoDoctorInstall' +'ConcourseUpdateBinaries' +'BoshUpdateBinaries' +'qall!'
   echo
   GOPATH=$PWD/gopath GOBIN=$PWD/gobin $PWD/gobin/gometalinter --install --update
   echo -e "${green}DONE${end_color} ${bold}go binaries${normal}" >&4
