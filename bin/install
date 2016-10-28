@@ -63,7 +63,7 @@ fail() {
 
 should_clone() {
   declare dir=$1
-  [[ ! -d "${dir}/.git" || "$(git remote get-url origin)" != *"${VIMFILES_REPO_NAME}"* ]]
+  [[ ! -d "${dir}/.git" || "$(git remote -v)" != *"${VIMFILES_REPO_NAME}"* ]]
 }
 
 verify_ownership() {
