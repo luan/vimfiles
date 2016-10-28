@@ -1,117 +1,176 @@
 #!/usr/bin/env bash
 
+declare UPDATE=0 INTERACTIVE=1
+declare VIM='vim'
+
+readonly VIMFILES_PATH="${HOME}/.vim"
+readonly VIMFILES_REPO_NAME='luan/vimfiles'
+readonly VIMFILES_REPO_URL="https://github.com/${VIMFILES_REPO_NAME}"
+readonly FILES_TO_LINK="vimrc gvimrc"
+readonly LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
+
+readonly GREEN='\033[0;32m'
+readonly YELLOW='\033[0;33m'
+readonly RED='\033[0;31m'
+readonly BOLD=$(tput bold)
+readonly NORMAL=$(tput sgr0)
+readonly END_COLOR='\033[0;m'
+
+
 print_usage() {
-  echo -e "Unsupported option: $@"
+  echo -e "Unsupported option: $*"
   echo -e "Supported options:"
   echo -e "\t-u, --update          \tUpdate all plugins."
   echo -e "\t-n, --non-interactive \tDon't show vim while installing plugins."
 }
 
-UPDATE=0
+parse_flags() {
+  while [[ $# -gt 0 ]]; do
+    key="$1"
 
-if [[ -t 0 ]]
-then
-  INTERACTIVE=1
-else
-  echo "Detected non-interactive shell, forcing --non-interactive"
-  INTERACTIVE=0
-fi
+    case $key in
+      -n|--non-interactive)
+        INTERACTIVE=0
+        shift
+        ;;
+      -u|--update)
+        UPDATE=1
+        shift
+        ;;
+      *)
+        print_usage "$key"
+        exit 1
+        ;;
+    esac
+    shift
+  done
 
-while [[ $# > 0 ]]
-do
-  key="$1"
-
-  case $key in
-    -n|--non-interactive)
-      INTERACTIVE=0
-      shift
-      ;;
-    -u|--update)
-      UPDATE=1
-      shift
-      ;;
-    *)
-      print_usage $key
-      exit 1
-      ;;
-  esac
-  shift
-done
-
-FILES_TO_LINK="vimrc gvimrc"
-LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
-
-DIR=$(cd $(dirname $0) && pwd)
-if [ $(basename $DIR) == "bin" ]; then
-  DIR=$(cd ${DIR}/.. && pwd)
-fi
-
-if [ ! -d "${DIR}/.git" ]; then
-  echo "vimfiles repository not yet cloned. Cloning..."
-  DIR="${HOME}/.vim"
-  git clone https://github.com/luan/vimfiles.git $DIR
-fi
-
-if [ "$DIR" != "$HOME/.vim" ]; then
-  dot_file=$HOME/.vim
-  if [ ! -e $dot_file ]; then
-    echo "Detected clone outside of ~/.vim, symlinking"
-    ln -s $DIR $dot_file
+  if [[ -t 0 ]]
+  then
+    INTERACTIVE=1
+  else
+    echo "Detected non-interactive shell, forcing --non-interactive"
+    INTERACTIVE=0
   fi
-fi
+  readonly INTERACTIVE UPDATE
+}
 
-if which nvim > /dev/null; then
-  mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-  if [ ! -e $XDG_CONFIG_HOME/nvim ]; then
-    ln -s $DIR $XDG_CONFIG_HOME/nvim
+fail() {
+  declare message=$1
+  echo -e "${RED}${BOLD}${message}${NORMAL}"
+  exit 1
+}
+
+should_clone() {
+  declare dir=$1
+  [[ ! -d "${dir}/.git" || "$(git remote get-url origin)" != *"${VIMFILES_REPO_NAME}"* ]]
+}
+
+verify_ownership() {
+  declare path=$1
+
+  if [[ -d "${path}" ]] && should_clone "${path}"; then
+    fail "${path} belongs to a repository other than ${VIMFILES_REPO}. Move it away and re-run this scripts. Aborting..."
   fi
-fi
+}
 
-pushd $DIR > /dev/null
+has_neovim() {
+  which nvim > /dev/null
+}
 
-if [ -e $DIR/bundle ]; then
-  rm -rf $DIR/bundle
-fi
+has_go() {
+  which go > /dev/null
+}
 
-git submodule update --init --recursive
+has_elm() {
+  which elm > /dev/null
+}
 
-for file in $LOCALS; do
-  dot_file=$HOME/$file
-  touch $dot_file
-done
+has_npm() {
+  which elm > /dev/null
+}
 
-for file in $FILES_TO_LINK; do
-  dot_file=$HOME/.$file
-  if [ ! -e $dot_file ]; then
-    ln -s $DIR/$file $dot_file
+setup_vimfiles_dir() {
+  declare script_name=$0
+  local dir
+
+  dir="$(cd "$(dirname "${script_name}")" && pwd)"
+  if [[ "$(basename "${dir}")" == "bin" ]]; then
+    dir="$(cd "${dir}"/.. && pwd)"
   fi
-done
 
-if [ "$(uname)" == "Darwin" ]; then
-  VIM_UPDATE_PATH=/usr/local/bin
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  VIM_UPDATE_PATH=$HOME/bin
-fi
+  # will exit on failure
+  verify_ownership "${dir}"
 
-if [ -L $VIM_UPDATE_PATH/vim-update ]; then
-  rm -f $VIM_UPDATE_PATH/vim-update
-fi
+  if should_clone "${dir}"; then
+    echo "vimfiles repository not yet cloned. Cloning..."
+    dir="${VIMFILES_PATH}"
+    git clone "${VIMFILES_REPO_URL}" "${dir}"
+  fi
 
-if [ ! -L $VIM_UPDATE_PATH/vim-update ]; then
-  mkdir -p $VIM_UPDATE_PATH
-  ln -s $DIR/bin/update $VIM_UPDATE_PATH/vim-update
-fi
+  if [[ "${dir}" != "${VIMFILES_PATH}" ]]; then
+    if [ -d "${VIMFILES_PATH}" ]; then
+      fail "Detected clone outside of ~/.vim, but ~/.vim directory already exist. Move it away if you'd still like ot still this config over it."
+    fi
 
-green='\033[0;32m'
-yellow='\033[0;33m'
-red='\033[0;31m'
-bold=`tput bold`
-normal=`tput sgr0`
-end_color='\033[0;m'
+    if [[ ! -e "${VIMFILES_PATH}" ]]; then
+      echo "Detected clone outside of ~/.vim, symlinking"
+      ln -s "${dir}" "${VIMFILES_PATH}"
+    fi
+  fi
+}
 
-if which elm > /dev/null; then
-  echo -e "${yellow}INSTALL${end_color} ${bold}elm${normal} dependencies..."
-  if which npm > /dev/null; then
+setup_neovim_config() {
+  mkdir -p "${XDG_CONFIG_HOME:="${HOME}/.config"}"
+  if [[ ! -e "${XDG_CONFIG_HOME}/nvim" ]]; then
+    ln -s "${VIMFILES_PATH}" "${XDG_CONFIG_HOME}/nvim"
+  fi
+}
+
+initialize_vimfiles() {
+  (
+  cd "${VIMFILES_PATH}" || exit 2
+  if [ -e bundle ]; then
+    rm -rf bundle
+  fi
+  git submodule update --init --recursive
+
+  for file in ${LOCALS}; do
+    dot_file="${HOME}/${file}"
+    touch "${dot_file}"
+  done
+
+  for file in ${FILES_TO_LINK}; do
+    dot_file="${HOME}/.${file}"
+    if [[ ! -e "${dot_file}" ]]; then
+      ln -s "${PWD}/${file}" "${dot_file}"
+    fi
+  done
+  )
+}
+
+install_vim_update() {
+  local install_path
+
+  if [[ "$(uname)" == "Darwin" ]]; then
+    install_path=/usr/local/bin
+  elif [[ "$(uname)" == *"Linux"* ]]; then
+    install_path="${HOME}/bin"
+  fi
+
+  if [[ -L "${install_path}/vim-update" ]]; then
+    rm -f "${install_path}/vim-update"
+  fi
+
+  if [[ ! -L "${install_path}/vim-update" ]]; then
+    mkdir -p "${install_path}"
+    ln -s "${VIMFILES_PATH}/bin/update" "${install_path}/vim-update"
+  fi
+}
+
+setup_elm_dependencies() {
+  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}elm${NORMAL} dependencies..."
+  if has_npm; then
     npmpackages="\
       elm-test \
       elm-oracle \
@@ -119,20 +178,20 @@ if which elm > /dev/null; then
 
     for p in $npmpackages; do
       (
-        echo -e "\t${yellow}INSTALL${end_color} ${bold}${p}${normal}..."
-        if npm install -g $p; then
-          echo -e "\t${green}DONE${end_color}    ${bold}${p}${normal}"
+        echo -e "\t${YELLOW}INSTALL${END_COLOR} ${BOLD}${p}${NORMAL}..."
+        if npm install -g "${p}"; then
+          echo -e "\t${GREEN}DONE${END_COLOR}    ${BOLD}${p}${NORMAL}"
         else
-          echo -e "\t${red}ERROR${end_color}    ${bold}${p}${normal}"
+          echo -e "\t${RED}ERROR${END_COLOR}    ${BOLD}${p}${NORMAL}"
         fi
       ) &
     done
   else
-    echo -e "\t${red}ERROR${end_color} ${bold}NPM not found, some elm dependencies were skipped${normal}!"
+    echo -e "\t${RED}ERROR${END_COLOR} ${BOLD}NPM not found, some elm dependencies were skipped${NORMAL}!"
   fi
 
   (
-    echo -e "\t${yellow}INSTALL${end_color} ${bold}elm-format${normal}..."
+    echo -e "\t${YELLOW}INSTALL${END_COLOR} ${BOLD}elm-format${NORMAL}..."
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
       elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz'
     elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -140,51 +199,70 @@ if which elm > /dev/null; then
     fi
     tar xz -O < <(curl -L $elm_format_url) > bin/elm-format
     chmod a+x bin/elm-format
-    echo -e "\t${green}DONE${end_color}    ${bold}elm-format${normal}"
+    echo -e "\t${GREEN}DONE${END_COLOR}    ${BOLD}elm-format${NORMAL}"
   ) &
   wait
-  echo -e "${green}DONE${end_color}    ${bold}elm${normal} dependencies"
-fi
+  echo -e "${GREEN}DONE${END_COLOR}    ${BOLD}elm${NORMAL} dependencies"
+}
 
-if which npm > /dev/null; then
+setup_livedown() {
   npm install -g livedown
-fi
+}
 
-vim=vim
-if which nvim > /dev/null; then
-  vim=nvim
-fi
-
-echo -e "${yellow}INSTALL${end_color} ${bold}vim plugins${normal} (may take a while)..."
-exec 4>&1 3>/dev/null
-if [ $INTERACTIVE != 1 ] ; then
-  if which nvim > /dev/null; then
-    vim='nvim --headless'
-  else
-    exec 4>&1 1>&3 2>&3
+setup_vim_calls() {
+  if has_neovim; then
+    VIM=nvim
   fi
-fi
 
-ALL_PLUGINS='true' $vim +'PlugClean!' +'PlugUpdate!' +'qall!'
+  exec 4>&1 3>/dev/null
+  if [[ $INTERACTIVE != 1 ]] ; then
+    if has_neovim; then
+      VIM='nvim --headless'
+    else
+      exec 4>&1 1>&3 2>&3
+    fi
+  fi
+}
 
-echo -e "${green}DONE${end_color} ${bold}vim plugins${normal}" >&4
-
-if which nvim > /dev/null; then
-  vim='nvim --headless'
-fi
-
-if which nvim > /dev/null; then
-  $vim +'UpdateRemotePlugins' +'qall!'
-  echo
-fi
-
-if which go > /dev/null; then
+setup_go_dependencies() {
   mkdir -p gobin gopath
-  echo -e "${yellow}INSTALL${end_color} ${bold}go binaries${normal} (may take a while)..." >&4
-  GOPATH=$PWD/gopath $vim +'GoUpdateBinaries' +'GoDoctorInstall' +'ConcourseUpdateBinaries' +'BoshUpdateBinaries' +'qall!'
+  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}go binaries${NORMAL} (may take a while)..." >&4
+  GOPATH="${PWD}/gopath" ${VIM} +'GoUpdateBinaries' +'GoDoctorInstall' +'ConcourseUpdateBinaries' +'BoshUpdateBinaries' +'qall!'
   echo
-  GOPATH=$PWD/gopath GOBIN=$PWD/gobin $PWD/gobin/gometalinter --install --update
-  echo -e "${green}DONE${end_color} ${bold}go binaries${normal}" >&4
-fi
+  GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gometalinter" --install --update
+  echo -e "${GREEN}DONE${END_COLOR} ${BOLD}go binaries${NORMAL}" >&4
+}
 
-popd > /dev/null
+install_plugins() {
+  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}vim plugins${NORMAL} (may take a while)..."
+
+  ALL_PLUGINS='true' ${VIM} +'PlugClean!' +'PlugUpdate!' +'qall!'
+
+  if has_neovim; then
+    ${VIM} +'UpdateRemotePlugins' +'qall!'
+    echo
+  fi
+
+  echo -e "${GREEN}DONE${END_COLOR} ${BOLD}vim plugins${NORMAL}" >&4
+}
+
+main() {
+  parse_flags "$@"
+
+  setup_vimfiles_dir
+  has_neovim && setup_neovim_config
+
+  initialize_vimfiles
+  install_vim_update
+
+  has_elm && setup_elm_dependencies
+  has_npm && setup_livedown
+
+  setup_vim_calls
+
+  install_plugins
+
+  has_go && setup_go_dependencies
+}
+
+main "$@"
