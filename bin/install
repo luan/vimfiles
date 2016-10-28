@@ -63,14 +63,16 @@ fail() {
 
 should_clone() {
   declare dir=$1
+
+  # not in a repo or in a repo that isn't vimfiles
   [[ ! -d "${dir}/.git" || "$(git remote -v)" != *"${VIMFILES_REPO_NAME}"* ]]
 }
 
 verify_ownership() {
   declare path=$1
 
-  if [[ -d "${path}" ]] && should_clone "${path}"; then
-    fail "${path} belongs to a repository other than ${VIMFILES_REPO}. Move it away and re-run this scripts. Aborting..."
+  if should_clone "${path}"; then
+    fail "${path} belongs to a repository other than ${VIMFILES_REPO_URL}. Move it away and re-run this scripts. Aborting..."
   fi
 }
 
@@ -99,10 +101,10 @@ setup_vimfiles_dir() {
     dir="$(cd "${dir}"/.. && pwd)"
   fi
 
-  # will exit on failure
-  verify_ownership "${dir}"
-
   if should_clone "${dir}"; then
+    # will exit on failure
+    verify_ownership "${VIMFILES_PATH}"
+
     echo "vimfiles repository not yet cloned. Cloning..."
     dir="${VIMFILES_PATH}"
     git clone "${VIMFILES_REPO_URL}" "${dir}"
