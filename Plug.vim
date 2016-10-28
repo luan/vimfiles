@@ -143,14 +143,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-dispatch'
   endif
 
-  if !exists('g:vim_lite')
-    " Syntax checking hacks for vim
-    if $ALL_PLUGINS == 'true' || has('nvim')
-      Plug 'benekastah/neomake'
-    endif
-    if $ALL_PLUGINS == 'true' || !has('nvim')
-      Plug 'scrooloose/syntastic'
-    endif
+  " Syntax checking hacks for vim
+  if $ALL_PLUGINS == 'true' || has('nvim')
+    Plug 'benekastah/neomake'
+  endif
+  if $ALL_PLUGINS == 'true' || !has('nvim')
+    Plug 'scrooloose/syntastic'
   endif
 
   " Functions to toggle the [Location List] and the [Quickfix List] windows.
@@ -183,20 +181,16 @@ call plug#begin('~/.vim/plugged')
   " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
   Plug 'tpope/vim-unimpaired'
 
-  if !exists('g:vim_lite')
-    if $ALL_PLUGINS == 'true' || has('nvim')
-      " provides an asynchronous keyword completion system in the current buffer
-      Plug 'Shougo/deoplete.nvim'
-      " deoplete.nvim source for Golang and gocode or vim-go
-      Plug 'zchee/deoplete-go', { 'do': 'make' }
-    endif
+  if $ALL_PLUGINS == 'true' || has('nvim')
+    " provides an asynchronous keyword completion system in the current buffer
+    Plug 'Shougo/deoplete.nvim'
+    " deoplete.nvim source for Golang and gocode or vim-go
+    Plug 'zchee/deoplete-go', { 'do': 'make' }
   endif
 
-  if !exists('g:vim_lite')
-    if $ALL_PLUGINS == 'true' || has('lua')
-      " Next generation completion framework after neocomplcache
-      Plug 'Shougo/neocomplete.vim'
-    endif
+  if $ALL_PLUGINS == 'true' || has('lua')
+    " Next generation completion framework after neocomplcache
+    Plug 'Shougo/neocomplete.vim'
   endif
   " displays information in echo area from echodoc plugin.
   Plug 'Shougo/echodoc.vim'
