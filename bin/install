@@ -16,6 +16,9 @@ readonly BOLD=$(tput bold)
 readonly NORMAL=$(tput sgr0)
 readonly END_COLOR='\033[0;m'
 
+if [[ ${DEBUG} ]]; then
+  set -x
+fi
 
 print_usage() {
   echo -e "Unsupported option: $*"
@@ -61,19 +64,13 @@ fail() {
   exit 1
 }
 
-should_clone() {
+from_repo() {
   declare dir=$1
 
-  # not in a repo or in a repo that isn't vimfiles
-  [[ ! -d "${dir}/.git" || "$(git remote -v)" != *"${VIMFILES_REPO_NAME}"* ]]
-}
-
-verify_ownership() {
-  declare path=$1
-
-  if should_clone "${path}"; then
-    fail "${path} belongs to a repository other than ${VIMFILES_REPO_URL}. Move it away and re-run this scripts. Aborting..."
-  fi
+  (
+  [[ -d "${dir}" ]] && cd "${dir}" || return 1
+  [[ -d "${dir}/.git" && "$(git remote -v)" == *"${VIMFILES_REPO_NAME}"* ]]
+  )
 }
 
 has_neovim() {
@@ -101,18 +98,13 @@ setup_vimfiles_dir() {
     dir="$(cd "${dir}"/.. && pwd)"
   fi
 
-  if should_clone "${dir}"; then
-    # will exit on failure
-    verify_ownership "${VIMFILES_PATH}"
-
+  if ! from_repo "${dir}"; then
     echo "vimfiles repository not yet cloned. Cloning..."
     dir="${VIMFILES_PATH}"
     git clone "${VIMFILES_REPO_URL}" "${dir}"
   fi
 
   if [[ "${dir}" != "${VIMFILES_PATH}" ]]; then
-    verify_ownership "${VIMFILES_PATH}"
-
     if [[ ! -e "${VIMFILES_PATH}" ]]; then
       echo "Detected clone outside of ~/.vim, symlinking"
       ln -s "${dir}" "${VIMFILES_PATH}"
