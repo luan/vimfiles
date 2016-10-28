@@ -111,5 +111,4 @@ endif
 try
   colorscheme hybrid
 catch
-  colorscheme evening
 endtry
