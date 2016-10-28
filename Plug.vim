@@ -14,11 +14,12 @@ call plug#begin('~/.vim/plugged')
   " project configuration via 'projections'
   Plug 'tpope/vim-projectionist'
 
-  " A command-line fuzzy finder written in Go
-  let g:fzf_command_prefix = 'FZF'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-
+  if !exists('g:vim_lite')
+    " A command-line fuzzy finder written in Go
+    let g:fzf_command_prefix = 'FZF'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+  endif
 
   " Active fork of kien/ctrlp.vim. Fuzzy file, buffer, mru, tag, etc finder.
   Plug 'ctrlpvim/ctrlp.vim'
@@ -35,21 +36,29 @@ call plug#begin('~/.vim/plugged')
     Plug 'flazz/vim-colorschemes'
   " }}}
 
-  " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
-  Plug 'luochen1990/rainbow'
+  if !exists('g:vim_lite')
+    " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
+    Plug 'luochen1990/rainbow'
+  endif
 
-  " lean & mean status/tabline for vim that's light as air
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  if !exists('g:vim_lite')
+    " lean & mean status/tabline for vim that's light as air
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+  endif
 
-  " Plugin to toggle, display and navigate marks
-  Plug 'kshenoy/vim-signature'
+  if !exists('g:vim_lite')
+    " Plugin to toggle, display and navigate marks
+    Plug 'kshenoy/vim-signature'
+  endif
 
   " Show a diff via Vim sign column.
   Plug 'mhinz/vim-signify'
 
-  " Seamless navigation between tmux panes and vim splits
-  Plug 'christoomey/vim-tmux-navigator'
+  if !exists('g:vim_lite')
+    " Seamless navigation between tmux panes and vim splits
+    Plug 'christoomey/vim-tmux-navigator'
+  endif
 
   " Better whitespace highlighting for Vim
   Plug 'ntpeters/vim-better-whitespace'
@@ -92,8 +101,10 @@ call plug#begin('~/.vim/plugged')
     endif
   endfunction
 
-  " asynchronous process manager; run :VimProcBang to run a command and echo the results
-  Plug 'Shougo/vimproc.vim', { 'do': function('InstallVimProc') }
+  if !exists('g:vim_lite')
+    " asynchronous process manager; run :VimProcBang to run a command and echo the results
+    Plug 'Shougo/vimproc.vim', { 'do': function('InstallVimProc') }
+  endif
 
   " comment stuff out (via leader-/)
   Plug 'tpope/vim-commentary'
@@ -116,8 +127,10 @@ call plug#begin('~/.vim/plugged')
   " Vim script for text filtering and alignment; e.g. :Tabularize /,
   Plug 'godlygeek/tabular'
 
-  " Vim plugin for the Perl module / CLI script 'ack'
-  Plug 'mileszs/ack.vim'
+  if !exists('g:vim_lite')
+    " Vim plugin for the Perl module / CLI script 'ack'
+    Plug 'mileszs/ack.vim'
+  endif
 
   " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
   Plug 'rking/ag.vim'
@@ -125,28 +138,36 @@ call plug#begin('~/.vim/plugged')
   " Send test commands to a pipe.
   Plug 'luan/vipe', { 'do': function('InstallVipe') }
 
-  " asynchronous build and test dispatcher
-  Plug 'tpope/vim-dispatch'
-
-  " Syntax checking hacks for vim
-  if $ALL_PLUGINS == 'true' || has('nvim')
-    Plug 'benekastah/neomake'
+  if !exists('g:vim_lite')
+    " asynchronous build and test dispatcher
+    Plug 'tpope/vim-dispatch'
   endif
-  if $ALL_PLUGINS == 'true' || !has('nvim')
-    Plug 'scrooloose/syntastic'
+
+  if !exists('g:vim_lite')
+    " Syntax checking hacks for vim
+    if $ALL_PLUGINS == 'true' || has('nvim')
+      Plug 'benekastah/neomake'
+    endif
+    if $ALL_PLUGINS == 'true' || !has('nvim')
+      Plug 'scrooloose/syntastic'
+    endif
   endif
 
   " Functions to toggle the [Location List] and the [Quickfix List] windows.
   Plug 'milkypostman/vim-togglelist'
 
-  " True Sublime Text style multiple selections for Vim
-  Plug 'terryma/vim-multiple-cursors'
+  if !exists('g:vim_lite')
+    " True Sublime Text style multiple selections for Vim
+    Plug 'terryma/vim-multiple-cursors'
+  endif
 
   " Add emacs/bash/cocoa key bindings to vim, in insert and command-line modes.
   Plug 'maxbrunsfeld/vim-emacs-bindings'
 
-  " The ultimate undo history visualizer for VIM
-  Plug 'mbbill/undotree'
+  if !exists('g:vim_lite')
+    " The ultimate undo history visualizer for VIM
+    Plug 'mbbill/undotree'
+  endif
 " }}}
 
 " Automatic Helpers {{{
@@ -162,16 +183,20 @@ call plug#begin('~/.vim/plugged')
   " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
   Plug 'tpope/vim-unimpaired'
 
-  if $ALL_PLUGINS == 'true' || has('nvim')
-    " provides an asynchronous keyword completion system in the current buffer
-    Plug 'Shougo/deoplete.nvim'
-    " deoplete.nvim source for Golang and gocode or vim-go
-    Plug 'zchee/deoplete-go', { 'do': 'make' }
+  if !exists('g:vim_lite')
+    if $ALL_PLUGINS == 'true' || has('nvim')
+      " provides an asynchronous keyword completion system in the current buffer
+      Plug 'Shougo/deoplete.nvim'
+      " deoplete.nvim source for Golang and gocode or vim-go
+      Plug 'zchee/deoplete-go', { 'do': 'make' }
+    endif
   endif
 
-  if $ALL_PLUGINS == 'true' || has('lua')
-    " Next generation completion framework after neocomplcache
-    Plug 'Shougo/neocomplete.vim'
+  if !exists('g:vim_lite')
+    if $ALL_PLUGINS == 'true' || has('lua')
+      " Next generation completion framework after neocomplcache
+      Plug 'Shougo/neocomplete.vim'
+    endif
   endif
   " displays information in echo area from echodoc plugin.
   Plug 'Shougo/echodoc.vim'
