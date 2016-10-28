@@ -109,9 +109,7 @@ setup_vimfiles_dir() {
   fi
 
   if [[ "${dir}" != "${VIMFILES_PATH}" ]]; then
-    if [ -d "${VIMFILES_PATH}" ]; then
-      fail "Detected clone outside of ~/.vim, but ~/.vim directory already exist. Move it away if you'd still like ot still this config over it."
-    fi
+    verify_ownership "${VIMFILES_PATH}"
 
     if [[ ! -e "${VIMFILES_PATH}" ]]; then
       echo "Detected clone outside of ~/.vim, symlinking"
