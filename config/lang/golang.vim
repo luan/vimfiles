@@ -27,7 +27,7 @@ let g:go_fmt_autosave = 1
 if has('nvim')
    let g:gomakeprg =
     \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
-      \ '! gometalinter ' .
+      \ '! PATH=' . g:go_bin_path . ':' . $PATH . ' gometalinter ' .
         \ '--tests ' .
         \ '--disable-all ' .
         \ '--enable=vet ' .
