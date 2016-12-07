@@ -217,12 +217,15 @@ setup_vim_calls() {
 }
 
 setup_go_dependencies() {
+  (
+  cd "${VIMFILES_PATH}" || exit 2
   mkdir -p gobin gopath
   echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}go binaries${NORMAL} (may take a while)..." >&4
   GOPATH="${PWD}/gopath" ${VIM} +'GoUpdateBinaries' +'GoDoctorInstall' +'ConcourseUpdateBinaries' +'BoshUpdateBinaries' +'qall!'
   echo
   GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gometalinter" --install --update
   echo -e "${GREEN}DONE${END_COLOR} ${BOLD}go binaries${NORMAL}" >&4
+  )
 }
 
 install_plugins() {
