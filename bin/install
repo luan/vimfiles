@@ -28,6 +28,14 @@ print_usage() {
 }
 
 parse_flags() {
+  if [[ -t 0 ]]
+  then
+    INTERACTIVE=1
+  else
+    echo "Detected non-interactive shell, forcing --non-interactive"
+    INTERACTIVE=0
+  fi
+
   while [[ $# -gt 0 ]]; do
     key="$1"
 
@@ -45,16 +53,8 @@ parse_flags() {
         exit 1
         ;;
     esac
-    shift
   done
 
-  if [[ -t 0 ]]
-  then
-    INTERACTIVE=1
-  else
-    echo "Detected non-interactive shell, forcing --non-interactive"
-    INTERACTIVE=0
-  fi
   readonly INTERACTIVE UPDATE
 }
 
@@ -86,7 +86,7 @@ has_elm() {
 }
 
 has_npm() {
-  which elm > /dev/null
+  which npm > /dev/null
 }
 
 setup_vimfiles_dir() {
