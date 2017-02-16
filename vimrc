@@ -39,12 +39,16 @@ runtime! config/plugin/tagbar.vim
 runtime! config/plugin/ultisnips.vim
 runtime! config/plugin/undotree.vim
 
-if has('nvim')
+if has('gui_running')
+  runtime! config/plugin/ctrlp.vim
+else
   runtime! config/plugin/fzf.vim
+end
+
+if has('nvim')
   runtime! config/plugin/nvim/neomake.vim
   runtime! config/plugin/nvim/deoplete.vim
 else
-  runtime! config/plugin/ctrlp.vim
   runtime! config/plugin/neocomplete.vim
   runtime! config/plugin/syntastic.vim
 endif

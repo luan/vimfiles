@@ -14,12 +14,10 @@ call plug#begin('~/.vim/plugged')
   " project configuration via 'projections'
   Plug 'tpope/vim-projectionist'
 
-  if !exists('g:vim_lite')
-    " A command-line fuzzy finder written in Go
-    let g:fzf_command_prefix = 'FZF'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-  endif
+  " A command-line fuzzy finder written in Go
+  let g:fzf_command_prefix = 'FZF'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 
   " Active fork of kien/ctrlp.vim. Fuzzy file, buffer, mru, tag, etc finder.
   Plug 'ctrlpvim/ctrlp.vim'
