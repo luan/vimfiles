@@ -277,7 +277,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'elmcast/elm-vim', { 'for': 'elm' }
   " }}}
 
-  " Go {{{
+  " Rust {{{
     Plug 'rust-lang/rust.vim'
   " }}}
 
