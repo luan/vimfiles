@@ -43,6 +43,7 @@ if !has('nvim')
     set ttymouse=xterm2
   end
 end
+let g:loaded_matchparen=1
 " }}}
 
 " Behaviors {{{
