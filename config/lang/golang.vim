@@ -58,9 +58,9 @@ if has('nvim')
 else
   let g:syntastic_go_gometalinter_args = '' .
         \ '--tests ' .
-        \ '--disable-all' .
-        \ '--enable=vet' .
-        \ '--enable=deadcode' .
+        \ '--disable-all ' .
+        \ '--enable=vet ' .
+        \ '--enable=deadcode ' .
         \ '--sort=severity ' .
         \ '--exclude "should have comment" '
   let g:syntastic_go_checkers = ['go', 'gometalinter']
