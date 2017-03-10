@@ -164,6 +164,9 @@ call plug#begin('~/.vim/plugged')
     " The ultimate undo history visualizer for VIM
     Plug 'mbbill/undotree'
   endif
+
+  " vim interface to Web API
+  Plug 'mattn/webapi-vim'
 " }}}
 
 " Automatic Helpers {{{
@@ -293,9 +296,6 @@ call plug#begin('~/.vim/plugged')
   " Adds 70+ languages and optimizes loading and installing.
   Plug 'sheerun/vim-polyglot'
 " }}}
-
-" vim interface to Web API
-Plug 'mattn/webapi-vim'
 
 source $HOME/.vimrc.local.plugins
 
