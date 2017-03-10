@@ -5,11 +5,12 @@
 .rake_tasks~
 .undo/*
 autoload/
+bin/elm-format
 bundle/
 ftplugin/
 gobin/
 gopath/
 plugged/
 sessions/
-bin/elm-format
 tags
+view/
