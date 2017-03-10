@@ -40,12 +40,12 @@ else
   runtime! config/plugin/fzf.vim
 end
 
+runtime! config/plugin/neomake.vim
+
 if has('nvim')
-  runtime! config/plugin/nvim/neomake.vim
   runtime! config/plugin/nvim/deoplete.vim
 else
   runtime! config/plugin/neocomplete.vim
-  runtime! config/plugin/syntastic.vim
 endif
 
 " ----------------------------------------

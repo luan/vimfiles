@@ -23,48 +23,38 @@ let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
 
 let g:go_auto_type_info = 0
 
-if has('nvim')
-   let g:gomakeprg =
-    \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
+let g:gomakeprg =
+      \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
       \ '! PATH=' . g:go_bin_path . ':' . $PATH . ' gometalinter ' .
-        \ '--tests ' .
-        \ '--disable-all ' .
-        \ '--enable=vet ' .
-        \ '--enable=deadcode ' .
-        \ '--enable=errcheck ' .
-        \ '--sort=severity ' .
-        \ '--exclude "should have comment" ' .
+      \ '--tests ' .
+      \ '--disable-all ' .
+      \ '--enable=vet ' .
+      \ '--enable=deadcode ' .
+      \ '--enable=errcheck ' .
+      \ '--sort=severity ' .
+      \ '--exclude "should have comment" ' .
       \ '| grep "%"'
 
-  " match gometalinter + go test output
-  let g:goerrorformat =
-    \ '%f:%l:%c:%t%*[^:]:\ %m,' .
-    \ '%f:%l::%t%*[^:]:\ %m,' .
-    \ '%W%f:%l: warning: %m,' .
-    \ '%E%f:%l:%c:%m,' .
-    \ '%E%f:%l:%m,' .
-    \ '%C%\s%\+%m,' .
-    \ '%-G#%.%#'
+" match gometalinter + go test output
+let g:goerrorformat =
+      \ '%f:%l:%c:%t%*[^:]:\ %m,' .
+      \ '%f:%l::%t%*[^:]:\ %m,' .
+      \ '%W%f:%l: warning: %m,' .
+      \ '%E%f:%l:%c:%m,' .
+      \ '%E%f:%l:%m,' .
+      \ '%C%\s%\+%m,' .
+      \ '%-G#%.%#'
 
-  " wire in Neomake
-  autocmd BufEnter *.go let &makeprg = gomakeprg
-  autocmd BufEnter *.go let &errorformat = goerrorformat
-  autocmd! BufWritePost *.go Neomake!
-  let g:neomake_go_enabled_makers = []
+" wire in Neomake
+autocmd BufEnter *.go let &makeprg = gomakeprg
+autocmd BufEnter *.go let &errorformat = goerrorformat
+autocmd! BufWritePost *.go Neomake!
+let g:neomake_go_enabled_makers = []
 
+if has('nvim')
   let g:deoplete#sources#go#gocode_binary	= g:go_bin_path . '/gocode'
   let g:deoplete#sources#go#align_class = 1
-else
-  let g:syntastic_go_gometalinter_args = '' .
-        \ '--tests ' .
-        \ '--disable-all ' .
-        \ '--enable=vet ' .
-        \ '--enable=deadcode ' .
-        \ '--sort=severity ' .
-        \ '--exclude "should have comment" '
-  let g:syntastic_go_checkers = ['go', 'gometalinter']
-end
-
+endif
 
 function! golang#generate_project()
   call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
