@@ -69,13 +69,13 @@ end
 function! golang#generate_project()
   call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
   let gopath = substitute(system('go env GOPATH'), '\n', '', '')
-  call vimproc#system_bg('gotags -silent -L /tmp/gotags-filelist-project > ' . gopath . '/tags')
+  call vimproc#system_bg(g:go_bin_path . '/gotags -silent -L /tmp/gotags-filelist-project > ' . gopath . '/tags')
 endfunction
 
 function! golang#generate_global()
   call system('find `go env GOROOT GOPATH` -iname "*.go" > /tmp/gotags-filelist-global')
   let gopath = substitute(system('go env GOPATH'), '\n', '', '')
-  call vimproc#system_bg('gotags -silent -L /tmp/gotags-filelist-global > ' . gopath . '/tags')
+  call vimproc#system_bg(g:go_bin_path . '/gotags -silent -L /tmp/gotags-filelist-global > ' . gopath . '/tags')
 endfunction
 
 function! golang#buffcommands()
