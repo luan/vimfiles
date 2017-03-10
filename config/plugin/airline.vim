@@ -1,6 +1,6 @@
 let g:airline_theme = 'tomorrow'
 if !exists("g:airline_powerline_fonts")
-  if g:has_powerline_font || (has("gui_running") && &guifont =~ "for Powerline")
+  if (has("gui_running") && &guifont =~ "for Powerline")
     let g:airline_powerline_fonts = 1
   else
     let g:airline_powerline_fonts = 0

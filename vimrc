@@ -15,10 +15,6 @@ runtime! Plug.vim
 runtime! config/basic.vim
 runtime! config/bindings.vim
 runtime! config/colors.vim
-runtime! config/paste.vim
-
-" Platform Specific
-runtime! config/platform.vim
 
 " ----------------------------------------
 " Plugin Configuration
@@ -29,7 +25,6 @@ runtime! config/plugin/airline.vim
 runtime! config/plugin/autoclose.vim
 runtime! config/plugin/commentary.vim
 runtime! config/plugin/fugitive.vim
-runtime! config/plugin/gitrebase.vim
 runtime! config/plugin/livedown.vim
 runtime! config/plugin/multicursor.vim
 runtime! config/plugin/nerdtree.vim

@@ -6,6 +6,8 @@
 let g:mapleader=","
 let g:maplocalleader = "-"
 
+" Basics {{{
+
 set pastetoggle=<F6>
 map <F6> :set invpaste<CR>:set paste?<CR>
 
