@@ -5,7 +5,11 @@ autocmd! BufEnter *.go setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
-let g:go_fmt_experimental = 1
+
+" this breaks folding on vim < 8.0 or neovim
+if v:version >= 800 || has('nvim')
+  let g:go_fmt_experimental = 1
+endif
 
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_fields = 1
