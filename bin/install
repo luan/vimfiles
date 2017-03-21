@@ -69,7 +69,7 @@ from_repo() {
 
   (
   [[ -d "${dir}" ]] && cd "${dir}" || return 1
-  [[ -d "${dir}/.git" && "$(git remote -v)" == *"${VIMFILES_REPO_NAME}"* ]]
+  [[ -e "${dir}/.git" && "$(git remote -v)" == *"${VIMFILES_REPO_NAME}"* ]]
   )
 }
 
