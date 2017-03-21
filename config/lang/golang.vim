@@ -77,24 +77,11 @@ function! golang#buffcommands()
   setlocal foldmethod=syntax shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 endfunction
 
-let s:projections = {
-      \ '*': {},
-      \ '*.go': {'type': 'go', 'alternate': ['{}_test.go']},
-      \ '*_suite_test.go': {'type': 'suite'},
-      \ '*_test.go': {
-      \   'type': 'test',
-      \   'alternate': '{}.go'}}
-
-function! s:ProjectionistDetect() abort
-  if &ft=='go'
-    let projections = deepcopy(s:projections)
-    call projectionist#append(getcwd(), projections)
-  endif
-endfunction
-
-augroup go_projectionist
+augroup go
   autocmd!
-  autocmd User ProjectionistDetect call s:ProjectionistDetect()
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
 
 if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
