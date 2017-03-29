@@ -11,7 +11,7 @@ This vimfiles support both standard [vim](http://www.vim.org/) and
 If you're using neovim follow [this
 guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) in order to get
 it properly setup. The autocompletion plugin we use needs [python3
-support](https://neovim.io/doc/user/nvim_python.html) too.
+support](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim) too.
 
 If you're using regular vim make sure to install it with lua support, on ubuntu
 that's provided with the `vim-nox` package and on OSX it can be installed with
