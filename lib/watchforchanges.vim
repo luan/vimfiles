@@ -101,7 +101,6 @@ function! WatchForChanges(bufname, ...)
   end
   let reg_saved = @"
   "let autoread_saved = &autoread
-  let msg = "\n"
   " Check to see if the autocommand already exists
   redir @"
     silent! exec 'au '.id
@@ -110,7 +109,6 @@ function! WatchForChanges(bufname, ...)
   " If not yet defined...
   if !l:defined
     if l:autoread
-      let msg = msg . 'Autoread enabled - '
       if a:bufname == '*'
         set autoread
       else
@@ -135,12 +133,10 @@ function! WatchForChanges(bufname, ...)
         exec "au CursorMovedI ".event_bufspec . " :checktime ".bufspec
       end
     augroup END
-    let msg = msg . 'Now watching ' . bufspec . ' for external updates...'
   end
   " If they want to disable it, or it is defined and they want to toggle it,
   if l:disable || (l:toggle && l:defined)
     if l:autoread
-      let msg = msg . 'Autoread disabled - '
       if a:bufname == '*'
         set noautoread
       else
@@ -153,11 +149,7 @@ function! WatchForChanges(bufname, ...)
     " augroup! checkforupdates
     silent! exec 'au! '.id
     silent! exec 'augroup! '.id
-    let msg = msg . 'No longer watching ' . bufspec . ' for external updates.'
-  elseif l:defined
-    let msg = msg . 'Already watching ' . bufspec . ' for external updates'
   end
-  echo msg
   let @"=reg_saved
 endfunction
 
