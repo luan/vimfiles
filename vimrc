@@ -66,6 +66,7 @@ runtime! config/lang/crontab.vim
 
 runtime! lib/functions.vim
 runtime! lib/autocommands.vim
+runtime! lib/watchforchanges.vim
 
 silent! source ~/.vimrc.local
 
