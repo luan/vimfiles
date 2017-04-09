@@ -99,6 +99,10 @@ set background=dark
 
 if has('termguicolors')
   set termguicolors
+  if &term =~# '^screen'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
 elseif !has('gui_running')
   let g:base16_shell_path=$HOME.'/.vim/scripts/base16-shell/scripts'
   let g:base16colorspace=256
