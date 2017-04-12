@@ -28,4 +28,6 @@ if has("autocmd")
   augroup END
 
   au FileType qf nnoremap <buffer> <Enter> <Enter>
+
+  autocmd FileType qf wincmd J
 endif
