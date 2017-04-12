@@ -28,4 +28,8 @@ if has("autocmd")
   augroup END
 
   au FileType qf nnoremap <buffer> <Enter> <Enter>
+
+  " quickfix list takes full width & wraps lines
+  autocmd FileType qf wincmd J
+  autocmd FileType qf setlocal wrap
 endif
