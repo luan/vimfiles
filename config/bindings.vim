@@ -31,6 +31,8 @@ map <F1> <Esc>
 imap <F1> <Esc>
 " Removes doc lookup binding because it's easy to fat finger
 
+nmap <C-k> ddkP
+nmap <C-j> ddp
 nnoremap <silent> <C-l> <c-w>l
 nnoremap <silent> <C-h> <c-w>h
 nnoremap <silent> <C-k> <c-w>k
