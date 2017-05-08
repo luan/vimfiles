@@ -44,7 +44,7 @@ let g:neomake_javascript_jshint_maker = {
       \ 'mapexpr': 'neomake_bufdir . "/" . v:val',
       \ 'errorformat': '%f:%l:%c:%t%*[^:]: %m',
       \ }
-autocmd! BufWritePost *.go Neomake!
+autocmd! BufWritePost *.go Neomake
 
 if has('nvim')
   let g:deoplete#sources#go#gocode_binary	= g:go_bin_path . '/gocode'
