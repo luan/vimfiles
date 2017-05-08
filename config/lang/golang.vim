@@ -27,7 +27,8 @@ let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
 let g:go_auto_type_info = 0
 
 " wire in Neomake
-let g:neomake_go_gometalinter_maker['args'] = [
+let g:neomake_javascript_jshint_maker = {
+      \ 'args': [
       \ '--tests ',
       \ '--disable-all ',
       \ '--enable=vet ',
@@ -37,7 +38,12 @@ let g:neomake_go_gometalinter_maker['args'] = [
       \ '--enable=staticcheck',
       \ '--sort=severity ',
       \ '--exclude "should have comment" ',
-      \ '--enable=unused']
+      \ '--enable=unused'],
+      \ 'append_file': 0,
+      \ 'cwd': '%:h',
+      \ 'mapexpr': 'neomake_bufdir . "/" . v:val',
+      \ 'errorformat': '%f:%l:%c:%t%*[^:]: %m',
+      \ }
 autocmd! BufWritePost *.go Neomake!
 
 if has('nvim')
