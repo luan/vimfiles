@@ -23,22 +23,25 @@ let g:go_highlight_types = 0
 let g:go_snippet_engine = "ultisnips"
 
 let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
+let $PATH .= ':' . g:go_bin_path
 
 let g:go_auto_type_info = 0
 
 " wire in Neomake
-let g:neomake_javascript_jshint_maker = {
+let g:neomake_go_gometalinter_maker = {
       \ 'args': [
-      \ '--tests ',
-      \ '--disable-all ',
-      \ '--enable=vet ',
-      \ '--enable=deadcode ',
-      \ '--enable=errcheck ',
-      \ '--enable=gosimple',
-      \ '--enable=staticcheck',
-      \ '--sort=severity ',
-      \ '--exclude "should have comment" ',
-      \ '--enable=unused'],
+        \ '--tests',
+        \ '--disable-all',
+        \ '--enable=vet',
+        \ '--enable=unused',
+        \ '--enable=deadcode',
+        \ '--enable=errcheck',
+        \ '--enable=gosimple',
+        \ '--enable=staticcheck',
+        \ '--sort=severity',
+        \ '-e', 'should have comment',
+        \ '-e', 'error return value not checked \(defer',
+      \ ],
       \ 'append_file': 0,
       \ 'cwd': '%:h',
       \ 'mapexpr': 'neomake_bufdir . "/" . v:val',
