@@ -29,7 +29,7 @@ let g:go_auto_type_info = 0
 
 let g:gomakeprg =
       \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
-      \ '! PATH=' . g:go_bin_path . ':' . $PATH . ' gometalinter ' .
+      \ '! gometalinter ' .
       \ '--tests ' .
       \ '--disable-all ' .
       \ '--enable=vet ' .
@@ -37,6 +37,7 @@ let g:gomakeprg =
       \ '--enable=errcheck ' .
       \ '--sort=severity ' .
       \ '--exclude="should have comment" ' .
+      \ '--exclude="error return value not checked \(defer" ' .
       \ '| grep "%"'
 
 " match gometalinter + go test output
