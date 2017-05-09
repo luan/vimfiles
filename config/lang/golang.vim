@@ -29,7 +29,7 @@ let g:go_auto_type_info = 0
 
 let g:gomakeprg =
       \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
-      \ '! gometalinter ' .
+      \ '! gometalinter ./%:h ' .
       \ '--tests ' .
       \ '--disable-all ' .
       \ '--enable=vet ' .
