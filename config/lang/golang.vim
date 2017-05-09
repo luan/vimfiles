@@ -27,27 +27,33 @@ let $PATH .= ':' . g:go_bin_path
 
 let g:go_auto_type_info = 0
 
+let g:gomakeprg =
+      \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
+      \ '! PATH=' . g:go_bin_path . ':' . $PATH . ' gometalinter ' .
+      \ '--tests ' .
+      \ '--disable-all ' .
+      \ '--enable=vet ' .
+      \ '--enable=deadcode ' .
+      \ '--enable=errcheck ' .
+      \ '--sort=severity ' .
+      \ '--exclude="should have comment" ' .
+      \ '| grep "%"'
+
+" match gometalinter + go test output
+let g:goerrorformat =
+      \ '%f:%l:%c:%t%*[^:]:\ %m,' .
+      \ '%f:%l::%t%*[^:]:\ %m,' .
+      \ '%W%f:%l: warning: %m,' .
+      \ '%E%f:%l:%c:%m,' .
+      \ '%E%f:%l:%m,' .
+      \ '%C%\s%\+%m,' .
+      \ '%-G#%.%#'
+
 " wire in Neomake
-let g:neomake_go_gometalinter_maker = {
-      \ 'args': [
-        \ '--tests',
-        \ '--disable-all',
-        \ '--enable=vet',
-        \ '--enable=unused',
-        \ '--enable=deadcode',
-        \ '--enable=errcheck',
-        \ '--enable=gosimple',
-        \ '--enable=staticcheck',
-        \ '--sort=severity',
-        \ '-e', 'should have comment',
-        \ '-e', 'error return value not checked \(defer',
-      \ ],
-      \ 'append_file': 0,
-      \ 'cwd': '%:h',
-      \ 'mapexpr': 'neomake_bufdir . "/" . v:val',
-      \ 'errorformat': '%f:%l:%c:%t%*[^:]: %m',
-      \ }
-autocmd! BufWritePost *.go Neomake
+autocmd BufEnter *.go let &makeprg = gomakeprg
+autocmd BufEnter *.go let &errorformat = goerrorformat
+autocmd! BufWritePost *.go Neomake!
+let g:neomake_go_enabled_makers = []
 
 if has('nvim')
   let g:deoplete#sources#go#gocode_binary	= g:go_bin_path . '/gocode'
