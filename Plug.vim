@@ -197,7 +197,7 @@ call plug#begin('~/.vim/plugged')
 
 " Text objects {{{
   " allows you to configure % to match more than just single characters
-  Plug 'matchit.zip'
+  Plug 'vim-scripts/matchit.zip'
 
   " Create your own text objects
   Plug 'kana/vim-textobj-user'
