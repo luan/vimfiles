@@ -112,6 +112,7 @@ call plug#begin('~/.vim/plugged')
 
   " a Git wrapper so awesome, it should be illegal; :Gblame, etc
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
 
   " easily search for, substitute, and abbreviate multiple variants of a word
   Plug 'tpope/vim-abolish'
