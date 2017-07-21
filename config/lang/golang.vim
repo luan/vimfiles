@@ -20,41 +20,18 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
-let g:go_snippet_engine = "ultisnips"
+let g:go_snippet_engine = 'ultisnips'
 
 let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
 let $PATH .= ':' . g:go_bin_path
 
 let g:go_auto_type_info = 0
 
-let g:gomakeprg =
-      \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
-      \ '! gometalinter ./%:h ' .
+let g:ale_go_gometalinter_options =
       \ '--tests ' .
-      \ '--disable-all ' .
-      \ '--enable=vet ' .
-      \ '--enable=deadcode ' .
-      \ '--enable=errcheck ' .
-      \ '--sort=severity ' .
+      \ '--fast ' .
       \ '--exclude="should have comment" ' .
-      \ '--exclude="error return value not checked \(defer" ' .
-      \ '| grep "%"'
-
-" match gometalinter + go test output
-let g:goerrorformat =
-      \ '%f:%l:%c:%t%*[^:]:\ %m,' .
-      \ '%f:%l::%t%*[^:]:\ %m,' .
-      \ '%W%f:%l: warning: %m,' .
-      \ '%E%f:%l:%c:%m,' .
-      \ '%E%f:%l:%m,' .
-      \ '%C%\s%\+%m,' .
-      \ '%-G#%.%#'
-
-" wire in Neomake
-autocmd BufEnter *.go let &makeprg = gomakeprg
-autocmd BufEnter *.go let &errorformat = goerrorformat
-autocmd! BufWritePost *.go Neomake!
-let g:neomake_go_enabled_makers = []
+      \ '--exclude="error return value not checked \(defer"'
 
 if has('nvim')
   let g:deoplete#sources#go#gocode_binary	= g:go_bin_path . '/gocode'

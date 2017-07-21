@@ -54,7 +54,6 @@ function! colors#_change(index)
 endfunction
 
 function! colors#_callback()
-  let l:name = g:colors_name
   hi MatchParen cterm=underline ctermbg=none ctermfg=none gui=underline guifg=NONE guibg=NONE
 endfunction
 

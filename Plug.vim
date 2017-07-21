@@ -109,8 +109,8 @@ call plug#begin('~/.vim/plugged')
   " Send test commands to a pipe.
   Plug 'luan/vipe', { 'do': function('InstallVipe') }
 
-  " Syntax checking hacks for vim
-  Plug 'benekastah/neomake'
+  " Asynchronous Lint Engine
+  Plug 'w0rp/ale'
 
   " Functions to toggle the [Location List] and the [Quickfix List] windows.
   Plug 'milkypostman/vim-togglelist'

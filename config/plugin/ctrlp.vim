@@ -12,19 +12,19 @@ nnoremap <leader>S :CtrlPTag<cr>
 nnoremap <leader>L :CtrlPLine<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 
-let expr = '\.final_builds/*\|node_modules/*\|\.o$\|\.obj$\|\.exe$\|\.so$\'
-let expr = expr . '|\.dll$\|\.pyc$\|\.svn\|\.hg\|\.bzr\|\.git\|\.sass-cache\'
-let expr = expr . '|\.class\|\.scssc\|Godeps/*'
+let l:expr = '\.final_builds/*\|node_modules/*\|\.o$\|\.obj$\|\.exe$\|\.so$\'
+let l:expr = l:expr . '|\.dll$\|\.pyc$\|\.svn\|\.hg\|\.bzr\|\.git\|\.sass-cache\'
+let l:expr = l:expr . '|\.class\|\.scssc\|Godeps/*'
 
 " Set the user_command option
 if executable('ag')
   let g:ctrlp_use_caching = 0
-  let cmd = 'ag %s -U -l --hidden --nocolor -g ""'
+  let l:cmd = 'ag %s -U -l --hidden --nocolor -g ""'
 else
-  let cmd = 'find %s -type f'
+  let l:cmd = 'find %s -type f'
 endif
 
 " Set the user_command option
 let g:ctrlp_user_command = has('win32') || has('win64')
-      \ ? 'dir %s /-n /b /s /a-d | findstr /V /l "'.expr.'"'
-      \ : cmd . ' | grep -v "'.expr .'"'
+      \ ? 'dir %s /-n /b /s /a-d | findstr /V /l "' . l:expr . '"'
+      \ : l:cmd . ' | grep -v "'. l:expr .'"'
