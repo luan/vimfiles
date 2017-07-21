@@ -20,15 +20,13 @@ runtime! config/colors.vim
 " Plugin Configuration
 " ----------------------------------------
 
-runtime! config/plugin/ack.vim
 runtime! config/plugin/airline.vim
-runtime! config/plugin/autoclose.vim
 runtime! config/plugin/commentary.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/livedown.vim
 runtime! config/plugin/multicursor.vim
+runtime! config/plugin/neomake.vim
 runtime! config/plugin/nerdtree.vim
-runtime! config/plugin/rainbow.vim
 runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/ultisnips.vim
@@ -40,7 +38,6 @@ else
   runtime! config/plugin/fzf.vim
 end
 
-runtime! config/plugin/neomake.vim
 
 if has('nvim')
   runtime! config/plugin/nvim/deoplete.vim

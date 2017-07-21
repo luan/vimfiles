@@ -18,7 +18,7 @@ let g:go_highlight_generate_tags = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
-let g:go_highlight_types = 0
+let g:go_highlight_types = 1
 
 let g:go_snippet_engine = "ultisnips"
 
@@ -62,15 +62,11 @@ if has('nvim')
 endif
 
 function! golang#generate_project()
-  call system('find . -iname "*.go" > /tmp/gotags-filelist-project')
-  let gopath = substitute(system('go env GOPATH'), '\n', '', '')
-  call vimproc#system_bg(g:go_bin_path . '/gotags -silent -L /tmp/gotags-filelist-project > ' . gopath . '/tags')
+  call vimproc#system_bg("bash -c '" . g:go_bin_path . "/gotags -silent -L <(find . -iname '*.go') > ./tags'")
 endfunction
 
 function! golang#generate_global()
-  call system('find `go env GOROOT GOPATH` -iname "*.go" > /tmp/gotags-filelist-global')
-  let gopath = substitute(system('go env GOPATH'), '\n', '', '')
-  call vimproc#system_bg(g:go_bin_path . '/gotags -silent -L /tmp/gotags-filelist-global > ' . gopath . '/tags')
+  call vimproc#system_bg("bash -c '" . g:go_bin_path . "/gotags -silent -L <(find $(go env GOROOT GOPATH) -iname '*.go') > $GOPATH/tags'")
 endfunction
 
 function! golang#buffcommands()
@@ -86,13 +82,11 @@ augroup go
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
 
-if exists("g:disable_gotags_on_save") && g:disable_gotags_on_save
-  augroup go_gotags
-    autocmd!
-    autocmd BufWritePost *.go call golang#generate_project()
-    autocmd BufWritePost *.go call golang#generate_global()
-  augroup END
-endif
+augroup go_gotags
+  autocmd!
+  autocmd BufWritePost *.go call golang#generate_project()
+  autocmd BufWritePost *.go call golang#generate_global()
+augroup END
 
 augroup golang
   autocmd FileType go compiler go

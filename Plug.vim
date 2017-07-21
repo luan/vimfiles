@@ -21,9 +21,6 @@ call plug#begin('~/.vim/plugged')
 
   " Active fork of kien/ctrlp.vim. Fuzzy file, buffer, mru, tag, etc finder.
   Plug 'ctrlpvim/ctrlp.vim'
-
-  " Fast vim CtrlP matcher based on python
-  Plug 'FelikZ/ctrlp-py-matcher'
 " }}}
 
 " UI Additions {{{
@@ -31,32 +28,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'dolio/vim-hybrid'
     Plug 'morhetz/gruvbox'
     Plug 'chriskempson/base16-vim'
-    Plug 'flazz/vim-colorschemes'
   " }}}
 
-  if !exists('g:vim_lite')
-    " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
-    Plug 'luochen1990/rainbow'
-  endif
-
-  if !exists('g:vim_lite')
-    " lean & mean status/tabline for vim that's light as air
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-  endif
-
-  if !exists('g:vim_lite')
-    " Plugin to toggle, display and navigate marks
-    Plug 'kshenoy/vim-signature'
-  endif
+  " lean & mean status/tabline for vim that's light as air
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
   " Show a diff via Vim sign column.
   Plug 'mhinz/vim-signify'
-
-  if !exists('g:vim_lite')
-    " Seamless navigation between tmux panes and vim splits
-    Plug 'christoomey/vim-tmux-navigator'
-  endif
 
   " Better whitespace highlighting for Vim
   Plug 'ntpeters/vim-better-whitespace'
@@ -99,10 +78,8 @@ call plug#begin('~/.vim/plugged')
     endif
   endfunction
 
-  if !exists('g:vim_lite')
-    " asynchronous process manager; run :VimProcBang to run a command and echo the results
-    Plug 'Shougo/vimproc.vim', { 'do': function('InstallVimProc') }
-  endif
+  " asynchronous process manager; run :VimProcBang to run a command and echo the results
+  Plug 'Shougo/vimproc.vim', { 'do': function('InstallVimProc') }
 
   " comment stuff out (via leader-/)
   Plug 'tpope/vim-commentary'
@@ -126,21 +103,11 @@ call plug#begin('~/.vim/plugged')
   " Vim script for text filtering and alignment; e.g. :Tabularize /,
   Plug 'godlygeek/tabular'
 
-  if !exists('g:vim_lite')
-    " Vim plugin for the Perl module / CLI script 'ack'
-    Plug 'mileszs/ack.vim'
-  endif
-
   " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
   Plug 'rking/ag.vim'
 
   " Send test commands to a pipe.
   Plug 'luan/vipe', { 'do': function('InstallVipe') }
-
-  if !exists('g:vim_lite')
-    " asynchronous build and test dispatcher
-    Plug 'tpope/vim-dispatch'
-  endif
 
   " Syntax checking hacks for vim
   Plug 'benekastah/neomake'
@@ -148,21 +115,14 @@ call plug#begin('~/.vim/plugged')
   " Functions to toggle the [Location List] and the [Quickfix List] windows.
   Plug 'milkypostman/vim-togglelist'
 
-  if !exists('g:vim_lite')
-    " True Sublime Text style multiple selections for Vim
-    Plug 'terryma/vim-multiple-cursors'
-  endif
+  " True Sublime Text style multiple selections for Vim
+  Plug 'terryma/vim-multiple-cursors'
 
   " Add emacs/bash/cocoa key bindings to vim, in insert and command-line modes.
   Plug 'maxbrunsfeld/vim-emacs-bindings'
 
-  if !exists('g:vim_lite')
-    " The ultimate undo history visualizer for VIM
-    Plug 'mbbill/undotree'
-  endif
-
-  " vim interface to Web API
-  Plug 'mattn/webapi-vim'
+  " The ultimate undo history visualizer for VIM
+  Plug 'mbbill/undotree'
 " }}}
 
 " Automatic Helpers {{{
@@ -189,11 +149,9 @@ call plug#begin('~/.vim/plugged')
     " Next generation completion framework after neocomplcache
     Plug 'Shougo/neocomplete.vim'
   endif
+
   " displays information in echo area from echodoc plugin.
   Plug 'Shougo/echodoc.vim'
-
-   " Provide easy code formatting in Vim by integrating existing code formatters.
-   Plug 'Chiel92/vim-autoformat'
 " }}}
 
 " Text objects {{{
@@ -212,54 +170,51 @@ call plug#begin('~/.vim/plugged')
 
 " Snippets {{{
   "UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
-  if version >= 704
+  if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
   endif
-
-  " vim-snipmate default snippets (Previously snipmate-snippets)
-  Plug 'honza/vim-snippets'
 " }}}
 
 " Language specific {{{
   " Ruby {{{
-    Plug 'tpope/vim-rails',             { 'for': ['ruby', 'rake'] }
-    Plug 'tpope/vim-rake',              { 'for': ['ruby', 'rake'] }
-    Plug 'tpope/vim-bundler',           { 'for': ['ruby', 'rake'] }
+    Plug 'tpope/vim-rails', { 'for': ['ruby', 'rake'] }
+    Plug 'tpope/vim-rake', { 'for': ['ruby', 'rake'] }
+    Plug 'tpope/vim-bundler', { 'for': ['ruby', 'rake'] }
     Plug 'ecomba/vim-ruby-refactoring', { 'for': ['ruby', 'rake'] }
-    Plug 'tpope/vim-cucumber',          { 'for': ['cucumber']     }
+    Plug 'tpope/vim-cucumber', { 'for': ['cucumber'] }
   " }}}
 
   " Clojure {{{
     Plug 'tpope/vim-classpath'
-    Plug 'tpope/vim-fireplace',     { 'for': ['clojure'] }
-    Plug 'tpope/vim-salve'
-    Plug 'guns/vim-sexp'
-    Plug 'tpope/vim-sexp-mappings-for-regular-people'
+    Plug 'tpope/vim-fireplace',{ 'for': 'clojure' }
+    Plug 'tpope/vim-salve', { 'for': 'clojure' }
+    Plug 'guns/vim-sexp', { 'for': 'clojure' }
+    Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
   " }}}
 
   " Go {{{
-    Plug 'fatih/vim-go'
-    Plug 'godoctor/godoctor.vim'
+    Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
   " }}}
 
   " Markdown {{{
-    Plug 'shime/vim-livedown', { 'for': ['markdown'] }
+    Plug 'shime/vim-livedown', { 'for': 'markdown' }
   " }}}
 
   " JavaScript {{{
-    Plug 'maksimr/vim-jsbeautify',   { 'for': ['javascript']        }
+    Plug 'maksimr/vim-jsbeautify', { 'for': 'javascript' }
   " }}}
 
   " CSS / HTML {{{
     Plug 'mattn/emmet-vim'
-    Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss','sass']       }
-    Plug 'hail2u/vim-css3-syntax',    { 'for': ['css','scss','sass'] }
+    Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss','sass'] }
+    Plug 'hail2u/vim-css3-syntax', { 'for': ['css','scss','sass'] }
     Plug 'gregsexton/MatchTag'
   " }}}
 
   " VimL {{{
     Plug 'ynkdir/vim-vimlparser', { 'for': 'vim' }
-    Plug 'syngan/vim-vimlint',    { 'for': 'vim' }
+    Plug 'syngan/vim-vimlint', { 'for': 'vim' }
   " }}}
 
   " Fish {{{
@@ -271,15 +226,7 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " Rust {{{
-    Plug 'rust-lang/rust.vim'
-  " }}}
-
-  " Concourse {{{
-    Plug 'luan/vim-concourse'
-  " }}}
-
-  " BOSH {{{
-    Plug 'luan/vim-bosh'
+    Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   " }}}
 
   " A solid language pack for Vim.

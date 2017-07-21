@@ -221,10 +221,12 @@ setup_go_dependencies() {
   cd "${VIMFILES_PATH}" || exit 2
   mkdir -p gobin gopath
   echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}go binaries${NORMAL} (may take a while)..." >&4
-  GOPATH="${PWD}/gopath" ${VIM} +'GoUpdateBinaries' +'GoDoctorInstall' +'ConcourseUpdateBinaries' +'BoshUpdateBinaries' +'qall!'
+  GOPATH="${PWD}/gopath" ${VIM} +'GoUpdateBinaries' +'qall!'
   echo
   GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gometalinter" --install --update
   echo -e "${GREEN}DONE${END_COLOR} ${BOLD}go binaries${NORMAL}" >&4
+  GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gocode" close
+  GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gocode" drop-cache
   )
 }
 
@@ -250,8 +252,8 @@ main() {
   initialize_vimfiles
   install_vim_update
 
-  has_elm && setup_elm_dependencies
-  has_npm && setup_livedown
+  # has_elm && setup_elm_dependencies
+  # has_npm && setup_livedown
 
   setup_vim_calls
 
