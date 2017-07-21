@@ -16,14 +16,14 @@ command! -bar -range=% NotRocket execute '<line1>,<line2>s/:\(\w\+\)\s*=>/\1:/e'
 " Preserves/Saves the state, executes a command, and returns to the saved state
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
+  let l:_s=@/
+  let l:l = line('.')
+  let l:c = col('.')
   " Do the business:
   execute a:command
   " Clean up: restore previous search history, and cursor position
   let @/=_s
-  call cursor(l, c)
+  call cursor(l:l, l:c)
 endfunction
 "strip all trailing white space
 command! StripTrailingWhiteSpace :call Preserve("%s/\\s\\+$//e")<CR>
@@ -52,88 +52,69 @@ command! QuickSpellingFix call QuickSpellingFix()
 command! -bar -range=% NotRocket execute '<line1>,<line2>s/:\(\w\+\)\s*=>/\1:/e' . (&gdefault ? '' : 'g')
 
 " ---------------
-" Strip Trailing White Space
-" ---------------
-" From http://vimbits.com/bits/377
-" Preserves/Saves the state, executes a command, and returns to the saved state
-function! Preserve(command)
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  execute a:command
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
-"strip all trailing white space
-command! StripTrailingWhiteSpace :call Preserve("%s/\\s\\+$//e")<CR>
-
-" ---------------
 " Tests
 " ---------------
 function! RunTestFile(...)
   if a:0
-    let command_suffix = a:1
+    let l:command_suffix = a:1
   else
-    let command_suffix = ""
+    let l:command_suffix = ''
   endif
 
   " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.go\|_spec.js\)$') != -1
-  if in_test_file
-    call RunTests(expand("%") . command_suffix)
+  let l:in_test_file = match(expand('%'), '\(.feature\|_spec.rb\|_test.go\|_spec.js\)$') != -1
+  if l:in_test_file
+    call RunTests(expand('%') . l:command_suffix)
   else
     call RunTests('')
   end
 endfunction
 
 function! RunNearestTest()
-  let spec_line_number = line('.')
-  let s:last_command = ":" . spec_line_number
-  call RunTestFile(":" . spec_line_number)
+  let l:spec_line_number = line('.')
+  let s:last_command = ':' . l:spec_line_number
+  call RunTestFile(':' . l:spec_line_number)
 endfunction
 
 function! RunTests(filename)
   :wa
 
-  if a:filename == ''
+  if a:filename ==# ''
     call vipe#peek()
     return
   endif
 
-  let command = ''
+  let l:command = ''
 
   if match(a:filename, '\.feature') != -1
-    if filereadable("script/features")
-      let command = "script/features " . a:filename
-    elseif filereadable("Gemfile")
-      let command = "bundle exec cucumber " . a:filename
+    if filereadable('script/features')
+      let l:command = 'script/features ' . a:filename
+    elseif filereadable('Gemfile')
+      let l:command = 'bundle exec cucumber ' . a:filename
     else
-      let command = "cucumber " . a:filename
+      let l:command = 'cucumber ' . a:filename
     end
   elseif match(a:filename, '_test\.go') != -1
-    if filereadable("script/test")
-      let command = "script/test " . fnamemodify(a:filename, ':h')
+    if filereadable('script/test')
+      let l:command = 'script/test ' . fnamemodify(a:filename, ':h')
     else
-      let command = "ginkgo " . fnamemodify(a:filename, ':h')
+      let l:command = 'ginkgo ' . fnamemodify(a:filename, ':h')
     end
   elseif match(a:filename, '_spec\.js') != -1
-    if filereadable("package.json")
-      let command = "npm test " . a:filename
+    if filereadable('package.json')
+      let l:command = 'npm test ' . a:filename
     else
-      let command = "jasmine " . a:filename
+      let l:command = 'jasmine ' . a:filename
     end
   else
-    if filereadable("script/test")
-      let command = "script/test " . a:filename
-    elseif (exists('g:force_bundle_exec') && g:force_bundle_exec == 1) || filereadable("Gemfile")
-      let command = "bundle exec rspec --color " . a:filename
+    if filereadable('script/test')
+      let l:command = 'script/test ' . a:filename
+    elseif (exists('g:force_bundle_exec') && g:force_bundle_exec == 1) || filereadable('Gemfile')
+      let l:command = 'bundle exec rspec --color ' . a:filename
     else
-      let command = "rspec --color " . a:filename
+      let l:command = 'rspec --color ' . a:filename
     end
   end
 
-  call vipe#push(command)
+  call vipe#push(l:command)
 endfunction

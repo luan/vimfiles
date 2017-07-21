@@ -68,7 +68,7 @@ command! -bang WatchForChangesAllFile           :call WatchForChanges('*', {'tog
 "     since they are triggered so frequently...)
 function! WatchForChanges(bufname, ...)
   " Figure out which options are in effect
-  if a:bufname == '*'
+  if a:bufname ==# '*'
     let id = 'WatchForChanges'.'AnyBuffer'
     " If you try to do checktime *, you'll get E93: More than one match for * is given
     let bufspec = ''
@@ -153,5 +153,5 @@ function! WatchForChanges(bufname, ...)
   let @"=reg_saved
 endfunction
 
-let autoreadargs={'autoread':1}
-execute WatchForChanges("*",autoreadargs)
+let s:autoreadargs={'autoread':1}
+execute WatchForChanges('*',s:autoreadargs)
