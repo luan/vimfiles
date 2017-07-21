@@ -16,13 +16,13 @@ command! -bar -range=% NotRocket execute '<line1>,<line2>s/:\(\w\+\)\s*=>/\1:/e'
 " Preserves/Saves the state, executes a command, and returns to the saved state
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
-  let l:_s=@/
+  let l:_s = getreg('/')
   let l:l = line('.')
   let l:c = col('.')
   " Do the business:
   execute a:command
   " Clean up: restore previous search history, and cursor position
-  let @/=_s
+  call setreg('/', l:_s)
   call cursor(l:l, l:c)
 endfunction
 "strip all trailing white space
@@ -33,11 +33,11 @@ command! StripTrailingWhiteSpace :call Preserve("%s/\\s\\+$//e")<CR>
 " ---------------
 function! QuickSpellingFix()
   if &spell
-    normal 1z=
+    normal! 1z=
   else
     " Enable spelling mode and do the correction
     set spell
-    normal 1z=
+    normal! 1z=
     set nospell
   endif
 endfunction
