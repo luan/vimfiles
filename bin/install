@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eu -o pipefail
+
 declare UPDATE=0 INTERACTIVE=1
 declare VIM='vim'
 
@@ -16,6 +18,7 @@ readonly BOLD=$(tput bold)
 readonly NORMAL=$(tput sgr0)
 readonly END_COLOR='\033[0;m'
 
+DEBUG=${DEBUG:-}
 if [[ ${DEBUG} ]]; then
   set -x
 fi
