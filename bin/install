@@ -173,12 +173,12 @@ setup_elm_dependencies() {
 
     for p in $npmpackages; do
       (
-        echo -e "\t${YELLOW}INSTALL${END_COLOR} ${BOLD}${p}${NORMAL}..."
-        if npm install -g "${p}"; then
-          echo -e "\t${GREEN}DONE${END_COLOR}    ${BOLD}${p}${NORMAL}"
-        else
-          echo -e "\t${RED}ERROR${END_COLOR}    ${BOLD}${p}${NORMAL}"
-        fi
+      echo -e "\t${YELLOW}INSTALL${END_COLOR} ${BOLD}${p}${NORMAL}..."
+      if npm install -g "${p}"; then
+        echo -e "\t${GREEN}DONE${END_COLOR}    ${BOLD}${p}${NORMAL}"
+      else
+        echo -e "\t${RED}ERROR${END_COLOR}    ${BOLD}${p}${NORMAL}"
+      fi
       ) &
     done
   else
@@ -186,15 +186,15 @@ setup_elm_dependencies() {
   fi
 
   (
-    echo -e "\t${YELLOW}INSTALL${END_COLOR} ${BOLD}elm-format${NORMAL}..."
-    if [[ "$OSTYPE" == "linux-gnu" ]]; then
-      elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz'
-    elif [[ "$OSTYPE" == "darwin"* ]]; then
-      elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-mac-x64.tgz'
-    fi
-    tar xz -O < <(curl -L $elm_format_url) > bin/elm-format
-    chmod a+x bin/elm-format
-    echo -e "\t${GREEN}DONE${END_COLOR}    ${BOLD}elm-format${NORMAL}"
+  echo -e "\t${YELLOW}INSTALL${END_COLOR} ${BOLD}elm-format${NORMAL}..."
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz'
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-mac-x64.tgz'
+  fi
+  tar xz -O < <(curl -L $elm_format_url) > bin/elm-format
+  chmod a+x bin/elm-format
+  echo -e "\t${GREEN}DONE${END_COLOR}    ${BOLD}elm-format${NORMAL}"
   ) &
   wait
   echo -e "${GREEN}DONE${END_COLOR}    ${BOLD}elm${NORMAL} dependencies"
