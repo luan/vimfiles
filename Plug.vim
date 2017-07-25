@@ -194,7 +194,8 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " Go {{{
-    Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
+    Plug 'fatih/vim-go', { 'for': 'go' }
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
   " }}}
 
   " Markdown {{{
