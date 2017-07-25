@@ -37,6 +37,9 @@ call plug#begin('~/.vim/plugged')
   " Show a diff via Vim sign column.
   Plug 'mhinz/vim-signify'
 
+  " Seamless navigation between tmux panes and vim splits
+  Plug 'christoomey/vim-tmux-navigator'
+
   " Better whitespace highlighting for Vim
   Plug 'ntpeters/vim-better-whitespace'
 
