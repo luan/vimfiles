@@ -46,21 +46,17 @@ function! golang#buffcommands()
   setlocal foldmethod=syntax shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 endfunction
 
-augroup go
+augroup luan_golang
   autocmd!
   autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  autocmd! BufEnter *.go call golang#buffcommands()
 augroup END
 
-augroup go_gotags
+augroup luan_go_gotags
   autocmd!
   autocmd BufWritePost *.go call golang#generate_project()
   autocmd BufWritePost *.go call golang#generate_global()
-augroup END
-
-augroup golang
-  autocmd FileType go compiler go
-  autocmd! BufEnter *.go call golang#buffcommands()
 augroup END
 

@@ -2,7 +2,8 @@
 " Auto Commands
 " ----------------------------------------
 
-augroup general
+augroup luan_general
+  autocmd!
   " No formatting on o key newlines
   autocmd BufNewFile,BufEnter * set formatoptions-=o
 
@@ -20,7 +21,7 @@ augroup general
   autocmd FileType qf setlocal wrap
 augroup END
 
-augroup vimrcEx
+augroup luan_vimrcEx
   " Clear all autocmds in the group
   autocmd!
   " Jump to last cursor position unless it's invalid or in an event handler

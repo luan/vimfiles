@@ -2,7 +2,8 @@
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
 
-augroup neomake
+augroup luan_neomake
+  autocmd!
   autocmd! BufWritePost * Neomake
 augroup END
 
