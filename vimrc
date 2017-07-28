@@ -18,12 +18,12 @@ runtime! config/paste.vim
 " ----------------------------------------
 
 runtime! config/plugin/airline.vim
+runtime! config/plugin/ale.vim
 runtime! config/plugin/commentary.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/livedown.vim
 runtime! config/plugin/multicursor.vim
 runtime! config/plugin/nerdtree.vim
-runtime! config/plugin/neomake.vim
 runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/ultisnips.vim

@@ -14,5 +14,5 @@ if !g:airline_powerline_fonts
   let g:airline_right_alt_sep = ''
 endif
 
-let g:airline_extensions = ['branch', 'netrw', 'neomake']
+let g:airline_extensions = ['branch', 'netrw', 'ale']
 

@@ -26,6 +26,12 @@ let s:go_tags_path = resolve(expand('<sfile>:h') . '/../../gotags')
 
 let g:go_auto_type_info = 0
 
+let g:ale_go_gometalinter_options =
+      \ '--tests ' .
+      \ '--fast ' .
+      \ '--exclude="should have comment" ' .
+      \ '--exclude="error return value not checked \(defer"'
+
 if has('nvim')
   let g:deoplete#sources#go#gocode_binary	= g:go_bin_path . '/gocode'
   let g:deoplete#sources#go#align_class = 1
