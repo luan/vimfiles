@@ -1,9 +1,6 @@
-autocmd FileType go compiler go
-autocmd! BufEnter *.go setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
-
 " vim-go setup
 let g:go_fmt_autosave = 1
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = 'goimports'
 let g:go_fmt_fail_silently = 1
 
 " this breaks folding on vim < 8.0 or neovim
@@ -25,6 +22,8 @@ let g:go_snippet_engine = 'ultisnips'
 let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
 let $PATH .= ':' . g:go_bin_path
 
+let s:go_tags_path = resolve(expand('<sfile>:h') . '/../../gotags')
+
 let g:go_auto_type_info = 0
 
 if has('nvim')
@@ -32,18 +31,32 @@ if has('nvim')
   let g:deoplete#sources#go#align_class = 1
 endif
 
+function! golang#project_tags_path()
+  return s:go_tags_path . '/' . substitute(expand('%'), '/', '--', 'g') . '--tags'
+endfunction
+
+function! golang#global_tags_path()
+  return s:go_tags_path . '/' . substitute($GOPATH, '/', '--', 'g') . '--tags'
+endfunction
+
 function! golang#generate_project()
-  call vimproc#system_bg("bash -c '" . g:go_bin_path . "/gotags -silent -L <(find . -iname '*.go') > ./tags'")
+  let l:tags_path = golang#project_tags_path()
+  call vimproc#system_bg("bash -c '". g:go_bin_path . "/gotags -silent -L <(find . -iname '*.go') > " . l:tags_path . "'")
 endfunction
 
 function! golang#generate_global()
-  call vimproc#system_bg("bash -c '" . g:go_bin_path . "/gotags -silent -L <(find $(go env GOROOT GOPATH) -iname '*.go') > $GOPATH/tags'")
+  let l:global_tags_path = golang#global_tags_path()
+  call vimproc#system_bg("bash -c '" . g:go_bin_path . "/gotags -silent -L <(find $(go env GOROOT GOPATH) -iname '*.go') > " . l:global_tags_path . "'")
 endfunction
 
 function! golang#buffcommands()
   command! -buffer -bar -nargs=0 GoTags call golang#generate_project()
   command! -buffer -bar -nargs=0 GoTagsGlobal call golang#generate_global()
   setlocal foldmethod=syntax shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
+
+  let l:tags_path = golang#project_tags_path()
+  let l:global_tags_path = golang#global_tags_path()
+  exec 'setlocal tags=' . l:tags_path . ',' . l:global_tags_path . ',tags'
 endfunction
 
 augroup luan_golang
@@ -51,6 +64,7 @@ augroup luan_golang
   autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  autocmd FileType go compiler go
   autocmd! BufEnter *.go call golang#buffcommands()
 augroup END
 
