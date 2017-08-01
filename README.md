@@ -56,7 +56,7 @@ curl vimfiles.luan.sh/install | bash
 Most of the dependencies are installed automatically, assuming you have a
 minimal development environment for you language. For example we download all
 the tools for golang and elm automatically.  `git` is assumed to be installed
-and so is `ag` or `ack`, if either of those is not, some plugins may not behave
+and so is [`ag`](https://github.com/ggreer/the_silver_searcher) or `ack`, if either of those is not, some plugins may not behave
 as expected.
 
 #### ctags
