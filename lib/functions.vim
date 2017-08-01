@@ -97,6 +97,10 @@ function! RunTests(filename)
   elseif match(a:filename, '_test\.go') != -1
     if filereadable('script/test')
       let l:command = 'script/test ' . fnamemodify(a:filename, ':h')
+    elseif filereadable('scripts/test')
+      let l:command = 'scripts/test ' . fnamemodify(a:filename, ':h')
+    elseif filereadable('scripts/test-unit')
+      let l:command = 'scripts/test-unit ' . fnamemodify(a:filename, ':h')
     else
       let l:command = 'ginkgo ' . fnamemodify(a:filename, ':h')
     end
