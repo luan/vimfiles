@@ -69,8 +69,7 @@ to definitions install the correct version of ctags.
 
 ```bash
 brew uninstall ctags
-brew tap universal-ctags/universal-ctags
-brew install universal-ctags --HEAD
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 ```
 
 **Linux**
