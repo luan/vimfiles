@@ -29,6 +29,7 @@ let g:go_auto_type_info = 0
 let g:ale_go_gometalinter_options =
       \ '--tests ' .
       \ '--fast ' .
+      \ '--disable=gotype ' .
       \ '--exclude="should have comment" ' .
       \ '--exclude="error return value not checked \(defer"'
 
