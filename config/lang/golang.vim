@@ -33,11 +33,6 @@ let g:ale_go_gometalinter_options =
       \ '--exclude="should have comment" ' .
       \ '--exclude="error return value not checked \(defer"'
 
-if has('nvim')
-  let g:deoplete#sources#go#gocode_binary	= g:go_bin_path . '/gocode'
-  let g:deoplete#sources#go#align_class = 1
-endif
-
 function! golang#project_tags_path()
   return s:go_tags_path . '/' . substitute(expand('%'), '/', '--', 'g') . '--tags'
 endfunction

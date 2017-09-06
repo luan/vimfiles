@@ -35,11 +35,8 @@ else
   runtime! config/plugin/fzf.vim
 end
 
-if has('nvim')
-  runtime! config/plugin/nvim/deoplete.vim
-else
-  runtime! config/plugin/neocomplete.vim
-endif
+
+runtime! config/plugin/asyncomplete.vim
 
 " ----------------------------------------
 " Language Configuration
