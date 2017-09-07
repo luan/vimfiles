@@ -23,6 +23,7 @@ augroup luan_asyncomplete
   autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
         \ 'name': 'omni',
         \ 'whitelist': ['*'],
+        \ 'blacklist': ['go'],
         \ 'completor': function('asyncomplete#sources#omni#completor')
         \  }))
 
