@@ -144,7 +144,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-buffer.vim'
   Plug 'prabirshrestha/asyncomplete-gocode.vim'
-  Plug 'yami-beta/asyncomplete-omni.vim'
   Plug 'keremc/asyncomplete-racer.vim'
   Plug 'prabirshrestha/asyncomplete-necovim.vim'
   Plug 'prabirshrestha/asyncomplete-ultisnips.vim'

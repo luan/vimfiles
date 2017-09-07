@@ -19,14 +19,6 @@ augroup luan_asyncomplete
         \ 'completor': function('asyncomplete#sources#buffer#completor'),
         \ }))
 
-  " omni
-  autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-        \ 'name': 'omni',
-        \ 'whitelist': ['*'],
-        \ 'blacklist': ['go'],
-        \ 'completor': function('asyncomplete#sources#omni#completor')
-        \  }))
-
   " golang
   let g:go_bin_path = resolve(expand('<sfile>:h') . '/../../gobin')
   let $PATH .= ':' . g:go_bin_path
