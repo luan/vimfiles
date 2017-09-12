@@ -4,6 +4,8 @@ set -eu -o pipefail
 
 declare UPDATE=0 INTERACTIVE=1
 declare VIM='vim'
+declare NPM='npm'
+declare PIP='pip'
 
 readonly VIMFILES_PATH="${HOME}/.vim"
 readonly VIMFILES_REPO_NAME='luan/vimfiles'
@@ -88,8 +90,31 @@ has_elm() {
   which elm > /dev/null
 }
 
+has_pip() {
+  if which pip3 > /dev/null; then
+    PIP=pip3
+    if [[ $(which pip3) == '/usr/bin/pip3' ]]; then
+      NPM='sudo pip3'
+    fi
+    return 0
+  elif which pip > /dev/null; then
+    PIP=pip
+    if [[ $(which pip) == '/usr/bin/pip' ]]; then
+      NPM='sudo pip'
+    fi
+    return 0
+  fi
+  return 1
+}
+
 has_npm() {
-  which npm > /dev/null
+  if which npm > /dev/null; then
+    if [[ $(which npm) == '/usr/bin/npm' ]]; then
+      NPM='sudo npm'
+    fi
+    return 0
+  fi
+  return 1
 }
 
 setup_vimfiles_dir() {
@@ -174,7 +199,7 @@ setup_elm_dependencies() {
     for p in $npmpackages; do
       (
       echo -e "\t${YELLOW}INSTALL${END_COLOR} ${BOLD}${p}${NORMAL}..."
-      if npm install -g "${p}"; then
+      if $NPM install -g "${p}"; then
         echo -e "\t${GREEN}DONE${END_COLOR}    ${BOLD}${p}${NORMAL}"
       else
         echo -e "\t${RED}ERROR${END_COLOR}    ${BOLD}${p}${NORMAL}"
@@ -201,7 +226,14 @@ setup_elm_dependencies() {
 }
 
 setup_livedown() {
-  npm install -g livedown
+  $NPM install -g livedown
+}
+
+setup_neovim() {
+  if which pacman > /dev/null ; then
+    sudo pacman -S --noconfirm python-greenlet
+  fi
+  $PIP install --upgrade neovim
 }
 
 setup_vim_calls() {
@@ -255,8 +287,9 @@ main() {
   initialize_vimfiles
   install_vim_update
 
-  # has_elm && setup_elm_dependencies
-  # has_npm && setup_livedown
+  has_elm && setup_elm_dependencies
+  has_npm && setup_livedown
+  has_pip && setup_neovim
 
   setup_vim_calls
 
