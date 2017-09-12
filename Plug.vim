@@ -140,6 +140,16 @@ call plug#begin('~/.vim/plugged')
 
   " Fast, Extensible, Async Completion Framework for Neovim
   Plug 'roxma/nvim-completion-manager'
+  Plug 'roxma/clang_complete'
+  Plug 'roxma/nvim-cm-racer'
+  Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+  Plug 'calebeby/ncm-css'
+  Plug 'rhysd/github-complete.vim'
+  Plug 'Shougo/neoinclude.vim'
+  Plug 'Shougo/neco-syntax'
+  Plug 'Shougo/neco-vim'
+  Plug 'roxma/ncm-rct-complete'
+
   if !has('nvim') || $ALL_PLUGINS == 'true'
     Plug 'roxma/vim-hug-neovim-rpc'
   endif
