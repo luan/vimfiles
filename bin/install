@@ -231,6 +231,7 @@ setup_livedown() {
 
 setup_neovim() {
   if which pacman > /dev/null ; then
+    $PIP uninstall -y greenlet
     sudo pacman -S --noconfirm python-greenlet
   fi
   $PIP install --upgrade neovim
