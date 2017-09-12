@@ -138,16 +138,11 @@ call plug#begin('~/.vim/plugged')
   " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
   Plug 'tpope/vim-unimpaired'
 
-  " normalize async job control api for vim and neovim
-  Plug 'prabirshrestha/async.vim'
-  " async completion in pure vim script for vim8 and neovim
-  Plug 'prabirshrestha/asyncomplete.vim'
-  Plug 'prabirshrestha/asyncomplete-buffer.vim'
-  Plug 'prabirshrestha/asyncomplete-gocode.vim'
-  Plug 'keremc/asyncomplete-racer.vim'
-  Plug 'prabirshrestha/asyncomplete-necovim.vim'
-  Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-  Plug 'prabirshrestha/asyncomplete-tags.vim'
+  " Fast, Extensible, Async Completion Framework for Neovim
+  Plug 'roxma/nvim-completion-manager'
+  if !has('nvim') || $ALL_PLUGINS == 'true'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
 
   " displays information in echo area from echodoc plugin.
   Plug 'Shougo/echodoc.vim'

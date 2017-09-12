@@ -24,6 +24,9 @@ let $PATH .= ':' . g:go_bin_path
 
 let s:go_tags_path = resolve(expand('<sfile>:h') . '/../../gotags')
 
+let s:go_tags_script_path = resolve(expand('<sfile>:h') . '/../../scripts/gotags')
+let s:go_tags_lock_path = resolve(expand('<sfile>:h') . '/../../tmp/gotagslock')
+
 let g:go_auto_type_info = 0
 
 let g:ale_go_gometalinter_options =
@@ -34,26 +37,25 @@ let g:ale_go_gometalinter_options =
       \ '--exclude="error return value not checked \(defer"'
 
 function! golang#project_tags_path()
-  return s:go_tags_path . '/' . substitute(expand('%'), '/', '--', 'g') . '--tags'
+  return s:go_tags_path . '/' . substitute(expand('%:p'), '/', '--', 'g') . '--tags'
 endfunction
 
 function! golang#global_tags_path()
   return s:go_tags_path . '/' . substitute($GOPATH, '/', '--', 'g') . '--tags'
 endfunction
 
-function! golang#generate_project()
+function! golang#generate()
   let l:tags_path = golang#project_tags_path()
-  call vimproc#system_bg("bash -c '". g:go_bin_path . "/gotags -silent -L <(find . -iname '*.go') > " . l:tags_path . "'")
-endfunction
-
-function! golang#generate_global()
   let l:global_tags_path = golang#global_tags_path()
-  call vimproc#system_bg("bash -c '" . g:go_bin_path . "/gotags -silent -L <(find $(go env GOROOT GOPATH) -iname '*.go') > " . l:global_tags_path . "'")
+  call vimproc#system_bg(
+        \ "bash -c 'LOCKDIR=\"" . s:go_tags_lock_path . '" '.
+        \ s:go_tags_script_path . ' ' . l:tags_path . ' ' . l:global_tags_path .
+        \ "'"
+        \ )
 endfunction
 
 function! golang#buffcommands()
-  command! -buffer -bar -nargs=0 GoTags call golang#generate_project()
-  command! -buffer -bar -nargs=0 GoTagsGlobal call golang#generate_global()
+  command! -buffer -bar -nargs=0 GoTags call golang#generate()
   setlocal foldmethod=syntax shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 
   let l:tags_path = golang#project_tags_path()
@@ -72,7 +74,6 @@ augroup END
 
 augroup luan_go_gotags
   autocmd!
-  autocmd BufWritePost *.go call golang#generate_project()
-  autocmd BufWritePost *.go call golang#generate_global()
+  autocmd BufWritePost *.go call golang#generate()
 augroup END
 

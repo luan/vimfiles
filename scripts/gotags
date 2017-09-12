@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if mkdir "$LOCKDIR"
+then
+	gotags -silent -L <(find . -iname '*.go') > "$1"
+	gotags -silent -L <(find "$(go env GOROOT GOPATH)" -iname '*.go') > "$2"
+	rmdir "$LOCKDIR"
+fi

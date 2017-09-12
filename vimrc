@@ -36,7 +36,10 @@ else
 end
 
 
-runtime! config/plugin/asyncomplete.vim
+" runtime! config/plugin/asyncomplete.vim
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 
 " ----------------------------------------
 " Language Configuration
