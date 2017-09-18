@@ -5,7 +5,8 @@ set -eu -o pipefail
 declare UPDATE=0 INTERACTIVE=1
 declare VIM='vim'
 declare NPM='npm'
-declare PIP='pip'
+declare PIP3='pip'
+declare PIP2='pip'
 
 readonly VIMFILES_PATH="${HOME}/.vim"
 readonly VIMFILES_REPO_NAME='luan/vimfiles'
@@ -90,17 +91,34 @@ has_elm() {
   which elm > /dev/null
 }
 
-has_pip() {
+has_pip3() {
   if which pip3 > /dev/null; then
-    PIP=pip3
+    PIP3=pip3
     if [[ $(which pip3) == '/usr/bin/pip3' ]]; then
-      NPM='sudo pip3'
+      PIP3='sudo pip3'
     fi
     return 0
   elif which pip > /dev/null; then
-    PIP=pip
+    PIP3=pip
     if [[ $(which pip) == '/usr/bin/pip' ]]; then
-      NPM='sudo pip'
+      PIP3='sudo pip'
+    fi
+    return 0
+  fi
+  return 1
+}
+
+has_pip2() {
+  if which pip2 > /dev/null; then
+    PIP2=pip2
+    if [[ $(which pip2) == '/usr/bin/pip2' ]]; then
+      NPM='sudo pip2'
+    fi
+    return 0
+  elif which pip > /dev/null; then
+    PIP2=pip
+    if [[ $(which pip) == '/usr/bin/pip' ]]; then
+      PIP2='sudo pip'
     fi
     return 0
   fi
@@ -229,12 +247,16 @@ setup_livedown() {
   $NPM install -g livedown
 }
 
-setup_neovim() {
+setup_neovim_python3() {
   if which pacman > /dev/null ; then
     $PIP uninstall -y greenlet
     sudo pacman -S --noconfirm python-greenlet
   fi
-  $PIP install --upgrade neovim
+  $PIP3 install --upgrade neovim
+}
+
+setup_neovim_python2() {
+  $PIP2 install --upgrade neovim
 }
 
 setup_vim_calls() {
@@ -290,7 +312,8 @@ main() {
 
   has_elm && setup_elm_dependencies
   has_npm && setup_livedown
-  has_pip && setup_neovim
+  has_pip3 && setup_neovim_python3
+  has_pip2 && setup_neovim_python2
 
   setup_vim_calls
 
