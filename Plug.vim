@@ -149,6 +149,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/neco-syntax'
   Plug 'Shougo/neco-vim'
   Plug 'roxma/ncm-rct-complete'
+  Plug 'arakashic/chromatica.nvim'
 
   if !has('nvim') || $ALL_PLUGINS == 'true'
     Plug 'roxma/vim-hug-neovim-rpc'
