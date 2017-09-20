@@ -112,7 +112,7 @@ has_pip2() {
   if which pip2 > /dev/null; then
     PIP2=pip2
     if [[ $(which pip2) == '/usr/bin/pip2' ]]; then
-      NPM='sudo pip2'
+      PIP2='sudo pip2'
     fi
     return 0
   elif which pip > /dev/null; then
