@@ -314,7 +314,7 @@ main() {
   has_npm && setup_livedown
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    brew install python3
+    brew install python3 || true
   fi
 
   has_pip3 && setup_neovim_python3
