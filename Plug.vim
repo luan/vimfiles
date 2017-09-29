@@ -11,6 +11,9 @@ call plug#begin('~/.vim/plugged')
   " A tree explorer plugin for vim
   Plug 'scrooloose/nerdtree'
 
+  " combine with netrw to create a delicious salad dressing
+  Plug 'tpope/vim-vinegar'
+
   " project configuration via 'projections'
   Plug 'tpope/vim-projectionist'
 

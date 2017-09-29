@@ -10,6 +10,9 @@ endif
 
 " We rely on bash for some things, make sure we use that for shelling out
 set shell=/bin/bash
+
+" Prevent netrw buffers from being set as alternate
+let g:netrw_altfile = 1
 " }}}
 
 " Backups {{{
