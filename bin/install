@@ -252,11 +252,11 @@ setup_neovim_python3() {
     $PIP3 uninstall -y greenlet || true
     sudo pacman -S --noconfirm python-greenlet
   fi
-  $PIP3 install --upgrade neovim
+  $PIP3 install --user --upgrade neovim
 }
 
 setup_neovim_python2() {
-  $PIP2 install --upgrade neovim
+  $PIP2 install --user --upgrade neovim
 }
 
 setup_vim_calls() {
