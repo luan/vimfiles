@@ -94,15 +94,9 @@ has_elm() {
 has_pip3() {
   if which pip3 > /dev/null; then
     PIP3=pip3
-    if [[ $(which pip3) == '/usr/bin/pip3' ]]; then
-      PIP3='sudo pip3'
-    fi
     return 0
   elif which pip > /dev/null; then
     PIP3=pip
-    if [[ $(which pip) == '/usr/bin/pip' ]]; then
-      PIP3='sudo pip'
-    fi
     return 0
   fi
   return 1
@@ -111,15 +105,9 @@ has_pip3() {
 has_pip2() {
   if which pip2 > /dev/null; then
     PIP2=pip2
-    if [[ $(which pip2) == '/usr/bin/pip2' ]]; then
-      PIP2='sudo pip2'
-    fi
     return 0
   elif which pip > /dev/null; then
     PIP2=pip
-    if [[ $(which pip) == '/usr/bin/pip' ]]; then
-      PIP2='sudo pip'
-    fi
     return 0
   fi
   return 1
@@ -249,7 +237,7 @@ setup_livedown() {
 
 setup_neovim_python3() {
   if which pacman > /dev/null ; then
-    $PIP3 uninstall -y greenlet || true
+    sudo $PIP3 uninstall -y greenlet 2>/dev/null >/dev/null|| true
     sudo pacman -S --noconfirm python-greenlet
   fi
   $PIP3 install --user --upgrade neovim
