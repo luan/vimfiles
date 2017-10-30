@@ -301,10 +301,6 @@ main() {
   has_elm && setup_elm_dependencies
   has_npm && setup_livedown
 
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    brew install python3 || true
-  fi
-
   has_pip3 && setup_neovim_python3
   has_pip2 && setup_neovim_python2
 
