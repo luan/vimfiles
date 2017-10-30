@@ -14,8 +14,7 @@ it properly setup. The autocompletion plugin we use needs [python3
 support](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim) too.
 
 If you choose regular vim you can install it on ubuntu via the `vim-nox` package, or
-on macOS with Homebrew via `brew install vim`. Note if you are using macOS High Sierra
-the pre-installed vim is v`8.0` which should work.
+on macOS with Homebrew via `brew install vim`.
 
 ### Table of Contents
 
