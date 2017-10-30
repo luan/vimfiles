@@ -40,6 +40,9 @@ call plug#begin('~/.vim/plugged')
   " Show a diff via Vim sign column.
   Plug 'mhinz/vim-signify'
 
+  " Plugin to toggle, display and navigate marks
+  Plug 'kshenoy/vim-signature'
+
   " Better whitespace highlighting for Vim
   Plug 'ntpeters/vim-better-whitespace'
 
