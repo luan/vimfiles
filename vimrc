@@ -17,6 +17,7 @@ runtime! config/paste.vim
 " Plugin Configuration
 " ----------------------------------------
 
+runtime! config/plugin/ack.vim
 runtime! config/plugin/airline.vim
 runtime! config/plugin/ale.vim
 runtime! config/plugin/commentary.vim

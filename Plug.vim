@@ -109,8 +109,8 @@ call plug#begin('~/.vim/plugged')
   " Vim script for text filtering and alignment; e.g. :Tabularize /,
   Plug 'godlygeek/tabular'
 
-  " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
-  Plug 'rking/ag.vim'
+  " Vim plugin for the Perl module / CLI script 'ack'
+  Plug 'mileszs/ack.vim'
 
   " Send test commands to a pipe.
   Plug 'luan/vipe', { 'do': function('InstallVipe') }
