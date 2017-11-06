@@ -24,6 +24,7 @@ runtime! config/plugin/commentary.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/livedown.vim
 runtime! config/plugin/multicursor.vim
+runtime! config/plugin/ncm.vim
 runtime! config/plugin/nerdtree.vim
 runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
