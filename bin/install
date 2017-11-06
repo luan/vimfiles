@@ -93,8 +93,10 @@ has_elm() {
 must_have_pip3() {
   if which pip3 > /dev/null; then
     PIP=pip3
+    return
   elif which pip > /dev/null; then
     PIP=pip
+    return
   fi
   echo -e "\t${RED}ERROR${END_COLOR} You need python3 with pip installed in" \
     "order for this configuration to work. Please make sure to install" \
