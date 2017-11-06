@@ -4,7 +4,7 @@ env:
   - CI_TARGET=vim GOPATH=$HOME/go
   - CI_TARGET=neovim GOPATH=$HOME/go
 python:
-  - 3.4
+  - 3.6
 before_script:
   - git clone https://github.com/syngan/vim-vimlint /tmp/vim-vimlint
   - git clone https://github.com/ynkdir/vim-vimlparser /tmp/vim-vimlparser

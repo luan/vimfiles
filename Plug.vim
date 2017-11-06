@@ -145,16 +145,20 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-unimpaired'
 
   " Fast, Extensible, Async Completion Framework for Neovim
-  Plug 'roxma/nvim-completion-manager'
-  Plug 'roxma/clang_complete'
-  Plug 'roxma/nvim-cm-racer'
-  Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-  Plug 'calebeby/ncm-css'
-  Plug 'rhysd/github-complete.vim'
-  Plug 'Shougo/neoinclude.vim'
-  Plug 'Shougo/neco-syntax'
-  Plug 'Shougo/neco-vim'
-  Plug 'roxma/ncm-rct-complete'
+  if has('python3')
+    Plug 'roxma/nvim-completion-manager'
+    Plug 'roxma/ncm-clang' " C/C++
+    Plug 'roxma/nvim-cm-racer' " Rust
+    Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'} " Javascript
+    Plug 'calebeby/ncm-css' " CSS
+    Plug 'rhysd/github-complete.vim' "GitHub
+    Plug 'Shougo/neoinclude.vim'
+    Plug 'Shougo/neco-syntax'
+    Plug 'Shougo/neco-vim'
+    Plug 'roxma/ncm-rct-complete' " Ruby
+  endif
+
+  " Clang based syntax highlighting for Neovim
   Plug 'arakashic/chromatica.nvim'
 
   if !has('nvim') || $ALL_PLUGINS == 'true'

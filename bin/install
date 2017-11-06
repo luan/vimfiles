@@ -5,8 +5,7 @@ set -eu -o pipefail
 declare UPDATE=0 INTERACTIVE=1
 declare VIM='vim'
 declare NPM='npm'
-declare PIP3='pip'
-declare PIP2='pip'
+declare PIP='pip'
 
 readonly VIMFILES_PATH="${HOME}/.vim"
 readonly VIMFILES_REPO_NAME='luan/vimfiles'
@@ -91,26 +90,16 @@ has_elm() {
   which elm > /dev/null
 }
 
-has_pip3() {
+must_have_pip3() {
   if which pip3 > /dev/null; then
-    PIP3=pip3
-    return 0
+    PIP=pip3
   elif which pip > /dev/null; then
-    PIP3=pip
-    return 0
+    PIP=pip
   fi
-  return 1
-}
-
-has_pip2() {
-  if which pip2 > /dev/null; then
-    PIP2=pip2
-    return 0
-  elif which pip > /dev/null; then
-    PIP2=pip
-    return 0
-  fi
-  return 1
+  echo -e "\t${RED}ERROR${END_COLOR} You need python3 with pip installed in" \
+    "order for this configuration to work. Please make sure to install" \
+    "python3 on your system and run this intaller again."
+  exit 1
 }
 
 has_npm() {
@@ -237,14 +226,14 @@ setup_livedown() {
 
 setup_neovim_python3() {
   if which pacman > /dev/null ; then
-    sudo $PIP3 uninstall -y greenlet 2>/dev/null >/dev/null|| true
+    sudo $PIP uninstall -y greenlet 2>/dev/null >/dev/null|| true
     sudo pacman -S --noconfirm python-greenlet
   fi
-  $PIP3 install --user --upgrade neovim
-}
-
-setup_neovim_python2() {
-  $PIP2 install --user --upgrade neovim
+  if which virtualenv; then
+    $PIP install --upgrade neovim
+  else
+    $PIP install --user --upgrade neovim
+  fi
 }
 
 setup_vim_calls() {
@@ -301,8 +290,8 @@ main() {
   has_elm && setup_elm_dependencies
   has_npm && setup_livedown
 
-  has_pip3 && setup_neovim_python3
-  has_pip2 && setup_neovim_python2
+  must_have_pip3
+  setup_neovim_python3
 
   setup_vim_calls
 
