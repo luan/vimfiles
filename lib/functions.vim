@@ -62,7 +62,7 @@ function! RunTestFile(...)
   endif
 
   " Run the tests for the previously-marked file.
-  let l:in_test_file = match(expand('%'), '\(.feature\|_spec.rb\|_test.go\|_spec.js\)$') != -1
+  let l:in_test_file = match(expand('%'), '\(.feature\|_spec.rb\|_test.go\|_spec.js\|.bats\)$') != -1
   if l:in_test_file
     call RunTests(expand('%') . l:command_suffix)
   else
@@ -110,6 +110,8 @@ function! RunTests(filename)
     else
       let l:command = 'jasmine ' . a:filename
     end
+  elseif match(a:filename, '\.bats') != -1
+    let l:command = 'bats ' . a:filename
   else
     if filereadable('script/test')
       let l:command = 'script/test ' . a:filename
