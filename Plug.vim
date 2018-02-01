@@ -185,7 +185,19 @@ Plug 'lucapette/vim-textobj-underscore'
 
 " custom text object for selecting ruby blocks
 Plug 'nelstrom/vim-textobj-rubyblock'
-" }}}
+
+" A convenient text object for last pasted text
+Plug 'saaguero/vim-textobj-pastedtext'
+
+"Text objects for functions
+Plug 'kana/vim-textobj-function'
+
+" A Vim text object for ERB blocks.
+Plug 'whatyouhide/vim-textobj-erb'
+
+" Vim plugin that provides additional text objects
+Plug 'wellle/targets.vim'
+" }}}'
 
 " Snippets {{{
 "UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
