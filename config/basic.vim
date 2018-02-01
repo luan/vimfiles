@@ -53,8 +53,7 @@ filetype plugin indent on  " Automatically detect file types. (must turn on afte
 set wildmode=list:longest " use emacs-style tab completion when selecting files, etc
 set hidden             " Change buffer - without saving
 set autowriteall       " Writes on make/shell commands
-" set foldmethod=syntax
-set foldlevel=20
+set foldlevelstart=99
 set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
 set tags=./tags;/,tags;/
@@ -75,12 +74,11 @@ set ignorecase
 set smartcase  " Non-case sensitive search
 set hlsearch
 set wildignore+=.final_builds/*,*/node_modules/*,*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,*.class,*.scssc,*/Godeps/*
-if executable('ack')
-  set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
-  set grepformat=%f:%l:%c:%m
-endif
 if executable('ag')
   set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+  set grepformat=%f:%l:%c:%m
+elseif executable('ack')
+  set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
   set grepformat=%f:%l:%c:%m
 endif
 " }}}
