@@ -197,6 +197,9 @@ Plug 'whatyouhide/vim-textobj-erb'
 
 " Vim plugin that provides additional text objects
 Plug 'wellle/targets.vim'
+
+" Text objects for foldings
+Plug 'kana/vim-textobj-fold'
 " }}}'
 
 " Snippets {{{
@@ -264,6 +267,19 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
 
 " Rust {{{
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+" }}}
+
+" Misc {{{
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'keith/tmux.vim'
+Plug 'kurayama/systemd-vim-syntax'
+Plug 'wavded/vim-stylus'
+Plug 'chr4/nginx.vim'
+Plug 'uarun/vim-protobuf'
+Plug 'peterhoeg/vim-qml'
+Plug 'keith/rspec.vim'
+Plug 'hashivim/vim-terraform'
+Plug 'PProvost/vim-ps1'
 " }}}
 " }}}
 

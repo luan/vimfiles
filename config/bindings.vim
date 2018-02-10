@@ -19,6 +19,8 @@ nmap <silent> <leader>vp :e ~/.vimrc.local.plugins<CR>
 
 nnoremap j gj
 nnoremap k gk
+
+noremap <c-\> ,
 " }}}
 
 " Common typos {{{
