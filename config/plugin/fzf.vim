@@ -18,7 +18,7 @@ elseif executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 endif
 
-command! -bang -nargs=* Find
+command! -bang -nargs=* RgFZF
       \ call fzf#vim#grep(
       \   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '
       \      . shellescape(<q-args>), 1, <bang>0
@@ -33,4 +33,5 @@ nnoremap <leader>S :FZFTags<cr>
 nnoremap <leader>L :FZFLines<cr>
 nnoremap <leader>b :FZFBuffers<cr>
 nnoremap <leader>C :FZFColors<cr>
+nnoremap <leader>G :RgFZF<cr>
 
