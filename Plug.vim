@@ -31,6 +31,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dolio/vim-hybrid'
 Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
+Plug 'mhartington/oceanic-next'
 " }}}
 
 " lean & mean status/tabline for vim that's light as air

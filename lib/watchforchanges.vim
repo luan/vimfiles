@@ -92,7 +92,7 @@ function! WatchForChanges(bufname, ...)
   let autoread    = has_key(options, 'autoread')    ? options['autoread']    : 0
   let toggle      = has_key(options, 'toggle')      ? options['toggle']      : 0
   let disable     = has_key(options, 'disable')     ? options['disable']     : 0
-  let more_events = has_key(options, 'more_events') ? options['more_events'] : 1
+  let more_events = has_key(options, 'more_events') ? options['more_events'] : 0
   let while_in_this_buffer_only = has_key(options, 'while_in_this_buffer_only') ? options['while_in_this_buffer_only'] : 0
   if while_in_this_buffer_only
     let event_bufspec = a:bufname
