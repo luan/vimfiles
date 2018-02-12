@@ -33,5 +33,8 @@ nnoremap <leader>S :FZFTags<cr>
 nnoremap <leader>L :FZFLines<cr>
 nnoremap <leader>b :FZFBuffers<cr>
 nnoremap <leader>C :FZFColors<cr>
-nnoremap <leader>G :RgFZF<cr>
+nnoremap <leader>G :FZFRg<space>
+nnoremap <leader>: :FZFHistory:<cr>
+nnoremap <leader>/ :FZFHistory/<cr>
+nnoremap <leader><c-j> :FZFSnippets<cr>
 
