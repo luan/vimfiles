@@ -62,7 +62,7 @@ function! RunTestFile(...)
   endif
 
   " Run the tests for the previously-marked file.
-  let l:in_test_file = match(expand('%'), '\(.feature\|_spec.rb\|_test.go\|_test.js\|_spec.js\|.bats\)$') != -1
+  let l:in_test_file = match(expand('%'), '\(.feature\|_spec.rb\|_test.go\|_test.js\|_spec.js\|.bats\|.test.js\|.spec.js\)$') != -1
   if l:in_test_file
     call RunTests(expand('%') . l:command_suffix)
   else
@@ -116,7 +116,7 @@ function! RunTests(filename)
     if filereadable('script/test')
       let l:command = 'script/test ' . a:filename
     elseif filereadable('scripts/test')
-      let l:command = 'scripts/test ' . fnamemodify(a:filename, ':h')
+      let l:command = 'scripts/test ' . a:filename
     elseif (exists('g:force_bundle_exec') && g:force_bundle_exec == 1) || filereadable('Gemfile')
       let l:command = 'bundle exec rspec --color ' . a:filename
     else

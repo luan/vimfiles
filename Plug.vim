@@ -238,7 +238,13 @@ Plug 'shime/vim-livedown', { 'for': 'markdown' }
 " }}}
 
 " JavaScript {{{
-Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+" }}}
+
+" TypeScript {{{
+Plug 'leafgarland/typescript-vim'
 " }}}
 
 " Vue {{{
@@ -274,7 +280,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'keith/tmux.vim'
 Plug 'kurayama/systemd-vim-syntax'
-Plug 'wavded/vim-stylus'
+Plug 'iloginow/vim-stylus'
 Plug 'chr4/nginx.vim'
 Plug 'uarun/vim-protobuf'
 Plug 'peterhoeg/vim-qml'
