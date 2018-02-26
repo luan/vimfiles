@@ -1,5 +1,5 @@
-nmap <Leader>ci <Plug>TComment
-xmap <Leader>ci <Plug>TComment
+nmap <leader>ci :TComment<cr>
+xmap <leader>ci :TComment<cr>
 
-nmap <Leader>/ <Plug>TComment
-xmap <Leader>/ <Plug>TComment
+nmap <leader>/ :TComment<cr>
+xmap <leader>/ :TComment<cr>

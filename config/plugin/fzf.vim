@@ -34,7 +34,7 @@ nnoremap <leader>b :FZFBuffers<cr>
 nnoremap <leader>C :FZFColors<cr>
 nnoremap <leader>G :FZFRg<space>
 nnoremap <leader>: :FZFHistory:<cr>
-nnoremap <leader>/ :FZFHistory/<cr>
+nnoremap <leader>? :FZFHistory/<cr>
 nnoremap <leader><c-j> :FZFSnippets<cr>
 nnoremap <leader>d :FZFCommands<cr>
 
