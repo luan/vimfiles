@@ -4,13 +4,8 @@ elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-cnoreabbrev Ack Ack!
-
-cnoreabbrev Ag! Ack!
-cnoreabbrev Ag Ack!
-
-cnoreabbrev Rg! Ack!
-cnoreabbrev Rg Ack!
+cnoreabbrev Ag Ack
+cnoreabbrev Rg Ack
 
 nnoremap <Leader>a :Ack!<Space>
 
