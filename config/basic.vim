@@ -30,14 +30,11 @@ set numberwidth=4
 set encoding=utf-8
 set guioptions=cg
 set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-set cursorline
 if !has('nvim')
   set ttyfast
 endi
 set lazyredraw
-if exists('+colorcolumn')
-  set colorcolumn=80 " Color the 80th column differently
-endif
+set synmaxcol=200
 
 if !has('nvim')
   if has("mouse_sgr")
@@ -54,7 +51,6 @@ set wildmode=list:longest " use emacs-style tab completion when selecting files,
 set hidden             " Change buffer - without saving
 set autowriteall       " Writes on make/shell commands
 set foldlevelstart=99
-set foldmethod=indent
 set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
 set tags=./tags;/,tags;/
@@ -62,6 +58,7 @@ set splitright
 if version >= 704
   set completeopt=menu,noinsert,noselect
 endif
+set viewoptions=cursor,folds,slash,unix
 " }}}
 
 " Text Format {{{

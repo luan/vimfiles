@@ -28,9 +28,6 @@ command! W w
 command! Q q
 command! WQ wq
 command! Wq wq
-imap jk <Esc>
-map <F1> <Esc>
-imap <F1> <Esc>
 
 nnoremap <silent> <C-Right> <c-w>l
 nnoremap <silent> <C-Left> <c-w>h
@@ -107,7 +104,7 @@ nnoremap <silent><leader><C-]> <C-w><C-]><C-w>T
 map <leader>t :call RunTestFile()<cr>
 " Run only the example under the cursor
 map <leader>T :call RunNearestTest()<cr>
-" }}}
 
 map <leader><space> :Vipe <CR>
 map <leader>p :VipePop <CR>
+" }}}

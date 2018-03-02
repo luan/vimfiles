@@ -32,6 +32,7 @@ Plug 'dolio/vim-hybrid'
 Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
 Plug 'mhartington/oceanic-next'
+Plug 'ayu-theme/ayu-vim'
 " }}}
 
 " lean & mean status/tabline for vim that's light as air
@@ -145,6 +146,8 @@ Plug 'tpope/vim-sleuth'
 " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
 Plug 'tpope/vim-unimpaired'
 
+Plug 'machakann/vim-swap'
+
 " Fast, Extensible, Async Completion Framework for Neovim
 if has('python3')
   Plug 'roxma/nvim-completion-manager'
@@ -153,7 +156,6 @@ if has('python3')
   Plug 'roxma/nvim-cm-tern', {'do': 'npm install'} " Javascript
   Plug 'calebeby/ncm-css' " CSS
   Plug 'rhysd/github-complete.vim' "GitHub
-  Plug 'Shougo/neoinclude.vim'
   Plug 'Shougo/neco-syntax'
   Plug 'Shougo/neco-vim'
   Plug 'roxma/ncm-rct-complete' " Ruby
@@ -166,12 +168,20 @@ if !has('nvim') || $ALL_PLUGINS == 'true'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-
 " Provide easy code formatting in Vim by integrating existing code formatters.
 Plug 'Chiel92/vim-autoformat'
 
 " displays information in echo area from echodoc plugin.
 Plug 'Shougo/echodoc.vim'
+
+" Make Vim persist editing state without fuss
+Plug 'kopischke/vim-stay'
+
+" Make Vim handle line and column numbers in file names with a minimum of fuss
+Plug 'kopischke/vim-fetch'
+
+" Speed up Vim by updating folds only when called-for.
+Plug 'Konfekt/FastFold'
 " }}}
 
 " Text objects {{{
@@ -241,6 +251,7 @@ Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 " }}}
 
 " TypeScript {{{
