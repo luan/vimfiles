@@ -59,6 +59,7 @@ if version >= 704
   set completeopt=menu,noinsert,noselect
 endif
 set viewoptions=cursor,folds,slash,unix
+set scrolloff=5
 " }}}
 
 " Text Format {{{
