@@ -5,6 +5,8 @@ function! s:goyo_enter()
   set noshowmode
   set noshowcmd
   set scrolloff=999
+  set nolazyredraw
+  SignifyDisable
   Limelight
 endfunction
 
@@ -15,6 +17,7 @@ function! s:goyo_leave()
   set showmode
   set showcmd
   set scrolloff=5
+  SignifyEnable
   Limelight!
 endfunction
 
@@ -23,7 +26,7 @@ let g:limelight_paragraph_span = 1
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-autocmd VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
+autocmd VimResized * if exists('#goyo') | exe "normal \<c-w>=" | redraw! | endif
 
 nmap <leader>Z :Goyo<cr>
 nmap <leader>X :Limelight!!<cr>
