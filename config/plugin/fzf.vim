@@ -1,8 +1,8 @@
 function! s:buflist()
-  redir => ls
+  redir => l:ls
   silent ls
   redir END
-  return split(ls, '\n')
+  return split(l:ls, '\n')
 endfunction
 
 function! s:bufopen(e)

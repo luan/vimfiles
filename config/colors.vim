@@ -43,14 +43,14 @@ let s:colors = [
 
 function! colors#_change(index)
   let l:idx = a:index
-  if idx < 0
+  if l:idx < 0
     let l:idx = len(s:colors) - 1
-  elseif idx > len(s:colors) - 1
+  elseif l:idx > len(s:colors) - 1
     let l:idx = 0
   endif
 
-  let l:name = s:colors[idx]
-  silent! execute "colorscheme ".name
+  let l:name = s:colors[l:idx]
+  silent! execute 'colorscheme '.l:name
 endfunction
 
 function! colors#_callback()
@@ -59,16 +59,16 @@ endfunction
 
 function! colors#next()
   let l:next_index = index(s:colors, g:colors_name) + 1
-  call colors#_change(next_index)
+  call colors#_change(l:next_index)
 endfunction
 
 function! colors#prev()
   let l:prev_index = index(s:colors, g:colors_name) - 1
-  call colors#_change(prev_index)
+  call colors#_change(l:prev_index)
 endfunction
 
 function! colors#toggle_background()
-  if &background == 'light'
+  if &background ==# 'light'
     set background=dark
   else
     set background=light
@@ -97,7 +97,10 @@ if has('termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   endif
 endif
-autocmd! ColorScheme * silent! call colors#_callback()
+
+augroup luan_colors
+  autocmd! ColorScheme * silent! call colors#_callback()
+augroup END
 
 try
   colorscheme hybrid
