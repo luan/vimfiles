@@ -43,9 +43,9 @@ let s:colors = [
 
 function! colors#_change(index)
   let l:idx = a:index
-  if idx < 0
+  if l:idx < 0
     let l:idx = len(s:colors) - 1
-  elseif idx > len(s:colors) - 1
+  elseif l:idx > len(s:colors) - 1
     let l:idx = 0
   endif
 

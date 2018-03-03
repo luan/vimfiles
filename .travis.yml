@@ -6,8 +6,6 @@ env:
 python:
   - 3.6
 before_script:
-  - git clone https://github.com/syngan/vim-vimlint /tmp/vim-vimlint
-  - git clone https://github.com/ynkdir/vim-vimlparser /tmp/vim-vimlparser
   - if [ $CI_TARGET = vim ]; then
       sudo add-apt-repository -y ppa:jonathonf/vim &&
       sudo apt-get -y update &&
@@ -15,10 +13,12 @@ before_script:
     elif [ $CI_TARGET = neovim ]; then
       eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64" &&
       pip install neovim;
-    fi
+    fi;
+    pip install vint
 script:
+  - which nvim && alias $(which nvim) vim
+  - find config lib -name '*.vim' | xargs vint -c vimrc
   - vim --version
-  - sh /tmp/vim-vimlint/bin/vimlint.sh -l /tmp/vim-vimlint -p /tmp/vim-vimlparser -v vimrc *.vim config lib
   - ln -s $PWD $HOME/.vim
   - mkdir -p $HOME/bin
   - ./bin/install
