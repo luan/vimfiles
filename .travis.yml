@@ -4,9 +4,6 @@ env:
   global:
     - DEPS=$HOME/deps
     - PATH=$DEPS/bin:$PATH
-env:
-  - CI_TARGET=vim GOPATH=$HOME/go
-  - CI_TARGET=neovim GOPATH=$HOME/go
 
 addons:
   apt:
