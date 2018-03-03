@@ -1,4 +1,4 @@
 augroup luan_crontab
-  augroup!
+  autocmd!
   autocmd FileType crontab setlocal nobackup nowritebackup
 augroup END
