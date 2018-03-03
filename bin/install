@@ -3,7 +3,7 @@
 set -eu -o pipefail
 
 declare UPDATE=0 INTERACTIVE=1
-declare VIM='vim'
+declare VIMCMD='vim'
 declare NPM='npm'
 declare PIP='pip'
 
@@ -28,8 +28,8 @@ fi
 print_usage() {
   echo -e "Unsupported option: $*"
   echo -e "Supported options:"
-  echo -e "\t-u, --update          \tUpdate all plugins."
-  echo -e "\t-n, --non-interactive \tDon't show vim while installing plugins."
+  echo -e "\\t-u, --update          \\tUpdate all plugins."
+  echo -e "\\t-n, --non-interactive \\tDon't show vim while installing plugins."
 }
 
 parse_flags() {
@@ -98,7 +98,7 @@ must_have_pip3() {
     PIP=pip
     return
   fi
-  echo -e "\t${RED}ERROR${END_COLOR} You need python3 with pip installed in" \
+  echo -e "\\t${RED}ERROR${END_COLOR} You need python3 with pip installed in" \
     "order for this configuration to work. Please make sure to install" \
     "python3 on your system and run this intaller again."
   exit 1
@@ -195,20 +195,20 @@ setup_elm_dependencies() {
 
     for p in $npmpackages; do
       (
-      echo -e "\t${YELLOW}INSTALL${END_COLOR} ${BOLD}${p}${NORMAL}..."
+      echo -e "\\t${YELLOW}INSTALL${END_COLOR} ${BOLD}${p}${NORMAL}..."
       if $NPM install -g "${p}"; then
-        echo -e "\t${GREEN}DONE${END_COLOR}    ${BOLD}${p}${NORMAL}"
+        echo -e "\\t${GREEN}DONE${END_COLOR}    ${BOLD}${p}${NORMAL}"
       else
-        echo -e "\t${RED}ERROR${END_COLOR}    ${BOLD}${p}${NORMAL}"
+        echo -e "\\t${RED}ERROR${END_COLOR}    ${BOLD}${p}${NORMAL}"
       fi
       ) &
     done
   else
-    echo -e "\t${RED}ERROR${END_COLOR} ${BOLD}NPM not found, some elm dependencies were skipped${NORMAL}!"
+    echo -e "\\t${RED}ERROR${END_COLOR} ${BOLD}NPM not found, some elm dependencies were skipped${NORMAL}!"
   fi
 
   (
-  echo -e "\t${YELLOW}INSTALL${END_COLOR} ${BOLD}elm-format${NORMAL}..."
+  echo -e "\\t${YELLOW}INSTALL${END_COLOR} ${BOLD}elm-format${NORMAL}..."
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
     elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz'
   elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -216,7 +216,7 @@ setup_elm_dependencies() {
   fi
   tar xz -O < <(curl -L $elm_format_url) > bin/elm-format
   chmod a+x bin/elm-format
-  echo -e "\t${GREEN}DONE${END_COLOR}    ${BOLD}elm-format${NORMAL}"
+  echo -e "\\t${GREEN}DONE${END_COLOR}    ${BOLD}elm-format${NORMAL}"
   ) &
   wait
   echo -e "${GREEN}DONE${END_COLOR}    ${BOLD}elm${NORMAL} dependencies"
@@ -240,13 +240,13 @@ setup_neovim_python3() {
 
 setup_vim_calls() {
   if has_neovim; then
-    VIM=nvim
+    VIMCMD=nvim
   fi
 
   exec 4>&1 3>/dev/null
   if [[ $INTERACTIVE != 1 ]] ; then
     if has_neovim; then
-      VIM='nvim --headless'
+      VIMCMD='nvim --headless'
     else
       exec 4>&1 1>&3 2>&3
     fi
@@ -258,7 +258,7 @@ setup_go_dependencies() {
   cd "${VIMFILES_PATH}" || exit 2
   mkdir -p gobin gopath
   echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}go binaries${NORMAL} (may take a while)..." >&4
-  GOPATH="${PWD}/gopath" ${VIM} +'GoUpdateBinaries' +'qall!'
+  GOPATH="${PWD}/gopath" ${VIMCMD} +'GoUpdateBinaries' +'qall!'
   echo
   GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gometalinter" --install --update
   echo -e "${GREEN}DONE${END_COLOR} ${BOLD}go binaries${NORMAL}" >&4
@@ -270,10 +270,10 @@ setup_go_dependencies() {
 install_plugins() {
   echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}vim plugins${NORMAL} (may take a while)..."
 
-  ALL_PLUGINS='true' ${VIM} +'PlugClean!' +'PlugUpdate!' +'qall!'
+  ALL_PLUGINS='true' ${VIMCMD} +'PlugClean!' +'PlugUpdate!' +'qall!'
 
   if has_neovim; then
-    ${VIM} +'UpdateRemotePlugins' +'qall!'
+    ${VIMCMD} +'UpdateRemotePlugins' +'qall!'
     echo
   fi
 

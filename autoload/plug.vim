@@ -2019,11 +2019,19 @@ endfunction
 
 function! s:system(cmd, ...)
   try
-    let [sh, shrd] = s:chsh(1)
+    let [sh, shellcmdflag, shrd] = s:chsh(1)
     let cmd = a:0 > 0 ? s:with_cd(a:cmd, a:1) : a:cmd
+    if s:is_win
+      let batchfile = tempname().'.bat'
+      call writefile(['@echo off', cmd], batchfile)
+      let cmd = batchfile
+    endif
     return system(s:is_win ? '('.cmd.')' : cmd)
   finally
-    let [&shell, &shellredir] = [sh, shrd]
+    let [&shell, &shellcmdflag, &shellredir] = [sh, shellcmdflag, shrd]
+    if s:is_win
+      call delete(batchfile)
+    endif
   endtry
 endfunction
 
@@ -2238,15 +2246,16 @@ function! s:status()
   let unloaded = 0
   let [cnt, total] = [0, len(g:plugs)]
   for [name, spec] in items(g:plugs)
+    let is_dir = isdirectory(spec.dir)
     if has_key(spec, 'uri')
-      if isdirectory(spec.dir)
+      if is_dir
         let [err, _] = s:git_validate(spec, 1)
         let [valid, msg] = [empty(err), empty(err) ? 'OK' : err]
       else
         let [valid, msg] = [0, 'Not found. Try PlugInstall.']
       endif
     else
-      if isdirectory(spec.dir)
+      if is_dir
         let [valid, msg] = [1, 'OK']
       else
         let [valid, msg] = [0, 'Not found.']
@@ -2255,7 +2264,7 @@ function! s:status()
     let cnt += 1
     let ecnt += !valid
     " `s:loaded` entry can be missing if PlugUpgraded
-    if valid && get(s:loaded, name, -1) == 0
+    if is_dir && get(s:loaded, name, -1) == 0
       let unloaded = 1
       let msg .= ' (not loaded)'
     endif
@@ -2344,10 +2353,19 @@ function! s:preview_commit()
   endif
   setlocal previewwindow filetype=git buftype=nofile nobuflisted modifiable
   try
-    let [sh, shrd] = s:chsh(1)
-    execute 'silent %!cd' s:shellesc(g:plugs[name].dir) '&& git show --no-color --pretty=medium' sha
+    let [sh, shellcmdflag, shrd] = s:chsh(1)
+    let cmd = 'cd '.s:shellesc(g:plugs[name].dir).' && git show --no-color --pretty=medium '.sha
+    if s:is_win
+      let batchfile = tempname().'.bat'
+      call writefile(['@echo off', cmd], batchfile)
+      let cmd = batchfile
+    endif
+    execute 'silent %!' cmd
   finally
-    let [&shell, &shellredir] = [sh, shrd]
+    let [&shell, &shellcmdflag, &shellredir] = [sh, shellcmdflag, shrd]
+    if s:is_win
+      call delete(batchfile)
+    endif
   endtry
   setlocal nomodifiable
   nnoremap <silent> <buffer> q :q<cr>
@@ -2389,7 +2407,7 @@ function! s:diff()
     call s:append_ul(2, origin ? 'Pending updates:' : 'Last update:')
     for [k, v] in plugs
       let range = origin ? '..origin/'.v.branch : 'HEAD@{1}..'
-      let diff = s:system_chomp('git log --graph --color=never --pretty=format:"%x01%h%x01%d%x01%s%x01%cr" '.s:shellesc(range), v.dir)
+      let diff = s:system_chomp('git log --graph --color=never '.join(map(['--pretty=format:%x01%h%x01%d%x01%s%x01%cr', range], 's:shellesc(v:val)')), v.dir)
       if !empty(diff)
         let ref = has_key(v, 'tag') ? (' (tag: '.v.tag.')') : has_key(v, 'commit') ? (' '.v.commit) : ''
         call append(5, extend(['', '- '.k.':'.ref], map(s:lines(diff), 's:format_git_log(v:val)')))
