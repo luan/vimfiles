@@ -3,7 +3,6 @@
 " [http://github.com/luan/vimfiles]
 " Maintained By: Luan Santos (GitHub: @luan)
 " =======================================
-set encoding=utf-8
 
 silent! source ~/.vimrc.local.before
 
