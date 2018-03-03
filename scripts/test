@@ -9,4 +9,4 @@ vim --version
 find config lib -name '*.vim' -print0 | xargs -0 vint -c vimrc
 ln -s "$PWD" "$HOME/.vim"
 mkdir -p "$HOME/bin"
-./bin/install
+./bin/install --non-interactive
