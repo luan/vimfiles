@@ -6,13 +6,15 @@ env:
 python:
   - 3.6
 install:
-  - [ $CI_TARGET = neovim ] && pip install neovim
+  - '[ $CI_TARGET = neovim ] && pip install neovim'
   - pip install vint
-  - [ $CI_TARGET = vim ] &&
+  - |
+    [ $CI_TARGET = vim ] &&
     sudo add-apt-repository -y ppa:jonathonf/vim &&
     sudo apt-get -y update &&
     sudo apt-get install -y vim-nox
-  - [ $CI_TARGET = neovim ] &&
+  - |
+    [ $CI_TARGET = neovim ] &&
     eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64"
 script:
   - find config lib -name '*.vim' | xargs vint -c vimrc
