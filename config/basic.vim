@@ -22,7 +22,7 @@ set backupdir=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 " }}}
 
 " UI {{{
-set nu             " Line numbers on
+set number         " Line numbers on
 set nowrap         " Line wrapping off
 set cmdheight=1    " Make the command area two lines high
 set noshowmode     " don't need to show mode since we have airline
@@ -37,7 +37,7 @@ set lazyredraw
 set synmaxcol=200
 
 if !has('nvim')
-  if has("mouse_sgr")
+  if has('mouse_sgr')
     set ttymouse=sgr
   else
     set ttymouse=xterm2
@@ -55,7 +55,7 @@ set formatoptions=crql
 set iskeyword+=$,@,-     " Add extra characters that are valid parts of variables
 set tags=./tags;/,tags;/
 set splitright
-if version >= 704
+if v:version >= 704
   set completeopt=menu,noinsert,noselect
 endif
 set viewoptions=cursor,folds,slash,unix

@@ -48,7 +48,7 @@ runtime! config/lang/c.vim
 runtime! config/lang/crontab.vim
 runtime! config/lang/elm.vim
 runtime! config/lang/golang.vim
-runtime! config/lang/javacript.vim
+runtime! config/lang/javascript.vim
 runtime! config/lang/markdown.vim
 runtime! config/lang/ruby.vim
 runtime! config/lang/rust.vim

@@ -1,6 +1,3 @@
-
-au FileType cpp setlocal foldmethod=syntax
-
 let s:projections = {
       \ '*.c': {'type': 'c', 'alternate': ['{}.h']},
       \ '*.h': {'type': 'c', 'alternate': ['{}.c']},
@@ -16,8 +13,9 @@ function! s:ProjectionistDetect() abort
   endif
 endfunction
 
-augroup c_projectionist
+augroup luan_c
   autocmd!
   autocmd User ProjectionistDetect call s:ProjectionistDetect()
+  au FileType cpp setlocal foldmethod=syntax
 augroup END
 
