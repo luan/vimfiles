@@ -13,6 +13,7 @@ matrix:
     - env: ENV=vim8
 
 install: |
+  pyenv global 3.6
   mkdir -p ${DEPS}/bin
   pip3 install vim-vint
 
