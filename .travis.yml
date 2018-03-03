@@ -11,7 +11,7 @@ install:
   - [ $CI_TARGET = vim ] &&
     sudo add-apt-repository -y ppa:jonathonf/vim &&
     sudo apt-get -y update &&
-    sudo apt-get install -y vim-nox;
+    sudo apt-get install -y vim-nox
   - [ $CI_TARGET = neovim ] &&
     eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64"
 script:
