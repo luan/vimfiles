@@ -5,10 +5,7 @@ env:
     - DEPS=$HOME/deps
     - PATH=$DEPS/bin:$PATH
 
-addons:
-  apt:
-    packages:
-    - python3-dev
+addons: { apt: { packages: [python3-dev] } }
 
 matrix:
   include:
@@ -17,7 +14,7 @@ matrix:
 
 install: |
   mkdir -p ${DEPS}/bin
-  pip install vim-vint
+  pip3 install vim-vint
 
   if [ "$ENV" == "vim8" ]; then
     sudo add-apt-repository -y ppa:jonathonf/vim
@@ -25,7 +22,7 @@ install: |
     sudo apt-get install -y vim-nox
   elif [ "$ENV" == "neovim" ]; then
     eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64" ||
-    pip install neovim
+    pip3 install neovim
     ln -s $(which nvim) ${DEPS}/bin/vim
   fi
 
