@@ -1,5 +1,7 @@
 language: ruby
 dist: trusty
+sudo: false
+
 env:
   global:
     - DEPS=$HOME/deps
@@ -18,9 +20,25 @@ install: |
   pip3 install vim-vint
 
   if [ "$ENV" == "vim8" ]; then
-    sudo add-apt-repository -y ppa:jonathonf/vim
-    sudo apt-get -y update
-    sudo apt-get install -y vim-nox
+    C_OPTS="--prefix=$DEPS --with-features=huge --disable-gui "
+    case "$ENV" in
+      python)
+        C_OPTS+=--enable-pythoninterp
+        ;;
+      python3)
+        C_OPTS+=--enable-python3interp
+        ;;
+      ruby*)
+        C_OPTS+=--enable-rubyinterp
+        ;;
+    esac
+    git clone --depth 1 https://github.com/vim/vim
+    cd vim
+    export PATH=/usr/bin:$PATH
+    ./configure $C_OPTS
+    make
+    make install
+    cd -
   elif [ "$ENV" == "neovim" ]; then
     eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64" ||
     pip3 install neovim
