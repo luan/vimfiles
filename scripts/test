@@ -9,4 +9,9 @@ vim --version
 find config lib -name '*.vim' -print0 | xargs -0 vint -c vimrc
 ln -s "$PWD" "$HOME/.vim"
 mkdir -p "$HOME/bin"
-./bin/install --non-interactive
+
+if [ "$ENV" == "vim8" ]; then
+  ./bin/install
+elif [ "$ENV" == "neovim" ]; then
+  ./bin/install --non-interactive
+fi
