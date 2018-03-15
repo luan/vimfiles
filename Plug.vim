@@ -54,10 +54,10 @@ Plug 'jszakmeister/vim-togglecursor'
 
 " Commands {{{
 function! InstallVipe(info)
-  if a:info.status == 'installed' || a:info.force
-    if has("unix")
-      let s:uname = system("uname -s")
-      if s:uname =~ "Darwin"
+  if a:info.status ==# 'installed' || a:info.force
+    if has('unix')
+      let s:uname = system('uname -s')
+      if s:uname =~? 'Darwin'
         silent !rm -f /usr/local/bin/vipe
         silent !ln -s `pwd`/vipe /usr/local/bin || true
       else
@@ -68,17 +68,17 @@ function! InstallVipe(info)
 endfunction
 
 function! InstallVimProc(info)
-  if a:info.status == 'installed' || a:info.force
-    if has("unix")
-      let s:uname = system("uname -s")
-      if s:uname =~ "Darwin"
+  if a:info.status ==# 'installed' || a:info.force
+    if has('unix')
+      let s:uname = system('uname -s')
+      if s:uname =~? 'Darwin'
         silent !make -f make_mac.mak
-      elseif s:uname =~ "Linux"
+      elseif s:uname =~? 'Linux'
         silent !make
       else
         silent !gmake
       endif
-    elseif has("win32unix")
+    elseif has('win32unix')
       silent !make -f make_cygwin.mak
     elseif has('win32')
       silent !tools\update-dll-mingw
@@ -152,7 +152,11 @@ Plug 'tpope/vim-sleuth'
 " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
 Plug 'tpope/vim-unimpaired'
 
+" Reorder delimited items
 Plug 'machakann/vim-swap'
+
+" Simplifies the transition between multiline and single-line code
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Fast, Extensible, Async Completion Framework for Neovim
 if has('python3')
@@ -170,7 +174,7 @@ endif
 " Clang based syntax highlighting for Neovim
 Plug 'arakashic/chromatica.nvim'
 
-if !has('nvim') || $ALL_PLUGINS == 'true'
+if !has('nvim') || $ALL_PLUGINS ==# 'true'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
