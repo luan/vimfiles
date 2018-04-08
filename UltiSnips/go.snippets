@@ -64,5 +64,13 @@ snippet exen "Gomega Expect(err).NotTo(HaveOccurred())" b
 Expect(err).NotTo(HaveOccurred())
 endsnippet
 
+snippet exme "Gomega Expect(err).To(MatchError(...))" b
+Expect(err).To(MatchError(${0:"something failed"}))
+endsnippet
+
+snippet exes "Gomega Expect(err).To(MatchError(ContainSubstring(...)))" b
+Expect(err).To(MatchError(ContainSubstring(${0:"something failed"})))
+endsnippet
+
 # vim:ft=snippets:
 
