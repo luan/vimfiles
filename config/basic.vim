@@ -34,7 +34,6 @@ if !has('nvim')
   set ttyfast
 endi
 set lazyredraw
-set synmaxcol=200
 
 if !has('nvim')
   if has('mouse_sgr')
