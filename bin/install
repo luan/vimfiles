@@ -262,7 +262,7 @@ setup_go_dependencies() {
   echo
   GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gometalinter" --install --update
   echo -e "${GREEN}DONE${END_COLOR} ${BOLD}go binaries${NORMAL}" >&4
-  GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gocode" close
+  GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gocode" close 2>/dev/null
   GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gocode" drop-cache
   )
 }
