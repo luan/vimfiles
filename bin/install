@@ -228,14 +228,13 @@ setup_livedown() {
 
 setup_neovim_python3() {
   if which pacman > /dev/null ; then
-    sudo $PIP uninstall -y greenlet 2>/dev/null >/dev/null|| true
-    sudo pacman -S --noconfirm python-greenlet
+    sudo $PIP uninstall -y greenlet 2>/dev/null >/dev/null || true
+    sudo pacman -S --needed --noconfirm python-greenlet
+    sudo $PIP install --upgrade neovim
+    return 0
   fi
-  if which virtualenv; then
-    $PIP install --upgrade neovim
-  else
-    $PIP install --user --upgrade neovim
-  fi
+
+  $PIP install --upgrade neovim
 }
 
 setup_vim_calls() {
