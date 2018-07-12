@@ -158,18 +158,21 @@ Plug 'machakann/vim-swap'
 " Simplifies the transition between multiline and single-line code
 Plug 'AndrewRadev/splitjoin.vim'
 
-" Fast, Extensible, Async Completion Framework for Neovim
-if has('python3')
-  Plug 'roxma/nvim-completion-manager'
-  Plug 'roxma/ncm-clang' " C/C++
-  Plug 'roxma/nvim-cm-racer' " Rust
-  Plug 'roxma/nvim-cm-tern', {'do': 'npm install'} " Javascript
-  Plug 'calebeby/ncm-css' " CSS
-  Plug 'rhysd/github-complete.vim' "GitHub
-  Plug 'Shougo/neco-syntax'
-  Plug 'Shougo/neco-vim'
-  Plug 'roxma/ncm-rct-complete' " Ruby
+" Dark powered asynchronous completion framework for neovim/Vim8
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'zchee/deoplete-clang' " C/C++
+Plug 'zchee/deoplete-go' " Golang
+Plug 'sebastianmarkow/deoplete-rust' " Rust
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } " Javascript
+Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neco-vim'
+let g:deoplete#enable_at_startup = 1
 
 " Clang based syntax highlighting for Neovim
 Plug 'arakashic/chromatica.nvim'
