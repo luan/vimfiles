@@ -65,8 +65,21 @@ function! golang#buffcommands()
   exec 'setlocal tags=' . l:tags_path . ',' . l:global_tags_path . ',tags'
 endfunction
 
+let s:projections = {
+      \ '*.go': {'type': 'go', 'alternate': '{}_test.go'},
+      \ '*_test.go': {'type': 'go', 'alternate': '{}.go'},
+      \ }
+
+function! s:ProjectionistDetect() abort
+  if &filetype ==# 'go'
+    let l:projections = deepcopy(s:projections)
+    call projectionist#append(getcwd(), l:projections)
+  endif
+endfunction
+
 augroup luan_golang
   autocmd!
+  autocmd User ProjectionistDetect call s:ProjectionistDetect()
   autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
