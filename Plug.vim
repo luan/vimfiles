@@ -265,6 +265,7 @@ Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+Plug 'mxw/vim-jsx'
 " }}}
 
 " TypeScript {{{
