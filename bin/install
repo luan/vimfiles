@@ -300,6 +300,7 @@ main() {
   install_plugins
 
   has_go && setup_go_dependencies
+  return 0
 }
 
 main "$@"
