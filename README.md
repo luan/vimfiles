@@ -95,6 +95,17 @@ If that doesn't work you can always run the script directly:
 ~/.vim/update
 ```
 
+On 11/18/2018 the Python package `neovim` was renamed to `pynvim`
+Due to issues with pip the `neovim` pip package cannot be upgraded and will break neovim's python bindings.
+
+To resolve this you can run
+```bash
+pip uninstall noevim pynvim
+pip install pynvim
+```
+
+See https://github.com/neovim/neovim/wiki/Following-HEAD#20181118 for more details
+
 ---
 
 ## Customizing
