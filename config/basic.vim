@@ -61,6 +61,10 @@ set viewoptions=cursor,folds,slash,unix
 set scrolloff=5
 " }}}
 
+" Security {{{
+set nomodeline
+" }}}
+
 " Text Format {{{
 set tabstop=2
 set shiftwidth=2 " Tabs under smart indent
