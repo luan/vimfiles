@@ -312,6 +312,7 @@ Plug 'peterhoeg/vim-qml'
 Plug 'keith/rspec.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'PProvost/vim-ps1'
+Plug 'ciaranm/securemodelines' " Secure modeline https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
 " }}}
 " }}}
 
