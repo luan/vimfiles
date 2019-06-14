@@ -143,10 +143,9 @@ Enabling auto save:
 let g:autosave = 1
 ```
 
-Disabling neocomplete:
+Disabling deoplete:
 ```vim
-let g:neocomplete#enable_at_startup = 0   " disable neocomplete
-let g:neocomplcache_enable_at_startup = 0 " disable the fallback version when no LUA
+let g:deoplete#enable_at_startup = 0   " disable deoplete
 ```
 
 Some configuration values need to be set before loading plugins, for that we
