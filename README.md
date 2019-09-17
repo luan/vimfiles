@@ -100,7 +100,7 @@ Due to issues with pip the `neovim` pip package cannot be upgraded and will brea
 
 To resolve this you can run
 ```bash
-pip uninstall noevim pynvim
+pip uninstall neovim pynvim
 pip install pynvim
 ```
 
