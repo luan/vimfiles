@@ -29,14 +29,12 @@ let s:go_tags_script_path = resolve(expand('<sfile>:h') . '/../../scripts/gotags
 let s:go_tags_lock_path = resolve(expand('<sfile>:h') . '/../../tmp/gotagslock')
 
 let g:go_auto_type_info = 0
-
-let g:ale_go_gometalinter_options =
-      \ '--tests ' .
-      \ '--fast ' .
-      \ '--disable=gotype ' .
-      \ '--disable=gotypex ' .
-      \ '--exclude="should have comment" ' .
-      \ '--exclude="error return value not checked \(defer"'
+let g:ale_go_golangci_lint_package = 1
+let g:ale_go_golangci_lint_options = '--enable-all
+\ --tests
+\ --fast
+\ --disable gochecknoglobals
+\ --disable gochecknoinits'
 
 function! golang#project_tags_path()
   return s:go_tags_path . '/' . substitute(expand('%:p'), '/', '--', 'g') . '--tags'
