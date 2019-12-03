@@ -259,7 +259,6 @@ setup_go_dependencies() {
   echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}go binaries${NORMAL} (may take a while)..." >&4
   GOPATH="${PWD}/gopath" ${VIMCMD} +'GoUpdateBinaries' +'qall!'
   echo
-  GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gometalinter" --install --update
   echo -e "${GREEN}DONE${END_COLOR} ${BOLD}go binaries${NORMAL}" >&4
   set +e
   GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gocode" close 2>/dev/null
