@@ -137,6 +137,9 @@ Plug 'junegunn/goyo.vim'
 
 " All the world's indeed a stage and we are merely players
 Plug 'junegunn/limelight.vim'
+
+" Make ^a and ^x work properly with dates
+Plug 'tpope/vim-speeddating'
 " }}}
 
 " Automatic Helpers {{{
@@ -313,6 +316,7 @@ Plug 'keith/rspec.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'PProvost/vim-ps1'
 Plug 'ciaranm/securemodelines' " Secure modeline https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
+Plug 'jceb/vim-orgmode'
 " }}}
 " }}}
 
